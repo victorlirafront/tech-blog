@@ -5,4 +5,5 @@ export const StyledMainContent = styled.main`
   background: #000;
   max-width: 1920px;
   margin: 0 auto;
+  color: #fff;
 `;

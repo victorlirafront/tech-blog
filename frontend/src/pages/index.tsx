@@ -1,7 +1,7 @@
 import Head from 'next/head'
-import Header from '../components/layout/Header';
 import {StyledMainContent} from './styles/MainContent.styled';
 import { Fragment} from 'react'
+import Header from '../components/layout/Header';
 
 export default function Home() {
   return (
@@ -14,7 +14,7 @@ export default function Home() {
       </Head>
       <Header/>
       <StyledMainContent>
-          <h1>Hello world</h1>
+          <h1>Home</h1>
       </StyledMainContent>
     </Fragment>
   )

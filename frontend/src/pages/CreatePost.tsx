@@ -1,11 +1,16 @@
-import React from "react"
+import React from "react";
+import Header from "@/components/layout/Header";
+import { StyledMainContent } from "./styles/MainContent.styled";
 
-const CreatePost = function(){
-    return (
-        <div>
-            <h1>CreatePost</h1>
-        </div>
-    )
-}
+const CreatePost = function () {
+  return (
+    <React.Fragment>
+      <Header />
+      <StyledMainContent>
+        <h1>CreatePost</h1>
+      </StyledMainContent>
+    </React.Fragment>
+  );
+};
 
-export default CreatePost
+export default CreatePost;

@@ -8,7 +8,10 @@ const Header = function () {
       <nav>
         <ul>
           <li>
-            <Link href="/MainPage">Home page</Link>
+            <Link href="/">Home</Link>
+          </li>
+          <li>
+            <Link href="/MainPage">Main page</Link>
           </li>
           <li>
             <Link href="/CreatePost">Create post</Link>
