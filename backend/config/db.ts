@@ -1,11 +1,22 @@
-import mysql from "mysql";
+import mysql, { ConnectionConfig } from 'mysql';
+require('dotenv').config();
 
-const db = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  password: "root123",
-  database: "blog",
-  port: 3306
-});
+interface DatabaseConfig extends ConnectionConfig {
+  host: string;
+  user: string;
+  password: string;
+  database: string;
+  port: number;
+}
+
+const dbConfig: DatabaseConfig = {
+  host: process.env.HOST!,
+  user: process.env.USER!,
+  password: process.env.PASSWORD!,
+  database: process.env.DATABASE!,
+  port: parseInt(process.env.PORT!, 10),
+};
+
+const db = mysql.createConnection(dbConfig);
 
 export default db;
