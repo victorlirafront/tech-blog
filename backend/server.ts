@@ -11,7 +11,6 @@ app.use(express.json());
 
 app.get("/", (req: Request, res: Response) => {
   res.send('home')
-  console.log(process.env.HOST)
 });
 
 app.post("/api/create", (req: Request, res: Response) => {

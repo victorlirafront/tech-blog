@@ -14,6 +14,8 @@ const CreatePost = function () {
       title: title,
       text: text,
     });
+
+    console.log('teste')
   };
 
   return (

@@ -1,7 +1,7 @@
-import mysql, { ConnectionConfig } from 'mysql';
+import mysql2 from 'mysql2';
 require('dotenv').config();
 
-interface DatabaseConfig extends ConnectionConfig {
+interface DatabaseConfig {
   host: string;
   user: string;
   password: string;
@@ -9,7 +9,7 @@ interface DatabaseConfig extends ConnectionConfig {
   port: number;
 }
 
-const dbConfig: DatabaseConfig = {
+const dbConfig: DatabaseConfig =  {
   host: process.env.HOST!,
   user: process.env.USER!,
   password: process.env.PASSWORD!,
@@ -17,6 +17,6 @@ const dbConfig: DatabaseConfig = {
   port: parseInt(process.env.PORT!, 10),
 };
 
-const db = mysql.createConnection(dbConfig);
+const db = mysql2.createConnection(dbConfig);
 
 export default db;
