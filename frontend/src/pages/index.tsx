@@ -2,7 +2,8 @@ import Head from 'next/head';
 import { Fragment } from 'react';
 import Header from '../components/layout/Header';
 import { GetStaticProps } from 'next';
-import Link from 'next/link';
+import MainPage from './MainPage';
+import Post from '@/components/Post';
 
 export default function Home({ data }: any) {
     return (
@@ -21,17 +22,19 @@ export default function Home({ data }: any) {
             </Head>
             <Header />
 
-            {data.map((value: any, key: any) => {
-                return (
-                    <Link key={value.id} href={`Posts/${value.id}`}>
-                        <div style={{ border: '1px solid red' }}>
-                            <p>{value.title}</p>
-                            <p>{value.post_text}</p>
-                            <p>{value.user_name}</p>
-                        </div>
-                    </Link>
-                );
-            })}
+            <MainPage>
+                {data.map((value: any, index: any) => {
+                    return (
+                        <Post
+                            key={value.id}
+                            id={value.id}
+                            title={value.title}
+                            post_text={value.post_text}
+                            user_name={value.user_name}
+                        />
+                    );
+                })}
+            </MainPage>
         </Fragment>
     );
 }

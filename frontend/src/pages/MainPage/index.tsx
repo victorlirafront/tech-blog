@@ -1,10 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, ReactNode } from 'react';
 import { StyledMainPage } from './MainPage.styled';
 
-const MainPage: React.FC = () => {
+interface Iprops {
+    children: ReactNode
+}
+
+const MainPage = function (props: Iprops) {
     return (
         <StyledMainPage>
-            <h1>My Component</h1>
+            {props.children}
         </StyledMainPage>
     );
 };
