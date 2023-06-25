@@ -4,7 +4,6 @@ import Link from 'next/link';
 const Post = function (props: any) {
     const dateObject = new Date(props.date);
     const formattedDate = dateObject.toLocaleDateString();
-
     return (
         <StyledPost>
             <div

@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { StyledHeader } from "../styles/Header.styled";
+import { StyledHeader } from "./Header.styled";
 
 const Header = function () {
   return (

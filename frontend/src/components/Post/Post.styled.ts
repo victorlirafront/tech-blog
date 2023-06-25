@@ -9,10 +9,13 @@ export const StyledPost = styled.div`
     text-align: center;
     text-decoration: none;
     border: none;
-    border-radius: 4px;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
+    border-radius: 10px;
     border: 1px solid #202020;
+    transition: 0.3s;
+    overflow: hidden;
+    &:hover {
+        transform: translateY(-5px);
+    }
 
     .post-image {
         width: 100%;
@@ -95,6 +98,10 @@ export const StyledPost = styled.div`
         p {
             margin-right: 10px;
             color: #61c785;
+            transition: 0.2s;
+            &:hover {
+                color: #1fd760;
+            }
         }
 
         img {

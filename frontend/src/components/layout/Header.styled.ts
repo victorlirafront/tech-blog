@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const StyledHeader = styled.header`
-    padding: 5px 60px;
-    background: rgb(32, 32, 32);
+    padding: 20px 60px;
+    background: #121212;
     max-width: 1920px;
     margin: 0 auto;
     nav {

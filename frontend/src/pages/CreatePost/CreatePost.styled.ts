@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const StyledCreatePost = styled.div`
     padding: 5px 60px;
-    background: #ccc;
+    background: #121212;
     max-width: 1920px;
     margin: 0 auto;
     color: #333;
@@ -11,7 +11,8 @@ export const StyledCreatePost = styled.div`
         padding: 40px;
         width: 100%;
         border: 1px solid #000;
-        background: #fff;
+        background: #333;
+        color: #fff;
         .form-control {
             display: flex;
             flex-direction: column;
@@ -47,6 +48,7 @@ export const StyledCreatePost = styled.div`
                 border-radius: 4px;
                 border: 1px solid #333;
                 margin-top: 3px;
+                background-color: #ccc;
             }
 
             textarea {
@@ -58,6 +60,7 @@ export const StyledCreatePost = styled.div`
                 width: 500px;
                 max-width: 100%;
                 margin-top: 3px;
+                background-color: #ccc;
             }
         }
 
