@@ -31,6 +31,8 @@ export default function Home({ data }: any) {
                             title={value.title}
                             content={value.content}
                             author={value.author}
+                            meta_tag_title={value.meta_tag_title}
+                            meta_tag_description={value.meta_tag_description}
                         />
                     );
                 })}

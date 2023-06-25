@@ -8,6 +8,8 @@ const CreatePost = function () {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const [category, setCategory] = useState('');
+    const [metaTagTitle, setMetaTagTitle] = useState('');
+    const [metaTagDescription, setMetaTagDescription] = useState('');
 
     const submitPost = function (e: any) {
         e.preventDefault();
@@ -17,6 +19,8 @@ const CreatePost = function () {
             title: title,
             content: content,
             category: category,
+            meta_tag_title: metaTagTitle,
+            meta_tag_description: metaTagDescription,
             date: new Date().toISOString(),
         });
     };
@@ -74,9 +78,9 @@ const CreatePost = function () {
                         <input
                             id="meta-title"
                             type="text"
-                            // onChange={e => {
-                            //     setCategory(e.target.value);
-                            // }}
+                            onChange={e => {
+                                setMetaTagTitle(e.target.value);
+                            }}
                         />
                     </div>
 
@@ -87,9 +91,9 @@ const CreatePost = function () {
                         <input
                             id="meta-description"
                             type="text"
-                            // onChange={e => {
-                            //     setTitle(e.target.value);
-                            // }}
+                            onChange={e => {
+                                setMetaTagDescription(e.target.value);
+                            }}
                         />
                     </div>
 

@@ -35,6 +35,8 @@ function Posts(props: any) {
                 <p>{props.post.author}</p>
                 <p>{props.post.title}</p>
                 <p>{props.post.content}</p>
+                <p>{props.post.meta_tag_title}</p>
+                <p>{props.post.meta_tag_description}</p>
             </div>
         </React.Fragment>
     );
