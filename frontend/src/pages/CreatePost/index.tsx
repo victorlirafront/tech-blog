@@ -4,17 +4,19 @@ import Axios from 'axios';
 import { StyledCreatePost } from './CreatePost.styled';
 
 const CreatePost = function () {
-    const [userName, setUserName] = useState('');
+    const [author, setAuthor] = useState('');
     const [title, setTitle] = useState('');
-    const [text, setText] = useState('');
+    const [content, setContent] = useState('');
+    const [category, setCategory] = useState('');
 
     const submitPost = function (e: any) {
         e.preventDefault();
 
         Axios.post('http://localhost:3001/api/create', {
-            userName: userName,
+            author: author,
             title: title,
-            text: text,
+            content: content,
+            category: category,
             date: new Date().toISOString(),
         });
     };
@@ -23,20 +25,20 @@ const CreatePost = function () {
         <React.Fragment>
             <Header />
             <StyledCreatePost>
-                <form id='form'>
-                    <div className='form-control username'>
-                        <label htmlFor="username">Username</label>
+                <form id="form">
+                    <div className="form-control username">
+                        <label htmlFor="username">Autor</label>
                         <input
                             id="username"
                             type="text"
                             onChange={e => {
-                                setUserName(e.target.value);
+                                setAuthor(e.target.value);
                             }}
                         />
                     </div>
-                    
-                    <div className='form-control title'>
-                        <label htmlFor="title">Title</label>
+
+                    <div className="form-control title">
+                        <label htmlFor="title">Título</label>
                         <input
                             id="title"
                             type="text"
@@ -46,17 +48,54 @@ const CreatePost = function () {
                         />
                     </div>
 
-                    <div className='form-control'>
-                        <label htmlFor="post-text">Post text</label>
-                        <textarea
-                            id="post-text"
+                    <div className="form-control category">
+                        <label htmlFor="category">Categoria</label>
+                        <input
+                            id="category"
+                            type="text"
                             onChange={e => {
-                                setText(e.target.value);
+                                setCategory(e.target.value);
+                            }}
+                        />
+                    </div>
+
+                    <div className="form-control">
+                        <label htmlFor="post-text">Conteúdo</label>
+                        <textarea
+                            id="post-content"
+                            onChange={e => {
+                                setContent(e.target.value);
                             }}
                         ></textarea>
                     </div>
 
-                    <button className='submit' onClick={submitPost}>submit</button>
+                    <div className="form-control meta-title">
+                        <label htmlFor="meta-title">Meta tag - Title</label>
+                        <input
+                            id="meta-title"
+                            type="text"
+                            // onChange={e => {
+                            //     setCategory(e.target.value);
+                            // }}
+                        />
+                    </div>
+
+                    <div className="form-control meta-description">
+                        <label htmlFor="meta-description">
+                            Meta tag - Description
+                        </label>
+                        <input
+                            id="meta-description"
+                            type="text"
+                            // onChange={e => {
+                            //     setTitle(e.target.value);
+                            // }}
+                        />
+                    </div>
+
+                    <button className="submit" onClick={submitPost}>
+                        submit
+                    </button>
                 </form>
             </StyledCreatePost>
         </React.Fragment>

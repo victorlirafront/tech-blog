@@ -29,8 +29,8 @@ export default function Home({ data }: any) {
                             key={value.id}
                             id={value.id}
                             title={value.title}
-                            post_text={value.post_text}
-                            user_name={value.user_name}
+                            content={value.content}
+                            author={value.author}
                         />
                     );
                 })}

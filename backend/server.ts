@@ -20,14 +20,15 @@ app.get("/api/get", (req: Request, res: Response) => {
 });
 
 app.post("/api/create", (req: Request, res: Response) => {
-  const username = req.body.userName;
+  const author = req.body.author;
   const title = req.body.title;
-  const text = req.body.text;
+  const content = req.body.content;
   const date = req.body.date;
+  const category = req.body.category;
 
   db.query(
-    "INSERT INTO posts (title, post_text, user_name, date_posted) VALUES (?,?,?,?)",
-    [title, text, username, date],
+    "INSERT INTO posts (title, content, author, date, category) VALUES (?,?,?,?,?)",
+    [title, content, author, date, category],
     (err, result) => {
       if (err) {
         console.log(err);

@@ -15,8 +15,10 @@ function Posts(props: any) {
         return <div>Loading...</div>;
     }
 
-    const dateObject = new Date(props.post.date_posted)
-    const formattedDate = dateObject.toLocaleDateString();    
+    const dateObject = new Date(props.post.date);
+    const formattedDate = dateObject.toLocaleDateString();
+
+    console.log(props.post)
     return (
         <React.Fragment>
             <Head>
@@ -29,9 +31,10 @@ function Posts(props: any) {
             <Header />
             <div>
                 <h1>{formattedDate}</h1>
-                <p>{props.post.user_name}</p>
+                <h1>{props.post.category}</h1>
+                <p>{props.post.author}</p>
                 <p>{props.post.title}</p>
-                <p>{props.post.post_text}</p>
+                <p>{props.post.content}</p>
             </div>
         </React.Fragment>
     );

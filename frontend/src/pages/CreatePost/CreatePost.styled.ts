@@ -26,6 +26,18 @@ export const StyledCreatePost = styled.div`
                 max-width: 500px;
             }
 
+            &.category {
+                max-width: 500px;
+            }
+
+            &.meta-description {
+                max-width: 500px;
+            }
+
+            &.meta-title {
+                max-width: 500px;
+            }
+
             input {
                 padding: 10px 20px;
                 border-radius: 4px;
@@ -37,10 +49,10 @@ export const StyledCreatePost = styled.div`
                 padding: 10px 20px;
                 border-radius: 4px;
                 border: 1px solid #333;
-                /* max-width: 100%; */
                 min-height: 400px;
                 min-width: 500px;
                 width: 500px;
+                max-width: 100%;
                 margin-top: 3px;
             }
         }
