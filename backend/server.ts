@@ -27,10 +27,11 @@ app.post("/api/create", (req: Request, res: Response) => {
   const category = req.body.category;
   const meta_tag_title = req.body.meta_tag_title;
   const meta_tag_description = req.body.meta_tag_description;
+  const post_image = req.body.post_image;
 
   db.query(
-    "INSERT INTO posts (title, content, author, date, category, meta_tag_title, meta_tag_description) VALUES (?,?,?,?,?,?,?)",
-    [title, content, author, date, category, meta_tag_title, meta_tag_description],
+    "INSERT INTO posts (title, content, author, date, category, meta_tag_title, meta_tag_description, post_image) VALUES (?,?,?,?,?,?,?,?)",
+    [title, content, author, date, category, meta_tag_title, meta_tag_description, post_image],
     (err, result) => {
       if (err) {
         console.log(err);

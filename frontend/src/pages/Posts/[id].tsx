@@ -31,6 +31,7 @@ function Posts(props: any) {
             <Header />
             <div>
                 <h1>{formattedDate}</h1>
+                <img src={props.post.post_image} />
                 <h1>{props.post.category}</h1>
                 <p>{props.post.author}</p>
                 <p>{props.post.title}</p>

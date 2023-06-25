@@ -38,6 +38,10 @@ export const StyledCreatePost = styled.div`
                 max-width: 500px;
             }
 
+            &.post-image {
+                max-width: 500px;
+            }
+
             input {
                 padding: 10px 20px;
                 border-radius: 4px;

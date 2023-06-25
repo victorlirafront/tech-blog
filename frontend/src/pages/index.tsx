@@ -33,6 +33,7 @@ export default function Home({ data }: any) {
                             author={value.author}
                             meta_tag_title={value.meta_tag_title}
                             meta_tag_description={value.meta_tag_description}
+                            post_image={value.post_image}
                         />
                     );
                 })}

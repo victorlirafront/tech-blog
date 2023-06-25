@@ -10,6 +10,7 @@ const CreatePost = function () {
     const [category, setCategory] = useState('');
     const [metaTagTitle, setMetaTagTitle] = useState('');
     const [metaTagDescription, setMetaTagDescription] = useState('');
+    const [postImage, setPostImage] = useState('');
 
     const submitPost = function (e: any) {
         e.preventDefault();
@@ -21,6 +22,7 @@ const CreatePost = function () {
             category: category,
             meta_tag_title: metaTagTitle,
             meta_tag_description: metaTagDescription,
+            post_image: postImage,
             date: new Date().toISOString(),
         });
     };
@@ -48,6 +50,17 @@ const CreatePost = function () {
                             type="text"
                             onChange={e => {
                                 setTitle(e.target.value);
+                            }}
+                        />
+                    </div>
+
+                    <div className="form-control post-image">
+                        <label htmlFor="post-image">Post image</label>
+                        <input
+                            id="post-image"
+                            type="text"
+                            onChange={e => {
+                                setPostImage(e.target.value);
                             }}
                         />
                     </div>
