@@ -34,6 +34,7 @@ export default function Home({ data }: any) {
                             meta_tag_title={value.meta_tag_title}
                             meta_tag_description={value.meta_tag_description}
                             post_image={value.post_image}
+                            date={value.date}
                         />
                     );
                 })}
