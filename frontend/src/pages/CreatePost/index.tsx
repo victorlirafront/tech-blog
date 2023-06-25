@@ -15,8 +15,6 @@ const CreatePost = function () {
             text: text,
             date: new Date().toISOString(),
         });
-
-        console.log('teste');
     };
 
     return (
