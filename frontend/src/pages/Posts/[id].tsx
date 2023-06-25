@@ -3,6 +3,8 @@ import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import { GetStaticProps, GetStaticPaths, GetStaticPropsContext } from 'next';
 import Header from '@/components/layout/Header';
+import { StyledPosts } from './Posts.styled'
+
 
 function Posts(props: any) {
     const [isLoading, setIsLoading] = useState(true);
@@ -29,7 +31,7 @@ function Posts(props: any) {
                 ></meta>
             </Head>
             <Header />
-            <div>
+            <StyledPosts>
                 <h1>{formattedDate}</h1>
                 <img src={props.post.post_image} />
                 <h1>{props.post.category}</h1>
@@ -38,7 +40,7 @@ function Posts(props: any) {
                 <p>{props.post.content}</p>
                 <p>{props.post.meta_tag_title}</p>
                 <p>{props.post.meta_tag_description}</p>
-            </div>
+            </StyledPosts>
         </React.Fragment>
     );
 }
