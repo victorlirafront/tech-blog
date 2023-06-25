@@ -8,7 +8,9 @@ const CreatePost = function () {
     const [title, setTitle] = useState('');
     const [text, setText] = useState('');
 
-    const submitPost = function () {
+    const submitPost = function (e: any) {
+        e.preventDefault();
+
         Axios.post('http://localhost:3001/api/create', {
             userName: userName,
             title: title,
@@ -21,33 +23,41 @@ const CreatePost = function () {
         <React.Fragment>
             <Header />
             <StyledCreatePost>
-                <div>
-                    <label htmlFor="username">Username</label>
-                    <input
-                        id="username"
-                        type="text"
-                        onChange={e => {
-                            setUserName(e.target.value);
-                        }}
-                    />
-                    <label htmlFor="title">Title</label>
-                    <input
-                        id="title"
-                        type="text"
-                        onChange={e => {
-                            setTitle(e.target.value);
-                        }}
-                    />
-                    <label htmlFor="post-text">Post text</label>
-                    <textarea
-                        id="post-text"
-                        onChange={e => {
-                            setText(e.target.value);
-                        }}
-                    ></textarea>
+                <form id='form'>
+                    <div className='form-control username'>
+                        <label htmlFor="username">Username</label>
+                        <input
+                            id="username"
+                            type="text"
+                            onChange={e => {
+                                setUserName(e.target.value);
+                            }}
+                        />
+                    </div>
+                    
+                    <div className='form-control title'>
+                        <label htmlFor="title">Title</label>
+                        <input
+                            id="title"
+                            type="text"
+                            onChange={e => {
+                                setTitle(e.target.value);
+                            }}
+                        />
+                    </div>
 
-                    <button onClick={submitPost}>submit</button>
-                </div>
+                    <div className='form-control'>
+                        <label htmlFor="post-text">Post text</label>
+                        <textarea
+                            id="post-text"
+                            onChange={e => {
+                                setText(e.target.value);
+                            }}
+                        ></textarea>
+                    </div>
+
+                    <button className='submit' onClick={submitPost}>submit</button>
+                </form>
             </StyledCreatePost>
         </React.Fragment>
     );
