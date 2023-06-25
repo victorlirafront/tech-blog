@@ -13,6 +13,7 @@ const CreatePost = function () {
             userName: userName,
             title: title,
             text: text,
+            date: new Date().toISOString(),
         });
 
         console.log('teste');

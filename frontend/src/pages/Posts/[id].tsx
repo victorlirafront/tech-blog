@@ -25,7 +25,10 @@ function Posts(props: any) {
       </Head>
 
       <div>
-        <h1>{props.post.user_name}</h1>
+        <h1>{props.post.date_posted}</h1>
+        <p>{props.post.user_name}</p>
+        <p>{props.post.title}</p>
+        <p>{props.post.post_text}</p>
       </div>
     </React.Fragment>
   );

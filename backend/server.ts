@@ -23,10 +23,11 @@ app.post("/api/create", (req: Request, res: Response) => {
   const username = req.body.userName;
   const title = req.body.title;
   const text = req.body.text;
+  const date = req.body.date;
 
   db.query(
-    "INSERT INTO posts (title, post_text, user_name) VALUES (?,?,?)",
-    [title, text, username],
+    "INSERT INTO posts (title, post_text, user_name, date_posted) VALUES (?,?,?,?)",
+    [title, text, username, date],
     (err, result) => {
       if (err) {
         console.log(err);
