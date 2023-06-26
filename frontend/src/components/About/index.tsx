@@ -4,14 +4,12 @@ const About = function () {
     return (
         <StyledAbout>
             <div className="about-wrapper">
-                <h1 className='about-title'>Blog da Código Fonte WEB</h1>
+                <h1 className='about-title'>Front-end developer</h1>
                 <p className='about-text'>
-                    Junte-se a milhares de devs e acelere na direção dos seus
-                    objetivos. Transforme sua carreira em uma jornada de evolução
-                    contínua através das melhores tecnologias.
+                    Eu me chamo Victor Lira, sou Desenvolvedor Front-end e decidi criar esse blog para compartilhar conceitos importantes que eu estou aprendendo durante a minha jornada como desenvolvedor.
                 </p>
 
-                <button className='about-buttom'>Inscreva-se em nossa newsletter</button>
+                <button className='about-buttom'>Inscreva-se na newsletter</button>
             </div>
         </StyledAbout>
     );

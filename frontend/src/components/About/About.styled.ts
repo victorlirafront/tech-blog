@@ -20,7 +20,12 @@ export const StyledAbout = styled.div`
             letter-spacing: 0.8px;
             font-size: 43px;
             margin-bottom: 10px;
-            margin-bottom: 10px;
+        }
+
+        .about-title-2 {
+            font-size: 17px;
+            margin-bottom: 25px;
+            font-weight: 400;
         }
 
         .about-text {
