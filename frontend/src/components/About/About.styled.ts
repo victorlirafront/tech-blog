@@ -18,7 +18,7 @@ export const StyledAbout = styled.div`
 
         .about-title {
             letter-spacing: 0.8px;
-            font-size: 3.25rem;
+            font-size: 43px;
             margin-bottom: 10px;
             margin-bottom: 10px;
         }
