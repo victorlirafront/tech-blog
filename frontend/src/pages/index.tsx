@@ -4,6 +4,7 @@ import Header from '../components/layout/Header';
 import { GetStaticProps } from 'next';
 import MainPage from './MainPage';
 import Post from '@/components/Post';
+import About from '@/components/About';
 
 export default function Home({ data }: any) {
     return (
@@ -21,7 +22,7 @@ export default function Home({ data }: any) {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Header />
-
+            <About/>
             <MainPage>
                 {data.map((value: any, index: any) => {
                     return (

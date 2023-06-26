@@ -12,7 +12,7 @@ function Posts(props: any) {
     useEffect(() => {
         setIsLoading(false);
     }, []);
-
+    
     if (isLoading) {
         return <div>Loading...</div>;
     }

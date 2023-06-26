@@ -33,7 +33,7 @@ const Post = function (props: any) {
                 >
                     <div className="read-more-wrapper">
                         <p>Read more</p>
-                        <img src="./arrow-right.png?v=2" />
+                        <img src="./arrow-right.png?v=3" />
                     </div>
                 </Link>
             </div>

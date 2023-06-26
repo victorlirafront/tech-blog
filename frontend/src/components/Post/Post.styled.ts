@@ -5,6 +5,7 @@ export const StyledPost = styled.div`
     background: #181818;
     border: 1px solid #333;
     max-width: 400px;
+    min-width: 400px;
     margin: 0 auto;
     text-align: center;
     text-decoration: none;
@@ -36,6 +37,7 @@ export const StyledPost = styled.div`
         justify-content: space-around;
         transition: 0.4s;
         padding-bottom: 20px;
+        padding-top: 20px;
 
         .category-wrapper {
             display: flex;
@@ -97,7 +99,7 @@ export const StyledPost = styled.div`
         align-items: center;
         p {
             margin-right: 10px;
-            color: #61c785;
+            color: #9ec0fa;
             transition: 0.2s;
             &:hover {
                 color: #1fd760;
@@ -105,7 +107,8 @@ export const StyledPost = styled.div`
         }
 
         img {
-            width: 20px;
+            width: 26px;
+            padding-top: 9px;
         }
     }
 `;
