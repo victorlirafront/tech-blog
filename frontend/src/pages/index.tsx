@@ -5,6 +5,7 @@ import { GetStaticProps } from 'next';
 import MainPage from './MainPage';
 import Post from '@/components/Post';
 import About from '@/components/About';
+import Footer from '@/components/Footer';
 
 export default function Home({ data }: any) {
     return (
@@ -40,6 +41,8 @@ export default function Home({ data }: any) {
                     );
                 })}
             </MainPage>
+            
+            <Footer/>
         </Fragment>
     );
 }

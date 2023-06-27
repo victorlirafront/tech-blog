@@ -20,7 +20,6 @@ function Posts(props: any) {
     const dateObject = new Date(props.post.date);
     const formattedDate = dateObject.toLocaleDateString();
 
-    console.log(props.post)
     return (
         <React.Fragment>
             <Head>
@@ -32,8 +31,9 @@ function Posts(props: any) {
             </Head>
             <Header />
             <StyledPosts>
-                <h1>{formattedDate}</h1>
-                <img src={props.post.post_image} />
+                <div className='background-image' style={{backgroundImage: `url(https://blog.rocketseat.com.br/content/images/size/w2000/2023/03/clean-code.jpg)`}}>
+                    {/* <img src={props.post.post_image} /> */}
+                </div>
                 <h1>{props.post.category}</h1>
                 <p>{props.post.author}</p>
                 <p>{props.post.title}</p>
