@@ -11,6 +11,7 @@ const About = function () {
 
                 <button className='about-buttom'>Comece por aqui</button>
             </div>
+            <div className='overlay'></div>
         </StyledAbout>
     );
 };

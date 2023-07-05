@@ -3,7 +3,9 @@ import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import { GetStaticProps, GetStaticPaths, GetStaticPropsContext } from 'next';
 import Header from '@/components/layout/Header';
-import { StyledPosts } from './Posts.styled'
+import { StyledPosts } from './Posts.styled';
+import MarkdownRenderer from '@/components/MarkdownRenderer';
+
 
 
 function Posts(props: any) {
@@ -34,12 +36,16 @@ function Posts(props: any) {
                 <div className='background-image' style={{backgroundImage: `url(https://blog.rocketseat.com.br/content/images/size/w2000/2023/03/clean-code.jpg)`}}>
                     {/* <img src={props.post.post_image} /> */}
                 </div>
-                <h1>{props.post.category}</h1>
-                <p>{props.post.author}</p>
-                <p>{props.post.title}</p>
-                <p>{props.post.content}</p>
-                <p>{props.post.meta_tag_title}</p>
-                <p>{props.post.meta_tag_description}</p>
+
+                <div className='body-post'>
+                    <h1>{props.post.category}</h1>
+
+                    <p>{props.post.author}</p>
+                    <p>{props.post.title}</p>
+                    <MarkdownRenderer markdown={props.post.content}  />
+                    <p>{props.post.meta_tag_title}</p>
+                    <p>{props.post.meta_tag_description}</p>
+                </div>
             </StyledPosts>
         </React.Fragment>
     );

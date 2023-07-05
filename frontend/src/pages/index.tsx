@@ -21,6 +21,7 @@ export default function Home({ data }: any) {
                     content="width=device-width, initial-scale=1"
                 />
                 <link rel="icon" href="/favicon.ico" />
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism.css" />
             </Head>
             <Header />
             <About/>

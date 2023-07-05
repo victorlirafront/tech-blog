@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const StyledAbout = styled.div`
     height: 500px;
     width: 100%;
-    background-image: url('./background-about.png?v=4');
+    /* background-image: url('./background-about.png?v=4'); */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -11,10 +11,25 @@ export const StyledAbout = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    background-image: url(./fundo.jpg?v=4);
+    position: relative;
+
+    .overlay {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        background: #000;
+        opacity: 0.5;
+        z-index: 1;
+    }
 
     .about-wrapper {
         max-width: 600px;
         text-align: center;
+        position: absolute;
+        z-index: 4;
 
         .about-title {
             letter-spacing: 0.8px;
