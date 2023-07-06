@@ -6,6 +6,7 @@ import Header from '@/components/Header';
 import  StyledPosts  from './Posts.styled';
 import MarkdownRenderer from '@/components/MarkdownRenderer';
 import Footer from '@/components/Footer';
+import dateFormatter from '@/helperFunctions/dateFormatter';
 
 
 
@@ -26,10 +27,10 @@ function Posts(props: any) {
     return (
         <React.Fragment>
             <Head>
-                <title>Movie Overview</title>
+                <title>{props.post.meta_tag_title}</title>
                 <meta
                     name="description"
-                    content="Checkout all the details about your favorite movie"
+                    content={`${props.post.meta_tag_description}`}
                 ></meta>
                 <link rel="icon" href="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/js_QxOIctz2p.png?updatedAt=1688608526457" />
             </Head>
@@ -41,10 +42,8 @@ function Posts(props: any) {
 
                 <div className='body-post'>
                     <h1 className='title'>{props.post.title}</h1>
-                    <p className='date'>{formattedDate}</p>
+                    <p className='date'>{dateFormatter(formattedDate)}</p>
                     <MarkdownRenderer markdown={props.post.content}  />
-                    {/* <p>{props.post.meta_tag_title}</p>
-                    <p>{props.post.meta_tag_description}</p> */}
                 </div>
                 <div className='writter'>
                     <div className='author'></div>

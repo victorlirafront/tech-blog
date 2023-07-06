@@ -1,6 +1,7 @@
 import StyledPost from './Post.styled';
 import Link from 'next/link';
 import { removeEspecialChars } from '../../helperFunctions/removeEspecialChars'
+import dateFormatter from '@/helperFunctions/dateFormatter';
 
 const Post = function (props: any) {
     const dateObject = new Date(props.date);
@@ -13,7 +14,7 @@ const Post = function (props: any) {
             ></div>
             <div className="post-body">
                 <div className="category-wrapper">
-                    <p className="post-date">{formattedDate}</p>
+                    <p className="post-date">{dateFormatter(formattedDate)}</p>
                     <p className="post-category">javascript</p>
                 </div>
 
