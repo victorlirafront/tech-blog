@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledPost = styled.div`
+const StyledPost = styled.div`
     color: #b4b4b4;
     background: #181818;
     border: 1px solid #333;
@@ -112,3 +112,5 @@ export const StyledPost = styled.div`
         }
     }
 `;
+
+export default StyledPost;

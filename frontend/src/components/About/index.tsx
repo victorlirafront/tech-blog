@@ -1,4 +1,4 @@
-import { StyledAbout } from './About.styled';
+import StyledAbout from './About.styled';
 
 const About = function () {
     return (

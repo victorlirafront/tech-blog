@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledPosts = styled.div`
+const StyledPosts = styled.div`
     color: #ccc;
 
     .background-image {
@@ -67,3 +67,5 @@ export const StyledPosts = styled.div`
 
     }
 `;
+
+export default StyledPosts

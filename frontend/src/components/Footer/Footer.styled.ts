@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledFooter = styled.footer`
+const StyledFooter = styled.footer`
     padding: 75px 0;
     margin: 0 auto;
     background: #080808;
@@ -39,3 +39,5 @@ export const StyledFooter = styled.footer`
         margin-top: 20px;
     }
 `;
+
+export default StyledFooter

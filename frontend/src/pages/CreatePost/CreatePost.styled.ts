@@ -1,6 +1,8 @@
+import React from 'react';
 import styled from 'styled-components';
 
-export const StyledCreatePost = styled.div`
+
+const StyledCreatePost = styled.div`
     padding: 5px 60px;
     background: #121212;
     max-width: 1920px;
@@ -74,3 +76,6 @@ export const StyledCreatePost = styled.div`
         }
     }
 `;
+
+
+export default StyledCreatePost

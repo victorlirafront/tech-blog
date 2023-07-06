@@ -8,6 +8,7 @@ import About from '@/components/About';
 import Footer from '@/components/Footer';
 
 export default function Home({ data }: any) {
+
     return (
         <Fragment>
             <Head>
@@ -27,6 +28,7 @@ export default function Home({ data }: any) {
             <About/>
             <MainPage>
                 {data.map((value: any, index: any) => {
+                    
                     return (
                         <Post
                             key={value.id}

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledHeader = styled.header`
+const StyledHeader = styled.header`
     padding: 20px 60px;
     background: #121212;
     max-width: 1920px;
@@ -24,3 +24,5 @@ export const StyledHeader = styled.header`
         }
     }
 `;
+
+export default StyledHeader

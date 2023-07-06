@@ -3,7 +3,7 @@ import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import { GetStaticProps, GetStaticPaths, GetStaticPropsContext } from 'next';
 import Header from '@/components/layout/Header';
-import { StyledPosts } from './Posts.styled';
+import  StyledPosts  from './Posts.styled';
 import MarkdownRenderer from '@/components/MarkdownRenderer';
 
 

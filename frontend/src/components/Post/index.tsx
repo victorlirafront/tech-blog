@@ -1,5 +1,6 @@
-import { StyledPost } from './Post.styled';
+import StyledPost from './Post.styled';
 import Link from 'next/link';
+import { removeEspecialChars } from '../../helperFunctions/removeEspecialChars'
 
 const Post = function (props: any) {
     const dateObject = new Date(props.date);
@@ -19,8 +20,8 @@ const Post = function (props: any) {
                 <h1 className="post-title">{props.title}</h1>
                 <p className="post-content">
                     {props.content.length > 100
-                        ? props.content.substring(0, 100) + ' ...'
-                        : props.content}
+                        ? removeEspecialChars(props.content.substring(0, 100)) + ' ...'
+                        : removeEspecialChars(props.content)}
                 </p>
 
                 <ul className="post-author">

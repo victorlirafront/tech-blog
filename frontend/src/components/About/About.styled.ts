@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledAbout = styled.div`
+const StyledAbout = styled.div`
     height: 500px;
     width: 100%;
     /* background-image: url('./background-about.png?v=4'); */
@@ -20,8 +20,8 @@ export const StyledAbout = styled.div`
         right: 0;
         top: 0;
         bottom: 0;
-        background: #000;
-        opacity: 0.5;
+        background: #00022c;
+        opacity: 0.7;
         z-index: 1;
     }
 
@@ -70,3 +70,5 @@ export const StyledAbout = styled.div`
         }
     }
 `;
+
+export default StyledAbout

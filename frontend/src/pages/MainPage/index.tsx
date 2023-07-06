@@ -1,5 +1,5 @@
 import { useState, useEffect, ReactNode } from 'react';
-import { StyledMainPage } from './MainPage.styled';
+import StyledMainPage from './MainPage.styled';
 
 interface Iprops {
     children: ReactNode

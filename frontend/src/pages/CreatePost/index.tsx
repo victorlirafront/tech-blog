@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Header from '@/components/layout/Header';
 import Axios from 'axios';
-import { StyledCreatePost } from './CreatePost.styled';
+import StyledCreatePost  from './CreatePost.styled';
 
 const CreatePost = function () {
     const [author, setAuthor] = useState('');
