@@ -30,7 +30,7 @@ const StyledPost = styled.div`
 
     .post-body {
         padding: 0 20px;
-        height: 270px;
+        height: 290px;
         display: flex;
         flex-direction: column;
         align-items: baseline;
@@ -44,17 +44,18 @@ const StyledPost = styled.div`
             align-items: center;
             justify-content: space-between;
             width: 100%;
+            margin-bottom: 8px;
 
             .post-date {
                 text-align: start;
                 width: 100%;
-                font-size: 10px;
+                font-size: 12px;
                 margin-bottom: 10px;
                 margin-top: 10px;
             }
 
             .post-category {
-                font-size: 10px;
+                font-size: 12px;
                 color: #b6b7f6;
                 transition: 0.2s;
                 &:hover {
