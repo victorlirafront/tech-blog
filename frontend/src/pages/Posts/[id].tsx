@@ -2,7 +2,7 @@ import Axios from 'axios';
 import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import { GetStaticProps, GetStaticPaths, GetStaticPropsContext } from 'next';
-import Header from '@/components/layout/Header';
+import Header from '@/components/Header';
 import  StyledPosts  from './Posts.styled';
 import MarkdownRenderer from '@/components/MarkdownRenderer';
 
@@ -30,6 +30,7 @@ function Posts(props: any) {
                     name="description"
                     content="Checkout all the details about your favorite movie"
                 ></meta>
+                <link rel="icon" href="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/js_QxOIctz2p.png?updatedAt=1688608526457" />
             </Head>
             <Header />
             <StyledPosts>

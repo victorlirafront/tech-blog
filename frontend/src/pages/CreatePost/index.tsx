@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Header from '@/components/layout/Header';
+import Header from '@/components/Header';
 import Axios from 'axios';
 import StyledCreatePost  from './CreatePost.styled';
 

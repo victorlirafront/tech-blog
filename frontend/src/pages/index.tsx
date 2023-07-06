@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import { Fragment } from 'react';
-import Header from '../components/layout/Header';
+import Header from '../components/Header';
 import { GetStaticProps } from 'next';
 import MainPage from './MainPage';
 import Post from '@/components/Post';
@@ -21,8 +21,7 @@ export default function Home({ data }: any) {
                     name="viewport"
                     content="width=device-width, initial-scale=1"
                 />
-                <link rel="icon" href="./js.png" />
-                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism.css" />
+                <link rel="icon" href="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/js_QxOIctz2p.png?updatedAt=1688608526457" />
             </Head>
             <Header />
             <About/>
