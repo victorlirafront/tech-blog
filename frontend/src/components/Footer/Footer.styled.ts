@@ -36,7 +36,7 @@ const StyledFooter = styled.footer`
         align-items: center;
         color: #ccc;
         font-size: 12px;
-        margin-top: 20px;
+        margin-top: 20px ;
     }
 `;
 

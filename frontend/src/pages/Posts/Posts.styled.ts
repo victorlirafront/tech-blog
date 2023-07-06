@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 const StyledPosts = styled.div`
     color: #ccc;
+    margin-bottom: 100px;
+
 
     .background-image {
         height: 500px;
@@ -17,6 +19,20 @@ const StyledPosts = styled.div`
         max-width: 830px;
         margin: 0 auto;
         padding: 20px 30px;
+        padding-top: 60px;
+        
+        .title {
+            letter-spacing: .7px;
+            font-size: 2.625rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .date {
+            text-align: center;
+            font-weight: bolder;
+            color: #9ec0fa;
+        }
 
         h1, h2, h3, h4, h5, h6 {
             margin-bottom: 30px;
@@ -65,6 +81,45 @@ const StyledPosts = styled.div`
             }
         }
 
+    }
+
+    .writter {
+        display: flex;
+        justify-content: center;
+        padding: 60px 40px;
+        border-color: #141920;
+        border-style: solid;
+        border-width: 1px 0;
+        margin: 0 auto;
+        
+
+        .author {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-repeat: no-repeat;
+            background-position: 50%;
+            background-size: cover;
+            margin-right: 30px;
+            background-image: url(https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/profile_-roAsJAbQ.png?updatedAt=1688612357551);
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center ;
+            border: 1px solid #41516e;
+        }
+
+        .name-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center ;
+            .text-1 {
+                color: #9ec0fa;
+                font-size: 18px;
+                margin-bottom: 7px;
+            }
+        }
     }
 `;
 

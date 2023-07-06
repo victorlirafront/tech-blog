@@ -4,21 +4,21 @@ const Footer = function(){
     return (
         <StyledFooter>
             <div className='icons-wrapper'>
-                <a href="https://github.com/victorlirafront" target="_blank" rel="noopener noreferrer">
+                <a href="#" target="_blank" rel="noopener noreferrer">
                     <div className='icons-group'>
-                        <img className='icon' src="./github.png" />
+                        <img className='icon' src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/github_LDTcy1bc_.png?updatedAt=16886127797" />
                     </div>
                 </a>
 
-                <a href="https://www.linkedin.com/in/victor-lira-front-end/" target="_blank" rel="noopener noreferrer">
+                <a href="#" target="_blank" rel="noopener noreferrer">
                     <div className='icons-group'>
-                        <img className='icon' src="./linkedin.png" />
+                        <img className='icon' src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/linkedin_aDQr6Huy2.png?updatedAt=16886127938" />
                     </div>
                 </a>
             </div>
 
             <div className='direitos-autorais'>
-                <p>© 2023, Victor Lira</p>
+                <p>© 2023 - Todos os direitos reservados</p>
             </div>
         </StyledFooter>
     )

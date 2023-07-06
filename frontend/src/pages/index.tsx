@@ -26,22 +26,24 @@ export default function Home({ data }: any) {
             <Header />
             <About/>
             <MainPage>
-                {data.map((value: any, index: any) => {
-                    
-                    return (
-                        <Post
-                            key={value.id}
-                            id={value.id}
-                            title={value.title}
-                            content={value.content}
-                            author={value.author}
-                            meta_tag_title={value.meta_tag_title}
-                            meta_tag_description={value.meta_tag_description}
-                            post_image={value.post_image}
-                            date={value.date}
-                        />
-                    );
-                })}
+                <div className="container">
+                    {data.map((value: any, index: any) => {
+                        
+                        return (
+                            <Post
+                                key={value.id}
+                                id={value.id}
+                                title={value.title}
+                                content={value.content}
+                                author={value.author}
+                                meta_tag_title={value.meta_tag_title}
+                                meta_tag_description={value.meta_tag_description}
+                                post_image={value.post_image}
+                                date={value.date}
+                            />
+                        );
+                    })}
+                </div>
             </MainPage>
             
             <Footer/>

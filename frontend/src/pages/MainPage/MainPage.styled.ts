@@ -6,9 +6,15 @@ const StyledMainPage = styled.div`
     max-width: 1920px;
     margin: 0 auto;
     color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+    }
 `;
 
 export default StyledMainPage

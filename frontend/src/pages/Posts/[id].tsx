@@ -5,6 +5,7 @@ import { GetStaticProps, GetStaticPaths, GetStaticPropsContext } from 'next';
 import Header from '@/components/Header';
 import  StyledPosts  from './Posts.styled';
 import MarkdownRenderer from '@/components/MarkdownRenderer';
+import Footer from '@/components/Footer';
 
 
 
@@ -39,15 +40,21 @@ function Posts(props: any) {
                 </div>
 
                 <div className='body-post'>
-                    <h1>{props.post.category}</h1>
-
-                    <p>{props.post.author}</p>
-                    <p>{props.post.title}</p>
+                    <h1 className='title'>{props.post.title}</h1>
+                    <p className='date'>{formattedDate}</p>
                     <MarkdownRenderer markdown={props.post.content}  />
-                    <p>{props.post.meta_tag_title}</p>
-                    <p>{props.post.meta_tag_description}</p>
+                    {/* <p>{props.post.meta_tag_title}</p>
+                    <p>{props.post.meta_tag_description}</p> */}
+                </div>
+                <div className='writter'>
+                    <div className='author'></div>
+                    <div className='name-container'>
+                        <p className='text-1'>Victor Lira &nbsp; 🚀</p>
+                        <p className='text-2'>Content writer @victorlira_ws</p>
+                    </div>
                 </div>
             </StyledPosts>
+            <Footer/>
         </React.Fragment>
     );
 }

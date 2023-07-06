@@ -30,7 +30,17 @@ const StyledAbout = styled.div`
         text-align: center;
         position: absolute;
         z-index: 4;
+        min-width: 100vw;
+        position: relative;
 
+        .content-container {
+            position: absolute;
+            z-index: 10;
+            right: 50%;
+            top: 50%;
+            transform: translate(50%, -50%);
+        }
+        
         .about-title {
             letter-spacing: 0.8px;
             font-size: 43px;
@@ -47,6 +57,7 @@ const StyledAbout = styled.div`
             font-size: 17px;
             margin-bottom: 25px;
             font-weight: 400;
+            line-height: 30px;
         }
 
         .about-buttom {
@@ -68,6 +79,19 @@ const StyledAbout = styled.div`
             transition: all .25s cubic-bezier(.02,.01,.47,1);
             font-weight: 400;
         }
+    }
+
+    .overlay-inside {
+        width: 100vw;
+        background: #000;
+        height: 310px;
+        position: absolute;
+        right: 50%;
+        top: 50%;
+        transform: translate(50%, -50%);
+        top: 0;
+        opacity: 0.3;
+        filter: blur(5px);
     }
 `;
 

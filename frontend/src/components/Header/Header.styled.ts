@@ -5,7 +5,12 @@ const StyledHeader = styled.header`
     background: #121212;
     max-width: 1920px;
     margin: 0 auto;
-    nav {
+
+    .container {
+        margin: 0 auto;
+        max-width: 1200px;
+
+        nav {
         width: 100%;
 
         ul {
@@ -22,6 +27,7 @@ const StyledHeader = styled.header`
                 }
             }
         }
+    }
     }
 `;
 
