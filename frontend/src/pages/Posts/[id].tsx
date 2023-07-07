@@ -38,7 +38,7 @@ function Posts(props: any) {
             </Head>
             <Header />
             <StyledPosts>
-                <div data-aos="fade-down" className='background-image' style={{backgroundImage: `url(https://blog.rocketseat.com.br/content/images/size/w2000/2023/03/clean-code.jpg)`}}>
+                <div data-aos="fade-down" className='background-image' style={{backgroundImage: `url(${props.post.post_background})`}}>
                     {/* <img src={props.post.post_image} /> */}
                 </div>
 

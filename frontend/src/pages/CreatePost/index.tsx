@@ -11,6 +11,7 @@ const CreatePost = function () {
     const [metaTagTitle, setMetaTagTitle] = useState('');
     const [metaTagDescription, setMetaTagDescription] = useState('');
     const [postImage, setPostImage] = useState('');
+    const [postBackground, setPostBackground] = useState('');
 
     const submitPost = function (e: any) {
         e.preventDefault();
@@ -23,6 +24,7 @@ const CreatePost = function () {
             meta_tag_title: metaTagTitle,
             meta_tag_description: metaTagDescription,
             post_image: postImage,
+            post_background: postBackground,
             date: new Date().toISOString(),
         });
     };
@@ -61,6 +63,17 @@ const CreatePost = function () {
                             type="text"
                             onChange={e => {
                                 setPostImage(e.target.value);
+                            }}
+                        />
+                    </div>
+
+                    <div className="form-control post-image">
+                        <label htmlFor="post-image">Post Background</label>
+                        <input
+                            id="post-image"
+                            type="text"
+                            onChange={e => {
+                                setPostBackground(e.target.value);
                             }}
                         />
                     </div>
