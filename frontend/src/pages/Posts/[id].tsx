@@ -37,12 +37,12 @@ function Posts(props: any) {
                 <link rel="icon" href="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/js_QxOIctz2p.png?updatedAt=1688608526457" />
             </Head>
             <Header />
-            <StyledPosts data-aos="fade-up">
-                <div className='background-image' style={{backgroundImage: `url(https://blog.rocketseat.com.br/content/images/size/w2000/2023/03/clean-code.jpg)`}}>
+            <StyledPosts>
+                <div data-aos="fade-down" className='background-image' style={{backgroundImage: `url(https://blog.rocketseat.com.br/content/images/size/w2000/2023/03/clean-code.jpg)`}}>
                     {/* <img src={props.post.post_image} /> */}
                 </div>
 
-                <div className='body-post'>
+                <div className='body-post' data-aos="fade-up">
                     <h1 className='title'>{props.post.title}</h1>
                     <p className='date'>{dateFormatter(formattedDate)}</p>
                     <MarkdownRenderer markdown={props.post.content}  />

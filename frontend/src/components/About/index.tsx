@@ -9,8 +9,8 @@ const About = function () {
     }, []);
 
     return (
-        <StyledAbout data-aos="fade-up">
-            <div className="about-wrapper">
+        <StyledAbout>
+            <div className="about-wrapper" data-aos="fade-down">
                 <div className='content-container'>
                     <h1 className='about-title'>Front-end developer</h1>
                     <p className='about-text'>
