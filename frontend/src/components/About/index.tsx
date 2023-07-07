@@ -1,8 +1,15 @@
 import StyledAbout from './About.styled';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
 const About = function () {
+    useEffect(() => {
+        AOS.init();
+    }, []);
+
     return (
-        <StyledAbout>
+        <StyledAbout data-aos="fade-up">
             <div className="about-wrapper">
                 <div className='content-container'>
                     <h1 className='about-title'>Front-end developer</h1>

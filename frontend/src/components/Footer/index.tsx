@@ -1,5 +1,11 @@
 import  StyledFooter from './Footer.styled'
 
+const getCurrentYear = function(){
+    const dataAtual = new Date();
+    // Obtém o ano atual
+    return dataAtual.getFullYear();
+}
+
 const Footer = function(){
     return (
         <StyledFooter>
@@ -18,7 +24,7 @@ const Footer = function(){
             </div>
 
             <div className='direitos-autorais'>
-                <p>© 2023 - Todos os direitos reservados</p>
+                <p>Todos os direitos reservados © Victor Lira {getCurrentYear()}</p>
             </div>
         </StyledFooter>
     )

@@ -56,12 +56,12 @@ const StyledPost = styled.div`
 
             .post-category {
                 font-size: 12px;
-                color: #b6b7f6;
+                color: #9ec0fa;
                 transition: 0.2s;
-                &:hover {
+                /* &:hover {
                     cursor: pointer;
                     color: #d3d4ff;
-                }
+                } */
             }
         }
 

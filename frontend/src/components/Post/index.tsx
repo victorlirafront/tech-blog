@@ -2,12 +2,20 @@ import StyledPost from './Post.styled';
 import Link from 'next/link';
 import { removeEspecialChars } from '../../helperFunctions/removeEspecialChars'
 import dateFormatter from '@/helperFunctions/dateFormatter';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from 'react';
 
 const Post = function (props: any) {
     const dateObject = new Date(props.date);
     const formattedDate = dateObject.toLocaleDateString();
+
+    useEffect(() => {
+        AOS.init();
+    }, []);
+    
     return (
-        <StyledPost>
+        <StyledPost data-aos="fade-up">
             <div
                 className="post-image"
                 style={{ backgroundImage: `url(${props.post_image})` }}

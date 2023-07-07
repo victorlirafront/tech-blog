@@ -7,7 +7,8 @@ import  StyledPosts  from './Posts.styled';
 import MarkdownRenderer from '@/components/MarkdownRenderer';
 import Footer from '@/components/Footer';
 import dateFormatter from '@/helperFunctions/dateFormatter';
-
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 
 function Posts(props: any) {
@@ -15,6 +16,7 @@ function Posts(props: any) {
 
     useEffect(() => {
         setIsLoading(false);
+        AOS.init();
     }, []);
     
     if (isLoading) {
@@ -35,7 +37,7 @@ function Posts(props: any) {
                 <link rel="icon" href="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/js_QxOIctz2p.png?updatedAt=1688608526457" />
             </Head>
             <Header />
-            <StyledPosts>
+            <StyledPosts data-aos="fade-up">
                 <div className='background-image' style={{backgroundImage: `url(https://blog.rocketseat.com.br/content/images/size/w2000/2023/03/clean-code.jpg)`}}>
                     {/* <img src={props.post.post_image} /> */}
                 </div>

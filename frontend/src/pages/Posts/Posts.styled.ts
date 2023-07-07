@@ -4,7 +4,6 @@ const StyledPosts = styled.div`
     color: #ccc;
     margin-bottom: 100px;
 
-
     .background-image {
         height: 500px;
         width: 100%;
@@ -44,6 +43,7 @@ const StyledPosts = styled.div`
             margin-bottom: 30px;
             img {
                 max-width: 100%;
+                border-radius: 5px;
             }
         }
 
@@ -52,8 +52,8 @@ const StyledPosts = styled.div`
         }
 
         code {
-            background: #141920;
-            color: #9ec0fa;
+            background: #23312e;
+            color: #30c85e;
             padding: 20px;
             margin: 20px 0;
             display: flex;
@@ -62,6 +62,12 @@ const StyledPosts = styled.div`
             align-items: center;
             justify-content: flex-start;
             overflow: auto;
+            border-left: 4px solid #31c85e;
+            font-family: neo-sans, sans-serif;
+            border-bottom-right-radius: 0.5rem;
+            border-top-right-radius: 0.5rem;
+            font-size: 14px;
+            line-height: 24px;
         }
 
         a {
