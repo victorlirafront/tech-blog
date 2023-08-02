@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express";
-import db from "./config/db";
+import {connection} from "./config/db";
 import cors from "cors";
 require("dotenv").config();
 
@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/api/get", (req: Request, res: Response) => {
-  db.query("SELECT * FROM posts", (err, result) => {
+  connection.query("SELECT * FROM posts", (err: any, result: any) => {
     if (err) {
       console.log(err);
     }
@@ -30,7 +30,7 @@ app.post("/api/create", (req: Request, res: Response) => {
   const post_image = req.body.post_image;
   const post_background = req.body.post_background;
 
-  db.query(
+  connection.query(
     "INSERT INTO posts (title, content, author, date, category, meta_tag_title, meta_tag_description, post_image, post_background) VALUES (?,?,?,?,?,?,?,?,?)",
     [title, content, author, date, category, meta_tag_title, meta_tag_description, post_image, post_background],
     (err, result) => {
