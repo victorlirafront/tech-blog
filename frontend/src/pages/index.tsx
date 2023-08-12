@@ -63,7 +63,7 @@ export interface MyComponentProps {
 }
 
 export const getStaticProps: GetStaticProps<MyComponentProps> = async () => {
-    const response = await fetch('http://localhost:3001/api/get');
+    const response = await fetch('https://blog-backend-tau-three.vercel.app/api/get/api/get');
     const data = await response.json();
 
     return {
