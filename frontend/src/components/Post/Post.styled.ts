@@ -4,8 +4,7 @@ const StyledPost = styled.div`
     color: #b4b4b4;
     background: #181818;
     border: 1px solid #333;
-    max-width: 400px;
-    min-width: 400px;
+    width: calc(33.33333% - 40px);
     margin: 0 auto;
     text-align: center;
     text-decoration: none;
@@ -14,6 +13,7 @@ const StyledPost = styled.div`
     border: 1px solid #202020;
     transition: 0.3s;
     overflow: hidden;
+    margin: 0 20px 40px 20px;
     &:hover {
         transform: translateY(-5px);
     }

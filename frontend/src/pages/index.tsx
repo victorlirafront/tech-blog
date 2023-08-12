@@ -26,18 +26,27 @@ export default function Home({ data }: any) {
             <About/>
             <MainPage>
                 <div className="container">
-                    {data.map((value: any, index: any) => {
+                    {data.map((post: any, index: any) => {
+                        let costumizeFirstPost = false;
+
+                        index === 0 ? costumizeFirstPost = true : false
+                        
+                        const styled = {
+                            minWidth: "calc(66.66667% - 40px)"
+                        }
+
                         return (
                             <Post
-                                key={value.id}
-                                id={value.id}
-                                title={value.title}
-                                content={value.content}
-                                author={value.author}
-                                meta_tag_title={value.meta_tag_title}
-                                meta_tag_description={value.meta_tag_description}
-                                post_image={value.post_image}
-                                date={value.date}
+                                style={costumizeFirstPost ? styled : {}}
+                                key={post.id}
+                                id={post.id}
+                                title={post.title}
+                                content={post.content}
+                                author={post.author}
+                                meta_tag_title={post.meta_tag_title}
+                                meta_tag_description={post.meta_tag_description}
+                                post_image={post.post_image}
+                                date={post.date}
                             />
                         );
                     })}

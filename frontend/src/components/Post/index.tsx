@@ -15,7 +15,7 @@ const Post = function (props: any) {
     }, []);
     
     return (
-        <StyledPost data-aos-delay="100" data-aos="fade-up">
+        <StyledPost data-aos-delay="100" data-aos="fade-up" style={props.style}>
             <div
                 className="post-image"
                 style={{ backgroundImage: `url(${props.post_image})` }}
