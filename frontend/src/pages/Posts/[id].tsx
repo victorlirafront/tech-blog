@@ -65,7 +65,7 @@ export const getStaticProps: GetStaticProps = async (
 ) => {
     const { id } = context.params!;
 
-    const response = await Axios.get('http://localhost:3001/api/get');
+    const response = await Axios.get('https://blog-backend-tau-three.vercel.app/api/get/');
     const data = response.data;
 
     const currentPost = data.find((item: any) => {
@@ -84,10 +84,10 @@ export const getStaticProps: GetStaticProps = async (
 
 export const getStaticPaths: GetStaticPaths = async () => {
     let response = await Axios({
-        url: 'http://localhost:3001/api/get',
+        url: 'https://blog-backend-tau-three.vercel.app/api/get/',
         method: 'GET',
     });
-
+        
     return {
         fallback: true,
         paths: response.data.map((post: any) => ({

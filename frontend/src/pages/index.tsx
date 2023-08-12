@@ -1,11 +1,12 @@
 import Head from 'next/head';
 import { Fragment } from 'react';
 import Header from '../components/Header';
-import { GetStaticProps } from 'next';
 import MainPage from './MainPage';
 import Post from '@/components/Post';
 import About from '@/components/About';
 import Footer from '@/components/Footer';
+import Axios from 'axios';
+import { GetStaticProps } from 'next';
 
 export default function Home({ data }: any) {
     return (
@@ -62,13 +63,24 @@ export interface MyComponentProps {
     data: any;
 }
 
-export const getStaticProps: GetStaticProps<MyComponentProps> = async () => {
-    const response = await fetch('https://blog-backend-tau-three.vercel.app/api/get/api/get');
-    const data = await response.json();
+export const getStaticProps = async () => {
+    try {
+        const response = await Axios.get('https://blog-backend-tau-three.vercel.app/api/get/');
+        const data = response.data; // Extract data from the response
 
-    return {
-        props: {
-            data,
-        },
-    };
+
+
+        return {
+            props: {
+                data // Pass the extracted data as props
+            }
+        };
+    } catch (error) {
+        console.error("Error fetching data:", error);
+        return {
+            props: {
+                data: [] // Return an empty array or handle the error as needed
+            }
+        };
+    }
 };
