@@ -3,7 +3,6 @@ import styled from 'styled-components';
 const StyledPost = styled.div`
     color: #b4b4b4;
     background: #181818;
-    border: 1px solid #333;
     width: calc(33.33333% - 40px);
     margin: 0 auto;
     text-align: center;

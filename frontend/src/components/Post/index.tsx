@@ -4,18 +4,21 @@ import { removeEspecialChars } from '../../helperFunctions/removeEspecialChars'
 import dateFormatter from '@/helperFunctions/dateFormatter';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 const Post = function (props: any) {
     const dateObject = new Date(props.date);
     const formattedDate = dateObject.toLocaleDateString();
-
+    
     useEffect(() => {
         AOS.init();
     }, []);
     
     return (
-        <StyledPost data-aos-delay="100" data-aos="fade-up" style={props.style}>
+        <StyledPost 
+            data-aos-delay="100" 
+            data-aos="fade-up" 
+            style={props.style} >
             <div
                 className="post-image"
                 style={{ backgroundImage: `url(${props.post_image})` }}

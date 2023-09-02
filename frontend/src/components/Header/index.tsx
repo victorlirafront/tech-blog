@@ -17,9 +17,6 @@ const Header = function () {
                         <li>
                             <Link href="/">Home</Link>
                         </li>
-                        <li>
-                            <Link href="/CreatePost">Create post</Link>
-                        </li>
                     </ul>
                 </nav>
             </div>
