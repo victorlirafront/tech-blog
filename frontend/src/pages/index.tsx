@@ -68,12 +68,10 @@ export const getStaticProps = async () => {
         const response = await Axios.get('https://blog-backend-tau-three.vercel.app/api/get/');
         const data = response.data; // Extract data from the response
 
-
-
         return {
             props: {
                 data // Pass the extracted data as props
-            }
+            },revalidate: 10, // In seconds
         };
     } catch (error) {
         console.error("Error fetching data:", error);
