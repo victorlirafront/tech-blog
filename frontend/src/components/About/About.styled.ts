@@ -11,7 +11,7 @@ const StyledAbout = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url(./worker.png?v=0);
+    background-image: url(./worker.png?v=2);
     position: relative;
 
     .overlay {

@@ -10,7 +10,7 @@ const Header = function () {
     }, []);
 
     return (
-        <StyledHeader>
+        <StyledHeader data-aos="fade-down">
             <div className="container">
                 <nav>
                     <ul>

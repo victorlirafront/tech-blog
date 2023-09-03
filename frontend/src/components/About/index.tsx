@@ -10,7 +10,7 @@ const About = function () {
     }, []);
 
     return (
-        <StyledAbout>
+        <StyledAbout data-aos="fade-down">
             <div className="about-wrapper" data-aos="fade-down">
                <div className='typed-animation'>
                     <Typed className='title-1' strings={[
