@@ -23,6 +23,7 @@
     "react-dom": "18.2.0",
     "react-markdown": "^8.0.7",
     "react-syntax-highlighter": "^15.5.0",
+    "react-typed": "^1.2.0",
     "styled-components": "^5.3.10",
     "yarn": "^1.22.19"
   },

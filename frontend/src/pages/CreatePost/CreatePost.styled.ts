@@ -1,6 +1,5 @@
-import React from 'react';
+"use client"
 import styled from 'styled-components';
-
 
 const StyledCreatePost = styled.div`
     padding: 5px 60px;

@@ -1,9 +1,9 @@
+'use client';
 import styled from 'styled-components';
 
 const StyledAbout = styled.div`
-    height: 500px;
+    height: 400px;
     width: 100%;
-    /* background-image: url('./background-about.png?v=4'); */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -11,7 +11,7 @@ const StyledAbout = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url(./fundo.jpg?v=4);
+    background-image: url(./worker.png?v=0);
     position: relative;
 
     .overlay {
@@ -20,79 +20,68 @@ const StyledAbout = styled.div`
         right: 0;
         top: 0;
         bottom: 0;
-        background: #00022c;
-        opacity: 0.7;
+        background: #000;
+        opacity: 0.1;
         z-index: 1;
     }
-
     .about-wrapper {
-        max-width: 600px;
-        text-align: center;
-        position: absolute;
-        z-index: 4;
-        min-width: 100vw;
-        position: relative;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 50px;
 
-        .content-container {
-            position: absolute;
-            z-index: 10;
-            right: 50%;
-            top: 50%;
-            transform: translate(50%, -50%);
-        }
-        
-        .about-title {
-            letter-spacing: 0.8px;
-            font-size: 43px;
-            margin-bottom: 10px;
-        }
+        .typed-animation {
 
-        .about-title-2 {
-            font-size: 17px;
-            margin-bottom: 25px;
-            font-weight: 400;
-        }
+            .title-1 {
+                font-size: 30px;
+                font-weight: bold;
+            }
 
-        .about-text {
-            font-size: 17px;
-            margin-bottom: 25px;
-            font-weight: 400;
-            line-height: 30px;
+            .title-2 {
+                font-size: 25px;
+                font-weight: bold;
+            }
+
+            .title-3 {
+                font-size: 20px;
+                font-weight: bold;
+            }
+
+            .title-4 {
+                font-size: 20px;
+                font-weight: bold;
+            }
         }
 
-        .about-buttom {
-            border-radius: 5px;
-            background-color: #fff;
-            display: inline-block;
-            color: #333;
+        .card {
             text-align: center;
-            letter-spacing: .2px;
-            line-height: 1;
-            font-size: 1rem;
-            font-weight: 600;
-            border-radius: 5px;
-            padding: 13px 25px;
-            cursor: pointer;
-            outline: 0;
-            border: 0;
-            position: relative;
-            transition: all .25s cubic-bezier(.02,.01,.47,1);
-            font-weight: 400;
-        }
-    }
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+            .name {
+                color: #bad7e5;
+                margin-top: 10px;
+            }
 
-    .overlay-inside {
-        width: 100vw;
-        background: #000;
-        height: 310px;
-        position: absolute;
-        right: 50%;
-        top: 50%;
-        transform: translate(50%, -50%);
-        top: 0;
-        opacity: 0.3;
-        filter: blur(5px);
+            .profession {
+                color: #bad7e5;
+                margin-top: -5px;
+            }
+            
+
+            .card-img {
+                border-radius: 100%;
+                width: 100px;
+                height: 100px;
+                background: red;
+                background-image: url(https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/profile_-roAsJAbQ.png?updatedAt=1688612357551);
+                background-size: cover;
+                border: 3px solid #bad7e5;
+            }
+        }
     }
 `;
 
-export default StyledAbout
+export default StyledAbout;
