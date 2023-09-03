@@ -29,7 +29,7 @@ const About = function () {
                     />
                     <p></p>
                     <Typed className='title-3' strings={[
-                        "I'm gonna share my knolodge in this blog"
+                        "I'm gonna share my knowledge in this blog"
                     ]}
                         typeSpeed={100}
                         backSpeed={40}
