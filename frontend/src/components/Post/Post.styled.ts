@@ -14,9 +14,8 @@ const StyledPost = styled.div`
     transition: 0.3s;
     overflow: hidden;
     margin: 0 20px 40px 20px;
-    &:hover {
-        transform: translateY(-5px);
-    }
+    border-color: #0497EF;
+    box-shadow: 0px 0px 10px 0px #0497EF;
 
     .post-image {
         width: 100%;
@@ -63,10 +62,6 @@ const StyledPost = styled.div`
                     color: #d3d4ff;
                 } */
             }
-        }
-
-        &:hover {
-            background: #202020;
         }
 
         .post-title {

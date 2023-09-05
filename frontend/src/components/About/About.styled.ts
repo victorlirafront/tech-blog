@@ -11,7 +11,7 @@ const StyledAbout = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url(./worker.png?v=2);
+    background-image: url(./worker.png?v=10);
     position: relative;
 
     .overlay {
@@ -24,6 +24,7 @@ const StyledAbout = styled.div`
         opacity: 0.1;
         z-index: 1;
     }
+
     .about-wrapper {
         width: 100%;
         display: flex;
@@ -69,16 +70,16 @@ const StyledAbout = styled.div`
                 color: #bad7e5;
                 margin-top: -5px;
             }
-            
 
             .card-img {
                 border-radius: 100%;
                 width: 100px;
                 height: 100px;
-                background: red;
                 background-image: url(https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/profile_-roAsJAbQ.png?updatedAt=1688612357551);
                 background-size: cover;
                 border: 3px solid #bad7e5;
+                border-color: #0497EF;
+                box-shadow: 0px 0px 10px 0px #0497EF;
             }
         }
     }

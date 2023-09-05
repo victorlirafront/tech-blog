@@ -45,7 +45,7 @@ const Post = function (props: any) {
                     style={{ textDecoration: 'none' }}
                 >
                     <div className="read-more-wrapper">
-                        <p>Leia mais</p>
+                        <p>Read more</p>
                         <img src="./arrow-right.png?v=3" />
                     </div>
                 </Link>
