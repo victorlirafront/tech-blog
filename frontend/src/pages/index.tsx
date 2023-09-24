@@ -6,6 +6,7 @@ import Post from '@/components/Post';
 import About from '@/components/About';
 import Footer from '@/components/Footer';
 import Axios from 'axios';
+import Pagination from '@/components/Pagination';
 import { GetStaticProps } from 'next';
 
 export default function Home({ data }: any) {
@@ -53,7 +54,7 @@ export default function Home({ data }: any) {
                     })}
                 </div>
             </MainPage>
-            
+            <Pagination/>
             <Footer/>
         </Fragment>
     );
