@@ -27,7 +27,7 @@ export default function Home({ data }: any) {
             <About/>
             <MainPage>
                 <div className="container">
-                    {data.map((post: any, index: any) => {
+                    {data.results.map((post: any, index: any) => {
                         let costumizeFirstPost = false;
 
                         index === 0 ? costumizeFirstPost = true : false
