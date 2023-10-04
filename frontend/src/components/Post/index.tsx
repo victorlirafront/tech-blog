@@ -4,7 +4,7 @@ import { removeEspecialChars } from '../../helperFunctions/removeEspecialChars'
 import dateFormatter from '@/helperFunctions/dateFormatter';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 
 const Post = function (props: any) {
     const dateObject = new Date(props.date);
@@ -46,7 +46,7 @@ const Post = function (props: any) {
                 >
                     <div className="read-more-wrapper">
                         <p>Read more</p>
-                        <img src="./arrow-right.png?v=3" />
+                        <img src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow-right_eVbRRghk9.png?updatedAt=1696390413993" />
                     </div>
                 </Link>
             </div>

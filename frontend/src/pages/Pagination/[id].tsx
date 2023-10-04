@@ -1,13 +1,13 @@
 import Head from 'next/head';
 import { Fragment } from 'react';
-import Header from '../components/Header';
-import MainPage from './MainPage';
+import Header from '../../components/Header';
+import MainPage from '../MainPage/index';
 import Post from '@/components/Post';
 import About from '@/components/About';
 import Footer from '@/components/Footer';
 import Axios from 'axios';
 import Pagination from '@/components/Pagination';
-import { GetStaticProps } from 'next';
+import { GetStaticProps, GetStaticPaths } from 'next';
 
 export default function Home({ data }: any) {
     return (
@@ -64,9 +64,11 @@ export interface MyComponentProps {
     data: any;
 }
 
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async (context: any) => {
     try {
-        const response = await Axios.get('https://blog-backend-tau-three.vercel.app/api/get?page=1&limit=5');
+
+        const { id } = context.params;
+        const response = await Axios.get(`https://blog-backend-tau-three.vercel.app/api/get?page=${id}&limit=5`);
         const data = response.data; // Extract data from the response
 
         return {
@@ -82,4 +84,18 @@ export const getStaticProps = async () => {
             }
         };
     }
+};
+
+export const getStaticPaths: GetStaticPaths = async () => {
+    let response = await Axios({
+        url: 'https://blog-backend-tau-three.vercel.app/api/get/',
+        method: 'GET',
+    });
+        
+    return {
+        fallback: true,
+        paths: response.data.results.map((post: any) => ({
+            params: { id: post.id.toString() },
+        })),
+    };
 };
