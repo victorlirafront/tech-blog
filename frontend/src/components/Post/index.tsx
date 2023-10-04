@@ -41,7 +41,7 @@ const Post = function (props: any) {
                 </ul>
 
                 <Link
-                    href={`Posts/${props.id}`}
+                    href={`/Posts/${props.id}`}
                     style={{ textDecoration: 'none' }}
                 >
                     <div className="read-more-wrapper">
