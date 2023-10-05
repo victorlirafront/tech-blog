@@ -24,7 +24,7 @@ const paginatedResults = function (model: any) {
             results.previous = { page: page - 1, limit: limit }
         }
 
-        results.pageLength = model.length;
+        results.totalPages = model.length / limit;
         results.results = model.slice(startIndex, endIndex);
         res.paginatedResults = results;
         next();

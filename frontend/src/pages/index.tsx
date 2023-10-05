@@ -13,10 +13,11 @@ import { useContext } from "react";
 import { useEffect } from 'react';
 
 export default function Home({ data }: any) {
-    let { setpage, page } = useContext(GlobalContext);
+    let { setpage, page, setTotalPages, totalPages } = useContext(GlobalContext);
 
     useEffect(() => {
         setpage(1)
+        console.log(data)
     }, [])
 
     return (
@@ -63,7 +64,7 @@ export default function Home({ data }: any) {
                     })}
                 </div>
             </MainPage>
-            <Pagination/>
+            <Pagination pageLength={3}/>
             <Footer/>
         </Fragment>
     );

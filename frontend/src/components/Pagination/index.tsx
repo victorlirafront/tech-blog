@@ -1,15 +1,19 @@
 import StyledPagination from "./Pagination.styled";
 import Link from "next/link";
 import { GlobalContext } from '../../Context/pagination';
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
-const Pagination = function(){
-    let { setpage, page } = useContext(GlobalContext);
+interface IpropsPagination {
+    pageLength: number
+}
+
+const Pagination = function(props: IpropsPagination){
+    let { setpage, page, setTotalPages } = useContext(GlobalContext);
 
     function setNextPage() {
         let nextPage = page += 1
         setpage(nextPage)
-      }
+    }
 
     return (
         <StyledPagination>
@@ -19,7 +23,7 @@ const Pagination = function(){
                 </div>
 
                 &nbsp; 
-                    <p>Pagination</p>
+                    <p> {page} / {props.pageLength}  Pagination</p>
                 &nbsp; 
                 
                 <Link onClick={() => setNextPage()} href={`/Pagination/${page}`}>
