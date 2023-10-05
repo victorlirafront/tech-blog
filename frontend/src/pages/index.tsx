@@ -8,8 +8,17 @@ import Footer from '@/components/Footer';
 import Axios from 'axios';
 import Pagination from '@/components/Pagination';
 import { GetStaticProps } from 'next';
+import { GlobalContext } from '../Context/pagination';
+import { useContext } from "react";
+import { useEffect } from 'react';
 
 export default function Home({ data }: any) {
+    let { setpage, page } = useContext(GlobalContext);
+
+    useEffect(() => {
+        setpage(1)
+    }, [])
+
     return (
         <Fragment>
             <Head>

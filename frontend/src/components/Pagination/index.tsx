@@ -1,10 +1,14 @@
 import StyledPagination from "./Pagination.styled";
 import Link from "next/link";
+import { GlobalContext } from '../../Context/pagination';
+import { useContext } from "react";
 
 const Pagination = function(){
-    function gerarNumeroAleatorio() {
-        const numeroAleatorio = Math.floor(Math.random() * 4) + 1;
-        return numeroAleatorio;
+    let { setpage, page } = useContext(GlobalContext);
+
+    function setNextPage() {
+        let nextPage = page += 1
+        setpage(nextPage)
       }
 
     return (
@@ -18,7 +22,7 @@ const Pagination = function(){
                     <p>Pagination</p>
                 &nbsp; 
                 
-                <Link href={`/Pagination/${gerarNumeroAleatorio()}`}>
+                <Link onClick={() => setNextPage()} href={`/Pagination/${page}`}>
                     <div className="icon-arrow icon-arrow-right"> 
                         <img src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow-right_eVbRRghk9.png?updatedAt=1696390413993" alt="" />
                     </div>
