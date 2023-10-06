@@ -21,6 +21,10 @@ interface IProps {
     }
 }
 
+interface ICurrentPost {
+    id: number
+}
+
 function Posts(props: IProps) {
     const [isLoading, setIsLoading] = useState(true);
 
@@ -78,9 +82,9 @@ export const getStaticProps: GetStaticProps = async (
     const response = await Axios.get('https://blog-backend-l7c9vda7w-victorlirafront.vercel.app/api/get/');
     const data = response.data;
 
-    const currentPost = data.results.find((item: any) => {
-        if (item.id == id) {
-            return item;
+    const currentPost = data.results.find((post: ICurrentPost) => {
+        if (String(post.id) === String(id)) {
+            return post;
         }
     });
 
@@ -100,7 +104,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
         
     return {
         fallback: true,
-        paths: response.data.results.map((post: any) => ({
+        paths: response.data.results.map((post: ICurrentPost) => ({
             params: { id: post.id.toString() },
         })),
     };
