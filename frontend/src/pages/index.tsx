@@ -40,10 +40,10 @@ interface IData {
 }
 
 export default function Home({ data }: IData) {
-    let { setpage, page, setTotalPages, totalPages } = useContext(GlobalContext);
+    let { setPage, page, setTotalPages, totalPages } = useContext(GlobalContext);
 
     useEffect(() => {
-        setpage(data.next.page)
+        setPage(data.next.page)
     }, [])
 
     const checkNextPage = function () {

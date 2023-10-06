@@ -11,16 +11,16 @@ interface IpropsPagination {
 }
 
 const Pagination = function(props: IpropsPagination){
-    let { setpage, page, setTotalPages } = useContext(GlobalContext);
+    let { setPage, page, setTotalPages } = useContext(GlobalContext);
 
     function setNextPage() {
         let nextPage = page += 1
-        setpage(nextPage)
+        setPage(nextPage)
     }
 
     const setPreviowPage = function(){
         let nextPage = page -= 1
-        setpage(nextPage)
+        setPage(nextPage)
     }
 
 
