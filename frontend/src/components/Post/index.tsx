@@ -6,7 +6,17 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
 
-const Post = function (props: any) {
+interface Iprops {
+    date: string
+    style: {}
+    post_image: string
+    title: string
+    content: string
+    author: string
+    id: string
+}
+
+const Post = function (props: Iprops) {
     const dateObject = new Date(props.date);
     const formattedDate = dateObject.toLocaleDateString();
     
