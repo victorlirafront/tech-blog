@@ -10,6 +10,31 @@ import Pagination from '@/components/Pagination';
 import { GetStaticProps, GetStaticPaths } from 'next';
 
 export default function Home({ data }: any) {
+
+    const setNextPage = function(){
+        if(data?.next){
+           return data.next.page -1
+        }else {
+            return data.previous.page + 1
+        }
+    }
+
+    const checkNextPage = function(){
+        if(data?.next){
+            return true
+        }else {
+            return false
+        }
+    }
+
+    const checkPreviousPage = function(){
+        if(data?.previous){
+            return true
+        }else {
+            return false
+        }
+    }
+
     return (
         <Fragment>
             <Head>
@@ -54,7 +79,7 @@ export default function Home({ data }: any) {
                     })}
                 </div>
             </MainPage>
-            <Pagination/>
+            <Pagination pageLength={data.totalPages} page={setNextPage()} hasNextPage={checkNextPage()} hasPreviousPage={checkPreviousPage()}/>
             <Footer/>
         </Fragment>
     );
@@ -66,9 +91,9 @@ export interface MyComponentProps {
 
 export const getStaticProps: GetStaticProps = async (context: any) => {
     try {
-
         const { id } = context.params;
-        const response = await Axios.get(`https://blog-backend-tau-three.vercel.app/api/get?page=${id}&limit=5`);
+
+        const response = await Axios.get(`http://localhost:3001/api/get?page=${id}&limit=2`);
         const data = response.data; // Extract data from the response
 
         return {
@@ -88,7 +113,7 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
 
 export const getStaticPaths: GetStaticPaths = async () => {
     let response = await Axios({
-        url: 'https://blog-backend-tau-three.vercel.app/api/get/',
+        url: 'http://localhost:3001/api/get',
         method: 'GET',
     });
         

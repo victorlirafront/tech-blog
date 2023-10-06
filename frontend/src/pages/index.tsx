@@ -16,9 +16,24 @@ export default function Home({ data }: any) {
     let { setpage, page, setTotalPages, totalPages } = useContext(GlobalContext);
 
     useEffect(() => {
-        setpage(1)
-        console.log(data)
+        setpage(data.next.page)
     }, [])
+
+    const checkNextPage = function(){
+        if(data?.next){
+            return true
+        }else {
+            return false
+        }
+    }
+
+    const checkPreviousPage = function(){
+        if(data?.previous){
+            return true
+        }else {
+            return false
+        }
+    }
 
     return (
         <Fragment>
@@ -64,7 +79,7 @@ export default function Home({ data }: any) {
                     })}
                 </div>
             </MainPage>
-            <Pagination pageLength={3}/>
+            <Pagination pageLength={data.totalPages} page={data.next.page -1} hasNextPage={checkNextPage()} hasPreviousPage={checkPreviousPage()} />
             <Footer/>
         </Fragment>
     );
@@ -76,7 +91,7 @@ export interface MyComponentProps {
 
 export const getStaticProps = async () => {
     try {
-        const response = await Axios.get('https://blog-backend-tau-three.vercel.app/api/get?page=1&limit=5');
+        const response = await Axios.get('http://localhost:3001/api/get?page=1&limit=2');
         const data = response.data; // Extract data from the response
 
         return {
