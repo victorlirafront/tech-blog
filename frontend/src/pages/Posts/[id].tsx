@@ -10,8 +10,18 @@ import dateFormatter from '@/helperFunctions/dateFormatter';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
+interface IProps {
+    post: {
+        post_background: string
+        date: string
+        meta_tag_title: string
+        meta_tag_description: string
+        title: string
+        content: string
+    }
+}
 
-function Posts(props: any) {
+function Posts(props: IProps) {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
