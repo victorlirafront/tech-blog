@@ -12,25 +12,52 @@ import { GlobalContext } from '../Context/pagination';
 import { useContext } from "react";
 import { useEffect } from 'react';
 
-export default function Home({ data }: any) {
+interface IPost {
+    id: number
+    title: string
+    content: string
+    date: string
+    category: string
+    meta_tag_title: string
+    meta_tag_description: string
+    post_image: string
+    author: string
+}
+
+interface IData {
+    data: {
+        totalPages: number
+        next: {
+            page: number
+            limit: number
+        }
+        previous: {
+            page: number
+            limit: number
+        }
+        results: IPost[]
+    }
+}
+
+export default function Home({ data }: IData) {
     let { setpage, page, setTotalPages, totalPages } = useContext(GlobalContext);
 
     useEffect(() => {
         setpage(data.next.page)
     }, [])
 
-    const checkNextPage = function(){
-        if(data?.next){
+    const checkNextPage = function () {
+        if (data?.next) {
             return true
-        }else {
+        } else {
             return false
         }
     }
 
-    const checkPreviousPage = function(){
-        if(data?.previous){
+    const checkPreviousPage = function () {
+        if (data?.previous) {
             return true
-        }else {
+        } else {
             return false
         }
     }
@@ -50,14 +77,14 @@ export default function Home({ data }: any) {
                 <link rel="icon" href="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/js_QxOIctz2p.png?updatedAt=1688608526457" />
             </Head>
             <Header />
-            <About/>
+            <About />
             <MainPage>
                 <div className="container">
-                    {data.results.map((post: any, index: any) => {
+                    {data.results.map((post: IPost, index: number) => {
                         let costumizeFirstPost = false;
 
                         index === 0 ? costumizeFirstPost = true : false
-                        
+
                         const styled = {
                             minWidth: "calc(66.66667% - 40px)"
                         }
@@ -79,14 +106,10 @@ export default function Home({ data }: any) {
                     })}
                 </div>
             </MainPage>
-            <Pagination pageLength={data.totalPages} page={data.next.page -1} hasNextPage={checkNextPage()} hasPreviousPage={checkPreviousPage()} />
-            <Footer/>
+            <Pagination pageLength={data.totalPages} page={data.next.page - 1} hasNextPage={checkNextPage()} hasPreviousPage={checkPreviousPage()} />
+            <Footer />
         </Fragment>
     );
-}
-
-export interface MyComponentProps {
-    data: any;
 }
 
 export const getStaticProps = async () => {
@@ -97,7 +120,7 @@ export const getStaticProps = async () => {
         return {
             props: {
                 data // Pass the extracted data as props
-            },revalidate: 10, // In seconds
+            }, revalidate: 10, // In seconds
         };
     } catch (error) {
         console.error("Error fetching data:", error);
