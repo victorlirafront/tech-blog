@@ -1,4 +1,4 @@
-function dateFormatter(input: any) {
+function dateFormatter(input: string) {
     const [dia, mes, ano] = input.split('/');
     const meses = [
       'Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun',
