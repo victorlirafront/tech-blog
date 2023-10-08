@@ -13,7 +13,7 @@ import { useContext } from "react";
 import { useEffect } from 'react';
 
 interface IPost {
-    id: number
+    id: any
     title: string
     content: string
     date: string
@@ -43,7 +43,9 @@ export default function Home({ data }: IData) {
     let { setPage, page, setTotalPages, totalPages } = useContext(GlobalContext);
 
     useEffect(() => {
-        setPage(data.next.page)
+        setPage(data.next.page);
+
+        console.log(data.results)
     }, [])
 
     const checkNextPage = function () {
@@ -97,8 +99,8 @@ export default function Home({ data }: IData) {
                                 title={post.title}
                                 content={post.content}
                                 author={post.author}
-                                meta_tag_title={post.meta_tag_title}
-                                meta_tag_description={post.meta_tag_description}
+                                // meta_tag_title={post.meta_tag_title}
+                                // meta_tag_description={post.meta_tag_description}
                                 post_image={post.post_image}
                                 date={post.date}
                             />
