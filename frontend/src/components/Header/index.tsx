@@ -15,7 +15,19 @@ const Header = function () {
                 <nav>
                     <ul>
                         <li>
-                            <Link href="/">Home</Link>
+                            <Link href="/">HOME</Link>
+                        </li>
+                        <li>
+                            <Link href="/">ABOUT ME</Link>
+                        </li>
+                        <li>
+                            <Link href="/">MY SKILLS</Link>
+                        </li>
+                        <li>
+                            <Link href="/">VLOG</Link>
+                        </li>
+                        <li>
+                            <Link href="/">CONTACT ME</Link>
                         </li>
                     </ul>
                 </nav>
