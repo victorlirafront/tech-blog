@@ -13,21 +13,13 @@ const Header = function () {
         <StyledHeader data-aos="fade-down">
             <div className="container">
                 <nav>
+                    <img className='header-icon' src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/code_2GKuQisNn.png?updatedAt=1697217597567" alt="" />
                     <ul>
                         <li>
-                            <Link href="/">HOME</Link>
+                            <Link href="/">Home</Link>
                         </li>
                         <li>
-                            <Link href="/">ABOUT ME</Link>
-                        </li>
-                        <li>
-                            <Link href="/">MY SKILLS</Link>
-                        </li>
-                        <li>
-                            <Link href="/">VLOG</Link>
-                        </li>
-                        <li>
-                            <Link href="/">CONTACT ME</Link>
+                            Category
                         </li>
                     </ul>
                 </nav>

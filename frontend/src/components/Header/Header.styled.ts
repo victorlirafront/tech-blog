@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const StyledHeader = styled.header`
     padding: 20px 60px;
     background: #121212;
-    max-width: 1920px;
+    max-width: 1000px;
     margin: 0 auto;
 
     .container {
@@ -12,7 +12,13 @@ const StyledHeader = styled.header`
         max-width: 1200px;
 
         nav {
-        width: 100%;
+            width: 100%;
+            display: flex;
+
+            .header-icon {
+                    width: 40px;
+                    margin-right: 15px;
+                }
 
         ul {
             display: flex;
@@ -20,8 +26,10 @@ const StyledHeader = styled.header`
             justify-content: space-between;
             list-style: none;
             color: white;
+            width: 100%;
 
             li {
+                
                 a {
                     color: #fff;
                     text-decoration: none;

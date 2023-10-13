@@ -93,7 +93,7 @@ export const getStaticProps: GetStaticProps = async (context: any) => {
     try {
         const { id } = context.params;
 
-        const response = await Axios.get(`http://localhost:3001/api/get?page=${id}&limit=2`);
+        const response = await Axios.get(`http://localhost:3001/api/get?page=${id}&limit=8`);
         const data = response.data; // Extract data from the response
 
         return {
