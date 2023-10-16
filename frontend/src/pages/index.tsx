@@ -103,6 +103,7 @@ export default function Home({ data }: IData) {
                                 // meta_tag_description={post.meta_tag_description}
                                 post_image={post.post_image}
                                 date={post.date}
+                                category={post.category}
                             />
                         );
                     })}

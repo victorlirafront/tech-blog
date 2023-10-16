@@ -14,6 +14,7 @@ interface Iprops {
     content: string
     author: string
     id: string
+    category: string
 }
 
 const Post = function (props: Iprops) {
@@ -36,7 +37,7 @@ const Post = function (props: Iprops) {
             <div className="post-body">
                 <div className="category-wrapper">
                     <p className="post-date">{dateFormatter(formattedDate)}</p>
-                    <p className="post-category">javascript</p>
+                    <p className="post-category">{props.category}</p>
                 </div>
 
                 <h1 className="post-title">{props.title}</h1>
