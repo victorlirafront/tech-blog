@@ -3,7 +3,7 @@ import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import { GetStaticProps, GetStaticPaths, GetStaticPropsContext } from 'next';
 import Header from '@/components/Header';
-import  StyledPosts  from './Posts.styled';
+import StyledPosts from './Posts.styled';
 import MarkdownRenderer from '@/components/MarkdownRenderer';
 import Footer from '@/components/Footer';
 import dateFormatter from '@/helperFunctions/dateFormatter';
@@ -18,6 +18,7 @@ interface IProps {
         meta_tag_description: string
         title: string
         content: string
+        post_image: string
     }
 }
 
@@ -32,7 +33,7 @@ function Posts(props: IProps) {
         setIsLoading(false);
         AOS.init();
     }, []);
-    
+
     if (isLoading) {
         return <div>Loading...</div>;
     }
@@ -52,14 +53,12 @@ function Posts(props: IProps) {
             </Head>
             <Header />
             <StyledPosts>
-                <div data-aos="fade-down" className='background-image' style={{backgroundImage: `url(${props.post.post_background})`}}>
-                    {/* <img src={props.post.post_image} /> */}
-                </div>
+                <div data-aos="fade-down" className='background-image' style={{ backgroundImage: `url(${props.post.post_background})` }}></div>
 
                 <div className='body-post' data-aos="fade-up">
                     <h1 className='title'>{props.post.title}</h1>
                     <p className='date'>{dateFormatter(formattedDate)}</p>
-                    <MarkdownRenderer markdown={props.post.content}  />
+                    <MarkdownRenderer markdown={props.post.content} />
                 </div>
                 <div className='writter'>
                     <div className='author'></div>
@@ -69,7 +68,7 @@ function Posts(props: IProps) {
                     </div>
                 </div>
             </StyledPosts>
-            <Footer/>
+            <Footer />
         </React.Fragment>
     );
 }
@@ -79,10 +78,10 @@ export const getStaticProps: GetStaticProps = async (
 ) => {
     const { id } = context.params!;
 
-    const response = await Axios.get('https://blog-backend-l7c9vda7w-victorlirafront.vercel.app/api/get/');
-    const data = response.data;
+    const response = await Axios.get('http://localhost:3001/api/get?page=1&limit=100');
+    const data = response.data.results;
 
-    const currentPost = data.results.find((post: ICurrentPost) => {
+    const currentPost = data.find((post: ICurrentPost) => {
         if (String(post.id) === String(id)) {
             return post;
         }
@@ -98,10 +97,10 @@ export const getStaticProps: GetStaticProps = async (
 
 export const getStaticPaths: GetStaticPaths = async () => {
     let response = await Axios({
-        url: 'https://blog-backend-l7c9vda7w-victorlirafront.vercel.app/api/get/',
+        url: 'http://localhost:3001/api/get?page=1&limit=100',
         method: 'GET',
     });
-        
+
     return {
         fallback: true,
         paths: response.data.results.map((post: ICurrentPost) => ({

@@ -29,6 +29,7 @@ const StyledHeader = styled.header`
             width: 100%;
 
             li {
+                cursor: pointer;
                 
                 a {
                     color: #fff;

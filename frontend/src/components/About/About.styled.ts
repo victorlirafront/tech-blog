@@ -11,7 +11,7 @@ const StyledAbout = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url(./worker.png?v=10);
+    background-image: url(https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/worker_a5Q0u72Xk.png?updatedAt=1697424748194);
     /* background: #010a1d; */
     position: relative;
 
@@ -36,22 +36,22 @@ const StyledAbout = styled.div`
         .typed-animation {
 
             .title-1 {
-                font-size: 30px;
+                font-size: 27px;
                 font-weight: bold;
             }
 
             .title-2 {
-                font-size: 25px;
+                font-size: 22px;
                 font-weight: bold;
             }
 
             .title-3 {
-                font-size: 20px;
+                font-size: 17px;
                 font-weight: bold;
             }
 
             .title-4 {
-                font-size: 20px;
+                font-size: 17px;
                 font-weight: bold;
             }
         }
