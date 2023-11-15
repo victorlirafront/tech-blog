@@ -93,9 +93,8 @@ export interface MyComponentProps {
 export const getStaticProps: GetStaticProps = async (context: any) => {
     try {
         const { id } = context.params;
-        const limit = "3"
-        const category = "javascript"
-        const response = await Axios.get(`http://localhost:3001/api/get?page=${id}&limit=${limit}&category=${category}`);
+
+        const response = await Axios.get(`http://localhost:3001/api/get?page=${id}&limit=8`);
         const data = response.data; // Extract data from the response
 
         return {
