@@ -19,14 +19,15 @@ const Header = function () {
                             <Link href="/">Home</Link>
                         </li>
                         <li>
-                            <select name="" id="">
+                            {/* <select name="" id="">
                                 <option disabled value="javascript">Category</option>
                                 <option value="Javascript">Javascript</option>
                                 <option value="Javascript">React</option>
                                 <option value="Javascript">Next</option>
                                 <option value="Javascript">HTML</option>
                                 <option value="Javascript">CSS</option>
-                            </select>
+                            </select> */}
+                            Category
                         </li>
                     </ul>
                 </nav>
