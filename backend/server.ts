@@ -35,19 +35,40 @@ const paginatedResults = function (model: any) {
 // Rota para buscar posts paginados
 app.get('/api/get', (req: Request, res: any) => {
     // Executa a consulta SQL
-    connection.query('SELECT * FROM posts', (err, result) => {
-        if (err) {
-            console.log(err);
-            res.status(500).json({ message: 'Erro ao buscar posts.' });
-            return;
-        }
 
-        // Chama a função de paginar os resultados
-        paginatedResults(result)(req, res, () => {
-            // Retorna os resultados paginados
-            res.json(res.paginatedResults);
+    const category: string = String(req.query.category) || "all"; 
+    console.log("teste")
+    console.log(category)
+
+    if(category === "all" || !category){
+        connection.query('SELECT * FROM posts', (err, result) => {
+            if (err) {
+                console.log(err);
+                res.status(500).json({ message: 'Erro ao buscar posts.' });
+                return;
+            }
+    
+            // Chama a função de paginar os resultados
+            paginatedResults(result)(req, res, () => {
+                // Retorna os resultados paginados
+                res.json(res.paginatedResults);
+            });
         });
-    });
+    }else {
+        connection.query('SELECT * FROM posts WHERE category = ?', [category], (err, result) => {
+            if (err) {
+                console.log(err);
+                res.status(500).json({ message: 'Erro ao buscar posts.' });
+                return;
+            }
+    
+            // Chama a função de paginar os resultados
+            paginatedResults(result)(req, res, () => {
+                // Retorna os resultados paginados
+                res.json(res.paginatedResults);
+            });
+        });
+    }
 });
 
 app.post("/api/create", (req: any, res: any) => {

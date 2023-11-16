@@ -95,9 +95,15 @@ export interface MyComponentProps {
 export const getServerSideProps: GetServerSideProps = async (context: any) => {
     try {
       const { id } = context.params;
-  
-      // Fetch data at request time (server-side)
-      const response = await Axios.get(`http://localhost:3001/api/get?page=${id}&limit=8`);
+      let { category } = context.query ? context.query : "all";
+      console.log(category)
+      console.log("client")
+      if(category === undefined){
+        category = "javascript"
+      }
+      const limit = "2"
+    //   const category = "javascript"
+      const response = await Axios.get(`http://localhost:3001/api/get?page=${id}&limit=${limit}&category=${category}`);
       const data = response.data;
   
       return {
