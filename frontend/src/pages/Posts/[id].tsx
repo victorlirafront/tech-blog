@@ -2,6 +2,7 @@ import Axios from 'axios';
 import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import { GetStaticProps, GetStaticPaths, GetStaticPropsContext } from 'next';
+import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 import Header from '@/components/Header';
 import StyledPosts from './Posts.styled';
 import MarkdownRenderer from '@/components/MarkdownRenderer';
@@ -73,40 +74,44 @@ function Posts(props: IProps) {
     );
 }
 
-export const getStaticProps: GetStaticProps = async (
-    context: GetStaticPropsContext
+export const getServerSideProps: GetServerSideProps = async (
+  context: GetServerSidePropsContext
 ) => {
-    const { id } = context.params!;
+  const { id } = context.params!;
 
-    const response = await Axios.get('http://localhost:3001/api/get?page=1&limit=100');
+  try {
+    //MELHORAR ISSO AQUI
+    const response = await Axios.get(
+      'http://localhost:3001/api/get?page=1&limit=100&category=all'
+    );
+
+    console.log(response)
     const data = response.data.results;
+    console.log(id)
+    console.log("data")
+    console.log(data)
 
     const currentPost = data.find((post: ICurrentPost) => {
-        if (String(post.id) === String(id)) {
-            return post;
-        }
+      return String(post.id) === String(id);
     });
 
-    return {
-        props: {
-            post: currentPost,
-        },
-        revalidate: 50,
-    };
-};
-
-export const getStaticPaths: GetStaticPaths = async () => {
-    let response = await Axios({
-        url: 'http://localhost:3001/api/get?page=1&limit=100',
-        method: 'GET',
-    });
+    if (!currentPost) {
+      // Se o post não for encontrado, retornar uma página 404
+      return {
+        notFound: true,
+      };
+    }
 
     return {
-        fallback: true,
-        paths: response.data.results.map((post: ICurrentPost) => ({
-            params: { id: post.id.toString() },
-        })),
+      props: {
+        post: currentPost,
+      },
     };
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    return {
+      notFound: true,
+    };
+  }
 };
-
 export default Posts;

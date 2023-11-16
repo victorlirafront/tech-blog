@@ -31,6 +31,7 @@ const Header = function () {
                             {/* <Link href="/Pagination/1?category=react">teste</Link> */}
                             <select name="" id="" onChange={(event) => changeHandler(event)}>
                                 <option disabled selected value="">Category</option>
+                                <option value="all">All</option>
                                 <option value="javascript">Javascript</option>
                                 <option value="react">React</option>
                             </select>
