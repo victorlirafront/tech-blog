@@ -115,7 +115,7 @@ export default function Home({ data }: IData) {
     );
 }
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async (context: any) => {
     try {
         const response = await Axios.get('http://localhost:3001/api/get?page=1&limit=8');
         const data = response.data; // Extract data from the response
@@ -123,7 +123,7 @@ export const getStaticProps = async () => {
         return {
             props: {
                 data // Pass the extracted data as props
-            }, revalidate: 10, // In seconds
+            },
         };
     } catch (error) {
         console.error("Error fetching data:", error);

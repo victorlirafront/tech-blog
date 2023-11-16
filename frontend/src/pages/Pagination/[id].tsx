@@ -8,6 +8,8 @@ import Footer from '@/components/Footer';
 import Axios from 'axios';
 import Pagination from '@/components/Pagination';
 import { GetStaticProps, GetStaticPaths } from 'next';
+import { GetServerSideProps } from 'next';
+
 
 export default function Home({ data }: any) {
 
@@ -90,38 +92,25 @@ export interface MyComponentProps {
     data: any;
 }
 
-export const getStaticProps: GetStaticProps = async (context: any) => {
+export const getServerSideProps: GetServerSideProps = async (context: any) => {
     try {
-        const { id } = context.params;
-
-        const response = await Axios.get(`http://localhost:3001/api/get?page=${id}&limit=8`);
-        const data = response.data; // Extract data from the response
-
-        return {
-            props: {
-                data // Pass the extracted data as props
-            },revalidate: 10, // In seconds
-        };
+      const { id } = context.params;
+  
+      // Fetch data at request time (server-side)
+      const response = await Axios.get(`http://localhost:3001/api/get?page=${id}&limit=8`);
+      const data = response.data;
+  
+      return {
+        props: {
+          data,
+        },
+      };
     } catch (error) {
-        console.error("Error fetching data:", error);
-        return {
-            props: {
-                data: [] // Return an empty array or handle the error as needed
-            }
-        };
+      console.error('Error fetching data:', error);
+      return {
+        props: {
+          data: [],
+        },
+      };
     }
-};
-
-export const getStaticPaths: GetStaticPaths = async () => {
-    let response = await Axios({
-        url: 'http://localhost:3001/api/get',
-        method: 'GET',
-    });
-        
-    return {
-        fallback: true,
-        paths: response.data.results.map((post: any) => ({
-            params: { id: post.id.toString() },
-        })),
-    };
-};
+  };
