@@ -85,11 +85,7 @@ export const getServerSideProps: GetServerSideProps = async (
       'http://localhost:3001/api/get?page=1&limit=100&category=all'
     );
 
-    console.log(response)
     const data = response.data.results;
-    console.log(id)
-    console.log("data")
-    console.log(data)
 
     const currentPost = data.find((post: ICurrentPost) => {
       return String(post.id) === String(id);
