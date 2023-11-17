@@ -101,7 +101,7 @@ export const getServerSideProps: GetServerSideProps = async (context: any) => {
       if(category === undefined){
         category = "javascript"
       }
-      const limit = "2"
+      const limit = "8"
     //   const category = "javascript"
       const response = await Axios.get(`http://localhost:3001/api/get?page=${id}&limit=${limit}&category=${category}`);
       const data = response.data;

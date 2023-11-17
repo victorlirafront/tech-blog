@@ -118,7 +118,7 @@ export default function Home({ data }: IData) {
 export const getServerSideProps = async (context: any) => {
     try {
         const page = "1"
-        const limit = "2"
+        const limit = "8"
         const category = "all"
         const response = await Axios.get(`http://localhost:3001/api/get?page=${page}&limit=${limit}&category=${category}`);
         const data = response.data; // Extract data from the response
