@@ -17,6 +17,8 @@ const Pagination = function(props: IpropsPagination){
     const router = useRouter();
     let category = router.query.category;
 
+    console.log(page)
+
     if(category === undefined) {
         category = "all"
     }

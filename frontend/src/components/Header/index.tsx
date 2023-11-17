@@ -4,8 +4,13 @@ import StyledHeader from './Header.styled';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useRouter } from 'next/router';
+import { useContext } from "react";
+import { GlobalContext } from '../../Context/pagination';
 
 const Header = function () {
+
+    let { setPage, page, setTotalPages } = useContext(GlobalContext);
+
     useEffect(() => {
         AOS.init();
     }, []);
@@ -14,7 +19,8 @@ const Header = function () {
     const changeHandler = function(event: any){
         const category = event.target.value
        if(category){
-        router.push(`/Pagination/1?category=${category}`);
+            router.push(`/Pagination/1?category=${category}`);
+            setPage(2);
        }
     }
 
