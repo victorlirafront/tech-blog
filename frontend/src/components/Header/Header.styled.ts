@@ -35,6 +35,20 @@ const StyledHeader = styled.header`
                     color: #fff;
                     text-decoration: none;
                 }
+
+                select {
+                    color: white;
+                    background: transparent;
+                    padding: 5px 10px;
+                    border-radius: 4px;
+                    width: 130px;
+                    font-size: 16px;
+                    border: none;
+                    cursor: pointer;
+                    option {
+                        cursor: pointer;
+                    }
+                }
             }
         }
     }
