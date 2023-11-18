@@ -54,13 +54,15 @@ const StyledHeader = styled.header`
             }
 
             .category {
-                width: 200px;
+                width: 150px;
                 text-align: center;
                 position: relative;
                 padding: 7px 0;
 
                 .category-conteiner {
                     display: flex;
+                    justify-content: space-between;
+
                     .arrow {
                         height: 30px;
                         margin-left: 10px;
@@ -74,7 +76,7 @@ const StyledHeader = styled.header`
                 }
 
                 .category-options {
-                    width: 200px;
+                    width: 150px;
                     position: absolute;
                     z-index: 2 !important;
                     top: 64px;
