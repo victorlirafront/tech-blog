@@ -3,7 +3,6 @@ import Link from 'next/link';
 import StyledHeader from './Header.styled';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { useRouter } from 'next/router';
 import { useContext } from "react";
 import { GlobalContext } from '../../Context/pagination';
 
@@ -15,17 +14,12 @@ const Header = function () {
         AOS.init();
     }, []);
 
-    const router = useRouter();
-    const changeHandler = function(event: any){
-        const category = event.target.value
-       if(category){
-            router.push(`/Pagination/1?category=${category}`);
-            setPage(2);
-       }
-    }
+    const categoryToggle = function(e: any){
+        setIsCategoryActive(!isCategoryActive);
 
-    const categoryToggle = function(){
-        setIsCategoryActive(!isCategoryActive)
+        if(e.target.classList.contains("option")){
+            setPage(2);
+        }
     }
 
     return (
@@ -45,7 +39,7 @@ const Header = function () {
                                 <option value="react">React</option>
                             </select>
                         </li> */}
-                        <div className='category' onClick={() => categoryToggle()}>
+                        <div className='category' onClick={(e) => categoryToggle(e)}>
                            <div className='category-conteiner'>
                                 <p>Category</p>
                                 <img className={`arrow ${isCategoryActive ? 'active' : ""}`} src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow_Qvhukz-ZL.png" alt="" />
