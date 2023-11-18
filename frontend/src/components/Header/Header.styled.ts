@@ -2,10 +2,12 @@
 import styled from 'styled-components';
 
 const StyledHeader = styled.header`
+    position: relative;
     padding: 20px 60px;
     background: #121212;
     max-width: 1000px;
     margin: 0 auto;
+    z-index: 3;
 
     .container {
         margin: 0 auto;
@@ -20,7 +22,7 @@ const StyledHeader = styled.header`
                     margin-right: 15px;
                 }
 
-        ul {
+        .menu-wrapper {
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -28,7 +30,7 @@ const StyledHeader = styled.header`
             color: white;
             width: 100%;
 
-            li {
+            div {
                 cursor: pointer;
                 
                 a {
@@ -36,7 +38,7 @@ const StyledHeader = styled.header`
                     text-decoration: none;
                 }
 
-                select {
+                /* select {
                     color: white;
                     background: transparent;
                     padding: 5px 10px;
@@ -48,6 +50,48 @@ const StyledHeader = styled.header`
                     option {
                         cursor: pointer;
                     }
+                } */
+            }
+
+            .category {
+                width: 200px;
+                text-align: center;
+                position: relative;
+                padding: 7px 0;
+
+                .category-conteiner {
+                    display: flex;
+                    .arrow {
+                        height: 30px;
+                        margin-left: 10px;
+                        max-width: 27px;
+                        transform: scale(0.7);
+
+                        &.active {
+                            transform: scale(0.7) rotate(180deg);
+                        }
+                    }
+                }
+
+                .category-options {
+                    width: 200px;
+                    position: absolute;
+                    z-index: 2 !important;
+                    top: 64px;
+                    list-style: none;
+                    text-align: center;
+                    background: #1fb28b;
+
+                    &.active{
+                        display: flex;
+                        flex-direction: column;
+                        border-radius: 4px;
+                    }
+
+                    a{
+                        padding: 7px;
+                    }
+                    display: none;
                 }
             }
         }
