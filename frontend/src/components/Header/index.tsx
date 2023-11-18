@@ -31,14 +31,7 @@ const Header = function () {
                         <div>
                             <Link href="/">Home</Link>
                         </div>
-                        {/* <li>
-                            <select name="" id="" onChange={(event) => changeHandler(event)}>
-                                <option disabled selected value="">Category</option>
-                                <option value="all">All</option>
-                                <option value="javascript">Javascript</option>
-                                <option value="react">React</option>
-                            </select>
-                        </li> */}
+
                         <div className='category' onClick={(e) => categoryToggle(e)}>
                            <div className='category-conteiner'>
                                 <p>Category</p>

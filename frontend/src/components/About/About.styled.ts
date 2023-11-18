@@ -12,7 +12,6 @@ const StyledAbout = styled.div`
     align-items: center;
     justify-content: center;
     background-image: url(https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/worker_a5Q0u72Xk.png?updatedAt=1697424748194);
-    /* background: #010a1d; */
     position: relative;
 
     .overlay {

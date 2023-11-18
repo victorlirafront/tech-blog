@@ -57,10 +57,6 @@ const StyledPost = styled.div`
                 font-size: 12px;
                 color: #9ec0fa;
                 transition: 0.2s;
-                /* &:hover {
-                    cursor: pointer;
-                    color: #d3d4ff;
-                } */
             }
         }
 
@@ -69,7 +65,6 @@ const StyledPost = styled.div`
             line-height: 26px;
             margin-bottom: 20px;
             font-size: 22px;
-            /* height: 42px; */
             vertical-align: middle;
             display: flex;
             align-items: center;
@@ -97,9 +92,6 @@ const StyledPost = styled.div`
             margin-right: 10px;
             color: #9ec0fa;
             transition: 0.2s;
-            /* &:hover {
-                color: #1fd760;
-            } */
         }
 
         img {

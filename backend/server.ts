@@ -1,4 +1,4 @@
-import express, { Request, Response } from "express";
+import express, { Request } from "express";
 import { connection } from "./config/db";
 import cors from "cors";
 require("dotenv").config();
@@ -9,8 +9,8 @@ app.use(express.json());
 
 const paginatedResults = function (model: any) {
     return (req: any, res: any, next: any) => {
-        const page: number = Number(req.query.page) || 1; // Página padrão é 1 se não for fornecida.
-        const limit: number = Number(req.query.limit) || 10; // Limite padrão é 10 se não for fornecido.
+        const page: number = Number(req.query.page) || 1;
+        const limit: number = Number(req.query.limit) || 10;
 
         const startIndex: number = (page - 1) * limit;
         const endIndex: number = page * limit;
@@ -32,13 +32,9 @@ const paginatedResults = function (model: any) {
     }
 }
 
-// Rota para buscar posts paginados
 app.get('/api/get', (req: Request, res: any) => {
-    // Executa a consulta SQL
 
     const category: string = String(req.query.category) || "all"; 
-    console.log("teste")
-    console.log(category)
 
     if(category === "all" || !category){
         connection.query('SELECT * FROM posts', (err, result) => {
@@ -48,9 +44,7 @@ app.get('/api/get', (req: Request, res: any) => {
                 return;
             }
     
-            // Chama a função de paginar os resultados
             paginatedResults(result)(req, res, () => {
-                // Retorna os resultados paginados
                 res.json(res.paginatedResults);
             });
         });
@@ -62,9 +56,7 @@ app.get('/api/get', (req: Request, res: any) => {
                 return;
             }
     
-            // Chama a função de paginar os resultados
             paginatedResults(result)(req, res, () => {
-                // Retorna os resultados paginados
                 res.json(res.paginatedResults);
             });
         });

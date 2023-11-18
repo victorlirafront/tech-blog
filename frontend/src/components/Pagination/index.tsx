@@ -1,7 +1,7 @@
 import StyledPagination from "./Pagination.styled";
 import Link from "next/link";
 import { GlobalContext } from '../../Context/pagination';
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { useRouter } from 'next/router';
 
 interface IpropsPagination {
@@ -11,9 +11,8 @@ interface IpropsPagination {
     hasPreviousPage: boolean
 }
 
-
 const Pagination = function(props: IpropsPagination){
-    let { setPage, page, setTotalPages } = useContext(GlobalContext);
+    let { setPage, page } = useContext(GlobalContext);
     const router = useRouter();
     let category = router.query.category;
 
@@ -30,7 +29,6 @@ const Pagination = function(props: IpropsPagination){
         let nextPage = page -= 1
         setPage(nextPage)
     }
-
 
     const createNextPageArrow = function(){
         if(props.hasNextPage){

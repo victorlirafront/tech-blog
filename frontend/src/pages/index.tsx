@@ -7,7 +7,6 @@ import About from '@/components/About';
 import Footer from '@/components/Footer';
 import Axios from 'axios';
 import Pagination from '@/components/Pagination';
-import { GetStaticProps } from 'next';
 import { GlobalContext } from '../Context/pagination';
 import { useContext } from "react";
 import { useEffect } from 'react';
