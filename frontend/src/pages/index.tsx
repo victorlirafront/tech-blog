@@ -83,6 +83,7 @@ export default function Home({ data }: IData) {
             <MainPage>
                 <div className="container">
                     {data.results.map((post: IPost, index: number) => {
+                        console.log(data.totalPages)
                         let costumizeFirstPost = false;
 
                         index === 0 ? costumizeFirstPost = true : false
@@ -109,7 +110,7 @@ export default function Home({ data }: IData) {
                     })}
                 </div>
             </MainPage>
-            <Pagination pageLength={data.totalPages} page={data.next.page - 1} hasNextPage={checkNextPage()} hasPreviousPage={checkPreviousPage()} />
+            <Pagination pageLength={Math.ceil(data.totalPages)} page={data.next.page - 1} hasNextPage={checkNextPage()} hasPreviousPage={checkPreviousPage()} />
             <Footer />
         </Fragment>
     );

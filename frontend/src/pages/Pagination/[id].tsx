@@ -82,7 +82,7 @@ export default function Home({ data }: any) {
                     })}
                 </div>
             </MainPage>
-            <Pagination pageLength={data.totalPages} page={setNextPage()} hasNextPage={checkNextPage()} hasPreviousPage={checkPreviousPage()}/>
+            <Pagination pageLength={Math.ceil(data.totalPages)} page={setNextPage()} hasNextPage={checkNextPage()} hasPreviousPage={checkPreviousPage()}/>
             <Footer/>
         </Fragment>
     );
@@ -96,8 +96,7 @@ export const getServerSideProps: GetServerSideProps = async (context: any) => {
     try {
       const { id } = context.params;
       let { category } = context.query ? context.query : "all";
-      console.log(category)
-      console.log("client")
+
       if(category === undefined){
         category = "javascript"
       }

@@ -94,6 +94,12 @@ const StyledHeader = styled.header`
                         padding: 7px;
                     }
                     display: none;
+
+                    .option {
+                        &:hover {
+                            filter: brightness(1.1);
+                        }
+                    }
                 }
             }
         }

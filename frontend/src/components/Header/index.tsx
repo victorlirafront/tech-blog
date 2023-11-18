@@ -51,9 +51,9 @@ const Header = function () {
                                 <img className={`arrow ${isCategoryActive ? 'active' : ""}`} src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow_Qvhukz-ZL.png" alt="" />
                            </div>
                             <div className={`category-options ${isCategoryActive ? 'active' : ""}`}>
-                                 <Link href={"/Pagination/1?category=all"}>All</Link>
-                                 <Link href={"/Pagination/1?category=javascript"}>Javascript</Link>
-                                 <Link href={"/Pagination/1?category=react"}>React</Link>
+                                 <Link className="option" href={"/Pagination/1?category=all"}>All</Link>
+                                 <Link className="option" href={"/Pagination/1?category=javascript"}>Javascript</Link>
+                                 <Link className="option" href={"/Pagination/1?category=react"}>React</Link>
                             </div>
                         </div>
                     </div>
