@@ -50,7 +50,7 @@ function Posts(props: IProps) {
                     name="description"
                     content={`${props.post.meta_tag_description}`}
                 ></meta>
-                <link rel="icon" href="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/js_QxOIctz2p.png?updatedAt=1688608526457" />
+                <link rel="icon" href="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/binary-code_WBpGXnWnG.png?updatedAt=1700431546132" />
             </Head>
             <Header />
             <StyledPosts>

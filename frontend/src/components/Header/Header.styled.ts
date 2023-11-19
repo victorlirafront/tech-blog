@@ -72,6 +72,7 @@ const StyledHeader = styled.header`
                 .category-conteiner {
                     display: flex;
                     justify-content: space-between;
+                    cursor: pointer;
 
                     .arrow {
                         height: 30px;
@@ -84,11 +85,12 @@ const StyledHeader = styled.header`
                 .category-options {
                     width: 150px;
                     position: absolute;
-                    z-index: 2 !important;
+                    z-index: 2;
                     top: 64px;
                     list-style: none;
                     text-align: center;
                     background: #1fb28b;
+                    cursor: pointer;
 
                     &.active{
                         display: flex;
@@ -103,7 +105,8 @@ const StyledHeader = styled.header`
 
                     .option {
                         &:hover {
-                            filter: brightness(1.1);
+                            transition: 0.3s;
+                            background: #149b78;
                         }
                     }
                 }
