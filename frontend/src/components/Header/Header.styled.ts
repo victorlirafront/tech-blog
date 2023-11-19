@@ -69,9 +69,9 @@ const StyledHeader = styled.header`
                         max-width: 27px;
                         transform: scale(0.7);
 
-                        &.active {
+                        /* &.active {
                             transform: scale(0.7) rotate(180deg);
-                        }
+                        } */
                     }
                 }
 

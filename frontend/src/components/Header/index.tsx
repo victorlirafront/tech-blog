@@ -22,6 +22,13 @@ const Header = function () {
         }
     }
 
+    let deg = isCategoryActive ? "-180deg" : "0deg" 
+    let ctrans = `rotate(${deg}) scale(0.7)`;
+    let css = {
+        transition: "0.2s",
+        transform: ctrans 
+    }
+
     return (
         <StyledHeader data-aos="fade-down">
             <div className="container">
@@ -35,7 +42,7 @@ const Header = function () {
                         <div className='category' onClick={(e) => categoryToggle(e)}>
                            <div className='category-conteiner'>
                                 <p>Category</p>
-                                <img className={`arrow ${isCategoryActive ? 'active' : ""}`} src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow_Qvhukz-ZL.png" alt="" />
+                                <img style={css} className={`arrow`} src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow_Qvhukz-ZL.png" alt="" />
                            </div>
                             <div className={`category-options ${isCategoryActive ? 'active' : ""}`}>
                                  <Link className="option" href={"/Pagination/1?category=all"}>All</Link>
