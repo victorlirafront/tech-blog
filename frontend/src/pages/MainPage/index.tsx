@@ -1,4 +1,4 @@
-import { useState, useEffect, ReactNode } from 'react';
+import { ReactNode } from 'react';
 import StyledMainPage from './MainPage.styled';
 
 interface Iprops {

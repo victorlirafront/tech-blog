@@ -75,39 +75,39 @@ function Posts(props: IProps) {
 }
 
 export const getServerSideProps: GetServerSideProps = async (
-  context: GetServerSidePropsContext
+    context: GetServerSidePropsContext
 ) => {
-  const { id } = context.params!;
+    const { id } = context.params!;
 
-  try {
-    //MELHORAR ISSO AQUI
-    const response = await Axios.get(
-      'http://localhost:3001/api/get?page=1&limit=100&category=all'
-    );
+    try {
+        //MELHORAR ISSO AQUI
+        const response = await Axios.get(
+            'http://localhost:3001/api/get?page=1&limit=100&category=all'
+        );
 
-    const data = response.data.results;
+        const data = response.data.results;
 
-    const currentPost = data.find((post: ICurrentPost) => {
-      return String(post.id) === String(id);
-    });
+        const currentPost = data.find((post: ICurrentPost) => {
+            return String(post.id) === String(id);
+        });
 
-    if (!currentPost) {
-      // Se o post não for encontrado, retornar uma página 404
-      return {
-        notFound: true,
-      };
+        if (!currentPost) {
+            // Se o post não for encontrado, retornar uma página 404
+            return {
+                notFound: true,
+            };
+        }
+
+        return {
+            props: {
+                post: currentPost,
+            },
+        };
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        return {
+            notFound: true,
+        };
     }
-
-    return {
-      props: {
-        post: currentPost,
-      },
-    };
-  } catch (error) {
-    console.error('Error fetching data:', error);
-    return {
-      notFound: true,
-    };
-  }
 };
 export default Posts;

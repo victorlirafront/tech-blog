@@ -11,12 +11,12 @@ interface IpropsPagination {
     hasPreviousPage: boolean
 }
 
-const Pagination = function(props: IpropsPagination){
+const Pagination = function (props: IpropsPagination) {
     let { setPage, page } = useContext(GlobalContext);
     const router = useRouter();
     let category = router.query.category;
 
-    if(category === undefined) {
+    if (category === undefined) {
         category = "all"
     }
 
@@ -25,16 +25,16 @@ const Pagination = function(props: IpropsPagination){
         setPage(nextPage)
     }
 
-    const setPreviowPage = function(){
+    const setPreviowPage = function () {
         let nextPage = page -= 1
         setPage(nextPage)
     }
 
-    const createNextPageArrow = function(){
-        if(props.hasNextPage){
-            return(
+    const createNextPageArrow = function () {
+        if (props.hasNextPage) {
+            return (
                 <Link onClick={() => setNextPage()} href={`/Pagination/${page}?category=${category}`}>
-                    <div className="icon-arrow icon-arrow-right"> 
+                    <div className="icon-arrow icon-arrow-right">
                         <img src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow-right_eVbRRghk9.png?updatedAt=1696390413993" alt="" />
                     </div>
                 </Link>
@@ -42,10 +42,10 @@ const Pagination = function(props: IpropsPagination){
         }
     }
 
-    const createPreviousPageArrow = function(){
-        if(props.hasPreviousPage){
-            return(
-                <Link onClick={() => setPreviowPage()} href={`/Pagination/${page -2}?category=${category}`} >
+    const createPreviousPageArrow = function () {
+        if (props.hasPreviousPage) {
+            return (
+                <Link onClick={() => setPreviowPage()} href={`/Pagination/${page - 2}?category=${category}`} >
                     <div className="icon-arrow icon-arrow-left">
                         <img src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow-right_eVbRRghk9.png?updatedAt=1696390413993" alt="" />
                     </div>
@@ -60,10 +60,10 @@ const Pagination = function(props: IpropsPagination){
 
                 {createPreviousPageArrow()}
 
-                &nbsp; 
-                    <p> {props.page} / {props.pageLength}  Pages</p>
-                &nbsp; 
-                
+                &nbsp;
+                <p> {props.page} / {props.pageLength}  Pages</p>
+                &nbsp;
+
                 {createNextPageArrow()}
 
             </div>

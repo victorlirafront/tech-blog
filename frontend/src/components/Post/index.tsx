@@ -20,15 +20,15 @@ interface Iprops {
 const Post = function (props: Iprops) {
     const dateObject = new Date(props.date);
     const formattedDate = dateObject.toLocaleDateString();
-    
+
     useEffect(() => {
         AOS.init();
     }, []);
-    
+
     return (
-        <StyledPost 
-            data-aos-delay="100" 
-            data-aos="fade-up" 
+        <StyledPost
+            data-aos-delay="100"
+            data-aos="fade-up"
             style={props.style} >
             <div
                 className="post-image"

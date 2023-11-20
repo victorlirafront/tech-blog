@@ -7,32 +7,30 @@ import About from '@/components/About';
 import Footer from '@/components/Footer';
 import Axios from 'axios';
 import Pagination from '@/components/Pagination';
-import { GetStaticProps, GetStaticPaths } from 'next';
 import { GetServerSideProps } from 'next';
-
 
 export default function Home({ data }: any) {
 
-    const setNextPage = function(){
-        if(data?.next){
-           return data.next.page -1
-        }else {
+    const setNextPage = function () {
+        if (data?.next) {
+            return data.next.page - 1
+        } else {
             return data.previous.page + 1
         }
     }
 
-    const checkNextPage = function(){
-        if(data?.next){
+    const checkNextPage = function () {
+        if (data?.next) {
             return true
-        }else {
+        } else {
             return false
         }
     }
 
-    const checkPreviousPage = function(){
-        if(data?.previous){
+    const checkPreviousPage = function () {
+        if (data?.previous) {
             return true
-        }else {
+        } else {
             return false
         }
     }
@@ -52,14 +50,14 @@ export default function Home({ data }: any) {
                 <link rel="icon" href="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/binary-code_WBpGXnWnG.png?updatedAt=1700431546132" />
             </Head>
             <Header />
-            <About/>
+            <About />
             <MainPage>
                 <div className="container">
                     {data.results.map((post: any, index: any) => {
                         let costumizeFirstPost = false;
 
                         index === 0 ? costumizeFirstPost = true : false
-                        
+
                         const styled = {
                             minWidth: "calc(66.66667% - 40px)"
                         }
@@ -82,8 +80,8 @@ export default function Home({ data }: any) {
                     })}
                 </div>
             </MainPage>
-            <Pagination pageLength={Math.ceil(data.totalPages)} page={setNextPage()} hasNextPage={checkNextPage()} hasPreviousPage={checkPreviousPage()}/>
-            <Footer/>
+            <Pagination pageLength={Math.ceil(data.totalPages)} page={setNextPage()} hasNextPage={checkNextPage()} hasPreviousPage={checkPreviousPage()} />
+            <Footer />
         </Fragment>
     );
 }
@@ -94,28 +92,28 @@ export interface MyComponentProps {
 
 export const getServerSideProps: GetServerSideProps = async (context: any) => {
     try {
-      const { id } = context.params;
-      let { category } = context.query ? context.query : "all";
+        const { id } = context.params;
+        let { category } = context.query ? context.query : "all";
 
-      if(category === undefined){
-        category = "javascript"
-      }
-      const limit = "8"
-    //   const category = "javascript"
-      const response = await Axios.get(`http://localhost:3001/api/get?page=${id}&limit=${limit}&category=${category}`);
-      const data = response.data;
-  
-      return {
-        props: {
-          data,
-        },
-      };
+        if (category === undefined) {
+            category = "javascript"
+        }
+        const limit = "8"
+        //   const category = "javascript"
+        const response = await Axios.get(`http://localhost:3001/api/get?page=${id}&limit=${limit}&category=${category}`);
+        const data = response.data;
+
+        return {
+            props: {
+                data,
+            },
+        };
     } catch (error) {
-      console.error('Error fetching data:', error);
-      return {
-        props: {
-          data: [],
-        },
-      };
+        console.error('Error fetching data:', error);
+        return {
+            props: {
+                data: [],
+            },
+        };
     }
-  };
+};
