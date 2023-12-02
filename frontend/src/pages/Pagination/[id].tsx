@@ -14,7 +14,7 @@ export default function Home({ data }: any) {
     const setNextPage = function () {
         if (data?.next) {
             return data.next.page - 1
-        } else {
+        } else if (data?.previous) {
             return data.previous.page + 1
         }
     }

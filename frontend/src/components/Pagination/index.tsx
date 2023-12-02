@@ -54,18 +54,29 @@ const Pagination = function (props: IpropsPagination) {
         }
     }
 
+    const displayPagesCount = function () {
+        if (props.hasNextPage || props.hasPreviousPage) {
+            return (
+                <div className="pagination">
+                    {createPreviousPageArrow()}
+                    &nbsp;
+                    <p>
+                        {props.page} / {props.pageLength} Pages
+                    </p>
+                    &nbsp;
+                    {createNextPageArrow()}
+                </div>
+            );
+        } else {
+            return ""; // ou outro valor padrão
+        }
+    };
+
     return (
         <StyledPagination>
+
             <div className="pagination">
-
-                {createPreviousPageArrow()}
-
-                &nbsp;
-                <p> {props.page} / {props.pageLength}  Pages</p>
-                &nbsp;
-
-                {createNextPageArrow()}
-
+                {displayPagesCount()}
             </div>
         </StyledPagination>
     )

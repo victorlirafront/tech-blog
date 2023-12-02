@@ -42,7 +42,7 @@ export default function Home({ data }: IData) {
     let { setPage, page, setTotalPages, totalPages } = useContext(GlobalContext);
 
     useEffect(() => {
-        setPage(data.next.page);
+        setPage(data.next?.page);
 
         console.log(data.results)
     }, [])
@@ -109,7 +109,7 @@ export default function Home({ data }: IData) {
                     })}
                 </div>
             </MainPage>
-            <Pagination pageLength={Math.ceil(data.totalPages)} page={data.next.page - 1} hasNextPage={checkNextPage()} hasPreviousPage={checkPreviousPage()} />
+            <Pagination pageLength={Math.ceil(data.totalPages)} page={data?.next?.page - 1} hasNextPage={checkNextPage()} hasPreviousPage={checkPreviousPage()} />
             <Footer />
         </Fragment>
     );
