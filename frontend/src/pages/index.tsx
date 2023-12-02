@@ -39,12 +39,10 @@ interface IData {
 }
 
 export default function Home({ data }: IData) {
-    let { setPage, page, setTotalPages, totalPages } = useContext(GlobalContext);
+    let { setPage } = useContext(GlobalContext);
 
     useEffect(() => {
         setPage(data.next?.page);
-
-        console.log(data.results)
     }, [])
 
     const checkNextPage = function () {
@@ -82,7 +80,6 @@ export default function Home({ data }: IData) {
             <MainPage>
                 <div className="container">
                     {data.results.map((post: IPost, index: number) => {
-                        console.log(data.totalPages)
                         let costumizeFirstPost = false;
 
                         index === 0 ? costumizeFirstPost = true : false
