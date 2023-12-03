@@ -55,7 +55,7 @@ const StyledHeader = styled.header`
             }
 
             .category {
-                width: 150px;
+                width: 130px;
                 text-align: center;
                 position: relative;
                 padding: 7px 0;
