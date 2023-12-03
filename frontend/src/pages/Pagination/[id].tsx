@@ -70,8 +70,8 @@ export default function Home({ data }: any) {
                                 title={post.title}
                                 content={post.content}
                                 author={post.author}
-                                // meta_tag_title={post.meta_tag_title}
-                                // meta_tag_description={post.meta_tag_description}
+                                meta_tag_title={post.meta_tag_title}
+                                meta_tag_description={post.meta_tag_description}
                                 post_image={post.post_image}
                                 date={post.date}
                                 category={post.category}

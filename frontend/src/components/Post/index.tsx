@@ -15,6 +15,8 @@ interface Iprops {
     author: string
     id: string
     category: string
+    meta_tag_title: string
+    meta_tag_description: string
 }
 
 const Post = function (props: Iprops) {
