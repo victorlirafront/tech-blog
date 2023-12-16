@@ -2,20 +2,22 @@
 import styled from 'styled-components';
 
 const StyledPost = styled.div`
-    color: #b4b4b4;
-    background: #181818;
     width: calc(33.33333% - 40px);
-    margin: 0 auto;
-    text-align: center;
-    text-decoration: none;
-    border: none;
-    border-radius: 10px;
-    border: 1px solid #202020;
-    transition: 0.3s;
-    overflow: hidden;
     margin: 0 20px 40px 20px;
-    border-color: #0497EF;
-    box-shadow: 0px 0px 10px 0px #0497EF;
+
+    .motion-box {
+        margin: 0 auto;
+        border: none;
+        border-radius: 10px;
+        border: 1px solid #202020;
+        border-color: #0497EF;
+        box-shadow: 0px 0px 10px 0px #0497EF;
+        color: #b4b4b4;
+        background: #181818;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 10px;
+    }
 
     .post-image {
         width: 100%;
