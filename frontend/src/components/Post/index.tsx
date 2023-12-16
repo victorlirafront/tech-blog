@@ -33,7 +33,7 @@ const Post = function (props: Iprops) {
             data-aos-delay="100"
             data-aos="fade-up"
             style={props.style} >
-            <motion.div whileHover={{ y: -10 }} className='motion-box'>
+            <motion.div whileHover={{ y: -7 }} className='motion-box'>
                 <div
                     className="post-image"
                     style={{ backgroundImage: `url(${props.post_image})` }}
