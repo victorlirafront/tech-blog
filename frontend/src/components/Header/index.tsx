@@ -54,7 +54,9 @@ const Header = function () {
                             <div className={`category-options ${isCategoryActive ? 'active' : ""}`}>
                                 <Link className="option" href={"/Pagination/1?category=all"}>All</Link>
                                 <Link className="option" href={"/Pagination/1?category=javascript"}>Javascript</Link>
-                                <Link className="option" href={"/Pagination/1?category=react"}>React</Link>
+                                <Link className="option" href={"/Pagination/1?category=typescript"}>Typescript</Link>
+                                <Link className="option" href={"/Pagination/1?category=react"}>React JS</Link>
+                                <Link className="option" href={"/Pagination/1?category=next"}>Next JS</Link>
                             </div>
                         </div>
                     </div>
