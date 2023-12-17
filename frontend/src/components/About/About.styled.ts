@@ -13,6 +13,8 @@ const StyledAbout = styled.div`
     justify-content: center;
     background-image: url(https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/worker_a5Q0u72Xk.png?updatedAt=1697424748194);
     position: relative;
+    max-width: 1920px;
+    margin: 0 auto;
 
     .overlay {
         position: absolute;

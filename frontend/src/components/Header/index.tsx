@@ -42,8 +42,8 @@ const Header = function () {
                     <div className='menu-wrapper'>
                         <div className='div-left'>
                             <Link onClick={() => menuTab("blog")} className={`anchor ${currentTab === "blog" ? "active" : ""}`} href="/">Blog</Link>
-                            <Link onClick={() => menuTab("vlog")} className={`anchor ${currentTab === "vlog" ? "active" : ""}`} href="/">Vlog</Link>
                             <Link onClick={() => menuTab("about")} className={`anchor ${currentTab === "about" ? "active" : ""}`} href="/">About me</Link>
+                            <Link onClick={() => menuTab("vlog")} className={`anchor ${currentTab === "vlog" ? "active" : ""}`} href="/">Vlog</Link>
                         </div>
 
                         <div className='category' onClick={(e) => categoryToggle(e)}>
