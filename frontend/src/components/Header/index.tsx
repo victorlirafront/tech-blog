@@ -57,6 +57,7 @@ const Header = function () {
                                 <Link className="option" href={"/Pagination/1?category=typescript"}>Typescript</Link>
                                 <Link className="option" href={"/Pagination/1?category=react"}>React JS</Link>
                                 <Link className="option" href={"/Pagination/1?category=next"}>Next JS</Link>
+                                <Link className="option" href={"/Pagination/1?category=frontend-general"}>Front-end - General</Link>
                             </div>
                         </div>
                     </div>

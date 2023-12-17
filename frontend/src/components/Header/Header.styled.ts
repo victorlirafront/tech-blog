@@ -91,6 +91,8 @@ const StyledHeader = styled.header`
                     text-align: center;
                     background: #1fb28b;
                     cursor: pointer;
+                    width: 200px;
+                    margin-left: -40px;
 
                     &.active{
                         display: flex;
