@@ -133,6 +133,12 @@ const StyledPosts = styled.div`
         border-width: 1px 0;
         margin: 0 auto;
 
+        @media screen and (max-width: 700px){
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 40px 0px 40px;
+        }
+
         .author {
             width: 100px;
             height: 100px;
@@ -147,6 +153,15 @@ const StyledPosts = styled.div`
             align-items: flex-start;
             justify-content: center ;
             border: 1px solid #41516e;
+            border: 3px solid #bad7e5;
+            border-color: #0497EF;
+            box-shadow: 0px 0px 10px 0px #0497EF;
+
+            @media screen and (max-width: 700px){
+                margin-right: unset;
+                width: 70px;
+                height: 70px;
+            }
         }
 
         .name-container {
@@ -154,10 +169,22 @@ const StyledPosts = styled.div`
             flex-direction: column;
             align-items: flex-start;
             justify-content: center ;
+
             .text-1 {
                 color: #9ec0fa;
                 font-size: 18px;
                 margin-bottom: 7px;
+
+                @media screen and (max-width: 700px){
+                    margin: 0 auto;
+                    margin-bottom: 7px;
+                    font-size: 14px;
+                    margin-top: 10px;
+                }
+            }
+
+            .text-2 {
+                font-size: 14px;
             }
         }
     }
