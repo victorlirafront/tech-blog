@@ -4,6 +4,11 @@ import styled from 'styled-components';
 const StyledPost = styled.div`
     width: calc(33.33333% - 40px);
     margin: 0 20px 40px 20px;
+    min-width: 360px;
+
+    @media screen and (max-width: 640px){
+        min-width: 300px;
+    }
 
     .motion-box {
         margin: 0 auto;
@@ -27,6 +32,10 @@ const StyledPost = styled.div`
         background-repeat: no-repeat;
         border-top-right-radius: 10px;
         border-top-left-radius: 10px;
+
+        @media screen and (max-width: 420px){
+            height: 130px;
+        }
     }
 
     .post-body {

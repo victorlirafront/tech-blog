@@ -59,7 +59,8 @@ export default function Home({ data }: any) {
                         index === 0 ? costumizeFirstPost = true : false
 
                         const styled = {
-                            minWidth: "calc(66.66667% - 40px)"
+                            width: "calc(66.66667% - 40px)",
+                            minWidth: "300px"
                         }
 
                         return (

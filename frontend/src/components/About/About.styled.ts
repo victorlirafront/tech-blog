@@ -16,6 +16,10 @@ const StyledAbout = styled.div`
     max-width: 1920px;
     margin: 0 auto;
 
+    @media screen and (max-width: 750px){
+        height: 270px;
+    }
+
     .overlay {
         position: absolute;
         left: 0;
@@ -34,26 +38,57 @@ const StyledAbout = styled.div`
         justify-content: space-between;
         padding: 10px 50px;
 
+        @media screen and (max-width: 1230px){
+            position: absolute;
+            bottom: -250px;
+        }
+
+        @media screen and (max-width: 750px){
+            flex-direction: column-reverse;
+            bottom: -250px;
+        }
+
+        @media screen and (max-width: 6000px){
+            padding: 10px 20px;
+        }
+
         .typed-animation {
+
+            @media screen and (max-width: 541px){
+                display: none;
+            }
 
             .title-1 {
                 font-size: 27px;
                 font-weight: bold;
+                @media screen and (max-width: 541px){
+                    font-size: 15px;
+                }
+                
             }
 
             .title-2 {
                 font-size: 22px;
                 font-weight: bold;
+                @media screen and (max-width: 541px){
+                    font-size: 15px;
+                }
             }
 
             .title-3 {
                 font-size: 17px;
                 font-weight: bold;
+                @media screen and (max-width: 541px){
+                    font-size: 15px;
+                }
             }
 
             .title-4 {
                 font-size: 17px;
                 font-weight: bold;
+                @media screen and (max-width: 541px){
+                    font-size: 15px;
+                }
             }
         }
 
@@ -63,6 +98,12 @@ const StyledAbout = styled.div`
             align-items: center;
             flex-direction: column;
             justify-content: center;
+
+            @media screen and (max-width: 750px){
+                margin-bottom: 20px;
+            }
+
+
             .name {
                 color: #bad7e5;
                 margin-top: 10px;

@@ -15,6 +15,13 @@ const StyledMainPage = styled.div`
         align-items: center;
         justify-content: space-evenly;
         flex-wrap: wrap;
+        @media screen and (max-width: 1230px){
+            margin-top: 300px;
+        }
+
+        @media screen and (max-width: 750px){
+            margin-top: 230px;
+        }
     }
 `;
 
