@@ -33,7 +33,7 @@ const StyledPost = styled.div`
         border-top-right-radius: 10px;
         border-top-left-radius: 10px;
 
-        @media screen and (max-width: 420px){
+        @media screen and (max-width: 641px){
             height: 130px;
         }
     }
@@ -80,10 +80,19 @@ const StyledPost = styled.div`
             display: flex;
             align-items: center;
             justify-content: flex-start;
+
+            @media screen and (max-width: 640px){
+                font-size: 18px;
+                line-height: 20px;
+            }
         }
 
         .post-content {
             text-align: start;
+
+            @media screen and (max-width: 640px){
+                font-size: 14px;
+            }
         }
 
         .post-author {
@@ -99,6 +108,11 @@ const StyledPost = styled.div`
         margin-top: 10px;
         display: flex;
         align-items: center;
+
+        @media screen and (max-width: 640px){
+            font-size: 14px;
+        }
+
         p {
             margin-right: 10px;
             color: #9ec0fa;

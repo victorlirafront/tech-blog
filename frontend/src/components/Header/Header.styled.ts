@@ -9,9 +9,10 @@ const StyledHeader = styled.header`
     margin: 0 auto;
     z-index: 3;
 
-        @media screen and (max-width: 700px) {
-                position: fixed;
-            }
+    @media screen and (max-width: 500px) {
+        /* position: fixed; */
+        padding: 20px;
+    }
 
     .container {
         margin: 0 auto;
@@ -21,10 +22,15 @@ const StyledHeader = styled.header`
             width: 100%;
             display: flex;
 
+            @media screen and (max-width: 700px) {
+                justify-content: space-between;
+            }
+
+
             .header-icon {
-                    width: 40px;
-                    margin-right: 15px;
-                }
+                width: 34px;
+                margin-right: 15px;
+            }
 
         .menu-wrapper {
             display: flex;
@@ -33,12 +39,30 @@ const StyledHeader = styled.header`
             list-style: none;
             color: white;
             width: 100%;
+            transition: 0.5s;
+
+            &.active {
+                left: 0px;
+                transition: 0.5s;
+            }
+
+            .close {
+                width: 20px;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                display: none;
+
+                @media screen and (max-width: 700px) {
+                    display: block;
+                }
+            }
 
             @media screen and (max-width: 700px) {
                 background: rgb(0,98,72);
                 background: linear-gradient(3600deg, rgba(0,98,72,1) 0%, rgba(5,213,158,1) 100%);
                 position: fixed;
-                left: 0;
+                left: -100%;
                 top: 0;
                 bottom: 0;
                 height: 100vh;
@@ -151,6 +175,17 @@ const StyledHeader = styled.header`
                         }
                     }
                 }
+            }
+        }
+
+        .menu-hamburguer {
+            display: none;
+
+            @media screen and (max-width: 700px){
+                display: block;
+                width: 30px;
+                height: 20px;
+                margin-top: 8px;
             }
         }
     }

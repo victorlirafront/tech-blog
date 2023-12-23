@@ -111,11 +111,17 @@ const StyledAbout = styled.div`
             .name {
                 color: #bad7e5;
                 margin-top: 10px;
+                @media screen and (max-width: 640px){
+                    font-size: 14px;
+                }
             }
 
             .profession {
                 color: #bad7e5;
                 margin-top: -5px;
+                @media screen and (max-width: 640px){
+                    font-size: 14px;
+                }
             }
 
             .card-img {
