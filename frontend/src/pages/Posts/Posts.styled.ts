@@ -13,6 +13,10 @@ const StyledPosts = styled.div`
         object-fit: contain;
         background-repeat: no-repeat;
 
+        @media screen and (max-width: 700px){
+            height: 270px;
+        }
+
     }
 
     .body-post {
@@ -26,22 +30,43 @@ const StyledPosts = styled.div`
             font-size: 2.625rem;
             margin-bottom: 20px;
             text-align: center;
+
+            @media screen and (max-width: 700px){
+                font-size: 24px;
+                line-height: 27px;
+            }
         }
 
         .date {
             text-align: center;
             font-weight: bolder;
             color: #9ec0fa;
+            @media screen and (max-width: 700px){
+                font-size: 14px;
+            }
         }
 
         h1, h2, h3, h4, h5, h6 {
             margin-bottom: 30px;
+            margin-top: 30px;
             /* margin-top: 30px; */
+        }
+
+        h2 {
+            @media screen and (max-width: 700px){
+                font-size: 20px;
+            }
         }
 
         p {
             line-height: 30px;
             margin-bottom: 30px;
+
+            @media screen and (max-width: 700px){
+                font-size: 14px;
+                margin-bottom: 25px;
+            }
+
             img {
                 max-width: 100%;
                 border-radius: 5px;
@@ -69,6 +94,10 @@ const StyledPosts = styled.div`
             border-top-right-radius: 0.5rem;
             font-size: 14px;
             line-height: 24px;
+
+            @media screen and (max-width: 700px){
+                font-size: 14px;
+            }
         }
 
         a {
@@ -82,6 +111,11 @@ const StyledPosts = styled.div`
             font-size: 1.25rem;
             padding-left: 40px;
             margin-bottom: 30px;
+
+            @media screen and (max-width: 700px){
+                font-size: 14px;
+                padding-left: 20px;
+            }
 
             li {
                 margin-bottom: 20px;
@@ -98,7 +132,6 @@ const StyledPosts = styled.div`
         border-style: solid;
         border-width: 1px 0;
         margin: 0 auto;
-        
 
         .author {
             width: 100px;
