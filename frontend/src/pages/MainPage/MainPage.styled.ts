@@ -22,6 +22,10 @@ const StyledMainPage = styled.div`
         @media screen and (max-width: 750px){
             margin-top: 230px;
         }
+
+        @media screen and (max-width: 541px){
+            margin-top: 100px;
+        }
     }
 `;
 

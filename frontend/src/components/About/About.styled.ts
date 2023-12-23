@@ -103,6 +103,10 @@ const StyledAbout = styled.div`
                 margin-bottom: 20px;
             }
 
+            @media screen and (max-width: 541px){
+                margin-bottom: 153px;
+            }
+
 
             .name {
                 color: #bad7e5;
@@ -123,6 +127,11 @@ const StyledAbout = styled.div`
                 border: 3px solid #bad7e5;
                 border-color: #0497EF;
                 box-shadow: 0px 0px 10px 0px #0497EF;
+
+                @media screen and (max-width: 541px){
+                    width: 70px;
+                    height: 70px;
+                }
             }
         }
     }
