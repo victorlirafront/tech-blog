@@ -118,7 +118,7 @@ export const getServerSideProps = async (context: any) => {
         const page = "1"
         const limit = "8"
         const category = "all"
-        const response = await Axios.get(`http://localhost:3001/api/get?page=${page}&limit=${limit}&category=${category}`);
+        const response = await Axios.get(`https://blog-backend-tau-three.vercel.app/api/get?page=${page}&limit=${limit}&category=${category}`);
         const data = response.data; // Extract data from the response
 
         return {

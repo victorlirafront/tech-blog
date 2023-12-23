@@ -16,7 +16,7 @@ const CreatePost = function () {
     const submitPost = function (e: any) {
         e.preventDefault();
 
-        Axios.post('https://blog-backend-l7c9vda7w-victorlirafront.vercel.app/api/create', {
+        Axios.post('https://blog-backend-tau-three.vercel.app/api/create', {
             author: author,
             title: title,
             content: content,

@@ -52,9 +52,17 @@ const StyledPosts = styled.div`
             /* margin-top: 30px; */
         }
 
+        h1 {
+            @media screen and (max-width: 700px){
+                font-size: 22px;
+                line-height: 26px;
+            }
+        }
+
         h2 {
             @media screen and (max-width: 700px){
                 font-size: 20px;
+                line-height: 24px;
             }
         }
 
