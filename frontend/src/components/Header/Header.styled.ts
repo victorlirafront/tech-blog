@@ -9,6 +9,10 @@ const StyledHeader = styled.header`
     margin: 0 auto;
     z-index: 3;
 
+        @media screen and (max-width: 700px) {
+                position: fixed;
+            }
+
     .container {
         margin: 0 auto;
         max-width: 1200px;
@@ -30,7 +34,27 @@ const StyledHeader = styled.header`
             color: white;
             width: 100%;
 
+            @media screen and (max-width: 700px) {
+                background: rgb(0,98,72);
+                background: linear-gradient(3600deg, rgba(0,98,72,1) 0%, rgba(5,213,158,1) 100%);
+                position: fixed;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                height: 100vh;
+                width: 100vw;
+                flex-direction: column;
+                justify-content: center;
+            }
+
             .div-left {
+
+                @media screen and (max-width: 700px) {
+                    flex-direction: column;
+                    min-width: 150px;
+                    height: 150px;
+                }
+
                 .anchor {
 
                     &.active{
@@ -44,8 +68,16 @@ const StyledHeader = styled.header`
                 a {
                     color: #fff;
                     text-decoration: none;
+                    color: #fff;
+
                     &:hover {
                         color: #c5c5c5;
+                    }
+
+                    @media screen and (max-width: 700px) {
+                        &:hover {
+                        color: #fff;
+                    }
                     }
                 }
 
@@ -59,10 +91,13 @@ const StyledHeader = styled.header`
                 text-align: center;
                 position: relative;
                 padding: 7px 0;
+                color: #fff !important;
 
-                &:hover {
-                        color: #c5c5c5;
+                @media screen and (max-width: 700px) {
+                    min-width: 150px;
+                    margin-top: 30px;
                 }
+
 
                 a {
                     color: #fff;
@@ -93,6 +128,10 @@ const StyledHeader = styled.header`
                     cursor: pointer;
                     width: 200px;
                     margin-left: -40px;
+
+                    @media screen and (max-width: 700px){
+                        background: #048060;
+                    }
 
                     &.active{
                         display: flex;

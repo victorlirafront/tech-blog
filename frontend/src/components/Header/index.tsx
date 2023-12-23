@@ -60,6 +60,7 @@ const Header = function () {
                             </div>
                         </div>
                     </div>
+                    <p style={{color:"red"}}>menu</p>
                 </nav>
             </div>
         </StyledHeader>
