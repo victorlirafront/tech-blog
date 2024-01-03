@@ -5,6 +5,7 @@ import dateFormatter from '@/helperFunctions/dateFormatter';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
+import { motion } from "framer-motion"
 
 interface Iprops {
     date: string
@@ -32,7 +33,7 @@ const Post = function (props: Iprops) {
             data-aos-delay="100"
             data-aos="fade-up"
             style={props.style} >
-            {/* <motion.div whileHover={{ y: -7 }} className='motion-box'> */}
+            <motion.div whileHover={{ y: -7 }} className='motion-box'>
                 <div
                     className="post-image"
                     style={{ backgroundImage: `url(${props.post_image})` }}
@@ -64,7 +65,7 @@ const Post = function (props: Iprops) {
                         </div>
                     </Link>
                 </div>
-            {/* </motion.div> */}
+            </motion.div>
         </StyledPost>
     );
 };
