@@ -49,7 +49,7 @@ const Header = function () {
     }
 
     return (
-        <StyledHeader data-aos="fade-down">
+        <StyledHeader className={openMobileMenu ? `active` : ""}>
             <div className="container">
                 <nav>
                     <Link href="/">

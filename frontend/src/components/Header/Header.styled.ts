@@ -4,10 +4,18 @@ import styled from 'styled-components';
 const StyledHeader = styled.header`
     position: relative;
     padding: 20px 60px;
-    background: #121212;
     max-width: 1000px;
     margin: 0 auto;
     z-index: 3;
+
+    &.active {
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: #121212;
+    }
 
     @media screen and (max-width: 500px) {
         /* position: fixed; */
@@ -155,6 +163,10 @@ const StyledHeader = styled.header`
 
                     @media screen and (max-width: 700px){
                         background: #048060;
+                        width: 300px;
+                        margin-left: -80px;
+                        max-height: 172px;
+                        overflow: scroll;
                     }
 
                     &.active{
