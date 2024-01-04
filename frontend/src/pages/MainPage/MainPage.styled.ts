@@ -8,6 +8,10 @@ const StyledMainPage = styled.div`
     margin: 0 auto;
     color: #fff;
 
+    @media screen and (max-width: 750px){
+        padding: 60px 20px;
+    }
+
     .container {
         max-width: 1200px;
         margin: 0 auto;

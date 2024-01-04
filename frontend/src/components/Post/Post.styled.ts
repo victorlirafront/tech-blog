@@ -7,6 +7,7 @@ const StyledPost = styled.div`
     min-width: 360px;
 
     @media screen and (max-width: 640px){
+        width: 90% !important; //não deletar esse important
         min-width: 300px;
     }
 

@@ -84,7 +84,7 @@ export default function Home({ data }: any) {
             <Pagination pageLength={Math.ceil(data.totalPages)} page={setNextPage()} hasNextPage={checkNextPage()} hasPreviousPage={checkPreviousPage()} />
             <Footer />
         </Fragment>
-    );
+    )
 }
 
 export interface MyComponentProps {

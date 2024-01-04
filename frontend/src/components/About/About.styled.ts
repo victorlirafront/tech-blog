@@ -76,7 +76,7 @@ const StyledAbout = styled.div`
             }
 
             .title-3 {
-                font-size: 17px;
+                font-size: 18px;
                 font-weight: bold;
                 @media screen and (max-width: 541px){
                     font-size: 15px;
@@ -84,7 +84,7 @@ const StyledAbout = styled.div`
             }
 
             .title-4 {
-                font-size: 17px;
+                font-size: 16px;
                 font-weight: bold;
                 @media screen and (max-width: 541px){
                     font-size: 15px;
