@@ -87,5 +87,5 @@ app.post("/api/create", (req: any, res: any) => {
 });
 
 app.listen(3001, () => {
-    console.log(`Server is running on port ${3001}`);
+    console.log('Server is running on port 3001');
 });
