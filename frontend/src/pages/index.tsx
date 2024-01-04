@@ -79,7 +79,7 @@ export default function Home({ data }: IData) {
             <About />
             <MainPage>
                 <div className="container">
-                    {data.results.map((post: IPost, index: number) => {
+                    {data.results && data.results.map((post: IPost, index: number) => {
                         let costumizeFirstPost = false;
 
                         index === 0 ? costumizeFirstPost = true : false
