@@ -16,7 +16,7 @@ const CreatePost = function () {
     const submitPost = function (e: any) {
         e.preventDefault();
 
-        Axios.post('http://localhost:3001/api/create', {
+        Axios.post('https://blog-backend-tau-three.vercel.app/api/create', {
             author: author,
             title: title,
             content: content,
