@@ -1,4 +1,3 @@
-"use client"
 import styled from 'styled-components';
 
 const StyledHeader = styled.header`
@@ -181,6 +180,7 @@ const StyledHeader = styled.header`
                     display: none;
 
                     .option {
+
                         &:hover {
                             transition: 0.3s;
                             background: #149b78;

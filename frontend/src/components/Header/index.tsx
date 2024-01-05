@@ -5,6 +5,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useContext } from "react";
 import { GlobalContext } from '../../Context/pagination';
+import Image from 'next/image';
 
 const Header = function () {
     let { setPage } = useContext(GlobalContext);
@@ -53,11 +54,11 @@ const Header = function () {
             <div className="container">
                 <nav>
                     <Link href="/">
-                        <img className='header-icon' src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/code_2GKuQisNn.png?updatedAt=1697217597567" alt="" />
+                        <Image width={50} height={40} className='header-icon' src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/code_2GKuQisNn.png?updatedAt=1697217597567" alt="" />
                     </Link>
                     <div className={`menu-wrapper ${openMobileMenu ? "active" : ""}`}>
                         
-                        <img onClick={() => hideMobileMenu()} className='close' src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/close_eNQqVeiw3.png?updatedAt=1703309380667" alt="" />
+                        <Image width={50} height={20} onClick={() => hideMobileMenu()} className='close' src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/close_eNQqVeiw3.png?updatedAt=1703309380667" alt="" />
 
                         <div className='div-left'>
                             <Link onClick={() => menuHandler("blog")} className={`anchor ${currentTab === "blog" ? "active" : ""}`} href="/">Blog</Link>
@@ -68,7 +69,7 @@ const Header = function () {
                         <div className='category' onClick={(e) => categoryToggle(e)}>
                             <div className='category-conteiner'>
                                 <p>Category</p>
-                                <img style={css} className={`arrow`} src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow_Qvhukz-ZL.png" alt="" />
+                                <Image width={40} height={40} style={css} className={`arrow`} src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow_Qvhukz-ZL.png" alt="" />
                             </div>
                             <div className={`category-options ${isCategoryActive ? 'active' : ""}`}>
                                 <Link onClick={() => hideMobileMenu()} className="option" href={"/Pagination/1?category=all"}>All</Link>
@@ -79,7 +80,7 @@ const Header = function () {
                             </div>
                         </div>
                     </div>
-                    <img onClick={() => showMobileMenu()} className={`menu-hamburguer`} src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/hamburguer_1id8uhYeQ.png?updatedAt=1703307554746" alt="" />
+                    <Image width={50} height={50} onClick={() => showMobileMenu()} className={`menu-hamburguer`} src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/hamburguer_1id8uhYeQ.png?updatedAt=1703307554746" alt="" />
                 </nav>
             </div>
         </StyledHeader>
