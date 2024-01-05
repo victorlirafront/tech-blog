@@ -84,7 +84,7 @@ const StyledHeader = styled.header`
                 @media screen and (max-width: 700px) {
                     flex-direction: column;
                     min-width: 150px;
-                    height: 150px;
+                    height: 30px;
                 }
 
                 .anchor {
