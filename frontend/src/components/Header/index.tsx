@@ -1,3 +1,4 @@
+'use client'
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import StyledHeader from './Header.styled';
@@ -50,7 +51,9 @@ const Header = function () {
     }
 
     return (
-        <StyledHeader className={openMobileMenu ? `active` : ""}>
+        //esse display: none inline precisa ser corrigido
+        //fiz isso pois o DOM esta carrgado o header com delay no CSS
+        <StyledHeader className={openMobileMenu ? `active` : ""} style={{display: "none"}}> 
             <div className="container">
                 <nav>
                     <Link href="/">
@@ -72,11 +75,11 @@ const Header = function () {
                                 <Image width={40} height={40} style={css} className={`arrow`} src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow_Qvhukz-ZL.png" alt="" />
                             </div>
                             <div className={`category-options ${isCategoryActive ? 'active' : ""}`}>
-                                <Link onClick={() => hideMobileMenu()} className="option" href={"/Pagination/1?category=all"}>All</Link>
-                                <Link onClick={() => hideMobileMenu()} className="option" href={"/Pagination/1?category=javascript"}>Javascript</Link>
-                                <Link onClick={() => hideMobileMenu()} className="option" href={"/Pagination/1?category=typescript"}>Typescript</Link>
-                                <Link onClick={() => hideMobileMenu()} className="option" href={"/Pagination/1?category=react"}>React JS</Link>
-                                <Link onClick={() => hideMobileMenu()} className="option" href={"/Pagination/1?category=next"}>Next JS</Link>
+                                <Link className="option" onClick={() => hideMobileMenu()} href={"/Pagination/1?category=all"}>All</Link>
+                                <Link className="option" onClick={() => hideMobileMenu()} href={"/Pagination/1?category=javascript"}>Javascript</Link>
+                                <Link className="option" onClick={() => hideMobileMenu()} href={"/Pagination/1?category=typescript"}>Typescript</Link>
+                                <Link className="option" onClick={() => hideMobileMenu()} href={"/Pagination/1?category=react"}>React JS</Link>
+                                <Link className="option" onClick={() => hideMobileMenu()} href={"/Pagination/1?category=next"}>Next JS</Link>
                             </div>
                         </div>
                     </div>

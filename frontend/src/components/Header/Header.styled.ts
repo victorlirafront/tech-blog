@@ -6,6 +6,7 @@ const StyledHeader = styled.header`
     max-width: 1000px;
     margin: 0 auto;
     z-index: 3;
+    display: block !important;
 
     &.active {
         position: fixed;
