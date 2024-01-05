@@ -6,7 +6,7 @@ import { GlobalContextProvider } from '@/Context/pagination';
 export default function App({ Component, pageProps }: AppProps) {
     return (
         <GlobalContextProvider>
-            <Component {...pageProps} />;
+            <Component {...pageProps} />
         </GlobalContextProvider>
     )
 }
