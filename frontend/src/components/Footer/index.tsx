@@ -25,7 +25,7 @@ const Footer = function(){
             </div>
 
             <div className='direitos-autorais'>
-                <p>Todos os direitos reservados © Victor Lira {getCurrentYear()}</p>
+                <p>All rights reserved to © Victor Lira {getCurrentYear()}</p>
             </div>
         </StyledFooter>
     )
