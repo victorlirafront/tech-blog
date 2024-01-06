@@ -2,6 +2,7 @@ import { Fragment } from 'react';
 import Head from 'next/head';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import Profile from '@/components/Profile';
 
 const AboutMe = function () {
     return (
@@ -22,7 +23,7 @@ const AboutMe = function () {
                 />
             </Head>
             <Header/>
-
+            <Profile />
             <Footer />
         </Fragment>
     );

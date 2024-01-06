@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const StyledHeader = styled.header`
     position: relative;
     padding: 20px 60px;
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
     z-index: 3;
     display: block !important;
