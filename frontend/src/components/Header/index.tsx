@@ -1,5 +1,6 @@
 'use client'
 import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 import StyledHeader from './Header.styled';
 import AOS from 'aos';
@@ -11,11 +12,31 @@ import Image from 'next/image';
 const Header = function () {
     let { setPage } = useContext(GlobalContext);
     let [isCategoryActive, setIsCategoryActive] = useState(false);
-    let [currentTab, setCurrentTab] = useState("blog");
+    let [currentTab, setCurrentTab] = useState("");
     let [openMobileMenu, setOpenMobileMenu] = useState(false)
+    const router = useRouter();
+    const currentUrl = router.asPath;
+    const [headerFadeDown, setHeaderFadeDown] = useState("fade-down");
+
+    const menuToggleBaseOnUrl = function(){
+        if(currentUrl.includes("AboutMe")){
+            setCurrentTab("about")
+        }else{
+            setCurrentTab("blog")
+        }
+    }
 
     useEffect(() => {
         AOS.init();
+        menuToggleBaseOnUrl();
+
+        const updateWindowWidth = () => {
+            if(window.innerWidth < 700){
+                setHeaderFadeDown("")
+            }
+        };
+
+        updateWindowWidth();
     }, []);
 
     const categoryToggle = function (e: any) {
@@ -53,7 +74,7 @@ const Header = function () {
     return (
         //esse display: none inline precisa ser corrigido
         //fiz isso pois o DOM esta carrgado o header com delay no CSS
-        <StyledHeader className={openMobileMenu ? `active` : ""} style={{display: "none"}}> 
+        <StyledHeader data-aos={headerFadeDown} className={openMobileMenu ? `active` : ""} style={{display: "none"}}> 
             <div className="container">
                 <nav>
                     <Link href="/">
@@ -65,8 +86,8 @@ const Header = function () {
 
                         <div className='div-left'>
                             <Link onClick={() => menuHandler("blog")} className={`anchor ${currentTab === "blog" ? "active" : ""}`} href="/">Blog</Link>
-                            {/* <Link onClick={() => menuHandler("about")} className={`anchor ${currentTab === "about" ? "active" : ""}`} href="/">About me</Link>
-                            <Link onClick={() => menuHandler("vlog")} className={`anchor ${currentTab === "vlog" ? "active" : ""}`} href="/">Vlog</Link> */}
+                            <Link onClick={() => menuHandler("about")} className={`anchor ${currentTab === "about" ? "active" : ""}`} href="/AboutMe">About me</Link>
+                            {/* <Link onClick={() => menuHandler("vlog")} className={`anchor ${currentTab === "vlog" ? "active" : ""}`} href="/">Vlog</Link> */}
                         </div>
 
                         <div className='category' onClick={(e) => categoryToggle(e)}>
