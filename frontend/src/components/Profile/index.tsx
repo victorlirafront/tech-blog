@@ -1,5 +1,6 @@
 import StyledAboutMe from "./Profile.styled";
 import { useState } from "react";
+import SimpleSlider from '@/components/SlickTech';
 
 const Profile = function(){
     const [resumeLanguage, setResumeLanguage] = useState("English");
@@ -28,6 +29,7 @@ const Profile = function(){
                     <h1 className="profile">Victor Lira</h1>
                     <h2 className="profession">Frontend Developer</h2>
                     <p className="description">Meu nome é Iuri Silva, ou “iuricode” (é como me chamam agora) sou o criador do eFront, um material de ensino de frontend pela internet. Atualmente sou freelancer como Frontend Developer e UI Designer. Desenvolvo interfaces modernas e de alta qualidade, concentrado em performance, animações, responsividade e SEO.</p>
+                    <SimpleSlider/>
                 </div>
             </div>
         </StyledAboutMe>
