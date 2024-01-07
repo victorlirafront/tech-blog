@@ -24,7 +24,7 @@ const StyledFooter = styled.footer`
             align-items: center;
             justify-content: center;
             .icon {
-                max-width: 30px;
+                width: 30px;
                 border: 1px solid #fff;
                 border-radius: 100%;
             }

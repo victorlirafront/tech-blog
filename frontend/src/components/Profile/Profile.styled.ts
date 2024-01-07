@@ -50,6 +50,7 @@ const Profile = styled.div`
 
                     img {
                         width: 100%;
+                        height: auto;
                     }
                 }
 
@@ -70,6 +71,7 @@ const Profile = styled.div`
 
                     img {
                         width: 100%;
+                        height: auto;
                     }
                 }
 
