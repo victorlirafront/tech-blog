@@ -1,6 +1,7 @@
 import StyledAboutMe from "./Profile.styled";
 import { useState } from "react";
 import SimpleSlider from '@/components/SlickTech';
+import Image from "next/image";
 
 const Profile = function(){
     const [resumeLanguage, setResumeLanguage] = useState("English");
@@ -16,10 +17,10 @@ const Profile = function(){
                     <div className="card-image"></div>
                     <div className="button-wrapper">
                         <div onClick={() => changeResumeLanguage("English")} className={`usa-box ${resumeLanguage === "English" ? "": "active"}`}>
-                            <img src="./usa.png" alt="" />
+                            <Image width={30} height={30} src="/usa.png" alt="" />
                         </div>
                         <div onClick={() => changeResumeLanguage("Portuguese")} className={`br-box ${resumeLanguage === "Portuguese" ? "": "active"}`}>
-                            <img src="./brasil.png" alt="" />
+                            <Image width={30} height={30} src="/brasil.png" alt="" />
                         </div>
                         <button className="download-btn">Download Resume - {resumeLanguage}</button>
                     </div>

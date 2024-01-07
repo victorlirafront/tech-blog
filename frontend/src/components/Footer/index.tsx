@@ -1,5 +1,6 @@
 import  StyledFooter from './Footer.styled'
 import Link from 'next/link';
+import Image from 'next/image';
 
 const getCurrentYear = function(){
     const dataAtual = new Date();
@@ -13,13 +14,13 @@ const Footer = function(){
             <div className='icons-wrapper'>
                 <Link href="https://github.com/victorlirafront" target="_blank">
                     <div className='icons-group'>
-                        <img className='icon' src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/github_LDTcy1bc_.png?updatedAt=16886127797" />
+                        <Image width={30} height={30} alt="teste" className='icon' src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/github_LDTcy1bc_.png?updatedAt=16886127797" />
                     </div>
                 </Link>
 
                 <Link href="https://www.linkedin.com/in/victor-lira-front-end/" target="_blank">
                     <div className='icons-group'>
-                        <img className='icon' src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/linkedin_aDQr6Huy2.png?updatedAt=16886127938" />
+                        <Image width={30} height={30} alt="teste" className='icon' src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/linkedin_aDQr6Huy2.png?updatedAt=16886127938" />
                     </div>
                 </Link>
             </div>

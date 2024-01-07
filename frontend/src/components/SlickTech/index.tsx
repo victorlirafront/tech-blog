@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Slider from 'react-slick';
+import Image from 'next/image';
 import StyledSlickTech from './SlickTech.styled';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -20,56 +21,56 @@ const SimpleSlider = () => {
             <Slider {...settings}>
                 <div className="slider-container">
                     <div className="slider-box next">
-                        <img src="./next.png" alt="" />
+                        <Image width={100} height={75} className="slide-image" src="/next.png" alt="" />
                         <p className='text'>Next JS</p>
                     </div>
                 </div>
                 <div className="slider-container">
                     <div className="slider-box react">
-                        <img src="./react.png" alt="" />
+                        <Image width={100} height={75} className="slide-image" src="/react.png" alt="" />
                         <p className='text'>React</p>
                     </div>
                 </div>
                 <div className="slider-container">
                     <div className="slider-box typescript">
-                        <img src="./typescript.png" alt="" />
+                        <Image width={100} height={75} className="slide-image" src="/typescript.png" alt="" />
                         <p className='text'>TypeScript</p>
                     </div>
                 </div>
                 <div className="slider-container">
                     <div className="slider-box javascript">
-                        <img src="./javascript.png" alt="" />
+                        <Image width={100} height={75} className="slide-image" src="/javascript.png" alt="" />
                         <p className='text'>JavaScript</p>
                     </div>
                 </div>
                 <div className="slider-container">
                     <div className="slider-box styled-components">
-                        <img src="./styled-components.png" alt="" />
+                        <Image width={100} height={75} className="slide-image" src="/styled-components.png" alt="" />
                         <p className='text'>Styled Components</p>
                     </div>
                 </div>
                 <div className="slider-container">
                     <div className="slider-box wordpress">
-                        <img src="./wordpress.png" alt="" />
+                        <Image width={100} height={75} className="slide-image" src="/wordpress.png" alt="" />
                         <p className='text'>WordPress</p>
                     </div>
                 </div>
                 <div className="slider-container">
                     <div className="slider-box sass">
-                        <img src="./sass.png" alt="" />
+                        <Image width={100} height={75} className="slide-image" src="/sass.png" alt="" />
                         <p className='text'>SASS</p>
                     </div>
                 </div>
 
                 <div className="slider-container">
                     <div className="slider-box html">
-                        <img src="./html.png" alt="" />
+                        <Image width={100} height={75} className="slide-image" src="/html.png" alt="" />
                         <p className='text'>HTML</p>
                     </div>
                 </div>
                 <div className="slider-container">
                     <div className="slider-box css">
-                        <img src="./css.png" alt="" />
+                        <Image width={100} height={75} className="slide-image" src="/css.png" alt="" />
                         <p className='text'>CSS</p>
                     </div>
                 </div>
