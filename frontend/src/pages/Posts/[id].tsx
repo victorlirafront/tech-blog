@@ -103,10 +103,7 @@ export const getServerSideProps: GetServerSideProps = async (
 
     try {
         //MELHORAR ISSO AQUI
-        const response = await Axios.get(
-            'https://blog-backend-tau-three.vercel.app/api/get?page=1&limit=100&category=all'
-            'http://localhost:3001/api/get?page=1&limit=100&category=all'
-        );
+        const response = await Axios.get('https://blog-backend-tau-three.vercel.app/api/get?page=1&limit=100&category=all');
 
         const data = response.data.results;
 
