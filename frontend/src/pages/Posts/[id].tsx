@@ -80,7 +80,7 @@ function Posts(props: IProps) {
                             id={post.id}
                             category={post.category}
                             content={post.content}
-                            date={post.content}
+                            date={post.date}
                             meta_tag_description='teste'
                             meta_tag_title='teste'
                             title={post.title}
