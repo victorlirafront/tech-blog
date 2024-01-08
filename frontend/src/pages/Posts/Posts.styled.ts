@@ -1,9 +1,10 @@
 "use client"
+import style from 'react-syntax-highlighter/dist/esm/styles/hljs/a11y-dark';
 import styled from 'styled-components';
 
-const StyledPosts = styled.div`
+export const StyledPosts = styled.div`
     color: #ccc;
-    margin-bottom: 100px;
+    margin-bottom: 60px;
 
     .background-image {
         height: 500px;
@@ -198,4 +199,20 @@ const StyledPosts = styled.div`
     }
 `;
 
-export default StyledPosts
+export const StyledLastPosts = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .post {
+
+    }
+`
+
+export const StylePostTitle = styled.h1`
+    color: #ccc;
+    text-align: center;
+    margin-bottom: 40px;
+`

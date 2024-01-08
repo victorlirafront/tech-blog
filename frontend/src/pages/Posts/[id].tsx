@@ -1,13 +1,13 @@
 import Axios from 'axios';
 import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
-import { GetStaticProps, GetStaticPaths, GetStaticPropsContext } from 'next';
 import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 import Header from '@/components/Header';
-import StyledPosts from './Posts.styled';
+import { StyledPosts, StyledLastPosts, StylePostTitle } from './Posts.styled';
 import MarkdownRenderer from '@/components/MarkdownRenderer';
 import Footer from '@/components/Footer';
 import dateFormatter from '@/helperFunctions/dateFormatter';
+import Post from '@/components/Post';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
@@ -20,7 +20,8 @@ interface IProps {
         title: string
         content: string
         post_image: string
-    }
+    },
+    data: any
 }
 
 interface ICurrentPost {
@@ -29,10 +30,12 @@ interface ICurrentPost {
 
 function Posts(props: IProps) {
     const [isLoading, setIsLoading] = useState(true);
+    const [lastPosts, setLastPost] = useState([])
 
     useEffect(() => {
         setIsLoading(false);
         AOS.init();
+        setLastPost(props.data.slice(0, 3))
     }, []);
 
     if (isLoading) {
@@ -69,6 +72,25 @@ function Posts(props: IProps) {
                     </div>
                 </div>
             </StyledPosts>
+            <StylePostTitle className='last-posts'>Last Posts</StylePostTitle>
+            <StyledLastPosts>
+                {lastPosts.map((post: any) => {
+                    return (
+                        <Post
+                            id={post.id}
+                            category={post.category}
+                            content={post.content}
+                            date={post.content}
+                            meta_tag_description='teste'
+                            meta_tag_title='teste'
+                            title={post.title}
+                            post_image={post.post_image}
+                            author={post.author}
+                            className={post}
+                        />
+                    )
+                })}
+            </StyledLastPosts>
             <Footer />
         </React.Fragment>
     );
@@ -83,6 +105,7 @@ export const getServerSideProps: GetServerSideProps = async (
         //MELHORAR ISSO AQUI
         const response = await Axios.get(
             'https://blog-backend-tau-three.vercel.app/api/get?page=1&limit=100&category=all'
+            'http://localhost:3001/api/get?page=1&limit=100&category=all'
         );
 
         const data = response.data.results;
@@ -101,6 +124,7 @@ export const getServerSideProps: GetServerSideProps = async (
         return {
             props: {
                 post: currentPost,
+                data: data
             },
         };
     } catch (error) {
