@@ -3,7 +3,7 @@ import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 import Header from '@/components/Header';
-import { StyledPosts, StyledLastPosts, StylePostTitle } from './Posts.styled';
+import StyledPostNew from './Posts.styled';
 import MarkdownRenderer from '@/components/MarkdownRenderer';
 import Footer from '@/components/Footer';
 import dateFormatter from '@/helperFunctions/dateFormatter';
@@ -46,7 +46,7 @@ function Posts(props: IProps) {
     const formattedDate = dateObject.toLocaleDateString();
 
     return (
-        <React.Fragment>
+        <StyledPostNew>
             <Head>
                 <title>{props.post.meta_tag_title}</title>
                 <meta
@@ -56,7 +56,7 @@ function Posts(props: IProps) {
                 <link rel="icon" href="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/binary-code_WBpGXnWnG.png?updatedAt=1700431546132" />
             </Head>
             <Header />
-            <StyledPosts>
+            <div className='profile'>
                 <div data-aos="fade-down" className='background-image' style={{ backgroundImage: `url(${props.post.post_background})` }}></div>
 
                 <div className='body-post' data-aos="fade-up">
@@ -71,9 +71,9 @@ function Posts(props: IProps) {
                         <p className='text-2'>Content writer @victorlira_ws</p>
                     </div>
                 </div>
-            </StyledPosts>
-            <StylePostTitle className='last-posts'>Last Posts</StylePostTitle>
-            <StyledLastPosts>
+            </div>
+            <h1 className='title'>Last Posts</h1>
+            <div className='last-posts'>
                 {lastPosts.map((post: any) => {
                     return (
                         <Post
@@ -90,9 +90,9 @@ function Posts(props: IProps) {
                         />
                     )
                 })}
-            </StyledLastPosts>
+            </div>
             <Footer />
-        </React.Fragment>
+        </StyledPostNew>
     );
 }
 
