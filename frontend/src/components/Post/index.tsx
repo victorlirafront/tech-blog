@@ -9,7 +9,7 @@ import { motion } from "framer-motion"
 
 interface Iprops {
     date: string
-    style: {}
+    style?: {}
     post_image: string
     title: string
     content: string
@@ -18,6 +18,7 @@ interface Iprops {
     category: string
     meta_tag_title: string
     meta_tag_description: string
+    className?: string
 }
 
 const Post = function (props: Iprops) {
