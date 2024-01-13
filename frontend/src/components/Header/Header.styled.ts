@@ -6,16 +6,6 @@ const StyledHeader = styled.header`
     max-width: 1200px;
     margin: 0 auto;
     z-index: 3;
-    display: block !important;
-
-    &.active {
-        position: fixed;
-        left: 0;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        background: #121212;
-    }
 
     @media screen and (max-width: 500px) {
         padding: 20px;
@@ -89,7 +79,7 @@ const StyledHeader = styled.header`
                     @media screen and (max-width: 700px) {
                         flex-direction: column;
                         min-width: 150px;
-                        height: 30px;
+                        height: 100px;
                     }
 
                     .anchor {

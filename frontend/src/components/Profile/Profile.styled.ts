@@ -1,3 +1,4 @@
+
 import styled from 'styled-components';
 
 const Profile = styled.div`
@@ -5,6 +6,11 @@ const Profile = styled.div`
     margin: 0 auto;
     margin-top: 50px;
     padding: 20px 60px;
+
+    @media screen and (max-width: 450px) {
+        padding: 20px ;
+    }
+
 
     .box-1 {
         display: flex;
@@ -14,6 +20,17 @@ const Profile = styled.div`
         border: 2px solid #1f1f1f;
         padding: 60px 30px;
         border-radius: 4px;
+
+        @media screen and (max-width: 1040px) {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        @media screen and (max-width: 453px) {
+            padding: 60px 10px;
+            padding-bottom: 100px;
+        }
+
         .profile-wrapper {
             display: flex;
             flex-direction: column;
@@ -84,28 +101,51 @@ const Profile = styled.div`
                     background: transparent;
                     margin-top: 50px;
                     width: 250px;
+
+                    @media screen and (max-width: 1040px) {
+                        margin-top: 100px;
+                    }
                 }
             }
         }
 
         .about-wrapper{
             max-width: 550px;
+            width: 100%;
+
+            @media screen and (max-width: 1040px) {
+                margin-top: 50px;
+            }
 
             .text-1{
                 color: #0beeb2;
+                text-align: center;
             }
 
             .profile {
                 margin: 10px 0px;
+                text-align: center;
+                @media screen and (max-width: 400px) {
+                    font-size: 34px;
+                }
             }
 
             .profession{
                 font-size: 20px;
+                text-align: center;
+
+                @media screen and (max-width: 400px) {
+                    font-size: 16px;
+                }
             }
 
             .description{
                 color: #9ca3af;
                 margin: 20px 0px 48px 0px;
+                @media screen and (max-width: 400px) {
+                    font-size: 14px;
+                    line-height: 24px;
+                }
             }
         }
     }

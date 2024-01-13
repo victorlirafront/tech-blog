@@ -3,11 +3,16 @@ import styled from 'styled-components';
 const StyledSlickTech = styled.div`
     //slick dots
     .slick-dots {
+        @media screen and (max-width: 453px) {
+            bottom: -75px;
+            line-height: 0;
+        }
+
         li {
             button {
                 &::after {
                     font-family: 'slick';
-                    font-size: 6px;
+                    font-size: 12px;
                     line-height: 20px;
                     position: absolute;
                     top: 0;
@@ -27,7 +32,7 @@ const StyledSlickTech = styled.div`
             &.slick-active {
                 &::after {
                     font-family: 'slick';
-                    font-size: 6px;
+                    font-size: 12px;
                     line-height: 20px;
                     position: absolute;
                     top: 0;
@@ -36,7 +41,7 @@ const StyledSlickTech = styled.div`
                     height: 20px;
                     content: '•';
                     text-align: center;
-                    opacity: 0.5;
+                    /* opacity: 0.5; */
                     color: #0beeb2;
                     -webkit-font-smoothing: antialiased;
                 }
@@ -57,6 +62,7 @@ const StyledSlickTech = styled.div`
             align-items: center;
             width: 150px;
             height: 130px;
+            margin: 0 auto;
 
             .slide-image {
                 width: 70px;

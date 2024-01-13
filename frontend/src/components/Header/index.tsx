@@ -74,7 +74,7 @@ const Header = function () {
     return (
         //esse display: none inline precisa ser corrigido
         //fiz isso pois o DOM esta carrgado o header com delay no CSS
-        <StyledHeader data-aos={headerFadeDown} className={openMobileMenu ? `active` : ""} style={{display: "none"}}> 
+        <StyledHeader data-aos={headerFadeDown}> 
             <div className="container">
                 <nav>
                     <Link href="/">
