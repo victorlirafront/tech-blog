@@ -14,3 +14,31 @@ body {
     background: #121212;
     overflow-x: hidden;
 }
+
+/* Para navegadores baseados no WebKit (Chrome, Safari, etc.) */
+::-webkit-scrollbar {
+    width: 12px; /* Largura da barra de rolagem */
+    border-radius: 8px; /* Border-radius da barra de rolagem */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #00b182; /* Cor do "ponteiro" (parte que você arrasta) */
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: #121212; /* Cor da trilha (fundo da barra de rolagem) */
+  }
+  
+  /* Para navegadores baseados na Microsoft (Edge) */
+  ::-ms-scrollbar {
+    width: 12px;
+  }
+  
+  ::-ms-scrollbar-thumb {
+    background-color: #00b182;
+  }
+  
+  ::-ms-scrollbar-track {
+    background-color: #121212;
+  }
+  

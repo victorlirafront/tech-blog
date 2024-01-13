@@ -119,12 +119,18 @@ const Profile = styled.div`
 
             .text-1{
                 color: #0beeb2;
-                text-align: center;
+                @media screen and (max-width: 1040px) {
+                    text-align: center;
+                }
             }
 
             .profile {
                 margin: 10px 0px;
-                text-align: center;
+
+                @media screen and (max-width: 1040px) {
+                    text-align: center;
+                }
+                
                 @media screen and (max-width: 400px) {
                     font-size: 34px;
                 }
@@ -132,7 +138,9 @@ const Profile = styled.div`
 
             .profession{
                 font-size: 20px;
-                text-align: center;
+                @media screen and (max-width: 1040px) {
+                    text-align: center;
+                }
 
                 @media screen and (max-width: 400px) {
                     font-size: 16px;
