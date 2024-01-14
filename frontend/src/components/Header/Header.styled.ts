@@ -56,11 +56,7 @@ const StyledHeader = styled.header`
 
                 @media screen and (max-width: 700px) {
                     background: rgb(0, 98, 72);
-                    background: linear-gradient(
-                        3600deg,
-                        rgba(0, 98, 72, 1) 0%,
-                        rgba(5, 213, 158, 1) 100%
-                    );
+                    background: #111111;
                     position: fixed;
                     left: -100%;
                     top: 0;
@@ -150,7 +146,7 @@ const StyledHeader = styled.header`
                         margin-left: -40px;
 
                         @media screen and (max-width: 700px) {
-                            background: #048060;
+                            background: #111111;
                             width: 300px;
                             margin-left: -80px;
                             max-height: 172px;
@@ -161,6 +157,7 @@ const StyledHeader = styled.header`
                             display: flex;
                             flex-direction: column;
                             border-radius: 4px;
+                            background: #1e1e1e;
                         }
 
                         a {
