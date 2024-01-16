@@ -96,16 +96,31 @@ function Posts(props: IProps) {
     );
 }
 
+async function fetchData(baseUrl: any) {
+    try {
+        const response = await Axios.get(baseUrl);
+        const results = response.data.results;
+
+        if (results.length > 0) {
+            return results;
+        }
+    } catch (error) {
+        console.error(`Erro na requisição: ${error}`);
+    }
+
+    return null;
+}
+
 export const getServerSideProps: GetServerSideProps = async (
     context: GetServerSidePropsContext
 ) => {
     const { id } = context.params!;
 
     try {
-        //MELHORAR ISSO AQUI
-        const response = await Axios.get('https://blog-backend-tau-three.vercel.app/api/get?page=1&limit=100&category=all');
+        const baseUrl1 = 'https://blog-backend-tau-three.vercel.app/api/get?page=1&limit=100&category=all';
+        const baseUrl2 = 'https://blog-backend-g9k4y75fk-victorlirafront.vercel.app/api/get?page=1&limit=100&category=all';
 
-        const data = response.data.results;
+        const data = await fetchData(baseUrl1) || await fetchData(baseUrl2);
 
         const currentPost = data.find((post: ICurrentPost) => {
             return String(post.id) === String(id);

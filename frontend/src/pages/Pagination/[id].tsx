@@ -91,6 +91,21 @@ export interface MyComponentProps {
     data: any;
 }
 
+async function fetchData(baseUrl: any) {
+    try {
+        const response = await Axios.get(baseUrl);
+        const results = response.data.results;
+
+        if (results.length > 0) {
+            return response.data;
+        }
+    } catch (error) {
+        console.error(`Erro na requisição: ${error}`);
+    }
+
+    return null;
+}
+
 export const getServerSideProps: GetServerSideProps = async (context: any) => {
     try {
         const { id } = context.params;
@@ -101,8 +116,10 @@ export const getServerSideProps: GetServerSideProps = async (context: any) => {
         }
         const limit = "8"
         //   const category = "javascript"
-        const response = await Axios.get(`https://blog-backend-tau-three.vercel.app/api/get?page=${id}&limit=${limit}&category=${category}`);
-        const data = response.data;
+        const baseUrl1 = `https://blog-backend-tau-three.vercel.app/api/get?page=${id}&limit=${limit}&category=${category}`;
+        const baseUrl2 = `https://blog-backend-g9k4y75fk-victorlirafront.vercel.app/api/get?page=${id}&limit=${limit}&category=${category}`;
+
+        const data = await fetchData(baseUrl1) || await fetchData(baseUrl2);
 
         return {
             props: {

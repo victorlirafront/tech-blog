@@ -97,8 +97,8 @@ const Header = function () {
                             </div>
                             <div className={`category-options ${isCategoryActive ? 'active' : ""}`}>
                                 <Link className="option" onClick={() => hideMobileMenu()} href={"/Pagination/1?category=all"}>All</Link>
-                                <Link className="option" onClick={() => hideMobileMenu()} href={"/Pagination/1?category=javascript"}>Javascript</Link>
-                                <Link className="option" onClick={() => hideMobileMenu()} href={"/Pagination/1?category=typescript"}>Typescript</Link>
+                                <Link className="option" onClick={() => hideMobileMenu()} href={"/Pagination/1?category=javascript"}>JavaScript</Link>
+                                <Link className="option" onClick={() => hideMobileMenu()} href={"/Pagination/1?category=typescript"}>TypeScript</Link>
                                 <Link className="option" onClick={() => hideMobileMenu()} href={"/Pagination/1?category=react"}>React JS</Link>
                                 <Link className="option" onClick={() => hideMobileMenu()} href={"/Pagination/1?category=next"}>Next JS</Link>
                             </div>
