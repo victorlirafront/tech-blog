@@ -119,10 +119,14 @@ export const getServerSideProps: GetServerSideProps = async (
     const { id } = context.params!;
 
     try {
+        //Estou usando API gratuita com limite de requisições 
+        //então criei varioes endpoits para não quebrar a aplicação
         const baseUrl1 = 'https://blog-backend-tau-three.vercel.app/api/get?page=1&limit=100&category=all';
         const baseUrl2 = 'https://blog-backend-g9k4y75fk-victorlirafront.vercel.app/api/get?page=1&limit=100&category=all';
+        const baseUrl3 = "https://blog-tau-rosy-55.vercel.app/api/get?page=1&limit=100&category=all";
+        const baseUrl4 = "https://blog-git-main-victorlirafront.vercel.app/api/get?page=1&limit=100&category=all"
 
-        const data = await fetchData(baseUrl1) || await fetchData(baseUrl2);
+        const data = await fetchData(baseUrl1) || await fetchData(baseUrl2) || await fetchData(baseUrl3) || await fetchData(baseUrl4);
 
         const currentPost = data.find((post: ICurrentPost) => {
             return String(post.id) === String(id);

@@ -134,10 +134,14 @@ export const getServerSideProps = async (context: any) => {
         const id = "1"
         const limit = "8"
         const category = "all"
+        //Estou usando API gratuita com limite de requisições 
+        //então criei varioes endpoits para não quebrar a aplicação
         const baseUrl1 = `https://blog-backend-tau-three.vercel.app/api/get?page=${id}&limit=${limit}&category=${category}`;
         const baseUrl2 = `https://blog-backend-g9k4y75fk-victorlirafront.vercel.app/api/get?page=${id}&limit=${limit}&category=${category}`;
+        const baseUrl3 = `https://blog-tau-rosy-55.vercel.app/api/get?page=${id}&limit=${limit}&category=${category}`;
+        const baseUrl4 = `https://blog-git-main-victorlirafront.vercel.app/api/get?page=${id}&limit=${limit}&category=${category}`
 
-        const data = await fetchData(baseUrl1) || await fetchData(baseUrl2);
+        const data = await fetchData(baseUrl1) || await fetchData(baseUrl2) || await fetchData(baseUrl3) || await fetchData(baseUrl4);
 
         return {
             props: {
