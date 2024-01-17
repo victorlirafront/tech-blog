@@ -20,6 +20,7 @@ interface IProps {
         title: string
         content: string
         post_image: string
+        author: string
     },
     data: any
 }
@@ -51,8 +52,9 @@ function Posts(props: IProps) {
                 <title>{props.post.meta_tag_title}</title>
                 <meta
                     name="description"
-                    content={`${props.post.meta_tag_description}`}
+                    content={props.post.meta_tag_description}
                 ></meta>
+                 <meta name="author" content={props.post.author} />
                 <link rel="icon" href="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/binary-code_WBpGXnWnG.png?updatedAt=1700431546132" />
             </Head>
             <Header />
