@@ -21,6 +21,7 @@ interface IProps {
         content: string
         post_image: string
         author: string
+        keywords: string
     },
     data: any
 }
@@ -56,6 +57,7 @@ function Posts(props: IProps) {
                 ></meta>
                  <meta name="author" content={props.post.author} />
                  <meta name="robots" content="index, follow" />
+                 <meta name="keywords" content={props.post.keywords} />
                 <link rel="icon" href="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/binary-code_WBpGXnWnG.png?updatedAt=1700431546132" />
             </Head>
             <Header />

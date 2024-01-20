@@ -75,6 +75,8 @@ export default function Home({ data }: IData) {
                 />
                 <meta name="author" content="Victor Lira" />
                 <meta name="robots" content="index, follow" />
+                <meta property="og:site_name" content="Victor Lira" />
+                <meta property="og:image" content="https://img.wine.com.br/hotsite/produtores/ita/2022/capa.png" />
                 <meta property="og:url" content="https://www.victorlirablog.com/" />
                 <meta property="og:image" content="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/worker_a5Q0u72Xk.png?updatedAt=1697424748194" />
                 <link rel="icon" href="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/binary-code_WBpGXnWnG.png?updatedAt=1700431546132" />
