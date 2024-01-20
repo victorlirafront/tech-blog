@@ -11,7 +11,6 @@ import Post from '@/components/Post';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Slider from 'react-slick';
-import Image from 'next/image';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
@@ -49,7 +48,6 @@ function Posts(props: IProps) {
             speed: 500,
             slidesToShow: 3,
             slidesToScroll: 2,
-            // autoplay: true,
             arrows: true,
             autoplaySpeed: 2000,
             responsive: [
@@ -120,11 +118,14 @@ function Posts(props: IProps) {
                                     category={post.category}
                                     content={post.content}
                                     date={post.date}
-                                    meta_tag_description='teste'
-                                    meta_tag_title='teste'
+                                    meta_tag_description={post.meta_tag_description}
+                                    meta_tag_title={post.meta_tag_title}
                                     title={post.title}
                                     post_image={post.post_image}
                                     author={post.author}
+                                    aos_delay=""
+                                    aos_type=""
+                                    hover_animation={0}
                             />
                         </div>
                         )

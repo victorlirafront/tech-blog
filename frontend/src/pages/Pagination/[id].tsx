@@ -79,6 +79,9 @@ export default function Home({ data }: any) {
                                 post_image={post.post_image}
                                 date={post.date}
                                 category={post.category}
+                                aos_delay='100'
+                                aos_type='fade-up'
+                                hover_animation={-7}
                             />
                         );
                     })}

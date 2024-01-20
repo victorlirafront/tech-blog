@@ -19,6 +19,9 @@ interface Iprops {
     meta_tag_title: string
     meta_tag_description: string
     className?: string
+    aos_delay: string
+    aos_type: string
+    hover_animation: number
 }
 
 const Post = function (props: Iprops) {
@@ -31,10 +34,10 @@ const Post = function (props: Iprops) {
 
     return (
         <StyledPost
-            data-aos-delay="100"
-            data-aos="fade-up"
+            data-aos-delay={props.aos_delay}
+            data-aos={props.aos_type}
             style={props.style} >
-            <motion.div whileHover={{ y: -7 }} className='motion-box'>
+            <motion.div whileHover={{ y: props.hover_animation }} className='motion-box'>
                 <div
                     className="post-image"
                     style={{ backgroundImage: `url(${props.post_image})` }}
