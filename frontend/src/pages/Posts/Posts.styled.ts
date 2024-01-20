@@ -79,6 +79,7 @@ const StyledPostNew = styled.div`
                 @media screen and (max-width: 700px){
                     font-size: 14px;
                     margin-bottom: 10px;
+                    line-height: 26px;
                 }
 
                 img {
