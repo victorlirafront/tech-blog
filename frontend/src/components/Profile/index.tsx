@@ -29,7 +29,7 @@ const Profile = function(){
                     <p className="text-1">About me</p>
                     <h1 className="profile">Victor Lira</h1>
                     <h2 className="profession">Frontend Developer</h2>
-                    <p className="description">Meu nome é Iuri Silva, ou “iuricode” (é como me chamam agora) sou o criador do eFront, um material de ensino de frontend pela internet. Atualmente sou freelancer como Frontend Developer e UI Designer. Desenvolvo interfaces modernas e de alta qualidade, concentrado em performance, animações, responsividade e SEO.</p>
+                    <p className="description">My name is Victor, I am a Front-end developer, passionate about the JavaScript universe. I have had the opportunity to create internal projects for large companies, and I took the initiative to create this blog to share important topics related to web development.</p>
                     <SimpleSlider/>
                 </div>
             </div>
