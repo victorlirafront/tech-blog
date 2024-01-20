@@ -202,7 +202,12 @@ const StyledPostNew = styled.div`
     .title{
         color: #ccc;
         text-align: center;
-        margin-bottom: 40px;
+        margin-bottom: 70px;
+
+        @media screen and (max-width: 700px){
+            font-size: 1.25rem;
+            margin-bottom: 40px;
+        }
     }
 
     .last-posts {
@@ -236,12 +241,14 @@ const StyledPostNew = styled.div`
                     height: 30px;
                     background-color: #3b3b3b;
                     top: 220px;
+                    background-image: url(https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow-white_bw7BBf49A.png?updatedAt=1705780260703);
+                    background-position: 9px 9px;
+                    background-size: 13px;
+                    background-repeat: no-repeat;
                     
                     &::before{
-                        font-size: 25px;
-                        content: "➔";
-                        line-height: 12px;
-                    }           
+                        display: none;
+                    }
                 }
 
                 &.slick-next {
@@ -251,11 +258,13 @@ const StyledPostNew = styled.div`
                     width: 30px;
                     height: 30px;
                     background-color: #3b3b3b;
+                    background-image: url(https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow-white_bw7BBf49A.png?updatedAt=1705780260703);
+                    background-position: 9px 9px;
+                    background-size: 13px;
+                    background-repeat: no-repeat;
                                     
                     &::before{
-                        font-size: 25px;
-                        content: "➔";
-                        line-height: 12px;
+                        display: none;
                     }
                 }
             }
