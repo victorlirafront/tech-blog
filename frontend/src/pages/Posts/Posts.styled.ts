@@ -51,6 +51,11 @@ const StyledPostNew = styled.div`
                 margin-bottom: 30px;
                 margin-top: 30px;
                 /* margin-top: 30px; */
+
+                @media screen and (max-width: 700px){
+                    margin-bottom: 20px;
+                    margin-top: 20px;
+                }
             }
 
             h1 {
@@ -73,7 +78,7 @@ const StyledPostNew = styled.div`
 
                 @media screen and (max-width: 700px){
                     font-size: 14px;
-                    margin-bottom: 25px;
+                    margin-bottom: 10px;
                 }
 
                 img {
@@ -84,6 +89,7 @@ const StyledPostNew = styled.div`
 
             img {
                 max-width: 100%;
+                margin-top: 10px;
             }
 
             code {
@@ -124,10 +130,15 @@ const StyledPostNew = styled.div`
                 @media screen and (max-width: 700px){
                     font-size: 14px;
                     padding-left: 20px;
+                    margin-bottom: 15px;
                 }
 
                 li {
                     margin-bottom: 20px;
+
+                    @media screen and (max-width: 700px){
+                        margin-bottom: 10px;
+                    }
                 }
             }
 
