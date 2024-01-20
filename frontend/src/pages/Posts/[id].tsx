@@ -10,6 +10,10 @@ import dateFormatter from '@/helperFunctions/dateFormatter';
 import Post from '@/components/Post';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import Slider from 'react-slick';
+import Image from 'next/image';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 interface IProps {
     post: {
@@ -33,11 +37,38 @@ interface ICurrentPost {
 function Posts(props: IProps) {
     const [isLoading, setIsLoading] = useState(true);
     const [lastPosts, setLastPost] = useState([])
+    const [settings, setSettings] = useState({});
 
     useEffect(() => {
         setIsLoading(false);
         AOS.init();
         setLastPost(props.data.slice(0, 3))
+        setSettings({
+            dots: true,
+            infinite: true,
+            speed: 500,
+            slidesToShow: 3,
+            slidesToScroll: 2,
+            // autoplay: true,
+            arrows: true,
+            autoplaySpeed: 2000,
+            responsive: [
+                {
+                    breakpoint: 1186,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1,
+                    },
+                },
+                {
+                    breakpoint: 800,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                    },
+                }
+            ],
+        })
     }, []);
 
     if (isLoading) {
@@ -55,9 +86,9 @@ function Posts(props: IProps) {
                     name="description"
                     content={props.post.meta_tag_description}
                 ></meta>
-                 <meta name="author" content={props.post.author} />
-                 <meta name="robots" content="index, follow" />
-                 <meta name="keywords" content={props.post.keywords} />
+                <meta name="author" content={props.post.author} />
+                <meta name="robots" content="index, follow" />
+                <meta name="keywords" content={props.post.keywords} />
                 <link rel="icon" href="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/binary-code_WBpGXnWnG.png?updatedAt=1700431546132" />
             </Head>
             <Header />
@@ -79,22 +110,26 @@ function Posts(props: IProps) {
             </div>
             <h1 className='title'>Last Posts</h1>
             <div className='last-posts'>
-                {lastPosts.map((post: any) => {
-                    return (
-                        <Post
-                            id={post.id}
-                            category={post.category}
-                            content={post.content}
-                            date={post.date}
-                            meta_tag_description='teste'
-                            meta_tag_title='teste'
-                            title={post.title}
-                            post_image={post.post_image}
-                            author={post.author}
-                            className={post}
-                        />
-                    )
-                })}
+                <Slider {...settings}>
+                    {lastPosts.map((post: any) => {
+                        return (
+                        <div className='slider-content'> 
+                                <Post
+                                    key={post.id}
+                                    id={post.id}
+                                    category={post.category}
+                                    content={post.content}
+                                    date={post.date}
+                                    meta_tag_description='teste'
+                                    meta_tag_title='teste'
+                                    title={post.title}
+                                    post_image={post.post_image}
+                                    author={post.author}
+                            />
+                        </div>
+                        )
+                    })}
+                </Slider>
             </div>
             <Footer />
         </StyledPostNew>

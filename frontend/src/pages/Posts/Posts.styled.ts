@@ -206,14 +206,59 @@ const StyledPostNew = styled.div`
     }
 
     .last-posts {
-        display: flex;
-        justify-content: center;
-        align-items: center;
         max-width: 1200px;
         margin: 0 auto;
-        flex-wrap: wrap;
-        .post {
 
+        .slider-content {
+            display: flex !important;
+            justify-content: center !important;
+        }
+
+
+        //SLIDER
+        .slick-slider{
+
+            .slick-track {
+                display: flex;
+                justify-content: center;
+            }
+
+            .slick-slide {
+
+            }
+            .slick-arrow {
+                &.slick-prev {
+                    left: 7px;
+                    z-index: 10;
+                    transform: rotate(180deg);
+                    border-radius: 100%;
+                    width: 30px;
+                    height: 30px;
+                    background-color: #3b3b3b;
+                    top: 220px;
+                    
+                    &::before{
+                        font-size: 25px;
+                        content: "➔";
+                        line-height: 12px;
+                    }           
+                }
+
+                &.slick-next {
+                    right: 7px;
+                    color: #fff ;
+                    border-radius: 100%;
+                    width: 30px;
+                    height: 30px;
+                    background-color: #3b3b3b;
+                                    
+                    &::before{
+                        font-size: 25px;
+                        content: "➔";
+                        line-height: 12px;
+                    }
+                }
+            }
         }
     }
 `
