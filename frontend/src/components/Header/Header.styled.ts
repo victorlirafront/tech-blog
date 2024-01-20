@@ -74,7 +74,7 @@ const StyledHeader = styled.header`
 
                     @media screen and (max-width: 700px) {
                         flex-direction: column;
-                        min-width: 150px;
+                        min-width: 250px;
                         height: 100px;
                     }
 
@@ -112,7 +112,7 @@ const StyledHeader = styled.header`
                     color: #fff !important;
 
                     @media screen and (max-width: 700px) {
-                        min-width: 150px;
+                        min-width: 250px;
                         margin-top: 30px;
                     }
 
@@ -144,26 +144,32 @@ const StyledHeader = styled.header`
                         cursor: pointer;
                         width: 200px;
                         margin-left: -40px;
+                        height: 0;
+                        transition: 0.5s;
+                        display: flex;
+                        flex-direction: column;
+                        overflow: hidden;
 
                         @media screen and (max-width: 700px) {
                             background: #111111;
-                            width: 300px;
-                            margin-left: -80px;
-                            max-height: 172px;
+                            width: 250px;
+                            margin-left: 0px;
                             overflow: scroll;
+                            position: static;
+                            margin-top: 30px;
                         }
 
                         &.active {
-                            display: flex;
-                            flex-direction: column;
                             border-radius: 4px;
                             background: #1e1e1e;
+                            transition: 0.5s;
+                            height: 200px;
                         }
+
 
                         a {
                             padding: 7px;
                         }
-                        display: none;
 
                         .option {
                             &:hover {
