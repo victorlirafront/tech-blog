@@ -145,6 +145,8 @@ export default function Home({ data }: IData) {
                 page={data?.next?.page - 1}
                 hasNextPage={checkNextPage()}
                 hasPreviousPage={checkPreviousPage()}
+                previousPage={data.previous?.page ? data.previous.page : 1}
+                nextPage={data.next?.page}
             />
             <Footer />
         </Fragment>

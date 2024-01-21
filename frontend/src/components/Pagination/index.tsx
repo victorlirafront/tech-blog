@@ -9,6 +9,8 @@ interface IpropsPagination {
     page: number
     hasNextPage: boolean
     hasPreviousPage: boolean
+    previousPage: number
+    nextPage: number
 }
 
 const Pagination = function (props: IpropsPagination) {
@@ -33,7 +35,7 @@ const Pagination = function (props: IpropsPagination) {
     const createNextPageArrow = function () {
         if (props.hasNextPage) {
             return (
-                <Link onClick={() => setNextPage()} href={`/Pagination/${page}?category=${category}`}>
+                <Link onClick={() => setNextPage()} href={`/Pagination/${props.nextPage}?category=${category}`}>
                     <div className="icon-arrow icon-arrow-right">
                         <img src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow-right_eVbRRghk9.png?updatedAt=1696390413993" alt="" />
                     </div>
@@ -45,7 +47,7 @@ const Pagination = function (props: IpropsPagination) {
     const createPreviousPageArrow = function () {
         if (props.hasPreviousPage) {
             return (
-                <Link onClick={() => setPreviowPage()} href={`/Pagination/${page - 2}?category=${category}`} >
+                <Link onClick={() => setPreviowPage()} href={`/Pagination/${props.previousPage}?category=${category}`} >
                     <div className="icon-arrow icon-arrow-left">
                         <img src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow-right_eVbRRghk9.png?updatedAt=1696390413993" alt="" />
                     </div>

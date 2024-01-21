@@ -10,7 +10,6 @@ import Pagination from '@/components/Pagination';
 import { GetServerSideProps } from 'next';
 
 export default function Home({ data }: any) {
-
     const setNextPage = function () {
         if (data?.next) {
             return data.next.page - 1
@@ -87,7 +86,13 @@ export default function Home({ data }: any) {
                     })}
                 </div>
             </MainPage>
-            <Pagination pageLength={Math.ceil(data.totalPages)} page={setNextPage()} hasNextPage={checkNextPage()} hasPreviousPage={checkPreviousPage()} />
+            <Pagination 
+                previousPage={data.previous?.page ? data.previous.page : 1} 
+                nextPage={data.next?.page}
+                pageLength={Math.ceil(data.totalPages)} 
+                page={setNextPage()}
+                hasNextPage={checkNextPage()} 
+                hasPreviousPage={checkPreviousPage()} />
             <Footer />
         </Fragment>
     )
