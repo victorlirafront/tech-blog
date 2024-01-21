@@ -8,34 +8,34 @@ import Footer from '@/components/Footer';
 import Axios from 'axios';
 import Pagination from '@/components/Pagination';
 import { GlobalContext } from '../Context/pagination';
-import { useContext } from "react";
+import { useContext } from 'react';
 import { useEffect } from 'react';
 
 interface IPost {
-    id: any
-    title: string
-    content: string
-    date: string
-    category: string
-    meta_tag_title: string
-    meta_tag_description: string
-    post_image: string
-    author: string
+    id: any;
+    title: string;
+    content: string;
+    date: string;
+    category: string;
+    meta_tag_title: string;
+    meta_tag_description: string;
+    post_image: string;
+    author: string;
 }
 
 interface IData {
     data: {
-        totalPages: number
+        totalPages: number;
         next: {
-            page: number
-            limit: number
-        }
+            page: number;
+            limit: number;
+        };
         previous: {
-            page: number
-            limit: number
-        }
-        results: IPost[]
-    }
+            page: number;
+            limit: number;
+        };
+        results: IPost[];
+    };
 }
 
 export default function Home({ data }: IData) {
@@ -43,23 +43,23 @@ export default function Home({ data }: IData) {
 
     useEffect(() => {
         setPage(data.next?.page);
-    }, [])
+    }, []);
 
     const checkNextPage = function () {
         if (data?.next) {
-            return true
+            return true;
         } else {
-            return false
+            return false;
         }
-    }
+    };
 
     const checkPreviousPage = function () {
         if (data?.previous) {
-            return true
+            return true;
         } else {
-            return false
+            return false;
         }
-    }
+    };
 
     return (
         <Fragment>
@@ -73,53 +73,82 @@ export default function Home({ data }: IData) {
                     name="viewport"
                     content="width=device-width, initial-scale=1"
                 />
+                <script
+                    async={true}
+                    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3834333278222212"
+                    crossOrigin="anonymous"
+                ></script>
+                <meta
+                    name="google-adsense-account"
+                    content="ca-pub-3834333278222212"
+                ></meta>
                 <meta name="author" content="Victor Lira" />
                 <meta name="robots" content="index, follow" />
                 <meta property="og:site_name" content="Victor Lira" />
-                <meta property="og:image" content="https://img.wine.com.br/hotsite/produtores/ita/2022/capa.png" />
-                <meta property="og:url" content="https://www.victorlirablog.com/" />
-                <meta property="og:image" content="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/worker_a5Q0u72Xk.png?updatedAt=1697424748194" />
-                <link rel="icon" href="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/binary-code_WBpGXnWnG.png?updatedAt=1700431546132" />
+                <meta
+                    property="og:image"
+                    content="https://img.wine.com.br/hotsite/produtores/ita/2022/capa.png"
+                />
+                <meta
+                    property="og:url"
+                    content="https://www.victorlirablog.com/"
+                />
+                <meta
+                    property="og:image"
+                    content="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/worker_a5Q0u72Xk.png?updatedAt=1697424748194"
+                />
+                <link
+                    rel="icon"
+                    href="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/binary-code_WBpGXnWnG.png?updatedAt=1700431546132"
+                />
             </Head>
             <Header />
             <About />
             <MainPage>
                 <div className="container">
-                    {data.results && data.results.map((post: IPost, index: number) => {
-                        let costumizeFirstPost = false;
+                    {data.results &&
+                        data.results.map((post: IPost, index: number) => {
+                            let costumizeFirstPost = false;
 
-                        index === 0 ? costumizeFirstPost = true : false
+                            index === 0 ? (costumizeFirstPost = true) : false;
 
-                        const styled = {
-                            width: "calc(66.66667% - 40px)",
-                            minWidth: "300px"
-                        }
+                            const styled = {
+                                width: 'calc(66.66667% - 40px)',
+                                minWidth: '300px',
+                            };
 
-                        return (
-                            <Post
-                                style={costumizeFirstPost ? styled : {}}
-                                key={post.id}
-                                id={post.id}
-                                title={post.title}
-                                content={post.content}
-                                author={post.author}
-                                meta_tag_title={post.meta_tag_title}
-                                meta_tag_description={post.meta_tag_description}
-                                post_image={post.post_image}
-                                date={post.date}
-                                category={post.category}
-                                aos_delay='100'
-                                aos_type='fade-up'
-                                hover_animation={-7}
-                            />
-                        );
-                    })}
+                            return (
+                                <Post
+                                    style={costumizeFirstPost ? styled : {}}
+                                    key={post.id}
+                                    id={post.id}
+                                    title={post.title}
+                                    content={post.content}
+                                    author={post.author}
+                                    meta_tag_title={post.meta_tag_title}
+                                    meta_tag_description={
+                                        post.meta_tag_description
+                                    }
+                                    post_image={post.post_image}
+                                    date={post.date}
+                                    category={post.category}
+                                    aos_delay="100"
+                                    aos_type="fade-up"
+                                    hover_animation={-7}
+                                />
+                            );
+                        })}
                 </div>
             </MainPage>
-            <Pagination pageLength={Math.ceil(data.totalPages)} page={data?.next?.page - 1} hasNextPage={checkNextPage()} hasPreviousPage={checkPreviousPage()} />
+            <Pagination
+                pageLength={Math.ceil(data.totalPages)}
+                page={data?.next?.page - 1}
+                hasNextPage={checkNextPage()}
+                hasPreviousPage={checkPreviousPage()}
+            />
             <Footer />
         </Fragment>
-    )
+    );
 }
 
 async function fetchData(baseUrl: any) {
@@ -139,29 +168,33 @@ async function fetchData(baseUrl: any) {
 
 export const getServerSideProps = async (context: any) => {
     try {
-        const id = "1"
-        const limit = "8"
-        const category = "all"
-        //Estou usando API gratuita com limite de requisições 
+        const id = '1';
+        const limit = '8';
+        const category = 'all';
+        //Estou usando API gratuita com limite de requisições
         //então criei varioes endpoits para não quebrar a aplicação
         const baseUrl1 = `https://blog-backend-tau-three.vercel.app/api/get?page=${id}&limit=${limit}&category=${category}`;
         const baseUrl2 = `https://blog-backend-g9k4y75fk-victorlirafront.vercel.app/api/get?page=${id}&limit=${limit}&category=${category}`;
         const baseUrl3 = `https://blog-tau-rosy-55.vercel.app/api/get?page=${id}&limit=${limit}&category=${category}`;
-        const baseUrl4 = `https://blog-git-main-victorlirafront.vercel.app/api/get?page=${id}&limit=${limit}&category=${category}`
+        const baseUrl4 = `https://blog-git-main-victorlirafront.vercel.app/api/get?page=${id}&limit=${limit}&category=${category}`;
 
-        const data = await fetchData(baseUrl1) || await fetchData(baseUrl2) || await fetchData(baseUrl3) || await fetchData(baseUrl4);
+        const data =
+            (await fetchData(baseUrl1)) ||
+            (await fetchData(baseUrl2)) ||
+            (await fetchData(baseUrl3)) ||
+            (await fetchData(baseUrl4));
 
         return {
             props: {
-                data // Pass the extracted data as props
+                data, // Pass the extracted data as props
             },
         };
     } catch (error) {
-        console.error("Error fetching data:", error);
+        console.error('Error fetching data:', error);
         return {
             props: {
-                data: [] // Return an empty array or handle the error as needed
-            }
+                data: [], // Return an empty array or handle the error as needed
+            },
         };
     }
 };
