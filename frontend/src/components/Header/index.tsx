@@ -77,7 +77,7 @@ const Header = function () {
         <StyledHeader data-aos={headerFadeDown}> 
             <div className="container">
                 <nav>
-                    <Link href="/">
+                    <Link className='home' href="/">
                         <Image width={50} height={40} className='header-icon' src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/code_2GKuQisNn.png?updatedAt=1697217597567" alt="" />
                     </Link>
                     <div className={`menu-wrapper ${openMobileMenu ? "active" : ""}`}>

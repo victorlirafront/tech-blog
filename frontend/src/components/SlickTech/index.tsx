@@ -97,6 +97,12 @@ const SimpleSlider = () => {
                         <p className='text'>CSS</p>
                     </div>
                 </div>
+                <div className="slider-container">
+                    <div className="slider-box css">
+                        <Image width={100} height={75} className="slide-image" src="/jest.png" alt="" />
+                        <p className='text'>Jest</p>
+                    </div>
+                </div>
             </Slider>
         </StyledSlickTech>
     );

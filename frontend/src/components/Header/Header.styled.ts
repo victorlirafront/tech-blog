@@ -8,7 +8,13 @@ const StyledHeader = styled.header`
     z-index: 3;
 
     @media screen and (max-width: 500px) {
-        padding: 20px;
+        padding: 10px 20px;
+    }
+
+    .home {
+        @media screen and (max-width: 500px) {
+            height: 38px;
+        }
     }
 
     .container {
@@ -165,7 +171,6 @@ const StyledHeader = styled.header`
                             transition: 0.5s;
                             height: 200px;
                         }
-
 
                         a {
                             padding: 7px;
