@@ -86,7 +86,7 @@ const Header = function () {
 
                         <div className='div-left'>
                             <Link onClick={() => menuHandler("blog")} className={`anchor ${currentTab === "blog" ? "active" : ""}`} href="/">Blog</Link>
-                            <Link onClick={() => menuHandler("about")} className={`anchor ${currentTab === "about" ? "active" : ""}`} href="/AboutMe">About me</Link>
+                            <Link onClick={() => menuHandler("about")} className={`anchor ${currentTab === "about" ? "active" : ""}`} href="/AboutMe">Portfolio</Link>
                             {/* <Link onClick={() => menuHandler("vlog")} className={`anchor ${currentTab === "vlog" ? "active" : ""}`} href="/">Vlog</Link> */}
                         </div>
 
