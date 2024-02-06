@@ -87,7 +87,7 @@ export default function Home({ data }: IData) {
                 <meta property="og:site_name" content="Victor Lira" />
                 <meta
                     property="og:image"
-                    content="https://img.wine.com.br/hotsite/produtores/ita/2022/capa.png"
+                    content="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/worker_a5Q0u72Xk.png?updatedAt=1697424748194"
                 />
                 <meta
                     property="og:url"
