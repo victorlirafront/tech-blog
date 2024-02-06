@@ -50,6 +50,10 @@ export default function Home({ data }: any) {
                 <meta property="og:site_name" content="Victor Lira" />
                 <meta name="robots" content="index, follow" />
                 <link rel="icon" href="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/binary-code_WBpGXnWnG.png?updatedAt=1700431546132" />
+                <meta
+                    property="og:image"
+                    content="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/capa_Lt5CpWfSYm.png?updatedAt=1707230740618"
+                />
             </Head>
             <Header />
             <About />

@@ -22,9 +22,13 @@ const AboutMe = function () {
                 <link
                     rel="icon"
                     href="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/binary-code_WBpGXnWnG.png?updatedAt=1700431546132"
-                />            
+                />
+                <meta
+                    property="og:image"
+                    content="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/capa_Lt5CpWfSYm.png?updatedAt=1707230740618"
+                />
             </Head>
-            <Header/>
+            <Header />
             <Profile />
             <Footer />
         </Fragment>
