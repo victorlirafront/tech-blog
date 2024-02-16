@@ -159,7 +159,8 @@ const StyledAbout = styled.div`
                 width: 100%;
 
                 @media screen and (max-width: 600px){
-                    margin-bottom: 50px;
+                    margin-bottom: 20px;
+                    font-size: 25px;
                 }
 
                 .svg {
@@ -175,7 +176,8 @@ const StyledAbout = styled.div`
 
                 &:last-child{
                     @media screen and (max-width: 600px){
-                        margin-top: 50px;
+                        margin-top: 20px;
+                        font-size: 25px;
                     }
                 }
             }
