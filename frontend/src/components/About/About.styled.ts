@@ -2,142 +2,155 @@
 import styled from 'styled-components';
 
 const StyledAbout = styled.div`
-    height: 400px;
-    width: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-image: url(https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/worker_a5Q0u72Xk.png?updatedAt=1697424748194);
-    position: relative;
-    max-width: 1920px;
-    margin: 0 auto;
-
-    @media screen and (max-width: 750px){
-        height: 270px;
-    }
-
-    .overlay {
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        background: #000;
-        opacity: 0.1;
-        z-index: 1;
-    }
-
-    .about-wrapper {
+        position: relative;
+    .area {
         width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 10px 50px;
+        height: 500px;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        background-color: #000a1f;
 
-        @media screen and (max-width: 1230px){
+        .circles {
             position: absolute;
-            bottom: -250px;
-        }
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
 
-        @media screen and (max-width: 750px){
-            flex-direction: column-reverse;
-            bottom: -250px;
-        }
+            li {
+                position: absolute;
+                display: block;
+                list-style: none;
+                width: 20px;
+                height: 20px;
+                background: #ffffff4d;
+                animation: animate 25s linear infinite;
+                bottom: -200px;
 
-        @media screen and (max-width: 6000px){
-            padding: 10px 20px;
-        }
-
-        .typed-animation {
-
-            @media screen and (max-width: 541px){
-                display: none;
-            }
-
-            .title-1 {
-                font-size: 27px;
-                font-weight: bold;
-                @media screen and (max-width: 541px){
-                    font-size: 15px;
+                &:nth-child(1) {
+                    left: 25%;
+                    width: 80px;
+                    height: 80px;
+                    animation-delay: 0s;
                 }
-                
-            }
 
-            .title-2 {
-                font-size: 22px;
-                font-weight: bold;
-                @media screen and (max-width: 541px){
-                    font-size: 15px;
+                &:nth-child(2) {
+                    left: 10%;
+                    width: 20px;
+                    height: 20px;
+                    animation-delay: 2s;
+                    animation-duration: 12s;
+                }
+
+                &:nth-child(3) {
+                    left: 70%;
+                    width: 20px;
+                    height: 20px;
+                    animation-delay: 4s;
+                }
+
+                &:nth-child(4) {
+                    left: 40%;
+                    width: 60px;
+                    height: 60px;
+                    animation-delay: 0s;
+                    animation-duration: 18s;
+                }
+
+                &:nth-child(5) {
+                    left: 65%;
+                    width: 20px;
+                    height: 20px;
+                    animation-delay: 0s;
+                }
+
+                &:nth-child(6) {
+                    left: 75%;
+                    width: 110px;
+                    height: 110px;
+                    animation-delay: 3s;
+                }
+
+                &:nth-child(7) {
+                    left: 35%;
+                    width: 150px;
+                    height: 150px;
+                    animation-delay: 7s;
+                }
+
+                &:nth-child(8) {
+                    left: 50%;
+                    width: 25px;
+                    height: 25px;
+                    animation-delay: 15s;
+                    animation-duration: 45s;
+                }
+
+                &:nth-child(9) {
+                    left: 20%;
+                    width: 15px;
+                    height: 15px;
+                    animation-delay: 1s;
+                    animation-duration: 35s;
+                }
+
+                &:nth-child(10) {
+                    left: 85%;
+                    width: 150px;
+                    height: 150px;
+                    animation-delay: 0s;
+                    animation-duration: 11s;
                 }
             }
 
-            .title-3 {
-                font-size: 18px;
-                font-weight: bold;
-                @media screen and (max-width: 541px){
-                    font-size: 15px;
+            @keyframes animate {
+                0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+                border-radius: 0;
                 }
-            }
-
-            .title-4 {
-                font-size: 16px;
-                font-weight: bold;
-                @media screen and (max-width: 541px){
-                    font-size: 15px;
+  
+                100% {
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+                border-radius: 50%;
                 }
             }
         }
+    }
 
-        .card {
-            text-align: center;
+    .wrapper {
+        position: relative;
+        height: 500px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 50%;
+        right: 50%;
+        transform: translate(50%, -50%);
+
+        #div-mask-front,
+        #div-mask-back {
             display: flex;
+            justify-content: center;
             align-items: center;
             flex-direction: column;
-            justify-content: center;
 
-            @media screen and (max-width: 750px){
-                margin-bottom: 20px;
+            p {
+                color: rgba(255, 255, 255, 0.9);
+                font-size: 30px;
             }
 
-            @media screen and (max-width: 541px){
-                margin-bottom: 153px;
-            }
-
-
-            .name {
-                color: #bad7e5;
-                margin-top: 10px;
-                @media screen and (max-width: 640px){
-                    font-size: 14px;
-                }
-            }
-
-            .profession {
-                color: #bad7e5;
-                margin-top: -5px;
-                @media screen and (max-width: 640px){
-                    font-size: 14px;
-                }
-            }
-
-            .card-img {
-                border-radius: 100%;
-                width: 100px;
-                height: 100px;
-                background-image: url(https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/profile_-roAsJAbQ.png?updatedAt=1688612357551);
-                background-size: cover;
-                border: 3px solid #bad7e5;
-                border-color: #0497EF;
-                box-shadow: 0px 0px 10px 0px #0497EF;
-
-                @media screen and (max-width: 541px){
-                    width: 70px;
-                    height: 70px;
-                }
+            h1 {
+                font-size: 80px;
+                color: transparent;
+                background: #0edba4;
+                background-size: 0.25rem 0.25rem;
+                -webkit-background-clip: text;
+                background-clip: text;
             }
         }
     }

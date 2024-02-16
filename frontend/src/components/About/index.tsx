@@ -1,32 +1,32 @@
-import StyledAbout from './About.styled';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useEffect } from 'react';
+import StyledAbout from './About.styled';
 
 const About = function () {
-    useEffect(() => {
-        AOS.init();
-    }, []);
-
     return (
         <StyledAbout data-aos="fade-down">
-            <div className="about-wrapper" data-aos="fade-down">
-               <div className='typed-animation'>
-                    <div className="title-1">Hello, I'm a front Developer</div>
-                    <div className="title-2">I've been coding since 2021</div>
-                    <div className="title-3">JavaScript enthusiast</div>
-                    <div className="title-4">Enjoy this tech blog 🚀</div>
-               </div>
-                <div className="card">
-                    <div className="card-img">
+            <div className="area">
+                <ul className="circles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
 
-                    </div>
-
-                    <p className='name'>Victor Lira</p>
-                    <p className='profession'> Front-end Dev 🚀</p>
+            <div className="wrapper">
+                <div id="div-mask-front">
+                    <h1>I'm Victor Lira</h1>
+                    <p>Front-end Developer</p>
                 </div>
             </div>
-            <div className='overlay'></div>
         </StyledAbout>
     );
 };
