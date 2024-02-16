@@ -172,6 +172,12 @@ const StyledAbout = styled.div`
                 color: rgba(255, 255, 255, 0.9);
                 font-size: 30px;
                 white-space: nowrap;
+
+                &:last-child{
+                    @media screen and (max-width: 600px){
+                        margin-top: 50px;
+                    }
+                }
             }
 
             h1 {
