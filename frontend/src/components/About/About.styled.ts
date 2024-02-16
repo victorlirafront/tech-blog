@@ -178,10 +178,11 @@ const StyledAbout = styled.div`
 
             p {
                 color: rgba(255, 255, 255, 0.9);
-                font-size: 30px;
+                font-size: 25px;
                 white-space: nowrap;
                 font-family: 'bolder-font', sans-serif;
                 font-weight: bold;
+                text-transform: uppercase;
 
                 &.profession{
                     margin-top: 40px;
@@ -197,20 +198,21 @@ const StyledAbout = styled.div`
                 background-clip: text;
                 white-space: nowrap;
                 font-family: 'bolder-font', sans-serif;
-
                 letter-spacing: -4px;
 
                 @media screen and (max-width: 600px){
                     white-space: unset;
-                    text-align: center;
+                    text-align: start;
                     line-height: 80px;
-                    min-width: 222px;
                     width: 222px;
-                    max-width: 222px ;
+                    border-bottom: 3px solid #fff;
                 }
 
                 span {
                     color: #fff;
+                    @media screen and (max-width: 600px){
+                        display: none;
+                    }
                 }
             }
 
