@@ -198,13 +198,13 @@ const StyledAbout = styled.div`
                 white-space: nowrap;
                 font-family: 'bolder-font', sans-serif;
 
-                letter-spacing: -5px;
+                letter-spacing: -4px;
 
                 @media screen and (max-width: 600px){
                     white-space: unset;
                     text-align: center;
                     line-height: 80px;
-                    width: 213px;
+                    width: 222px;
                 }
 
                 span {
