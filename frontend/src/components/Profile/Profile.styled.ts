@@ -2,10 +2,12 @@
 import styled from 'styled-components';
 
 const Profile = styled.div`
-    max-width: 1200px;
+    max-width: 90%;
     margin: 0 auto;
     margin-top: 50px;
     padding: 20px 60px;
+    background-color: #151515;
+    border: 2px solid #1f1f1f;
 
     @media screen and (max-width: 450px) {
         padding: 20px ;
@@ -16,10 +18,10 @@ const Profile = styled.div`
         display: flex;
         color: #fff;
         justify-content: space-between;
-        background-color: #151515;
-        border: 2px solid #1f1f1f;
         padding: 60px 30px;
         border-radius: 4px;
+        max-width: 1200px;
+        margin: 0 auto;
 
         @media screen and (max-width: 1040px) {
             flex-direction: column;

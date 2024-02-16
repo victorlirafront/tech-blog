@@ -40,7 +40,7 @@ const SimpleSlider = () => {
     });
 
     return (
-        <StyledSlickTech>
+        <StyledSlickTech data-aos="fade-down" data-aos-delay="600">
             <Slider {...settings}>
                 <div className="slider-container">
                     <div className="slider-box next">
