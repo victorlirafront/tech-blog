@@ -91,6 +91,13 @@ const StyledPostNew = styled.div`
             img {
                 max-width: 100%;
                 margin-top: 10px;
+                padding: 50px;
+                background: #202020;
+
+                @media screen and (max-width: 767px){
+                    padding: unset;
+                    background: unset; 
+                }
             }
 
             code {

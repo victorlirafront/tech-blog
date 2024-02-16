@@ -3,7 +3,7 @@ import { Fragment } from 'react';
 import Header from '../../components/Header';
 import MainPage from '../MainPage/index';
 import Post from '@/components/Post';
-import About from '@/components/About-err';
+import About from '@/components/About';
 import Footer from '@/components/Footer';
 import Axios from 'axios';
 import Pagination from '@/components/Pagination';
