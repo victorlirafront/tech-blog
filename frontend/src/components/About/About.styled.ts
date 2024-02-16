@@ -11,6 +11,10 @@ const StyledAbout = styled.div`
         z-index: -1;
         background-color: #020709;
 
+        @media screen and (max-width: 767px){
+            height: calc(100vh - 60px);
+        }
+
         .circles {
             position: absolute;
             top: 0;
@@ -137,6 +141,10 @@ const StyledAbout = styled.div`
         right: 50%;
         transform: translate(50%, -50%);
 
+        @media screen and (max-width: 767px){
+            height: calc(100vh - 60px);
+        }
+
         #div-mask-front,
         #div-mask-back {
             display: flex;
@@ -150,6 +158,10 @@ const StyledAbout = styled.div`
                 justify-content: center;
                 width: 100%;
 
+                @media screen and (max-width: 600px){
+                    margin-bottom: 50px;
+                }
+
                 .svg {
                     width: 30px;
                     margin-left: 20px;
@@ -159,6 +171,7 @@ const StyledAbout = styled.div`
             p {
                 color: rgba(255, 255, 255, 0.9);
                 font-size: 30px;
+                white-space: nowrap;
             }
 
             h1 {
@@ -168,6 +181,14 @@ const StyledAbout = styled.div`
                 background-size: 0.25rem 0.25rem;
                 -webkit-background-clip: text;
                 background-clip: text;
+                white-space: nowrap;
+
+                @media screen and (max-width: 600px){
+                    white-space: unset;
+                    text-align: center;
+                    line-height: 90px;
+                }
+
                 span {
                     color: #fff;
                 }
