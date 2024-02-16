@@ -202,7 +202,7 @@ const StyledAbout = styled.div`
 
                 @media screen and (max-width: 600px){
                     white-space: unset;
-                    text-align: start;
+                    text-align: center;
                     line-height: 80px;
                     width: 222px;
                     border-bottom: 3px solid #fff;
