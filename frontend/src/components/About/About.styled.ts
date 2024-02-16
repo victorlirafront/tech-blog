@@ -204,7 +204,9 @@ const StyledAbout = styled.div`
                     white-space: unset;
                     text-align: center;
                     line-height: 80px;
+                    min-width: 222px;
                     width: 222px;
+                    max-width: 222px ;
                 }
 
                 span {
