@@ -2,6 +2,13 @@
 import styled from 'styled-components';
 
 const StyledAbout = styled.div`
+@font-face {
+    font-family: 'bolder-font';
+    src: local('Sua Fonte'), local('bolder-font'),
+         url('bold-1.ttf') format('woff2'),
+         url('bold-2.oft') format('woff');
+    font-style: normal; /* Estilo da fonte, ajuste conforme necessário */
+  }
         position: relative;
     .area {
         width: 100%;
@@ -157,15 +164,15 @@ const StyledAbout = styled.div`
                 align-items: center;
                 justify-content: center;
                 width: 100%;
+                margin-bottom: 40px;
 
                 @media screen and (max-width: 600px){
-                    margin-bottom: 20px;
                     font-size: 25px;
                 }
 
                 .svg {
-                    width: 30px;
-                    margin-left: 20px;
+                    width: 20px;
+                    margin-left: 10px;
                 }
             }
 
@@ -173,12 +180,11 @@ const StyledAbout = styled.div`
                 color: rgba(255, 255, 255, 0.9);
                 font-size: 30px;
                 white-space: nowrap;
+                font-family: 'bolder-font', sans-serif;
+                font-weight: bold;
 
-                &:last-child{
-                    @media screen and (max-width: 600px){
-                        margin-top: 20px;
-                        font-size: 25px;
-                    }
+                &.profession{
+                    margin-top: 40px;
                 }
             }
 
@@ -190,15 +196,52 @@ const StyledAbout = styled.div`
                 -webkit-background-clip: text;
                 background-clip: text;
                 white-space: nowrap;
+                font-family: 'bolder-font', sans-serif;
+
+                letter-spacing: -5px;
 
                 @media screen and (max-width: 600px){
                     white-space: unset;
                     text-align: center;
-                    line-height: 90px;
+                    line-height: 80px;
+                    width: 213px;
                 }
 
                 span {
                     color: #fff;
+                }
+            }
+
+            .arrow-down {
+                height: 70px;
+                width: 26px;
+                margin-top: 75px;
+                animation: bounce 1s infinite alternate;
+                -webkit-animation: bounce 1s infinite alternate;
+                display: none;
+
+                @media screen and (max-width: 767px){
+                    display: block;
+                }
+            }
+
+            @keyframes bounce {
+                from {
+                transform: translateY(0px);
+                }
+
+                to {
+                transform: translateY(-15px);
+                }
+            }
+
+            @-webkit-keyframes bounce {
+                from {
+                transform: translateY(0px);
+                }
+
+                to {
+                transform: translateY(-15px);
                 }
             }
         }
