@@ -9,7 +9,7 @@ const StyledAbout = styled.div`
         top: 0;
         left: 0;
         z-index: -1;
-        background-color: #000a1f;
+        background-color: #020709;
 
         .circles {
             position: absolute;
@@ -34,6 +34,7 @@ const StyledAbout = styled.div`
                     width: 80px;
                     height: 80px;
                     animation-delay: 0s;
+                    background-color: #0edba4;
                 }
 
                 &:nth-child(2) {
@@ -42,6 +43,7 @@ const StyledAbout = styled.div`
                     height: 20px;
                     animation-delay: 2s;
                     animation-duration: 7s;
+                    background-color: #0edba4;
                 }
 
                 &:nth-child(3) {
@@ -49,6 +51,7 @@ const StyledAbout = styled.div`
                     width: 20px;
                     height: 20px;
                     animation-delay: 4s;
+                    background-color: #0edba4;
                 }
 
                 &:nth-child(4) {
@@ -64,6 +67,7 @@ const StyledAbout = styled.div`
                     width: 20px;
                     height: 20px;
                     animation-delay: 0s;
+                    background-color: #0edba4;
                 }
 
                 &:nth-child(6) {
@@ -94,6 +98,7 @@ const StyledAbout = styled.div`
                     height: 15px;
                     animation-delay: 1s;
                     animation-duration: 7s;
+                    background-color: #0edba4;
                 }
 
                 &:nth-child(10) {
