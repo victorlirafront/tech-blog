@@ -172,7 +172,7 @@ const StyledHeader = styled.header`
                             height: 200px;
                         }
 
-                        a {
+                        li {
                             padding: 7px;
                         }
 

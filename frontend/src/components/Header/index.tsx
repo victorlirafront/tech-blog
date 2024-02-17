@@ -9,7 +9,11 @@ import { useContext } from "react";
 import { GlobalContext } from '../../Context/pagination';
 import Image from 'next/image';
 
-const Header = function () {
+interface IHeaderProps {
+    scrollIntoView?: () => void;
+}
+
+const Header = function (props: IHeaderProps) {
     let { setPage } = useContext(GlobalContext);
     let [isCategoryActive, setIsCategoryActive] = useState(false);
     let [currentTab, setCurrentTab] = useState("");
@@ -55,6 +59,28 @@ const Header = function () {
         setOpenMobileMenu(true)
     }
 
+    const categoryOptionHandler = function(route: string){
+        hideMobileMenu();
+        router.push(route);
+    }
+
+    useEffect(() => {
+        const handleRouteChange = (url: string) => {
+            if (url) {
+                if (props && props.scrollIntoView) {
+                    props.scrollIntoView();
+                }
+            }
+        };
+
+        router.events.on('routeChangeComplete', handleRouteChange);
+
+        return () => {
+            router.events.off('routeChangeComplete', handleRouteChange);
+        };
+
+    }, [router.events]);
+
     const hideMobileMenu = function(){
         setOpenMobileMenu(false)
     }
@@ -72,8 +98,6 @@ const Header = function () {
     }
 
     return (
-        //esse display: none inline precisa ser corrigido
-        //fiz isso pois o DOM esta carrgado o header com delay no CSS
         <StyledHeader data-aos={headerFadeDown}> 
             <div className="container">
                 <nav>
@@ -87,7 +111,6 @@ const Header = function () {
                         <div className='div-left'>
                             <Link onClick={() => menuHandler("blog")} className={`anchor ${currentTab === "blog" ? "active" : ""}`} href="/">Blog</Link>
                             <Link onClick={() => menuHandler("about")} className={`anchor ${currentTab === "about" ? "active" : ""}`} href="/AboutMe">Portfolio</Link>
-                            {/* <Link onClick={() => menuHandler("vlog")} className={`anchor ${currentTab === "vlog" ? "active" : ""}`} href="/">Vlog</Link> */}
                         </div>
 
                         <div className='category' onClick={(e) => categoryToggle(e)}>
@@ -95,13 +118,13 @@ const Header = function () {
                                 <p>Category</p>
                                 <Image width={40} height={40} style={css} className={`arrow`} src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow_Qvhukz-ZL.png" alt="" />
                             </div>
-                            <div className={`category-options ${isCategoryActive ? 'active' : ""}`}>
-                                <Link className="option" onClick={() => hideMobileMenu()} href={"/Pagination/1?category=all"}>All</Link>
-                                <Link className="option" onClick={() => hideMobileMenu()} href={"/Pagination/1?category=javascript"}>JavaScript</Link>
-                                <Link className="option" onClick={() => hideMobileMenu()} href={"/Pagination/1?category=typescript"}>TypeScript</Link>
-                                <Link className="option" onClick={() => hideMobileMenu()} href={"/Pagination/1?category=react"}>React JS</Link>
-                                <Link className="option" onClick={() => hideMobileMenu()} href={"/Pagination/1?category=next"}>Next JS</Link>
-                            </div>
+                            <ul className={`category-options ${isCategoryActive ? 'active' : ""}`}>
+                                <li className="option" onClick={() => categoryOptionHandler("/Pagination/1?category=all")}>All</li>
+                                <li className="option" onClick={() => categoryOptionHandler("/Pagination/1?category=javascript")}>JavaScript</li>
+                                <li className="option" onClick={() => categoryOptionHandler("/Pagination/1?category=typescript")}>TypeScript</li>
+                                <li className="option" onClick={() => categoryOptionHandler("/Pagination/1?category=react")}>React JS</li>
+                                <li className="option" onClick={() => categoryOptionHandler("/Pagination/1?category=next")}>Next JS</li>
+                            </ul>
                         </div>
                     </div>
                     <Image width={50} height={50} onClick={() => showMobileMenu()} className={`menu-hamburguer`} src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/hamburguer_1id8uhYeQ.png?updatedAt=1703307554746" alt="" />

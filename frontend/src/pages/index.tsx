@@ -99,7 +99,7 @@ export default function Home({ data }: IData) {
                     href="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/binary-code_WBpGXnWnG.png?updatedAt=1700431546132"
                 />
             </Head>
-            <Header />
+            <Header/>
             <About />
             <MainPage>
                 <div className="container">

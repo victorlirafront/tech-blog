@@ -8,8 +8,20 @@ import Footer from '@/components/Footer';
 import Axios from 'axios';
 import Pagination from '@/components/Pagination';
 import { GetServerSideProps } from 'next';
+import React, { useRef } from 'react';
 
 export default function Home({ data }: any) {
+
+    const containerRef = useRef(null);
+
+    const scrollToContainer = () => {
+        const container = containerRef.current;
+        
+        if (container) {
+            (container as HTMLElement).scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     const setNextPage = function () {
         if (data?.next) {
             return data.next.page - 1
@@ -34,6 +46,10 @@ export default function Home({ data }: any) {
         }
     }
 
+    const scrollIntoViewHandler = function(){
+        scrollToContainer()
+    }
+
     return (
         <Fragment>
             <Head>
@@ -56,10 +72,10 @@ export default function Home({ data }: any) {
                     content="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/capa_Lt5CpWfSYm.png?updatedAt=1707230740618"
                 />
             </Head>
-            <Header />
+            <Header scrollIntoView={() => scrollIntoViewHandler()} />
             <About />
             <MainPage>
-                <div className="container">
+                <div className="container" ref={containerRef}>
                     { data.results && data.results.map((post: any, index: any) => {
                         let costumizeFirstPost = false;
 

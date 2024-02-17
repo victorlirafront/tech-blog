@@ -2,14 +2,14 @@
 import styled from 'styled-components';
 
 const StyledMainPage = styled.div`
-    padding: 60px;
+    padding: 0 60px 60px 60px;
     background: #121212;
     max-width: 1920px;
     margin: 0 auto;
     color: #fff;
 
     @media screen and (max-width: 750px){
-        padding: 60px 20px;
+        padding: 0 20px 60px 20px;
     }
 
     .container {
@@ -19,6 +19,7 @@ const StyledMainPage = styled.div`
         align-items: center;
         justify-content: space-evenly;
         flex-wrap: wrap;
+        padding-top: 60px;
     }
 `;
 
