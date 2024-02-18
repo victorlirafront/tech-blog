@@ -10,6 +10,7 @@ import Pagination from '@/components/Pagination';
 import { GlobalContext } from '../Context/pagination';
 import { useContext } from 'react';
 import { useEffect, useRef } from 'react';
+import AOS from 'aos';
 
 interface IPost {
     id: any;
@@ -39,11 +40,12 @@ interface IData {
 }
 
 export default function Home({ data }: IData) {
-    let { setPage } = useContext(GlobalContext);
+    const { setPage } = useContext(GlobalContext);
 
     const containerRef = useRef(null);
 
     useEffect(() => {
+        AOS.init();
         setPage(data?.next?.page);
     }, []);
 
