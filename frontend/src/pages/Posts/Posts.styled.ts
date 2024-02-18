@@ -74,7 +74,8 @@ const StyledPostNew = styled.div`
 
             p {
                 line-height: 30px;
-                margin-bottom: 30px;
+                margin-bottom: 20px;
+                font-size: 16px;
 
                 @media screen and (max-width: 700px){
                     font-size: 14px;
@@ -131,9 +132,9 @@ const StyledPostNew = styled.div`
             ul, ol {
                 letter-spacing: .3px;
                 line-height: 1.6;
-                font-size: 1.25rem;
-                padding-left: 40px;
-                margin-bottom: 30px;
+                font-size: 16px;
+                padding-left: 20px;
+                margin-bottom: 20px;
 
                 @media screen and (max-width: 700px){
                     font-size: 14px;

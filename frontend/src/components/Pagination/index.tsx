@@ -1,7 +1,6 @@
 import StyledPagination from "./Pagination.styled";
-import Link from "next/link";
 import { GlobalContext } from '../../Context/pagination';
-import { useContext, useState, useEffect } from "react";
+import { useContext } from "react";
 import { useRouter } from 'next/router';
 
 interface IpropsPagination {

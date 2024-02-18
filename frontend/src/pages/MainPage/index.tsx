@@ -2,12 +2,13 @@ import { ReactNode } from 'react';
 import StyledMainPage from './MainPage.styled';
 
 interface Iprops {
-    children: ReactNode
+    children: ReactNode;
+    className: string
 }
 
 const MainPage = function (props: Iprops) {
     return (
-        <StyledMainPage>
+        <StyledMainPage className={props.className}>
             {props.children}
         </StyledMainPage>
     );

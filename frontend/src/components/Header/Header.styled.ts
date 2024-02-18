@@ -39,7 +39,6 @@ const StyledHeader = styled.header`
                 align-items: center;
                 justify-content: space-between;
                 list-style: none;
-                color: white;
                 width: 100%;
                 transition: 0.5s;
 
@@ -75,7 +74,7 @@ const StyledHeader = styled.header`
 
                 .div-left {
                     display: flex;
-                    min-width: 170px;
+                    min-width: 320px;
                     justify-content: space-between;
 
                     @media screen and (max-width: 700px) {
@@ -94,9 +93,7 @@ const StyledHeader = styled.header`
                     cursor: pointer;
 
                     a {
-                        color: #fff;
                         text-decoration: none;
-                        color: #fff;
 
                         &:hover {
                             color: #c5c5c5;
@@ -114,16 +111,12 @@ const StyledHeader = styled.header`
                     width: 130px;
                     text-align: center;
                     position: relative;
-                    padding: 7px 0;
-                    color: #fff !important;
-
                     @media screen and (max-width: 700px) {
                         min-width: 250px;
                         margin-top: 30px;
                     }
 
                     a {
-                        color: #fff;
                         text-decoration: none;
                     }
 

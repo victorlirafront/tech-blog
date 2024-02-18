@@ -7,9 +7,13 @@ import 'aos/dist/aos.css';
 import { useContext } from "react";
 import { GlobalContext } from '../../Context/pagination';
 import Image from 'next/image';
+import DarkModeToggle from '../DarkModeToggle';
 
 interface IHeaderProps {
     scrollIntoView?: () => void;
+    theme: string;
+    className: string;
+    themeToggler: () => void
 }
 
 interface UrlParams {
@@ -115,7 +119,7 @@ const Header = function (props: IHeaderProps) {
     }
 
     return (
-        <StyledHeader data-aos={headerFadeDown}>
+        <StyledHeader data-aos={headerFadeDown} className={props.className}>
             <div className="container">
                 <nav>
                     <Link className='home' href="/">
@@ -128,9 +132,7 @@ const Header = function (props: IHeaderProps) {
                         <div className='div-left'>
                             <Link onClick={() => menuHandler("blog")} className={`anchor ${currentTab === "blog" ? "active" : ""}`} href="/">Blog</Link>
                             <Link onClick={() => menuHandler("about")} className={`anchor ${currentTab === "about" ? "active" : ""}`} href="/AboutMe">Portfolio</Link>
-                        </div>
-
-                        <div className='category' onClick={(e) => categoryToggle(e)}>
+                            <div className='category' onClick={(e) => categoryToggle(e)}>
                             <div className='category-conteiner'>
                                 <p>Category</p>
                                 <Image width={40} height={40} style={css} className={`arrow`} src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow_Qvhukz-ZL.png" alt="" />
@@ -143,6 +145,8 @@ const Header = function (props: IHeaderProps) {
                                 <li className="option" onClick={() => categoryOptionHandler("1", "next")}>Next JS</li>
                             </ul>
                         </div>
+                        </div>
+                        <DarkModeToggle themeMode={props.theme} onclick={props.themeToggler}></DarkModeToggle>
                     </div>
                     <Image width={50} height={50} onClick={() => showMobileMenu()} className={`menu-hamburguer`} src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/hamburguer_1id8uhYeQ.png?updatedAt=1703307554746" alt="" />
                 </nav>
