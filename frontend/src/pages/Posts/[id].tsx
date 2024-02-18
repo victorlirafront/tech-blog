@@ -155,6 +155,7 @@ async function fetchData(baseUrl: any) {
 export const getServerSideProps: GetServerSideProps = async (
     context: GetServerSidePropsContext
 ) => {
+    
     const { id } = context.params!;
 
     try {
@@ -177,7 +178,6 @@ export const getServerSideProps: GetServerSideProps = async (
                 notFound: true,
             };
         }
-
         return {
             props: {
                 post: currentPost,

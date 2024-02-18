@@ -117,11 +117,13 @@ const StyledPost = styled.div`
             margin-right: 10px;
             color: #9ec0fa;
             transition: 0.2s;
+            cursor: pointer;
         }
 
         img {
             width: 26px;
             padding-top: 9px;
+            cursor: pointer;
         }
     }
 `;

@@ -3,10 +3,15 @@
 import styled from "styled-components";
 const StyledPagination = styled.div`
 
-    .pagination {
+    .pagination-wrapper {
+        .pagination {
         display: flex;
         align-items: center;
         justify-content: center;
+
+        li{
+            list-style: none;
+        }
 
         .icon-arrow {
             display: flex;
@@ -30,6 +35,7 @@ const StyledPagination = styled.div`
         p{
             color: #fff;
         }
+    }
     }
 `
 

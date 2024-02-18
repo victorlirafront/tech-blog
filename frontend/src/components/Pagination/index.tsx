@@ -1,7 +1,7 @@
 import StyledPagination from "./Pagination.styled";
 import Link from "next/link";
 import { GlobalContext } from '../../Context/pagination';
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import { useRouter } from 'next/router';
 
 interface IpropsPagination {
@@ -22,24 +22,40 @@ const Pagination = function (props: IpropsPagination) {
         category = "all"
     }
 
-    function setNextPage() {
+    function setNextPage(route: any, category: any) {
         let nextPage = page += 1
         setPage(nextPage)
+        
+        router.push({
+            pathname: router.pathname,
+            query: { 
+                page: route,
+                category: category, 
+            },
+        });
     }
 
-    const setPreviowPage = function () {
+    const setPreviowPage = function (route: any, category: any) {
         let nextPage = page -= 1
         setPage(nextPage)
+
+        router.push({
+            pathname: router.pathname,
+            query: { 
+                page: route,
+                category: category, 
+            },
+        });
     }
 
     const createNextPageArrow = function () {
         if (props.hasNextPage) {
             return (
-                <Link onClick={() => setNextPage()} href={`/Pagination/${props.nextPage}?category=${category}`}>
+                <li onClick={() => setNextPage(props.nextPage, category)}>
                     <div className="icon-arrow icon-arrow-right">
                         <img src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow-right_eVbRRghk9.png?updatedAt=1696390413993" alt="" />
                     </div>
-                </Link>
+                </li>
             )
         }
     }
@@ -47,11 +63,11 @@ const Pagination = function (props: IpropsPagination) {
     const createPreviousPageArrow = function () {
         if (props.hasPreviousPage) {
             return (
-                <Link onClick={() => setPreviowPage()} href={`/Pagination/${props.previousPage}?category=${category}`} >
+                <li onClick={() => setPreviowPage(props.previousPage, category)} >
                     <div className="icon-arrow icon-arrow-left">
                         <img src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow-right_eVbRRghk9.png?updatedAt=1696390413993" alt="" />
                     </div>
-                </Link>
+                </li>
             )
         }
     }
@@ -70,14 +86,13 @@ const Pagination = function (props: IpropsPagination) {
                 </div>
             );
         } else {
-            return ""; // ou outro valor padrão
+            return "";
         }
     };
 
     return (
         <StyledPagination>
-
-            <div className="pagination">
+            <div className="pagination-wrapper">
                 {displayPagesCount()}
             </div>
         </StyledPagination>

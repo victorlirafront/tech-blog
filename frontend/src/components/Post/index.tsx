@@ -1,42 +1,48 @@
 import StyledPost from './Post.styled';
 import Link from 'next/link';
-import { removeEspecialChars } from '../../helperFunctions/removeEspecialChars'
+import { removeEspecialChars } from '../../helperFunctions/removeEspecialChars';
 import dateFormatter from '@/helperFunctions/dateFormatter';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import { useEffect } from 'react';
-import { motion } from "framer-motion"
+import { motion } from 'framer-motion';
+import { useRouter } from 'next/router';
 
-interface Iprops {
-    date: string
-    style?: {}
-    post_image: string
-    title: string
-    content: string
-    author: string
-    id: string
-    category: string
-    meta_tag_title: string
-    meta_tag_description: string
-    className?: string
-    aos_delay: string
-    aos_type: string
-    hover_animation: number
+interface IProps {
+    date: string;
+    style?: {};
+    post_image: string;
+    title: string;
+    content: string;
+    author: string;
+    id: string;
+    category: string;
+    meta_tag_title: string;
+    meta_tag_description: string;
+    className?: string;
+    aos_delay: string;
+    aos_type: string;
+    hover_animation: number;
 }
 
-const Post = function (props: Iprops) {
+const Post: React.FC<IProps> = (props) => {
     const dateObject = new Date(props.date);
     const formattedDate = dateObject.toLocaleDateString();
 
-    useEffect(() => {
-        AOS.init();
-    }, []);
+    const router = useRouter();
+
+    const handleLinkClick = async () => {
+        router.push({
+            pathname: `/Posts/${props.id}`,
+            query: {},
+        });
+    };    
 
     return (
         <StyledPost
             data-aos-delay={props.aos_delay}
             data-aos={props.aos_type}
-            style={props.style} >
+            style={props.style}
+        >
             <motion.div whileHover={{ y: props.hover_animation }} className='motion-box'>
                 <div
                     className="post-image"
@@ -59,15 +65,10 @@ const Post = function (props: Iprops) {
                         <li>Autor: {props.author}</li>
                     </ul>
 
-                    <Link
-                        href={`/Posts/${props.id}`}
-                        style={{ textDecoration: 'none' }}
-                    >
-                        <div className="read-more-wrapper">
-                            <p>Read more</p>
-                            <img src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow-right_eVbRRghk9.png?updatedAt=1696390413993" />
-                        </div>
-                    </Link>
+                    <div className="read-more-wrapper" onClick={handleLinkClick}>
+                        <p>Read more</p>
+                        <img src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow-right_eVbRRghk9.png?updatedAt=1696390413993" />
+                    </div>
                 </div>
             </motion.div>
         </StyledPost>

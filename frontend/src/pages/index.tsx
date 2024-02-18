@@ -9,7 +9,7 @@ import Axios from 'axios';
 import Pagination from '@/components/Pagination';
 import { GlobalContext } from '../Context/pagination';
 import { useContext } from 'react';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 interface IPost {
     id: any;
@@ -41,8 +41,10 @@ interface IData {
 export default function Home({ data }: IData) {
     let { setPage } = useContext(GlobalContext);
 
+    const containerRef = useRef(null);
+
     useEffect(() => {
-        setPage(data.next?.page);
+        setPage(data?.next?.page);
     }, []);
 
     const checkNextPage = function () {
@@ -60,6 +62,14 @@ export default function Home({ data }: IData) {
             return false;
         }
     };
+
+    const scrollIntoViewHandler = function(){
+        const container = containerRef.current;
+        
+        if (container) {
+            (container as HTMLElement).scrollIntoView({ behavior: 'smooth' });
+        }
+    }
 
     return (
         <Fragment>
@@ -99,11 +109,12 @@ export default function Home({ data }: IData) {
                     href="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/binary-code_WBpGXnWnG.png?updatedAt=1700431546132"
                 />
             </Head>
-            <Header/>
+            <Header scrollIntoView={() => scrollIntoViewHandler()} />
             <About />
             <MainPage>
-                <div className="container">
-                    {data.results &&
+                <div className="container" ref={containerRef}>
+                
+                    {data?.results &&
                         data.results.map((post: IPost, index: number) => {
                             let costumizeFirstPost = false;
 
@@ -138,12 +149,12 @@ export default function Home({ data }: IData) {
                 </div>
             </MainPage>
             <Pagination
-                pageLength={Math.ceil(data.totalPages)}
-                page={data?.next?.page - 1}
+                pageLength={Math.ceil(data?.totalPages)}
+                page={data?.next?.page ? data?.next?.page - 1 : Math.ceil(data?.totalPages)}
                 hasNextPage={checkNextPage()}
                 hasPreviousPage={checkPreviousPage()}
-                previousPage={data.previous?.page ? data.previous.page : 1}
-                nextPage={data.next?.page}
+                previousPage={data?.previous?.page ? data.previous.page : 1}
+                nextPage={data?.next?.page}
             />
             <Footer />
         </Fragment>
@@ -167,15 +178,16 @@ async function fetchData(baseUrl: any) {
 
 export const getServerSideProps = async (context: any) => {
     try {
-        const id = '1';
+
+        const page = context.query?.page ?? "1";
+        const category = context.query?.category ?? "all";
         const limit = '8';
-        const category = 'all';
         //Estou usando API gratuita com limite de requisições
         //então criei varioes endpoits para não quebrar a aplicação
-        const baseUrl1 = `https://blog-backend-tau-three.vercel.app/api/get?page=${id}&limit=${limit}&category=${category}`;
-        const baseUrl2 = `https://blog-backend-g9k4y75fk-victorlirafront.vercel.app/api/get?page=${id}&limit=${limit}&category=${category}`;
-        const baseUrl3 = `https://blog-tau-rosy-55.vercel.app/api/get?page=${id}&limit=${limit}&category=${category}`;
-        const baseUrl4 = `https://blog-git-main-victorlirafront.vercel.app/api/get?page=${id}&limit=${limit}&category=${category}`;
+        const baseUrl1 = `https://blog-backend-tau-three.vercel.app/api/get?page=${page}&limit=${limit}&category=${category}`;
+        const baseUrl2 = `https://blog-backend-g9k4y75fk-victorlirafront.vercel.app/api/get?page=${page}&limit=${limit}&category=${category}`;
+        const baseUrl3 = `https://blog-tau-rosy-55.vercel.app/api/get?page=${page}&limit=${limit}&category=${category}`;
+        const baseUrl4 = `https://blog-git-main-victorlirafront.vercel.app/api/get?page=${page}&limit=${limit}&category=${category}`;
 
         const data =
             (await fetchData(baseUrl1)) ||
