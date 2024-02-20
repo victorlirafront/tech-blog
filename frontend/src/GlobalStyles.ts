@@ -1,20 +1,22 @@
 import { createGlobalStyle } from "styled-components";
 
 interface IProps {
-  theme: {
-    body: string;
-    fontColor: string;
-    cardBody: string;
-    cardBorder: string;
-    cardColor: string;
-    cardBoxShadow: string;
-    cardBorderRadius: string;
-    cardSecudaryColor: string;
-    aboutBackground: string;
-    footerBackground: string;
-    profileBorder: string;
-    profileBoxShadow: string;
-  }
+   theme: {
+      body: string;
+      fontColor: string;
+      cardBody: string;
+      cardBorder: string;
+      cardColor: string;
+      cardBoxShadow: string;
+      cardBorderRadius: string;
+      cardSecudaryColor: string;
+      aboutBackground: string;
+      footerBackground: string;
+      profileBorder: string;
+      profileBoxShadow: string;
+      headerBackground: string;
+      headerColor: string
+   }
 }
 
 export const GlobalStyled = createGlobalStyle<IProps>`
@@ -23,13 +25,25 @@ export const GlobalStyled = createGlobalStyle<IProps>`
     }
 
     .header {
+        background-color: ${props => props.theme.headerBackground};
+
+        .container {
+            margin: 0 auto;
+            max-width: 1200px;
+
+            nav {
+                background-color: ${props => props.theme.headerBackground};
+                color: ${props => props.theme.headerColor};
+            }
+        }
+
         color: ${props => props.theme.fontColor};
         a {
-            color: ${props => props.theme.fontColor};
+            color: ${props => props.theme.headerColor};
         }
 
         .category-options {
-          background: ${props => props.theme.body}
+            background-color: ${props => props.theme.headerBackground};
         }
     }
 
@@ -69,6 +83,12 @@ export const GlobalStyled = createGlobalStyle<IProps>`
 
         .profession {
             color: ${props => props.theme.cardColor};
+        }
+
+        .about-wrapper {
+            .text-1 {
+                color: ${props => props.theme.profileSecudaryColor};
+            }
         }
     }
 

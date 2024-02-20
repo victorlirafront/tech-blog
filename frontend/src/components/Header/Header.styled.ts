@@ -3,9 +3,9 @@ import styled from 'styled-components';
 const StyledHeader = styled.header`
     position: relative;
     padding: 20px 60px;
-    max-width: 1200px;
     margin: 0 auto;
     z-index: 3;
+    background: #000;
 
     @media screen and (max-width: 500px) {
         padding: 10px 20px;
@@ -24,6 +24,7 @@ const StyledHeader = styled.header`
         nav {
             width: 100%;
             display: flex;
+            background: #000;
 
             @media screen and (max-width: 700px) {
                 justify-content: space-between;

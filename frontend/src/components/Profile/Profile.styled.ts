@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const Profile = styled.div`
     max-width: 90%;
     margin: 0 auto;
-    margin-top: 50px;
+    margin-top: 100px;
     padding: 20px 60px;
     background-color: #151515;
     border: 2px solid #1f1f1f;
@@ -120,7 +120,7 @@ const Profile = styled.div`
             }
 
             .text-1{
-                color: #0beeb2;
+
                 @media screen and (max-width: 1040px) {
                     text-align: center;
                 }
