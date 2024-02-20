@@ -1,3 +1,4 @@
+'use client'
 import React from 'react';
 import { Fragment } from 'react';
 import Head from 'next/head';
@@ -30,8 +31,6 @@ const AboutMe = function () {
                 />
             </Head>
             <Header />
-            <Profile />
-            <Footer />
         </Fragment>
     );
 };
