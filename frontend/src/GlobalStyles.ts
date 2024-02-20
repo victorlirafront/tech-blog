@@ -34,6 +34,10 @@ export const GlobalStyled = createGlobalStyle<IProps>`
             nav {
                 background-color: ${props => props.theme.headerBackground};
                 color: ${props => props.theme.headerColor};
+
+                .menu-wrapper {
+                    background-color: ${props => props.theme.headerBackground};
+                }
             }
         }
 

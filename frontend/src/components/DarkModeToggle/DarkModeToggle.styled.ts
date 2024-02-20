@@ -10,6 +10,12 @@ const StyledDarkModeToggle = styled.div`
     background: #000;
     cursor: pointer;
 
+    @media screen and (max-width: 700px){
+        position: absolute;
+        top: 40px;
+        left: 20px;
+    }
+
     .toggle {
         background: #fff;
         height: 100%;

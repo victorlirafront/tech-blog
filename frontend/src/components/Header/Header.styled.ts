@@ -51,7 +51,7 @@ const StyledHeader = styled.header`
                 .close {
                     width: 20px;
                     position: absolute;
-                    top: 20px;
+                    top: 40px;
                     right: 20px;
                     display: none;
 
@@ -62,14 +62,13 @@ const StyledHeader = styled.header`
 
                 @media screen and (max-width: 700px) {
                     background: rgb(0, 98, 72);
-                    background: #111111;
                     position: fixed;
                     left: -100%;
                     top: 0;
                     bottom: 0;
                     height: 100vh;
                     width: 100vw;
-                    flex-direction: column;
+                    flex-direction: column-reverse;
                     justify-content: center;
                 }
 
@@ -81,10 +80,16 @@ const StyledHeader = styled.header`
                     @media screen and (max-width: 700px) {
                         flex-direction: column;
                         min-width: 250px;
-                        height: 100px;
+                        /* height: 100px; */
                     }
 
                     .anchor {
+                        @media screen and (max-width: 700px) {
+                            &:first-child{
+                                margin-bottom: 40px;
+                            }
+                        }
+
                         &.active {
                             border-bottom: 3px solid #0beeb2;
                             padding-bottom: 6px;
@@ -112,6 +117,7 @@ const StyledHeader = styled.header`
                     width: 130px;
                     text-align: center;
                     position: relative;
+                    
                     @media screen and (max-width: 700px) {
                         min-width: 250px;
                         margin-top: 30px;
