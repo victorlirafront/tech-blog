@@ -13,7 +13,10 @@ export const lightTheme = {
   profileBoxShadow: "1px 3px 10px 1px #ccc",
   headerBackground: "#362692",
   headerColor: "#fff",
-  profileSecudaryColor: "#362692"
+  profileSecudaryColor: "#362692",
+  profileBorderCardImage: "1px solid #ccc",
+  profileBoxShadowCardImage:"0px 0px 10px 0px #837f7f",
+  
 }
 
 export const darkTheme = {
@@ -31,5 +34,7 @@ export const darkTheme = {
   profileBoxShadow: "none",
   headerBackground: "#121212",
   headerColor: "#fff",
-  profileSecudaryColor: "#0beeb2"
+  profileSecudaryColor: "#0beeb2",
+  profileBorderCardImage: "1px solid rgb(11, 238, 178)",
+  profileBoxShadowCardImage: "0px 0px 10px 0px rgb(11, 238, 178)"
 }

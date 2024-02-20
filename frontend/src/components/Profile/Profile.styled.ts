@@ -45,9 +45,6 @@ const Profile = styled.div`
                 height: 250px;
                 background-image: url(https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/profile-picture_IS0KqOtN1.jpeg?updatedAt=1708444003006);
                 background-size: cover;
-                border: 1px solid rgb(11, 238, 178);
-                border-color: rgb(11, 238, 178);
-                box-shadow: 0px 0px 10px 0px rgb(11, 238, 178);
             }
 
             .button-wrapper {
@@ -56,11 +53,10 @@ const Profile = styled.div`
                 .usa-box {
                     width: 30px;
                     position: absolute;
-                    /* border: 1px solid #0beeb2; */
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    bottom: 52px;
+                    bottom: 70px;
                     cursor: pointer;
 
                     &.active {
@@ -80,7 +76,7 @@ const Profile = styled.div`
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    bottom: 52px;
+                    bottom: 70px;
                     left: 33px;
                     cursor: pointer;
 
@@ -94,18 +90,25 @@ const Profile = styled.div`
                     }
                 }
 
-                .download-btn {
-                    padding: 15px 10px;
-                    cursor: pointer;
-                    color: #0beeb2;
-                    border: 2px solid #0beeb2;
-                    border-radius: 4px;
-                    background: transparent;
-                    margin-top: 50px;
+                .download-wrapper {
+                    margin-top: 70px;
                     width: 250px;
+                    border: 2px solid #0beeb2;
+                    padding: 15px 10px;
+                    text-align: center;
+                    border-radius: 4px;
 
                     @media screen and (max-width: 1040px) {
                         margin-top: 100px;
+                    }
+
+                    .download-btn {
+                        padding: 15px 30px;
+                        cursor: pointer;
+                        color: #0beeb2;
+                        background: transparent;
+                        font-size: 15px;
+                        text-decoration: none;
                     }
                 }
             }

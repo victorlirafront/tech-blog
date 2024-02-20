@@ -1,22 +1,26 @@
 import { createGlobalStyle } from "styled-components";
 
 interface IProps {
-   theme: {
-      body: string;
-      fontColor: string;
-      cardBody: string;
-      cardBorder: string;
-      cardColor: string;
-      cardBoxShadow: string;
-      cardBorderRadius: string;
-      cardSecudaryColor: string;
-      aboutBackground: string;
-      footerBackground: string;
-      profileBorder: string;
-      profileBoxShadow: string;
-      headerBackground: string;
-      headerColor: string
-   }
+    theme: {
+        body: string;
+        fontColor: string;
+        cardBody: string;
+        cardBorder: string;
+        cardColor: string;
+        cardBoxShadow: string;
+        cardBorderRadius: string;
+        cardSecudaryColor: string;
+        aboutBackground: string;
+        footerBackground: string;
+        profileBorder: string;
+        profileBoxShadow: string;
+        headerBackground: string;
+        headerColor: string
+        profileCardImage: string;
+        profileSecudaryColor: string;
+        profileBorderCardImage: string;
+        profileBoxShadowCardImage: string
+    }
 }
 
 export const GlobalStyled = createGlobalStyle<IProps>`
@@ -75,6 +79,7 @@ export const GlobalStyled = createGlobalStyle<IProps>`
         }
     }
 
+
     .profile {
         background-color: ${props => props.theme.cardBody};
         color: ${props => props.theme.cardColor};
@@ -85,15 +90,20 @@ export const GlobalStyled = createGlobalStyle<IProps>`
             color: ${props => props.theme.cardColor};
         }
 
-        .profession {
-            color: ${props => props.theme.cardColor};
-        }
-
-        .about-wrapper {
-            .text-1 {
-                color: ${props => props.theme.profileSecudaryColor};
+            .profession {
+                color: ${props => props.theme.cardColor};
             }
-        }
+
+            .about-wrapper {
+                .text-1 {
+                    color: ${props => props.theme.profileSecudaryColor};
+                }
+            }
+
+            .card-image {
+                border: ${props => props.theme.profileBorderCardImage};
+                box-shadow: ${props => props.theme.profileBoxShadowCardImage};
+            }
     }
 
     .main-page {

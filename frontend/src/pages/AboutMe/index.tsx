@@ -48,7 +48,7 @@ const AboutMe = function () {
             />
          </Head>
          <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
-            <GlobalStyled theme={theme === "light" ? lightTheme : darkTheme} />
+            <GlobalStyled/>
             <ThemeContainer>
                <Header className="header" theme={theme} themeToggler={() => themeToggler()} />
                <Profile className='profile' />

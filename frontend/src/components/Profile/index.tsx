@@ -7,10 +7,13 @@ interface IProfile {
     className: string
 }
 
-const Profile = function(props: IProfile){
+const Profile = function (props: IProfile) {
     const [resumeLanguage, setResumeLanguage] = useState("English");
 
-    const changeResumeLanguage = function(language: string){
+    const portugueseResume = "https://drive.google.com/file/d/1CRtg3jG5mpvleRsRFINNwKIUObiHWCLZ/view?usp=sharing";
+    const englishResume = "https://drive.google.com/file/d/1nqatZOmmTXcemZxSYy4eMuL4AJZF3rz8/view?usp=sharing"
+
+    const changeResumeLanguage = function (language: string) {
         setResumeLanguage(language)
     }
 
@@ -20,13 +23,15 @@ const Profile = function(props: IProfile){
                 <div className="profile-wrapper" data-aos="fade-right">
                     <div className="card-image"></div>
                     <div className="button-wrapper">
-                        <div onClick={() => changeResumeLanguage("English")} className={`usa-box ${resumeLanguage === "English" ? "": "active"}`}>
+                        <div onClick={() => changeResumeLanguage("English")} className={`usa-box ${resumeLanguage === "English" ? "" : "active"}`}>
                             <Image width={30} height={30} src="/usa.png" alt="" />
                         </div>
-                        <div onClick={() => changeResumeLanguage("Portuguese")} className={`br-box ${resumeLanguage === "Portuguese" ? "": "active"}`}>
+                        <div onClick={() => changeResumeLanguage("Portuguese")} className={`br-box ${resumeLanguage === "Portuguese" ? "" : "active"}`}>
                             <Image width={30} height={30} src="/brasil.png" alt="" />
                         </div>
-                        <button className="download-btn">Download Resume - {resumeLanguage}</button>
+                        <div className="download-wrapper">
+                            <a className="download-btn" target="_blank" href={resumeLanguage === "English" ? englishResume : portugueseResume}>Resume - {resumeLanguage}</a>
+                        </div>
                     </div>
                 </div>
                 <div className="about-wrapper" data-aos="fade-left">
@@ -34,7 +39,7 @@ const Profile = function(props: IProfile){
                     <h1 className="profile-h1">Victor Lira</h1>
                     <h2 className="profession">Frontend Developer</h2>
                     <p className="description">My name is Victor, I am a Front-end developer, passionate about the JavaScript universe. I have had the opportunity to create internal projects for large companies, and I took the initiative to create this blog to share important topics related to web development.</p>
-                    <SimpleSlider/>
+                    <SimpleSlider />
                 </div>
             </div>
         </StyledAboutMe>
