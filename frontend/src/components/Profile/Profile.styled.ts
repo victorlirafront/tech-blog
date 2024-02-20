@@ -43,7 +43,7 @@ const Profile = styled.div`
                 border-radius: 100%;
                 width: 250px;
                 height: 250px;
-                background-image: url(https://lh3.googleusercontent.com/a/ACg8ocI-YwbX136l7geDj550zQ5cKTsKs126SCzWiwS594NwwQ=s288-c-no);
+                background-image: url(https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/profile-picture_IS0KqOtN1.jpeg?updatedAt=1708444003006);
                 background-size: cover;
                 border: 1px solid rgb(11, 238, 178);
                 border-color: rgb(11, 238, 178);
