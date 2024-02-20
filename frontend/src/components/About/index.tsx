@@ -1,3 +1,4 @@
+import React from 'react';
 import 'aos/dist/aos.css';
 import StyledAbout from './About.styled';
 import next from 'next';
