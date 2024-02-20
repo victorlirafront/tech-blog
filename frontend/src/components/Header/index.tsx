@@ -4,7 +4,6 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import StyledHeader from './Header.styled';
 import AOS from 'aos';
-import 'aos/dist/aos.css';
 import { useContext } from "react";
 import { GlobalContext } from '../../Context/pagination';
 import Image from 'next/image';
