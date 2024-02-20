@@ -89,7 +89,7 @@ function Posts(props: IProps) {
                 <meta name="keywords" content={props.post.keywords} />
                 <link rel="icon" href="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/binary-code_WBpGXnWnG.png?updatedAt=1700431546132" />
             </Head>
-            <Header />
+            {/* <Header /> */}
             <div className='profile'>
                 <div data-aos="fade-down" className='background-image' style={{ backgroundImage: `url(${props.post.post_background})` }}></div>
 

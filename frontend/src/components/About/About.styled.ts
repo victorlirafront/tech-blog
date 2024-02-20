@@ -16,7 +16,6 @@ const StyledAbout = styled.div`
         top: 0;
         left: 0;
         z-index: -1;
-        background-color: #020709;
 
         @media screen and (max-width: 767px){
             height: calc(100vh - 60px);
@@ -83,15 +82,15 @@ const StyledAbout = styled.div`
 
                 &:nth-child(6) {
                     left: 75%;
-                    width: 110px;
-                    height: 110px;
+                    width: 90px;
+                    height: 90px;
                     animation-delay: 2s;
                 }
 
                 &:nth-child(7) {
                     left: 35%;
-                    width: 150px;
-                    height: 150px;
+                    width: 100px;
+                    height: 100px;
                     animation-delay: 5s;
                 }
 
@@ -114,8 +113,8 @@ const StyledAbout = styled.div`
 
                 &:nth-child(10) {
                     left: 85%;
-                    width: 150px;
-                    height: 150px;
+                    width: 100px;
+                    height: 100px;
                     animation-delay: 0s;
                     animation-duration: 10s;
                 }

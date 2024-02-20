@@ -31,10 +31,6 @@ const StyledPagination = styled.div`
                 }
             }
         }
-
-        p{
-            color: #fff;
-        }
     }
     }
 `

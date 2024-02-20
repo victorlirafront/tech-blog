@@ -8,6 +8,7 @@ const StyledDarkModeToggle = styled.div`
     border-radius: 30px;
     position: relative;
     background: #000;
+    cursor: pointer;
 
     .toggle {
         background: #fff;

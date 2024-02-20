@@ -139,7 +139,6 @@ const StyledHeader = styled.header`
                         top: 64px;
                         list-style: none;
                         text-align: center;
-                        background: #1fb28b;
                         cursor: pointer;
                         width: 200px;
                         margin-left: -40px;
@@ -160,7 +159,7 @@ const StyledHeader = styled.header`
 
                         &.active {
                             border-radius: 4px;
-                            background: #1e1e1e;
+                            /* background: #1e1e1e; */
                             transition: 0.5s;
                             height: 200px;
                         }

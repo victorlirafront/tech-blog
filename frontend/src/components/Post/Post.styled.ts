@@ -14,9 +14,7 @@ const StyledPost = styled.div`
         margin: 0 auto;
         border: none;
         border-radius: 10px;
-        border: 1px solid #202020;
         border-color: #0497EF;
-        box-shadow: 0px 0px 10px 0px #0497EF;
         color: #b4b4b4;
         background: #181818;
         text-align: center;
@@ -48,6 +46,8 @@ const StyledPost = styled.div`
         transition: 0.4s;
         padding-bottom: 20px;
         padding-top: 20px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
 
         .category-wrapper {
             display: flex;
@@ -66,7 +66,6 @@ const StyledPost = styled.div`
 
             .post-category {
                 font-size: 12px;
-                color: #9ec0fa;
                 transition: 0.2s;
             }
         }
@@ -115,7 +114,6 @@ const StyledPost = styled.div`
 
         p {
             margin-right: 10px;
-            color: #9ec0fa;
             transition: 0.2s;
             cursor: pointer;
         }
@@ -124,6 +122,7 @@ const StyledPost = styled.div`
             width: 26px;
             padding-top: 9px;
             cursor: pointer;
+            display: none;
         }
     }
 `;

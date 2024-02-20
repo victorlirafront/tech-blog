@@ -31,7 +31,7 @@ const CreatePost = function () {
 
     return (
         <React.Fragment>
-            <Header />
+            {/* <Header /> */}
             <StyledCreatePost>
                 <form id="form">
                     <div className="form-control username">

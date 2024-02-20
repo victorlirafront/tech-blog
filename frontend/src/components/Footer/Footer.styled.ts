@@ -4,7 +4,6 @@ import styled from 'styled-components';
 const StyledFooter = styled.footer`
     padding: 75px 0;
     margin: 0 auto;
-    background: #080808;
     margin-top: 130px;
 
     .icons-wrapper {

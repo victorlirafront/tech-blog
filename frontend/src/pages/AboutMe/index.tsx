@@ -35,7 +35,7 @@ const AboutMe = function () {
                     content="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/capa_Lt5CpWfSYm.png?updatedAt=1707230740618"
                 />
             </Head>
-            <Header />
+            {/* <Header /> */}
             <Profile />
             <Footer />
         </Fragment>
