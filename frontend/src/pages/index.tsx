@@ -122,7 +122,7 @@ export default function Home({ data }: IData) {
             />
          </Head>
          <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
-            <GlobalStyled />
+            <GlobalStyled theme={theme === "light" ? lightTheme : darkTheme} />
             <ThemeContainer>
                <Header className="header" theme={theme} themeToggler={() => themeToggler()} scrollIntoView={() => scrollIntoViewHandler()} />
                <About />

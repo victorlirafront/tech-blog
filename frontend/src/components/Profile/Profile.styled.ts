@@ -126,7 +126,7 @@ const Profile = styled.div`
                 }
             }
 
-            .profile {
+            .profile-h1 {
                 margin: 10px 0px;
 
                 @media screen and (max-width: 1040px) {

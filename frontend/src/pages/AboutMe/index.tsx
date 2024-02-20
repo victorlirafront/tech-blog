@@ -48,10 +48,10 @@ const AboutMe = function () {
             />
          </Head>
          <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
-            <GlobalStyled />
+            <GlobalStyled theme={theme === "light" ? lightTheme : darkTheme} />
             <ThemeContainer>
                <Header className="header" theme={theme} themeToggler={() => themeToggler()} />
-               <Profile />
+               <Profile className='profile' />
                <Footer />
             </ThemeContainer>
          </ThemeProvider>

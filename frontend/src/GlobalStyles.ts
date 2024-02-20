@@ -12,6 +12,8 @@ interface IProps {
     cardSecudaryColor: string;
     aboutBackground: string;
     footerBackground: string;
+    profileBorder: string;
+    profileBoxShadow: string;
   }
 }
 
@@ -52,6 +54,21 @@ export const GlobalStyled = createGlobalStyle<IProps>`
             border: ${props => props.theme.cardBorder};
             border-radius:${props => props.theme.cardBorderRadius};
             box-shadow: ${props => props.theme.cardBoxShadow};
+        }
+    }
+
+    .profile {
+        background-color: ${props => props.theme.cardBody};
+        color: ${props => props.theme.cardColor};
+        border: ${props => props.theme.profileBorder};
+        box-shadow: ${props => props.theme.profileBoxShadow};
+
+        .profile-h1 {
+            color: ${props => props.theme.cardColor};
+        }
+
+        .profession {
+            color: ${props => props.theme.cardColor};
         }
     }
 

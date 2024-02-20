@@ -8,7 +8,9 @@ export const lightTheme = {
   cardColor: "#000",
   cardSecudaryColor: "#204c97",
   aboutBackground: "#362692",
-  footerBackground: "#362692"
+  footerBackground: "#362692",
+  profileBorder: "none",
+  profileBoxShadow: "1px 3px 10px 1px #ccc"
 }
 
 export const darkTheme = {
@@ -21,5 +23,7 @@ export const darkTheme = {
   cardColor: "#b4b4b4",
   cardSecudaryColor: "#9ec0fa",
   aboutBackground: "#020709",
-  footerBackground: "#080808"
+  footerBackground: "#080808",
+  profileBorder: "2px solid #1f1f1f",
+  profileBoxShadow: "none"
 }

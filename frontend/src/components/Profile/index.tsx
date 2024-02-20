@@ -3,7 +3,11 @@ import { useState } from "react";
 import SimpleSlider from '@/components/SlickTech';
 import Image from "next/image";
 
-const Profile = function(){
+interface IProfile {
+    className: string
+}
+
+const Profile = function(props: IProfile){
     const [resumeLanguage, setResumeLanguage] = useState("English");
 
     const changeResumeLanguage = function(language: string){
@@ -11,7 +15,7 @@ const Profile = function(){
     }
 
     return (
-        <StyledAboutMe >
+        <StyledAboutMe className={props.className}>
             <div className="box-1">
                 <div className="profile-wrapper" data-aos="fade-right">
                     <div className="card-image"></div>
@@ -27,7 +31,7 @@ const Profile = function(){
                 </div>
                 <div className="about-wrapper" data-aos="fade-left">
                     <p className="text-1">About me</p>
-                    <h1 className="profile">Victor Lira</h1>
+                    <h1 className="profile-h1">Victor Lira</h1>
                     <h2 className="profession">Frontend Developer</h2>
                     <p className="description">My name is Victor, I am a Front-end developer, passionate about the JavaScript universe. I have had the opportunity to create internal projects for large companies, and I took the initiative to create this blog to share important topics related to web development.</p>
                     <SimpleSlider/>
