@@ -1,3 +1,4 @@
+import React from 'react';
 import  StyledFooter from './Footer.styled'
 import Link from 'next/link';
 import Image from 'next/image';

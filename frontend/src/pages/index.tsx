@@ -1,3 +1,4 @@
+import React from 'react';
 import Head from 'next/head';
 import { Fragment } from 'react';
 import Header from '../components/Header';
@@ -11,6 +12,7 @@ import { GlobalContext } from '../Context/pagination';
 import { useContext } from 'react';
 import { useEffect, useRef } from 'react';
 import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 interface IPost {
     id: any;
