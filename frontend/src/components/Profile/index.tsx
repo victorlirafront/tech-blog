@@ -2,12 +2,9 @@ import StyledAboutMe from "./Profile.styled";
 import { useState } from "react";
 import SimpleSlider from '@/components/SlickTech';
 import Image from "next/image";
-import Link from "next/link";
 
 const Profile = function(){
     const [resumeLanguage, setResumeLanguage] = useState("English");
-    const englishResume = "https://drive.google.com/file/d/1nqatZOmmTXcemZxSYy4eMuL4AJZF3rz8/view?usp=sharing"
-    const portugueseResume = "https://drive.google.com/file/d/1CRtg3jG5mpvleRsRFINNwKIUObiHWCLZ/view?usp=sharing"
 
     const changeResumeLanguage = function(language: string){
         setResumeLanguage(language)
@@ -25,9 +22,7 @@ const Profile = function(){
                         <div onClick={() => changeResumeLanguage("Portuguese")} className={`br-box ${resumeLanguage === "Portuguese" ? "": "active"}`}>
                             <Image width={30} height={30} src="/brasil.png" alt="" />
                         </div>
-                        <div className="link-wrapper">
-                            <Link target={"_blank"} href={resumeLanguage === "English" ? englishResume : portugueseResume} className="download-btn">Resume - {resumeLanguage}</Link>
-                        </div>
+                        <button className="download-btn">Download Resume - {resumeLanguage}</button>
                     </div>
                 </div>
                 <div className="about-wrapper" data-aos="fade-left">
