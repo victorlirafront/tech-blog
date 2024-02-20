@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import StyledHeader from './Header.styled';
-import 'aos/dist/aos.css';
+import AOS from 'aos';
 import { useContext } from "react";
 import { GlobalContext } from '../../Context/pagination';
 import Image from 'next/image';
@@ -17,26 +17,26 @@ interface IHeaderProps {
 }
 
 interface UrlParams {
-    page: string;
-    category: string;
+    page: any;
+    category: any;
 }
 
 const Header = function (props: IHeaderProps) {
-    const { setPage } = useContext(GlobalContext);
-    const [isCategoryActive, setIsCategoryActive] = useState(false);
-    const [currentTab, setCurrentTab] = useState("");
-    const [openMobileMenu, setOpenMobileMenu] = useState(false)
+    let { setPage } = useContext(GlobalContext);
+    let [isCategoryActive, setIsCategoryActive] = useState(false);
+    let [currentTab, setCurrentTab] = useState("");
+    let [openMobileMenu, setOpenMobileMenu] = useState(false)
     const router = useRouter();
     const currentUrl = router.asPath;
     const [headerFadeDown, setHeaderFadeDown] = useState("fade-down");
 
     const [urlParams, setUrlParams] = useState<UrlParams>({
-        page: "",
+        page: "0",
         category: ""
     });
 
     useEffect(() => {
-        if(urlParams.page === "")return  
+        if(urlParams.page === "0")return  
 
         router.push({
             pathname: "/",
@@ -57,6 +57,7 @@ const Header = function (props: IHeaderProps) {
     }
 
     useEffect(() => {
+        AOS.init();
         menuToggleBaseOnUrl();
         const updateWindowWidth = () => {
             if (window.innerWidth < 700) {
@@ -66,17 +67,15 @@ const Header = function (props: IHeaderProps) {
         updateWindowWidth();
     }, []);
 
-    const categoryToggle = function (e: React.MouseEvent<HTMLDivElement>) {
-        const target = e.target as HTMLDivElement;  // Assume que o target é um HTMLDivElement
-    
+    const categoryToggle = function (e: any) {
         setIsCategoryActive(!isCategoryActive);
-    
-        if (target.classList.contains("option")) {
+
+        if (e.target.classList.contains("option")) {
             setPage(2);
         }
-    };
+    }
 
-    const menuTab = function (currentPage: string) {
+    const menuTab = function (currentPage: any) {
         setCurrentTab(currentPage);
     }
 
