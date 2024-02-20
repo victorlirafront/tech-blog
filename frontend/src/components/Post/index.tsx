@@ -1,7 +1,8 @@
 import StyledPost from './Post.styled';
-import React from 'react';
+import Link from 'next/link';
 import { removeEspecialChars } from '../../helperFunctions/removeEspecialChars';
 import dateFormatter from '@/helperFunctions/dateFormatter';
+import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';

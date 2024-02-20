@@ -1,4 +1,3 @@
-import React from 'react';
 import StyledAboutMe from "./Profile.styled";
 import { useState } from "react";
 import SimpleSlider from '@/components/SlickTech';

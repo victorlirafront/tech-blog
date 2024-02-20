@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import StyledHeader from './Header.styled';
+import 'aos/dist/aos.css';
 import { useContext } from "react";
 import { GlobalContext } from '../../Context/pagination';
 import Image from 'next/image';
