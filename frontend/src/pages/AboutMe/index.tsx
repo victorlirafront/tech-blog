@@ -4,13 +4,30 @@ import Head from 'next/head';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Profile from '@/components/Profile';
+import 'aos/dist/aos.css';
 import AOS from 'aos';
-import { useEffect } from "react"
+import { useEffect, useRef, useState } from "react"
 
 const AboutMe = function () {
     useEffect(() => {
         AOS.init();
     }, []);
+
+    const containerRef = useRef(null);
+
+    const scrollIntoViewHandler = function () {
+        const container = containerRef.current;
+    
+        if (container) {
+          (container as HTMLElement).scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    
+      const [theme, setTheme] = useState("dark");
+    
+      const themeToggler = function () {
+        theme === "light" ? setTheme("dark") : setTheme("light");
+      }
 
     return (
         <Fragment>
@@ -35,7 +52,7 @@ const AboutMe = function () {
                     content="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/capa_Lt5CpWfSYm.png?updatedAt=1707230740618"
                 />
             </Head>
-            {/* <Header /> */}
+            <Header className="header" theme={theme} themeToggler={() => themeToggler()} scrollIntoView={() => scrollIntoViewHandler()} />
             <Profile />
             <Footer />
         </Fragment>

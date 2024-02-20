@@ -10,6 +10,7 @@ import Pagination from '@/components/Pagination';
 import { GlobalContext } from '../Context/pagination';
 import { useContext } from 'react';
 import { useEffect, useRef } from 'react';
+import 'aos/dist/aos.css';
 import AOS from 'aos';
 import { useState } from 'react';
 import { ThemeProvider } from "styled-components";
