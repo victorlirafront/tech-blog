@@ -93,7 +93,6 @@ const Profile = styled.div`
                 .download-wrapper {
                     margin-top: 70px;
                     width: 250px;
-                    border: 2px solid #0beeb2;
                     padding: 15px 10px;
                     text-align: center;
                     border-radius: 4px;
@@ -105,7 +104,6 @@ const Profile = styled.div`
                     .download-btn {
                         padding: 15px 30px;
                         cursor: pointer;
-                        color: #0beeb2;
                         background: transparent;
                         font-size: 15px;
                         text-decoration: none;

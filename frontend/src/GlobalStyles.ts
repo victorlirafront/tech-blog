@@ -19,7 +19,10 @@ interface IProps {
         profileCardImage: string;
         profileSecudaryColor: string;
         profileBorderCardImage: string;
-        profileBoxShadowCardImage: string
+        profileBoxShadowCardImage: string;
+        profileDownloadResumeButton: string;
+        profileDownloadBackground: string;
+        profileDownloadColor: string;
     }
 }
 
@@ -103,6 +106,16 @@ export const GlobalStyled = createGlobalStyle<IProps>`
             .card-image {
                 border: ${props => props.theme.profileBorderCardImage};
                 box-shadow: ${props => props.theme.profileBoxShadowCardImage};
+            }
+
+            .button-wrapper {
+                .download-wrapper {
+                    border: ${props => props.theme.profileDownloadResumeButton};
+                    background: ${props => props.theme.profileDownloadBackground};
+                    .download-btn {
+                        color: ${props => props.theme.profileDownloadColor};
+                    }
+                }
             }
     }
 
