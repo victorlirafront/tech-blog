@@ -136,7 +136,7 @@ const Header = function (props: IHeaderProps) {
                                     <p>Category</p>
                                     <Image width={40} height={40} style={css} className={`arrow`} src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow_Qvhukz-ZL.png" alt="" />
                                 </div>
-                                <ul className={`category-options ${isCategoryActive ? 'active' : ""}`}>
+                                <ul className={`category-options ${isCategoryActive ? "" : "active"}`}>
                                     <li className="option" onClick={() => categoryOptionHandler("1", "all")}>All</li>
                                     <li className="option" onClick={() => categoryOptionHandler("1", "javascript")}>JavaScript</li>
                                     <li className="option" onClick={() => categoryOptionHandler("1", "typescript")}>TypeScript</li>
