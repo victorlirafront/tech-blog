@@ -23,6 +23,9 @@ interface IProps {
         profileDownloadResumeButton: string;
         profileDownloadBackground: string;
         profileDownloadColor: string;
+        techSliderText: string;
+        techSliderDots: string;
+        techSliderDotActive: string
     }
 }
 
@@ -88,12 +91,17 @@ export const GlobalStyled = createGlobalStyle<IProps>`
         color: ${props => props.theme.cardColor};
         border: ${props => props.theme.profileBorder};
         box-shadow: ${props => props.theme.profileBoxShadow};
+        border-radius: 7px;
 
-        .profile-h1 {
-            color: ${props => props.theme.cardColor};
-        }
+            .profile-h1 {
+                color: ${props => props.theme.cardColor};
+            }
 
             .profession {
+                color: ${props => props.theme.cardColor};
+            }
+
+            .description {
                 color: ${props => props.theme.cardColor};
             }
 
@@ -117,6 +125,29 @@ export const GlobalStyled = createGlobalStyle<IProps>`
                     }
                 }
             }
+        //slider
+        .about-wrapper {
+
+            .text {
+                color: ${props => props.theme.techSliderText};
+            }
+
+            .slick-dots {
+                li {
+                    button {
+                        &::after {
+                            color: ${props => props.theme.techSliderDots};
+                        }
+                    }
+                    &.slick-active {
+                        &::after {
+                            /* color: #0beeb2; */
+                            color:${props => props.theme.techSliderDotActive};
+                        }
+            }
+                }
+            }
+        }
     }
 
     .main-page {

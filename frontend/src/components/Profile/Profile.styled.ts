@@ -151,7 +151,6 @@ const Profile = styled.div`
             }
 
             .description{
-                color: #9ca3af;
                 margin: 20px 0px 48px 0px;
                 @media screen and (max-width: 400px) {
                     font-size: 14px;
