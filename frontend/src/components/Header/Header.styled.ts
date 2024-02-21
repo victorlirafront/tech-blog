@@ -154,7 +154,6 @@ const StyledHeader = styled.header`
                         overflow: hidden;
 
                         @media screen and (max-width: 700px) {
-                            background: #111111;
                             width: 250px;
                             margin-left: 0px;
                             overflow: scroll;
@@ -164,7 +163,6 @@ const StyledHeader = styled.header`
 
                         &.active {
                             border-radius: 4px;
-                            /* background: #1e1e1e; */
                             transition: 0.5s;
                             height: 200px;
                         }
