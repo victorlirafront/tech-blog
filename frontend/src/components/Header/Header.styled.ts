@@ -42,8 +42,16 @@ const StyledHeader = styled.header`
                 list-style: none;
                 width: 100%;
 
+                @media screen and (max-width: 700px) {
+                    transition: 0.5s;
+                }
+
                 &.active {
                     left: 0px;
+
+                    @media screen and (max-width: 700px) {
+                        transition: 0.5s;
+                    }
                 }
 
                 .close {
