@@ -13,15 +13,18 @@ export const lightTheme = {
    profileBoxShadow: "1px 3px 10px 1px #ccc",
    headerBackground: "#362692",
    headerColor: "#fff",
-   profileSecudaryColor: "#362692",
+   headerDropdownMenu: "#4836af",
+   profileSecudaryColor: "#5c47d6",
    profileBorderCardImage: "1px solid #ccc",
    profileBoxShadowCardImage: "0px 0px 10px 0px #837f7f",
-   profileDownloadResumeButton: "2px solid #261a6d",
-   profileDownloadBackground: "#362693",
+   profileDownloadResumeButton: "2px solid #5c47d6",
+   profileDownloadBackground: "#5c47d6",
    profileDownloadColor: "#fff",
    techSliderText: "#000",
    techSliderDots: "#000",
-   techSliderDotActive: "#362692"
+   techSliderDotActive: "#5c47d6",
+   countryBoxShadow: "1px 3px 5px 1px #d3d3d3",
+   profileDownloadResumeBoxShadow: "1px 3px 5px 1px #d3d3d3",
 }
 
 export const darkTheme = {
@@ -39,6 +42,7 @@ export const darkTheme = {
    profileBoxShadow: "none",
    headerBackground: "#121212",
    headerColor: "#fff",
+   headerDropdownMenu: "#121212",
    profileSecudaryColor: "#0beeb2",
    profileBorderCardImage: "1px solid rgb(11, 238, 178)",
    profileBoxShadowCardImage: "0px 0px 10px 0px rgb(11, 238, 178)",
@@ -47,5 +51,7 @@ export const darkTheme = {
    profileDownloadColor: "#0beeb2",
    techSliderText: "#fff",
    techSliderDots: "#fff",
-   techSliderDotActive: "#0beeb2"
+   techSliderDotActive: "#0beeb2",
+   countryBoxShadow: "none",
+   profileDownloadResumeBoxShadow: "none",
 }

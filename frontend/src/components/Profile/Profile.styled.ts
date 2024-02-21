@@ -57,6 +57,7 @@ const Profile = styled.div`
                     justify-content: center;
                     align-items: center;
                     bottom: 70px;
+
                     cursor: pointer;
 
                     &.active {
@@ -72,7 +73,6 @@ const Profile = styled.div`
                 .br-box {
                     width: 30px;
                     position: absolute;
-                    /* border: 1px solid #0beeb2; */
                     display: flex;
                     justify-content: center;
                     align-items: center;

@@ -15,17 +15,21 @@ interface IProps {
         profileBorder: string;
         profileBoxShadow: string;
         headerBackground: string;
-        headerColor: string
+        headerColor: string;
+        headerDropdownMenu: string
         profileCardImage: string;
         profileSecudaryColor: string;
         profileBorderCardImage: string;
         profileBoxShadowCardImage: string;
         profileDownloadResumeButton: string;
         profileDownloadBackground: string;
+        profileDownloadResumeBoxShadow: string;
         profileDownloadColor: string;
         techSliderText: string;
         techSliderDots: string;
         techSliderDotActive: string
+        countryBoxShadow: string;
+
     }
 }
 
@@ -57,7 +61,7 @@ export const GlobalStyled = createGlobalStyle<IProps>`
         }
 
         .category-options {
-            background-color: ${props => props.theme.headerBackground};
+            background-color: ${props => props.theme.headerDropdownMenu};
         }
     }
 
@@ -117,9 +121,19 @@ export const GlobalStyled = createGlobalStyle<IProps>`
             }
 
             .button-wrapper {
+                .usa-box  {
+                    box-shadow: ${props => props.theme.countryBoxShadow};
+                }
+
+                .br-box  {
+                    box-shadow: ${props => props.theme.countryBoxShadow};
+                }
+
                 .download-wrapper {
                     border: ${props => props.theme.profileDownloadResumeButton};
                     background: ${props => props.theme.profileDownloadBackground};
+                    box-shadow: ${props => props.theme.profileDownloadResumeBoxShadow};
+
                     .download-btn {
                         color: ${props => props.theme.profileDownloadColor};
                     }
