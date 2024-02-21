@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const StyledDarkModeToggle = styled.div`
     width: 70px;
     height: 30px;
-    border: 1px solid white;
+    border: 1px solid #363636;
     border-radius: 30px;
     position: relative;
     background: #000;

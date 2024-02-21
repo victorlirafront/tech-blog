@@ -56,7 +56,7 @@ const Profile = styled.div`
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    bottom: 70px;
+                    bottom: 60px;
 
                     cursor: pointer;
 
@@ -76,7 +76,7 @@ const Profile = styled.div`
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    bottom: 70px;
+                    bottom: 60px;
                     left: 33px;
                     cursor: pointer;
 
