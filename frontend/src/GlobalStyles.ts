@@ -29,7 +29,10 @@ interface IProps {
         techSliderDots: string;
         techSliderDotActive: string
         countryBoxShadow: string;
-
+        bodyPostColor: string;
+        bodyPostWriterBorderColor: string;
+        bodyPostMainWriterBorderColor: string;
+        bodyPostImageBackground: string;
     }
 }
 
@@ -162,6 +165,53 @@ export const GlobalStyled = createGlobalStyle<IProps>`
                 }
             }
         }
+    }
+
+    .body-post {
+        color: ${props => props.theme.cardColor};
+
+        .title {
+            color: ${props => props.theme.bodyPostColor};
+        }
+
+        .date {
+            color: ${props => props.theme.cardSecudaryColor};
+        }
+
+        img {
+            background: ${props => props.theme.bodyPostImageBackground};
+        }
+    }
+
+    h1.title {
+        color: ${props => props.theme.cardColor};
+    }
+
+    .writter {
+        border-color: ${props => props.theme.bodyPostWriterBorderColor};
+        .author {
+            border:1px solid ${props => props.theme.bodyPostMainWriterBorderColor};
+        }
+
+        .name-container {
+            color: ${props => props.theme.cardColor};
+        }
+    }
+
+    .last-posts {
+            .motion-box {
+                background-color: ${props => props.theme.cardBody};
+                color: ${props => props.theme.cardColor};
+                box-shadow: ${props => props.theme.cardBoxShadow};
+
+                .post-category {
+                    color: ${props => props.theme.cardSecudaryColor};
+                }
+
+                .read-more-wrapper {
+                    color: ${props => props.theme.cardSecudaryColor};
+                }
+            }
     }
 
     .main-page {

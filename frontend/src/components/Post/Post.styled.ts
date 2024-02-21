@@ -16,7 +16,6 @@ const StyledPost = styled.div`
         border-radius: 10px;
         border-color: #0497EF;
         color: #b4b4b4;
-        background: #181818;
         text-align: center;
         text-decoration: none;
         border-radius: 10px;

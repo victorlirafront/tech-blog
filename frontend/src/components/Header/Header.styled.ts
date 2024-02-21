@@ -85,7 +85,7 @@ const StyledHeader = styled.header`
 
                     @media screen and (max-width: 700px) {
                         flex-direction: column;
-                        min-width: 250px;
+                        min-width: 87%;
                         /* height: 100px; */
                     }
 
@@ -125,8 +125,8 @@ const StyledHeader = styled.header`
                     position: relative;
                     
                     @media screen and (max-width: 700px) {
-                        min-width: 250px;
-                        margin-top: 30px;
+                        min-width: 100%;
+                        margin-top: 40px;
                     }
 
                     a {
@@ -162,7 +162,7 @@ const StyledHeader = styled.header`
                         overflow: hidden;
 
                         @media screen and (max-width: 700px) {
-                            width: 250px;
+                            width: 100%;
                             margin-left: 0px;
                             overflow: scroll;
                             position: static;

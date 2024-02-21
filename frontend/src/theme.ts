@@ -25,11 +25,16 @@ export const lightTheme = {
    techSliderDotActive: "#5c47d6",
    countryBoxShadow: "1px 3px 5px 1px #d3d3d3",
    profileDownloadResumeBoxShadow: "1px 3px 5px 1px #d3d3d3",
+
+   bodyPostColor: "#000",
+   bodyPostWriterBorderColor: "none",
+   bodyPostMainWriterBorderColor: "none",
+   bodyPostImageBackground: "#eeeeee"
 }
 
 export const darkTheme = {
    body: "#121212",
-   cardBody: "#181818",
+   cardBody: "#",
    fontColor: "#fff",
    cardBorder: "1px solid #0497EF",
    cardBoxShadow: "0px 0px 10px 0px #0497EF",
@@ -42,7 +47,7 @@ export const darkTheme = {
    profileBoxShadow: "none",
    headerBackground: "#121212",
    headerColor: "#fff",
-   headerDropdownMenu: "#121212",
+   headerDropdownMenu: "#181818",
    profileSecudaryColor: "#0beeb2",
    profileBorderCardImage: "1px solid rgb(11, 238, 178)",
    profileBoxShadowCardImage: "0px 0px 10px 0px rgb(11, 238, 178)",
@@ -54,4 +59,8 @@ export const darkTheme = {
    techSliderDotActive: "#0beeb2",
    countryBoxShadow: "none",
    profileDownloadResumeBoxShadow: "none",
+   bodyPostColor: "#fff",
+   bodyPostWriterBorderColor: "#141920",
+   bodyPostMainWriterBorderColor: "#0497EF",
+   bodyPostImageBackground: "#202020"
 }

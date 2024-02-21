@@ -2,8 +2,8 @@
 import styled from 'styled-components';
 
 const StyledDarkModeToggle = styled.div`
-    width: 70px;
-    height: 30px;
+    width: 60px;
+    height: 25px;
     border: 1px solid #363636;
     border-radius: 30px;
     position: relative;
@@ -19,7 +19,7 @@ const StyledDarkModeToggle = styled.div`
     .toggle {
         background: #fff;
         height: 100%;
-        width: 30px;
+        width: 24px;
         border-radius: 50%;
         position: absolute;
         transition: 0.5s;
@@ -34,7 +34,7 @@ const StyledDarkModeToggle = styled.div`
         &.dark {
             -webkit-transition: 0.5s;
             transition: 0.5s;
-            right: 36px;
+            right: 33px;
         }
     }
 `;

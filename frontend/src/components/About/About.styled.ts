@@ -190,15 +190,14 @@ const StyledAbout = styled.div`
 
             h1 {
                 font-size: 80px;
-                color: transparent;
-                background: #07edb8;
                 background-size: 0.25rem 0.25rem;
                 -webkit-background-clip: text;
                 background-clip: text;
                 white-space: nowrap;
                 font-family: 'bolder-font', sans-serif;
                 letter-spacing: -4px;
-                text-shadow: #fff 1px 3px 0px;
+                color: #fff;
+                text-shadow: #07edb8 1px 3px 0px;
 
                 @media screen and (max-width: 600px){
                     white-space: unset;
@@ -210,6 +209,8 @@ const StyledAbout = styled.div`
 
                 span {
                     color: #fff;
+                    text-shadow: #07edb8 1px 3px 0px;
+                    
                     @media screen and (max-width: 600px){
                         display: none;
                     }

@@ -41,7 +41,7 @@ const StyledPostNew = styled.div`
             .date {
                 text-align: center;
                 font-weight: bolder;
-                color: #9ec0fa;
+                /* color: #9ec0fa; */
                 @media screen and (max-width: 700px){
                     font-size: 14px;
                 }
@@ -93,7 +93,6 @@ const StyledPostNew = styled.div`
                 max-width: 100%;
                 margin-top: 10px;
                 padding: 50px;
-                background: #202020;
 
                 @media screen and (max-width: 767px){
                     padding: unset;
@@ -157,7 +156,6 @@ const StyledPostNew = styled.div`
             display: flex;
             justify-content: center;
             padding: 60px 40px;
-            border-color: #141920;
             border-style: solid;
             border-width: 1px 0;
             margin: 0 auto;
@@ -165,7 +163,7 @@ const StyledPostNew = styled.div`
             @media screen and (max-width: 700px){
                 flex-direction: column;
                 align-items: center;
-                padding: 40px 40px 0px 40px;
+                padding: 40px 40px 40px 40px;
             }
 
             .author {
@@ -181,10 +179,9 @@ const StyledPostNew = styled.div`
                 flex-direction: column;
                 align-items: flex-start;
                 justify-content: center ;
-                border: 1px solid #41516e;
+                /* border: 1px solid #41516e;
                 border: 3px solid #bad7e5;
-                border-color: #0497EF;
-                box-shadow: 0px 0px 10px 0px #0497EF;
+                box-shadow: 0px 0px 10px 0px #0497EF; */
 
                 @media screen and (max-width: 700px){
                     margin-right: unset;
@@ -200,7 +197,6 @@ const StyledPostNew = styled.div`
                 justify-content: center ;
 
                 .text-1 {
-                    color: #9ec0fa;
                     font-size: 18px;
                     margin-bottom: 7px;
 
@@ -220,7 +216,6 @@ const StyledPostNew = styled.div`
     }
 
     .title{
-        color: #ccc;
         text-align: center;
         margin-bottom: 70px;
 
@@ -237,6 +232,7 @@ const StyledPostNew = styled.div`
         .slider-content {
             display: flex !important;
             justify-content: center !important;
+            padding-top: 15px;
         }
 
 
