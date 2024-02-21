@@ -8,6 +8,7 @@ import Footer from '@/components/Footer';
 import Axios from 'axios';
 import Pagination from '@/components/Pagination';
 import { GlobalContext } from '../Context/pagination';
+import { useScrollContext } from '@/Context/scrollProvider';
 import { useContext } from 'react';
 import { useEffect, useRef } from 'react';
 import 'aos/dist/aos.css';
@@ -47,8 +48,12 @@ interface IData {
 
 export default function Home({ data }: IData) {
    const { setPage } = useContext(GlobalContext);
-   const containerRef = useRef(null);
    const { theme, toggleTheme } = useTheme();
+   const { scrollIntoViewHandler, containerRef } = useScrollContext();
+
+   const themeToggler = function () {
+      toggleTheme()
+   }
 
    useEffect(() => {
       AOS.init();
@@ -70,18 +75,6 @@ export default function Home({ data }: IData) {
          return false;
       }
    };
-
-   const scrollIntoViewHandler = function () {
-      const container = containerRef.current;
-
-      if (container) {
-         (container as HTMLElement).scrollIntoView({ behavior: 'smooth' });
-      }
-   }
-
-   const themeToggler = function () {
-      toggleTheme()
-   }
 
    return (
       <Fragment>
@@ -127,7 +120,7 @@ export default function Home({ data }: IData) {
                <Header className="header" theme={theme} themeToggler={() => themeToggler()} scrollIntoView={() => scrollIntoViewHandler()} />
                <About />
                <MainPage className="main-page">
-                  <div className="container" ref={containerRef}>
+                  <div className="container" ref={containerRef as React.RefObject<HTMLDivElement>}>
 
                      {data?.results &&
                         data.results.map((post: IPost, index: number) => {

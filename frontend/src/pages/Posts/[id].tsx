@@ -11,6 +11,12 @@ import Post from '@/components/Post';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Slider from 'react-slick';
+import { useTheme } from '@/Context/darkmode';
+import { lightTheme, darkTheme } from "../../theme"
+import { ThemeProvider } from 'styled-components';
+import { GlobalStyled } from '@/GlobalStyles';
+import { ThemeContainer } from '@/ThemeContainer.styled';
+import { useScrollContext } from '@/Context/scrollProvider';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
@@ -37,6 +43,15 @@ function Posts(props: IProps) {
     const [isLoading, setIsLoading] = useState(true);
     const [lastPosts, setLastPost] = useState([])
     const [settings, setSettings] = useState({});
+    const { theme, toggleTheme } = useTheme();
+    const { scrollIntoViewHandler } = useScrollContext();
+
+    const dateObject = new Date(props.post.date);
+    const formattedDate = dateObject.toLocaleDateString();
+
+    const themeToggler = function () {
+        toggleTheme()
+    }
 
     useEffect(() => {
         setIsLoading(false);
@@ -73,9 +88,6 @@ function Posts(props: IProps) {
         return <div>Loading...</div>;
     }
 
-    const dateObject = new Date(props.post.date);
-    const formattedDate = dateObject.toLocaleDateString();
-
     return (
         <StyledPostNew>
             <Head>
@@ -89,50 +101,55 @@ function Posts(props: IProps) {
                 <meta name="keywords" content={props.post.keywords} />
                 <link rel="icon" href="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/binary-code_WBpGXnWnG.png?updatedAt=1700431546132" />
             </Head>
-            {/* <Header /> */}
-            <div className='profile'>
-                <div data-aos="fade-down" className='background-image' style={{ backgroundImage: `url(${props.post.post_background})` }}></div>
+            <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+                <GlobalStyled />
+                <ThemeContainer>
+                    <Header className="header" theme={theme} themeToggler={() => themeToggler()} scrollIntoView={() => scrollIntoViewHandler()} />
+                    <div className='profile'>
+                        <div data-aos="fade-down" className='background-image' style={{ backgroundImage: `url(${props.post.post_background})` }}></div>
 
-                <div className='body-post' data-aos="fade-up">
-                    <h1 className='title'>{props.post.title}</h1>
-                    <p className='date'>{dateFormatter(formattedDate)}</p>
-                    <MarkdownRenderer markdown={props.post.content} />
-                </div>
-                <div className='writter'>
-                    <div className='author'></div>
-                    <div className='name-container'>
-                        <p className='text-1'>Victor Lira &nbsp; 🚀</p>
-                        <p className='text-2'>Content writer @victorlira_ws</p>
-                    </div>
-                </div>
-            </div>
-            <h1 className='title'>Last Posts</h1>
-            <div className='last-posts'>
-                <Slider {...settings}>
-                    {lastPosts.map((post: any) => {
-                        return (
-                        <div className='slider-content'> 
-                                <Post
-                                    key={post.id}
-                                    id={post.id}
-                                    category={post.category}
-                                    content={post.content}
-                                    date={post.date}
-                                    meta_tag_description={post.meta_tag_description}
-                                    meta_tag_title={post.meta_tag_title}
-                                    title={post.title}
-                                    post_image={post.post_image}
-                                    author={post.author}
-                                    aos_delay=""
-                                    aos_type=""
-                                    hover_animation={0}
-                            />
+                        <div className='body-post' data-aos="fade-up">
+                            <h1 className='title'>{props.post.title}</h1>
+                            <p className='date'>{dateFormatter(formattedDate)}</p>
+                            <MarkdownRenderer markdown={props.post.content} />
                         </div>
-                        )
-                    })}
-                </Slider>
-            </div>
-            <Footer />
+                        <div className='writter'>
+                            <div className='author'></div>
+                            <div className='name-container'>
+                                <p className='text-1'>Victor Lira &nbsp; 🚀</p>
+                                <p className='text-2'>Content writer @victorlira_ws</p>
+                            </div>
+                        </div>
+                    </div>
+                    <h1 className='title'>Last Posts</h1>
+                    <div className='last-posts'>
+                        <Slider {...settings}>
+                            {lastPosts.map((post: any) => {
+                                return (
+                                    <div className='slider-content'>
+                                        <Post
+                                            key={post.id}
+                                            id={post.id}
+                                            category={post.category}
+                                            content={post.content}
+                                            date={post.date}
+                                            meta_tag_description={post.meta_tag_description}
+                                            meta_tag_title={post.meta_tag_title}
+                                            title={post.title}
+                                            post_image={post.post_image}
+                                            author={post.author}
+                                            aos_delay=""
+                                            aos_type=""
+                                            hover_animation={0}
+                                        />
+                                    </div>
+                                )
+                            })}
+                        </Slider>
+                    </div>
+                    <Footer />
+                </ThemeContainer>
+            </ThemeProvider>
         </StyledPostNew>
     );
 }
@@ -155,7 +172,7 @@ async function fetchData(baseUrl: any) {
 export const getServerSideProps: GetServerSideProps = async (
     context: GetServerSidePropsContext
 ) => {
-    
+
     const { id } = context.params!;
 
     try {

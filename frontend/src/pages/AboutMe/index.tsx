@@ -12,8 +12,10 @@ import { ThemeProvider } from 'styled-components';
 import { GlobalStyled } from '@/GlobalStyles';
 import { ThemeContainer } from '@/ThemeContainer.styled';
 import { useTheme } from '@/Context/darkmode';
+import { useScrollContext } from '@/Context/scrollProvider';
 
 const AboutMe = function () {
+   const { scrollIntoViewHandler } = useScrollContext();
    const { theme, toggleTheme } = useTheme();
 
    useEffect(() => {
@@ -50,7 +52,7 @@ const AboutMe = function () {
          <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
             <GlobalStyled/>
             <ThemeContainer>
-               <Header className="header" theme={theme} themeToggler={() => themeToggler()} />
+               <Header className="header" theme={theme} themeToggler={() => themeToggler()} scrollIntoView={() => scrollIntoViewHandler()} />
                <Profile className='profile' />
                <Footer />
             </ThemeContainer>
