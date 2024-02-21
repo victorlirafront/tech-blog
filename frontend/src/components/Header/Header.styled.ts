@@ -41,11 +41,9 @@ const StyledHeader = styled.header`
                 justify-content: space-between;
                 list-style: none;
                 width: 100%;
-                transition: 0.5s;
 
                 &.active {
                     left: 0px;
-                    transition: 0.5s;
                 }
 
                 .close {
