@@ -41,8 +41,8 @@ const StyledAbout = styled.div`
 
                 &:nth-child(1) {
                     left: 25%;
-                    width: 80px;
-                    height: 80px;
+                    width: 45px;
+                    height: 45px;
                     animation-delay: 0s;
                     background-color: #0edba4;
                 }
@@ -66,8 +66,8 @@ const StyledAbout = styled.div`
 
                 &:nth-child(4) {
                     left: 40%;
-                    width: 60px;
-                    height: 60px;
+                    width: 33px;
+                    height: 33px;
                     animation-delay: 0s;
                     animation-duration: 9s;
                 }
@@ -82,15 +82,15 @@ const StyledAbout = styled.div`
 
                 &:nth-child(6) {
                     left: 75%;
-                    width: 90px;
-                    height: 90px;
+                    width: 50px;
+                    height: 50px;
                     animation-delay: 2s;
                 }
 
                 &:nth-child(7) {
                     left: 35%;
-                    width: 100px;
-                    height: 100px;
+                    width: 55px;
+                    height: 55px;
                     animation-delay: 5s;
                 }
 
@@ -113,8 +113,8 @@ const StyledAbout = styled.div`
 
                 &:nth-child(10) {
                     left: 85%;
-                    width: 100px;
-                    height: 100px;
+                    width: 22px;
+                    height: 22px;
                     animation-delay: 0s;
                     animation-duration: 10s;
                 }
