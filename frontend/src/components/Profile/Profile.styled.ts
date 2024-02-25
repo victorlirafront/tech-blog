@@ -95,7 +95,7 @@ const Profile = styled.div`
                     width: 230px;
                     padding: 10px 10px;
                     text-align: center;
-                    border-radius: 4px;
+                    border-radius: 30px;
 
                     @media screen and (max-width: 1040px) {
                         margin-top: 100px;

@@ -67,7 +67,7 @@ const Post: React.FC<IProps> = (props) => {
 
                     <div className="read-more-wrapper" onClick={handleLinkClick}>
                         <p>Read more</p>
-                        <img src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow-right_eVbRRghk9.png?updatedAt=1696390413993" />
+                        <img loading='lazy' src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow-right_eVbRRghk9.png?updatedAt=1696390413993" />
                     </div>
                 </div>
             </motion.div>
