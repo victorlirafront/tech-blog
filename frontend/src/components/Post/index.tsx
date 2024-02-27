@@ -42,6 +42,7 @@ const Post: React.FC<IProps> = (props) => {
             data-aos-delay={props.aos_delay}
             data-aos={props.aos_type}
             style={props.style}
+            onClick={handleLinkClick}
         >
             <motion.div whileHover={{ y: props.hover_animation }} className='motion-box'>
                 <div
@@ -65,7 +66,7 @@ const Post: React.FC<IProps> = (props) => {
                         <li>Autor: {props.author}</li>
                     </ul>
 
-                    <div className="read-more-wrapper" onClick={handleLinkClick}>
+                    <div className="read-more-wrapper">
                         <p>Read more</p>
                         <img loading='lazy' src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow-right_eVbRRghk9.png?updatedAt=1696390413993" />
                     </div>

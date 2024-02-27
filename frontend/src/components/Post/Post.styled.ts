@@ -5,6 +5,7 @@ const StyledPost = styled.div`
     width: calc(33.33333% - 40px);
     margin: 0 20px 40px 20px;
     min-width: 360px;
+    cursor: pointer;
 
     @media screen and (max-width: 640px){
         min-width: 300px;

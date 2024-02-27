@@ -140,7 +140,7 @@ function Posts(props: IProps) {
                                             author={post.author}
                                             aos_delay=""
                                             aos_type=""
-                                            hover_animation={0}
+                                            hover_animation={-7}
                                         />
                                     </div>
                                 )
