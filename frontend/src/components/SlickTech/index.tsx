@@ -73,12 +73,6 @@ const SimpleSlider = () => {
                     </div>
                 </div>
                 <div className="slider-container">
-                    <div className="slider-box wordpress">
-                        <Image loading="lazy" width={100} height={75} className="slide-image" src="/wordpress.png" alt="" />
-                        <p className='text'>WordPress</p>
-                    </div>
-                </div>
-                <div className="slider-container">
                     <div className="slider-box sass">
                         <Image loading="lazy" width={100} height={75} className="slide-image" src="/sass.png" alt="" />
                         <p className='text'>SASS</p>
