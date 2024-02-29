@@ -22,18 +22,18 @@ const StyledDarkModeToggle = styled.div`
         width: 24px;
         border-radius: 50%;
         position: absolute;
-        transition: 0.5s;
+        transition: 0.1s;
         cursor: pointer;
         
         &.light {
-            -webkit-transition: 0.5s;
-            transition: 0.5s;
+            -webkit-transition: 0.1s;
+            transition: 0.1s;
             right: 0px;
         }
 
         &.dark {
-            -webkit-transition: 0.5s;
-            transition: 0.5s;
+            -webkit-transition: 0.1s;
+            transition: 0.1s;
             right: 33px;
         }
     }

@@ -9,11 +9,10 @@ const SimpleSlider = () => {
     const [settings] = useState({
         dots: true,
         infinite: true,
-        speed: 500,
+        speed: 400,
         slidesToShow: 4,
         slidesToScroll: 2,
         autoplay: true,
-        autoplaySpeed: 2000,
         responsive: [
             {
                 breakpoint: 1024,

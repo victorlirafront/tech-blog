@@ -29,7 +29,7 @@ const Header = function (props: IHeaderProps) {
     const router = useRouter();
     const currentUrl = router.asPath;
     const [headerFadeDown, setHeaderFadeDown] = useState("fade-down");
-
+    const [shouldRender, setShouldRender] = useState(false);
     const [urlParams, setUrlParams] = useState<UrlParams>({
         page: "0",
         category: ""
@@ -57,6 +57,7 @@ const Header = function (props: IHeaderProps) {
     }
 
     useEffect(() => {
+        setShouldRender(true);
         AOS.init();
         menuToggleBaseOnUrl();
         const updateWindowWidth = () => {
@@ -118,6 +119,7 @@ const Header = function (props: IHeaderProps) {
     }
 
     return (
+        shouldRender ? 
         <StyledHeader data-aos={headerFadeDown} className={props.className}>
             <div className="container">
                 <nav>
@@ -150,7 +152,7 @@ const Header = function (props: IHeaderProps) {
                     <Image width={50} height={50} onClick={() => showMobileMenu()} className={`menu-hamburguer`} src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/hamburguer_1id8uhYeQ.png?updatedAt=1703307554746" alt="" />
                 </nav>
             </div>
-        </StyledHeader>
+        </StyledHeader> : <div></div>
     );
 };
 

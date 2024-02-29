@@ -2,14 +2,20 @@ import 'aos/dist/aos.css';
 import StyledAbout from './About.styled';
 import next from 'next';
 import Image from 'next/image';
-
+import { useEffect, useState } from 'react';
 const About = function () {
+    const [shouldRender, setShouldRender] = useState(false);
+
+    useEffect(() => {
+       setShouldRender(true);
+    }, []);
 
     const codeOpening = "< /"
     const heading = "TECH BLOG";
     const codeClosing = ">"
 
     return (
+        shouldRender ? 
         <StyledAbout data-aos="fade-down">
             <div className="area">
                 <ul className="circles">
@@ -37,7 +43,7 @@ const About = function () {
                     <Image className='arrow-down' width={50} height={40} alt="" src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow-down_R_O49Lmno.webp?updatedAt=1708117050694" />
                 </div>
             </div>
-        </StyledAbout>
+        </StyledAbout> : <div></div>
     );
 };
 
