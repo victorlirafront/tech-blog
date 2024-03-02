@@ -5,6 +5,7 @@ import 'aos/dist/aos.css';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 import React from 'react';
+import Image from 'next/image';
 
 interface IProps {
   date: string;
@@ -69,7 +70,8 @@ const Post: React.FC<IProps> = props => {
 
           <div className="read-more-wrapper">
             <p>Read more</p>
-            <img
+            <Image
+              alt=''
               loading="lazy"
               src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow-right_eVbRRghk9.png?updatedAt=1696390413993"
             />

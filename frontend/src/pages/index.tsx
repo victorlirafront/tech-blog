@@ -58,7 +58,7 @@ export default function Home({ data }: IData) {
   useEffect(() => {
     AOS.init();
     setPage(data?.next?.page);
-  }, []);
+  }, [data?.next?.page, setPage]);
 
   const checkNextPage = function () {
     if (data?.next) {

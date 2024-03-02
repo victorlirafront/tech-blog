@@ -98,7 +98,7 @@ function Posts(props: IProps) {
         },
       ],
     });
-  }, []);
+  }, [props.data]);
 
   if (isLoading) {
     return <div>Loading...</div>;

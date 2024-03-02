@@ -3,6 +3,7 @@ import { GlobalContext } from '../../Context/pagination';
 import { useContext } from 'react';
 import { useRouter } from 'next/router';
 import React from 'react';
+import Image from 'next/image';
 
 interface IpropsPagination {
   pageLength: number;
@@ -55,7 +56,7 @@ const Pagination = function (props: IpropsPagination) {
       return (
         <li onClick={() => setNextPage(props.nextPage)}>
           <div className="icon-arrow icon-arrow-right">
-            <img
+            <Image
               loading="lazy"
               src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow-right_eVbRRghk9.png?updatedAt=1696390413993"
               alt=""
@@ -71,7 +72,7 @@ const Pagination = function (props: IpropsPagination) {
       return (
         <li onClick={() => setPreviowPage(props.previousPage)}>
           <div className="icon-arrow icon-arrow-left">
-            <img
+            <Image
               loading="lazy"
               src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow-right_eVbRRghk9.png?updatedAt=1696390413993"
               alt=""

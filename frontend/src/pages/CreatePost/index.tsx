@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import Header from '@/components/Header';
+import React, { FormEvent, useState } from 'react';
 import Axios from 'axios';
 import StyledCreatePost from './CreatePost.styled';
 
@@ -13,9 +12,8 @@ const CreatePost = function () {
   const [postImage, setPostImage] = useState('');
   const [postBackground, setPostBackground] = useState('');
 
-  const submitPost = function (e: any) {
+  const submitPost = function (e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-
     Axios.post('https://blog-backend-tau-three.vercel.app/api/create', {
       author: author,
       title: title,
@@ -33,7 +31,7 @@ const CreatePost = function () {
     <React.Fragment>
       {/* <Header /> */}
       <StyledCreatePost>
-        <form id="form">
+        <form id="form" onSubmit={submitPost}>
           <div className="form-control username">
             <label htmlFor="username">Autor</label>
             <input
@@ -121,7 +119,7 @@ const CreatePost = function () {
             />
           </div>
 
-          <button className="submit" onClick={submitPost}>
+          <button className="submit" type="submit">
             submit
           </button>
         </form>
