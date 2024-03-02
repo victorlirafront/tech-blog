@@ -1,39 +1,39 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 interface IProps {
-    theme: {
-        body: string;
-        fontColor: string;
-        cardBody: string;
-        cardBorder: string;
-        cardColor: string;
-        cardBoxShadow: string;
-        cardBorderRadius: string;
-        cardSecudaryColor: string;
-        aboutBackground: string;
-        footerBackground: string;
-        profileBorder: string;
-        profileBoxShadow: string;
-        headerBackground: string;
-        headerColor: string;
-        headerDropdownMenu: string
-        profileCardImage: string;
-        profileSecudaryColor: string;
-        profileBorderCardImage: string;
-        profileBoxShadowCardImage: string;
-        profileDownloadResumeButton: string;
-        profileDownloadBackground: string;
-        profileDownloadResumeBoxShadow: string;
-        profileDownloadColor: string;
-        techSliderText: string;
-        techSliderDots: string;
-        techSliderDotActive: string
-        countryBoxShadow: string;
-        bodyPostColor: string;
-        bodyPostWriterBorderColor: string;
-        bodyPostMainWriterBorderColor: string;
-        bodyPostImageBackground: string;
-    }
+  theme: {
+    body: string;
+    fontColor: string;
+    cardBody: string;
+    cardBorder: string;
+    cardColor: string;
+    cardBoxShadow: string;
+    cardBorderRadius: string;
+    cardSecudaryColor: string;
+    aboutBackground: string;
+    footerBackground: string;
+    profileBorder: string;
+    profileBoxShadow: string;
+    headerBackground: string;
+    headerColor: string;
+    headerDropdownMenu: string;
+    profileCardImage: string;
+    profileSecudaryColor: string;
+    profileBorderCardImage: string;
+    profileBoxShadowCardImage: string;
+    profileDownloadResumeButton: string;
+    profileDownloadBackground: string;
+    profileDownloadResumeBoxShadow: string;
+    profileDownloadColor: string;
+    techSliderText: string;
+    techSliderDots: string;
+    techSliderDotActive: string;
+    countryBoxShadow: string;
+    bodyPostColor: string;
+    bodyPostWriterBorderColor: string;
+    bodyPostMainWriterBorderColor: string;
+    bodyPostImageBackground: string;
+  };
 }
 
 export const GlobalStyled = createGlobalStyle<IProps>`
@@ -134,8 +134,10 @@ export const GlobalStyled = createGlobalStyle<IProps>`
 
                 .download-wrapper {
                     border: ${props => props.theme.profileDownloadResumeButton};
-                    background: ${props => props.theme.profileDownloadBackground};
-                    box-shadow: ${props => props.theme.profileDownloadResumeBoxShadow};
+                    background: ${props =>
+                      props.theme.profileDownloadBackground};
+                    box-shadow: ${props =>
+                      props.theme.profileDownloadResumeBoxShadow};
 
                     .download-btn {
                         color: ${props => props.theme.profileDownloadColor};
@@ -190,7 +192,8 @@ export const GlobalStyled = createGlobalStyle<IProps>`
     .writter {
         border-color: ${props => props.theme.bodyPostWriterBorderColor};
         .author {
-            border:1px solid ${props => props.theme.bodyPostMainWriterBorderColor};
+            border:1px solid ${props =>
+              props.theme.bodyPostMainWriterBorderColor};
         }
 
         .name-container {
@@ -231,4 +234,4 @@ export const GlobalStyled = createGlobalStyle<IProps>`
     footer {
         background:  ${props => props.theme.aboutBackground};
     }
-`
+`;

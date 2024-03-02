@@ -1,10 +1,10 @@
 export const removeEspecialChars = function (text: string) {
-    if (text) {
-        let newText = text
-            .replaceAll('#', '')
-            .replaceAll('##', '')
-            .replaceAll('**', '')
+  if (text) {
+    const newText = text
+      .replaceAll('#', '')
+      .replaceAll('##', '')
+      .replaceAll('**', '');
 
-        return newText
-    }
-}
+    return newText;
+  }
+};

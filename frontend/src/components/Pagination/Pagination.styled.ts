@@ -1,38 +1,37 @@
-"use client";
+'use client';
 
-import styled from "styled-components";
+import styled from 'styled-components';
 const StyledPagination = styled.div`
+  .pagination-wrapper {
+    .pagination {
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-    .pagination-wrapper {
-        .pagination {
+      li {
+        list-style: none;
+      }
+
+      .icon-arrow {
         display: flex;
         align-items: center;
         justify-content: center;
+        cursor: pointer;
 
-        li{
-            list-style: none;
+        &.icon-arrow-left {
+          img {
+            transform: rotate(180deg);
+          }
         }
 
-        .icon-arrow {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-
-            &.icon-arrow-left{
-                img {
-                    transform: rotate(180deg);
-                }
-            }
-
-            &.icon-arrow-right{
-                img {
-                    margin-top: 10px;
-                }
-            }
+        &.icon-arrow-right {
+          img {
+            margin-top: 10px;
+          }
         }
+      }
     }
-    }
-`
+  }
+`;
 
 export default StyledPagination;
