@@ -70,8 +70,6 @@ function Posts(props: IProps) {
   useEffect(() => {
     setIsLoading(false);
     AOS.init();
-    console.log(props.data);
-    console.log(props.data.slice(0, 3));
     setLastPost(props.data.slice(0, 3));
     setSettings({
       dots: true,

@@ -137,7 +137,6 @@ export default function Home({ data }: IData) {
                     minWidth: '300px',
                   };
 
-                  console.log(post.id)
                   return (
                     <Post
                       style={costumizeFirstPost ? styled : {}}
@@ -194,7 +193,7 @@ async function fetchData(baseUrl: string) {
 }
 
 export const getServerSideProps: GetServerSideProps = async (
-  context: GetServerSidePropsContext
+  context: GetServerSidePropsContext,
 ) => {
   try {
     const page = context.query?.page ?? '1';
