@@ -6,10 +6,7 @@ interface DarkModeToggleProps {
   themeMode: string;
 }
 
-const DarkModeToggle: React.FC<DarkModeToggleProps> = ({
-  onclick,
-  themeMode,
-}) => {
+const DarkModeToggle = ({ onclick, themeMode }: DarkModeToggleProps) => {
   return (
     <StyledDarkModeToggle onClick={onclick}>
       <button className={`toggle ${themeMode}`}></button>
