@@ -32,7 +32,7 @@ const Profile = function (props: IProfile) {
                 resumeLanguage === 'English' ? '' : 'active'
               }`}
             >
-              <Image width={30} height={30} src="/usa.png" alt="" />
+              <Image width={30} height={30} src="/usa.png" alt="USA flag image" />
             </div>
             <div
               onClick={() => changeResumeLanguage('Portuguese')}
@@ -40,7 +40,7 @@ const Profile = function (props: IProfile) {
                 resumeLanguage === 'Portuguese' ? '' : 'active'
               }`}
             >
-              <Image width={30} height={30} src="/brasil.png" alt="" />
+              <Image width={30} height={30} src="/brasil.png" alt="BRAZIL flag image" />
             </div>
             <div className="download-wrapper">
               <a

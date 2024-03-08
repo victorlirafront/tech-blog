@@ -71,7 +71,9 @@ const Post: React.FC<IProps> = props => {
           <div className="read-more-wrapper">
             <p>Read more</p>
             <Image
-              alt=''
+              width={20}
+              height={20}
+              alt=""
               loading="lazy"
               src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow-right_eVbRRghk9.png?updatedAt=1696390413993"
             />

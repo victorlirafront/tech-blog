@@ -57,6 +57,8 @@ const Pagination = function (props: IpropsPagination) {
         <li onClick={() => setNextPage(props.nextPage)}>
           <div className="icon-arrow icon-arrow-right">
             <Image
+              width={20}
+              height={20}
               loading="lazy"
               src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow-right_eVbRRghk9.png?updatedAt=1696390413993"
               alt=""
@@ -73,6 +75,8 @@ const Pagination = function (props: IpropsPagination) {
         <li onClick={() => setPreviowPage(props.previousPage)}>
           <div className="icon-arrow icon-arrow-left">
             <Image
+              width={20}
+              height={20}
               loading="lazy"
               src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow-right_eVbRRghk9.png?updatedAt=1696390413993"
               alt=""
