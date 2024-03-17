@@ -10,9 +10,9 @@ const About = function () {
     setShouldRender(true);
   }, []);
 
-  const codeOpening = '< /';
+  const codeOpening = '< ';
   const heading = 'TECH BLOG';
-  const codeClosing = '>';
+  const codeClosing = '/ >';
 
   return (
     <React.Fragment>
