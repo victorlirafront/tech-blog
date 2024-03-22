@@ -36,7 +36,13 @@ const Header = function (props: IHeaderProps) {
   });
 
   useEffect(() => {
-    if (urlParams.page === '0') return;
+    if (
+      urlParams.page === '0' ||
+      (router.query.page === urlParams.page &&
+        router.query.category === urlParams.category)
+    ) {
+      return;
+    }
 
     router.push({
       pathname: '/',
