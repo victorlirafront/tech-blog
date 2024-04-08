@@ -155,13 +155,6 @@ const Header = function (props: IHeaderProps) {
               >
                 Blog
               </Link>
-              <Link
-                onClick={() => menuHandler('about')}
-                className={`anchor ${currentTab === 'about' ? 'active' : ''}`}
-                href="/AboutMe"
-              >
-                Portfolio
-              </Link>
               <div className="category" onClick={e => categoryToggle(e)}>
                 <div className="category-conteiner">
                   <p>Category</p>
@@ -211,6 +204,13 @@ const Header = function (props: IHeaderProps) {
                   </li>
                 </ul>
               </div>
+              <Link
+                onClick={() => menuHandler('about')}
+                className={`anchor ${currentTab === 'about' ? 'active' : ''}`}
+                href="/AboutMe"
+              >
+                About Me
+              </Link>
             </div>
             <DarkModeToggle
               themeMode={props.theme}

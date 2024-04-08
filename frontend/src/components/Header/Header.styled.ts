@@ -120,13 +120,12 @@ const StyledHeader = styled.header`
         }
 
         .category {
-          width: 130px;
           text-align: center;
           position: relative;
+          min-height: 30px;
 
           @media screen and (max-width: 700px) {
             min-width: 100%;
-            margin-top: 40px;
           }
 
           a {
@@ -166,7 +165,10 @@ const StyledHeader = styled.header`
               margin-left: 0px;
               overflow: scroll;
               position: static;
-              margin-top: 30px;
+
+              &.active {
+                margin-top: 30px;
+              }
             }
 
             &.active {
@@ -184,6 +186,14 @@ const StyledHeader = styled.header`
                 transition: 0.3s;
                 background: #149b78;
               }
+            }
+          }
+        }
+
+        .anchor {
+          &:last-child {
+            @media screen and (max-width: 700px) {
+              margin-top: 40px;
             }
           }
         }
