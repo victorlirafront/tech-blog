@@ -209,7 +209,7 @@ const Header = function (props: IHeaderProps) {
                 className={`anchor ${currentTab === 'about' ? 'active' : ''}`}
                 href="/AboutMe"
               >
-                About Me
+                Portfolio
               </Link>
             </div>
             <DarkModeToggle
