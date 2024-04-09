@@ -41,7 +41,7 @@ const Profile = styled.div`
         border-radius: 100%;
         width: 250px;
         height: 250px;
-        background-image: url(https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/profile-picture_IS0KqOtN1.jpeg?updatedAt=1708444003006);
+        background-image: url(https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/novo_AZqW6IONm.jpeg?updatedAt=1712670557853);
         background-size: cover;
       }
 
