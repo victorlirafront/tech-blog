@@ -8,6 +8,10 @@ const Profile = styled.div`
   background-color: #151515;
   border: 2px solid #1f1f1f;
 
+  @media screen and (max-width: 767px) {
+    margin-top: 30px;
+  }
+
   @media screen and (max-width: 450px) {
     padding: 20px;
   }
@@ -26,8 +30,12 @@ const Profile = styled.div`
       align-items: center;
     }
 
+    @media screen and (max-width: 767px)  {
+      padding: 30px;
+    }
+
     @media screen and (max-width: 453px) {
-      padding: 60px 10px;
+      padding: 30px 10px;
       padding-bottom: 100px;
     }
 
@@ -43,6 +51,11 @@ const Profile = styled.div`
         height: 250px;
         background-image: url(https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/profile-1_feYey8V23.jpeg?updatedAt=1712709533286);
         background-size: cover;
+
+        @media screen and (max-width: 767px) {
+          width: 170px;
+          height: 170px;
+        }
       }
 
       .button-wrapper {
