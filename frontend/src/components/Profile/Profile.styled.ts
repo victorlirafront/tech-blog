@@ -3,14 +3,11 @@ import styled from 'styled-components';
 const Profile = styled.div`
   max-width: 90%;
   margin: 0 auto;
-  margin-top: 100px;
+  margin-top: 30px;
   padding: 20px 60px;
   background-color: #151515;
   border: 2px solid #1f1f1f;
 
-  @media screen and (max-width: 767px) {
-    margin-top: 30px;
-  }
 
   @media screen and (max-width: 450px) {
     padding: 20px;
