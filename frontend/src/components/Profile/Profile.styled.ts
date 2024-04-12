@@ -8,7 +8,6 @@ const Profile = styled.div`
   background-color: #151515;
   border: 2px solid #1f1f1f;
 
-
   @media screen and (max-width: 450px) {
     padding: 20px;
   }
@@ -27,7 +26,7 @@ const Profile = styled.div`
       align-items: center;
     }
 
-    @media screen and (max-width: 767px)  {
+    @media screen and (max-width: 767px) {
       padding: 30px;
     }
 
@@ -121,8 +120,24 @@ const Profile = styled.div`
     }
 
     .about-wrapper {
+      position: relative;
+      overflow: hidden;
       max-width: 550px;
       width: 100%;
+
+      .modal-tech-information {
+        background: white;
+        height: 290px;
+        position: absolute;
+        width: 100%;
+        opacity: 0.4;
+        transform: translateY(-100%);
+        transition: 0.5s;
+
+        &.active {
+          transform: translateY(0%);
+        }
+      }
 
       @media screen and (max-width: 1040px) {
         margin-top: 50px;
@@ -158,11 +173,14 @@ const Profile = styled.div`
       }
 
       .description {
-        margin: 20px 0px 48px 0px;
         @media screen and (max-width: 400px) {
           font-size: 14px;
           line-height: 24px;
         }
+      }
+
+      .tip {
+        margin: 20px 0px 48px 0px;
       }
     }
   }

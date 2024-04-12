@@ -4,8 +4,13 @@ import Image from 'next/image';
 import StyledSlickTech from './SlickTech.styled';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { MouseEvent } from 'react';
 
-const SimpleSlider = () => {
+interface Iprops {
+  onClick: (e: MouseEvent) => void
+}
+
+const SimpleSlider = (props: Iprops) => {
   const [settings] = useState({
     dots: true,
     infinite: true,
@@ -39,7 +44,7 @@ const SimpleSlider = () => {
   });
 
   return (
-    <StyledSlickTech>
+    <StyledSlickTech onClick={props.onClick}>
       <Slider {...settings}>
         <div className="slider-container">
           <div className="slider-box next">
@@ -50,6 +55,7 @@ const SimpleSlider = () => {
               className="slide-image"
               src="/next.png"
               alt=""
+              data-tech="next"
             />
             <p className="text">Next JS</p>
           </div>
@@ -63,6 +69,7 @@ const SimpleSlider = () => {
               className="slide-image"
               src="/react.png"
               alt=""
+              data-tech="react"
             />
             <p className="text">React</p>
           </div>
@@ -76,6 +83,7 @@ const SimpleSlider = () => {
               className="slide-image"
               src="/typescript.png"
               alt=""
+              data-tech="typescript"
             />
             <p className="text">TypeScript</p>
           </div>
@@ -89,6 +97,7 @@ const SimpleSlider = () => {
               className="slide-image"
               src="/javascript.png"
               alt=""
+              data-tech="javascript"
             />
             <p className="text">JavaScript</p>
           </div>
@@ -102,6 +111,7 @@ const SimpleSlider = () => {
               className="slide-image"
               src="/styled-components.png"
               alt=""
+              data-tech="styled-components"
             />
             <p className="text">Styled Components</p>
           </div>
@@ -115,6 +125,7 @@ const SimpleSlider = () => {
               className="slide-image"
               src="/sass.png"
               alt=""
+              data-tech="sass"
             />
             <p className="text">SASS</p>
           </div>
@@ -129,6 +140,7 @@ const SimpleSlider = () => {
               className="slide-image"
               src="/html.png"
               alt=""
+              data-tech="html"
             />
             <p className="text">HTML</p>
           </div>
@@ -142,6 +154,7 @@ const SimpleSlider = () => {
               className="slide-image"
               src="/css.png"
               alt=""
+              data-tech="css"
             />
             <p className="text">CSS</p>
           </div>
@@ -155,6 +168,7 @@ const SimpleSlider = () => {
               className="slide-image"
               src="/jest.png"
               alt=""
+              data-tech="jest"
             />
             <p className="text">Jest</p>
           </div>

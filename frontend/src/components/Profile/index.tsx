@@ -1,8 +1,9 @@
 import StyledAboutMe from './Profile.styled';
 import { useState } from 'react';
-import SimpleSlider from '@/components/SlickTech';
+import SlideTech from '@/components/SlickTech';
 import Image from 'next/image';
 import React from 'react';
+import { MouseEvent } from 'react';
 
 interface IProfile {
   className: string;
@@ -20,6 +21,17 @@ const Profile = function (props: IProfile) {
     setResumeLanguage(language);
   };
 
+  const [showModal, setShowModal] = useState(true);
+
+  const showTechInformationHandler = function (e: MouseEvent) {
+    const target = e.target as Element;
+    const closestWithDataTech = target.closest('[data-tech]');
+    if (closestWithDataTech) {
+      console.log(closestWithDataTech.getAttribute('data-tech'));
+      setShowModal(currentVisibility => !currentVisibility);
+    }
+  };
+
   return (
     <StyledAboutMe className={props.className}>
       <div className="box-1">
@@ -32,7 +44,12 @@ const Profile = function (props: IProfile) {
                 resumeLanguage === 'English' ? '' : 'active'
               }`}
             >
-              <Image width={30} height={30} src="/usa.png" alt="USA flag image" />
+              <Image
+                width={30}
+                height={30}
+                src="/usa.png"
+                alt="USA flag image"
+              />
             </div>
             <div
               onClick={() => changeResumeLanguage('Portuguese')}
@@ -40,7 +57,12 @@ const Profile = function (props: IProfile) {
                 resumeLanguage === 'Portuguese' ? '' : 'active'
               }`}
             >
-              <Image width={30} height={30} src="/brasil.png" alt="BRAZIL flag image" />
+              <Image
+                width={30}
+                height={30}
+                src="/brasil.png"
+                alt="BRAZIL flag image"
+              />
             </div>
             <div className="download-wrapper">
               <a
@@ -50,7 +72,8 @@ const Profile = function (props: IProfile) {
                   resumeLanguage === 'English'
                     ? englishResume
                     : portugueseResume
-                } rel="noreferrer"
+                }
+                rel="noreferrer"
               >
                 Resume - {resumeLanguage}
               </a>
@@ -58,6 +81,11 @@ const Profile = function (props: IProfile) {
           </div>
         </div>
         <div className="about-wrapper" data-aos="fade-left">
+          <div
+            className={`modal-tech-information ${showModal ? 'active' : ''}`}
+          >
+            <h1>TESTE</h1>
+          </div>
           <p className="text-1">About me</p>
           <h1 className="profile-h1">Victor Lira</h1>
           <h2 className="profession">Frontend Developer</h2>
@@ -67,7 +95,8 @@ const Profile = function (props: IProfile) {
             projects for large companies, and I took the initiative to create
             this blog to share important topics related to web development.
           </p>
-          <SimpleSlider />
+          <p className="tip">* Click on the icons below : )</p>
+          <SlideTech onClick={showTechInformationHandler} />
         </div>
       </div>
     </StyledAboutMe>
