@@ -19,9 +19,14 @@ export const StyledSlickTech = styled.div`
   top: 200px;
   right: 100px;
 
+  @media screen and (max-width: 1035px) {
+    right: 50%;
+    top: 50%;
+    transform: translate(50%, -113%) !important;
+  }
+
   @media screen and (max-width: 640px) {
-    width: 70%;
-    right: 500px;
+    width: 90%;
   }
 
   &.active {
@@ -31,20 +36,10 @@ export const StyledSlickTech = styled.div`
     transition: 0.5s;
     visibility: visible;
 
-    @media screen and (max-width: 767px) {
-      transform: translateY(23%);
-    }
-
     @media screen and (max-width: 1035px) {
       right: 50%;
-      transform: translateX(50%);
-    }
-
-    @media screen and (max-width: 700px) {
-      right: 50%;
       top: 50%;
-      transform: translate(50%, 50%);
-      width: 90%;
+      transform: translate(50%, -50%) !important;
     }
   }
 
@@ -90,11 +85,19 @@ export const StyledSlickTechWrapper = styled.div`
   position: fixed;
   z-index: 10;
   width: 1400px;
+  height: 100vh;
+  visibility: hidden;
+  top: 50%;
   right: 50%;
-  top: 0%;
-  transform: translate(50%, 50%);
+  transform: translate(50%, -50%);
 
   @media screen and (max-width: 1286px) {
     width: 100vw;
+    height: 100vh;
+
+    &.active {
+      display: block;
+      visibility: visible;
+    }
   }
 `;

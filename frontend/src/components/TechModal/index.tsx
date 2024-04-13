@@ -15,7 +15,7 @@ const TechModal = function (props: Iprops) {
   };
 
   return (
-    <StyledSlickTechWrapper>
+    <StyledSlickTechWrapper className={props.className}>
       <StyledSlickTech className={props.className}>
         <Image
           onClick={onCloseModalHandler}
