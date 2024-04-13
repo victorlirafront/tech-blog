@@ -134,6 +134,11 @@ const Profile = styled.div`
         padding: 20px;
         text-align: center;
         opacity: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        border-radius: 4px;
 
         &.active {
           transform: translateY(0%);
@@ -147,6 +152,17 @@ const Profile = styled.div`
           right: 10px;
           top: 10px;
           cursor: pointer;
+        }
+
+        .tech-documentation {
+          margin: 10px 0;
+        }
+        .documentation-anchor {
+          background: #6449ff;
+          padding: 5px 10px;
+          border-radius: 6px;
+          color: #fff;
+          text-decoration: none;
         }
       }
 

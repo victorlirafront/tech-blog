@@ -13,6 +13,7 @@ interface IProfile {
 interface TechInfo {
   name: string;
   description: string;
+  link: string;
 }
 
 const Profile = function (props: IProfile) {
@@ -21,6 +22,7 @@ const Profile = function (props: IProfile) {
   const [currentModalTech, setCurrentModalTech] = useState({
     name: '',
     description: '',
+    link: '',
   });
 
   const portugueseResume =
@@ -47,6 +49,7 @@ const Profile = function (props: IProfile) {
     setCurrentModalTech({
       name: filteredData[0].name,
       description: filteredData[0].description,
+      link: filteredData[0].link,
     });
   };
 
@@ -126,7 +129,15 @@ const Profile = function (props: IProfile) {
               alt="teste"
             />
             <h1>{currentModalTech.name}</h1>
-            <p>{currentModalTech.description}</p>
+            <p className="tech-documentation">{currentModalTech.description}</p>
+            <a
+              className="documentation-anchor"
+              href={currentModalTech.link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Oficial documentation
+            </a>
           </div>
           <p className="text-1">About me</p>
           <h1 className="profile-h1">Victor Lira</h1>
