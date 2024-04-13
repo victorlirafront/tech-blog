@@ -55,7 +55,7 @@ const SimpleSlider = (props: Iprops) => {
               className="slide-image"
               src="/next.png"
               alt=""
-              data-tech="next"
+              data-tech="Next JS"
             />
             <p className="text">Next JS</p>
           </div>
@@ -69,7 +69,7 @@ const SimpleSlider = (props: Iprops) => {
               className="slide-image"
               src="/react.png"
               alt=""
-              data-tech="react"
+              data-tech="React JS"
             />
             <p className="text">React</p>
           </div>
@@ -83,7 +83,7 @@ const SimpleSlider = (props: Iprops) => {
               className="slide-image"
               src="/typescript.png"
               alt=""
-              data-tech="typescript"
+              data-tech="TypeScript"
             />
             <p className="text">TypeScript</p>
           </div>
@@ -97,7 +97,7 @@ const SimpleSlider = (props: Iprops) => {
               className="slide-image"
               src="/javascript.png"
               alt=""
-              data-tech="javascript"
+              data-tech="JavaScript"
             />
             <p className="text">JavaScript</p>
           </div>
@@ -111,7 +111,7 @@ const SimpleSlider = (props: Iprops) => {
               className="slide-image"
               src="/styled-components.png"
               alt=""
-              data-tech="styled-components"
+              data-tech="Styled Components"
             />
             <p className="text">Styled Components</p>
           </div>
@@ -125,7 +125,7 @@ const SimpleSlider = (props: Iprops) => {
               className="slide-image"
               src="/sass.png"
               alt=""
-              data-tech="sass"
+              data-tech="SASS"
             />
             <p className="text">SASS</p>
           </div>
@@ -140,7 +140,7 @@ const SimpleSlider = (props: Iprops) => {
               className="slide-image"
               src="/html.png"
               alt=""
-              data-tech="html"
+              data-tech="HTML"
             />
             <p className="text">HTML</p>
           </div>
@@ -154,7 +154,7 @@ const SimpleSlider = (props: Iprops) => {
               className="slide-image"
               src="/css.png"
               alt=""
-              data-tech="css"
+              data-tech="CSS"
             />
             <p className="text">CSS</p>
           </div>
@@ -168,7 +168,7 @@ const SimpleSlider = (props: Iprops) => {
               className="slide-image"
               src="/jest.png"
               alt=""
-              data-tech="jest"
+              data-tech="Jest"
             />
             <p className="text">Jest</p>
           </div>

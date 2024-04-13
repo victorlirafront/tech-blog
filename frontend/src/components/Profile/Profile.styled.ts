@@ -3,7 +3,6 @@ import styled from 'styled-components';
 const Profile = styled.div`
   max-width: 90%;
   margin: 0 auto;
-  margin-top: 30px;
   padding: 20px 60px;
   background-color: #151515;
   border: 2px solid #1f1f1f;
@@ -121,7 +120,6 @@ const Profile = styled.div`
 
     .about-wrapper {
       position: relative;
-      overflow: hidden;
       max-width: 550px;
       width: 100%;
 
@@ -130,12 +128,23 @@ const Profile = styled.div`
         height: 290px;
         position: absolute;
         width: 100%;
-        opacity: 0.4;
-        transform: translateY(-100%);
+        transform: translateY(-150%);
         transition: 0.5s;
+        color: #000;
+        padding: 20px;
+        text-align: center;
 
         &.active {
           transform: translateY(0%);
+        }
+
+        .error-icon {
+          position: absolute;
+          width: 30px;
+          height: 30px;
+          right: 10px;
+          top: 10px;
+          cursor: pointer;
         }
       }
 

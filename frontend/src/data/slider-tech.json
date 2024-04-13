@@ -1,0 +1,38 @@
+{
+  "next": {
+    "name": "Next JS",
+    "description": "Additionally, make sure to import SlideTech properly in your Profile component. If it's exported as a default component, you should import it without curly braces. If it's exported as a named component, use curly braces."
+  },
+  "react": {
+    "name": "React JS",
+    "description": "Additionally, make sure to import SlideTech properly in your Profile component. If it's exported as a default component, you should import it without curly braces. If it's exported as a named component, use curly braces."
+  },
+  "typescript": {
+    "name": "TypeScript",
+    "description": "Additionally, make sure to import SlideTech properly in your Profile component. If it's exported as a default component, you should import it without curly braces. If it's exported as a named component, use curly braces."
+  },
+  "javascript": {
+    "name": "JavaScript",
+    "description": "Additionally, make sure to import SlideTech properly in your Profile component. If it's exported as a default component, you should import it without curly braces. If it's exported as a named component, use curly braces."
+  },
+  "styled-components": {
+    "name": "Styled Components",
+    "description": "Additionally, make sure to import SlideTech properly in your Profile component. If it's exported as a default component, you should import it without curly braces. If it's exported as a named component, use curly braces."
+  },
+  "sass": {
+    "name": "SASS",
+    "description": "Additionally, make sure to import SlideTech properly in your Profile component. If it's exported as a default component, you should import it without curly braces. If it's exported as a named component, use curly braces."
+  },
+  "html": {
+    "name": "HTML",
+    "description": "Additionally, make sure to import SlideTech properly in your Profile component. If it's exported as a default component, you should import it without curly braces. If it's exported as a named component, use curly braces."
+  },
+  "css": {
+    "name": "CSS",
+    "description": "Additionally, make sure to import SlideTech properly in your Profile component. If it's exported as a default component, you should import it without curly braces. If it's exported as a named component, use curly braces."
+  },
+  "jest": {
+    "name": "Jest",
+    "description": "Additionally, make sure to import SlideTech properly in your Profile component. If it's exported as a default component, you should import it without curly braces. If it's exported as a named component, use curly braces."
+  }
+}
