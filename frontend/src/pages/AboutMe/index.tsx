@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Fragment } from 'react';
 import Head from 'next/head';
 import Header from '@/components/Header';
@@ -13,10 +13,24 @@ import { GlobalStyled } from '@/GlobalStyles';
 import { ThemeContainer } from '@/ThemeContainer.styled';
 import { useTheme } from '@/Context/darkmode';
 import { useScrollContext } from '@/Context/scrollProvider';
+import TechModal from '@/components/TechModal';
+import techJson from '@/data/slider-tech.json';
+
+interface TechInfo {
+  name: string;
+  description: string;
+  link: string;
+}
 
 const AboutMe = function () {
   const { scrollIntoViewHandler } = useScrollContext();
   const { theme, toggleTheme } = useTheme();
+  const [showModal, setShowModal] = useState(false);
+  const [currentModalTech, setCurrentModalTech] = useState({
+    name: '',
+    description: '',
+    link: '',
+  });
 
   useEffect(() => {
     AOS.init();
@@ -24,6 +38,34 @@ const AboutMe = function () {
 
   const themeToggler = function () {
     toggleTheme();
+  };
+
+  const filterByName = (json: Record<string, TechInfo>, name: string) => {
+    const keys = Object.keys(json);
+
+    const filteredKeys = keys.filter(
+      key => json[key].name.toLowerCase() === name.toLowerCase(),
+    );
+
+    return filteredKeys.map(key => json[key]);
+  };
+
+  const fetchTechDescription = async function (tech: string) {
+    const filteredData = filterByName(techJson, tech);
+    setCurrentModalTech({
+      name: filteredData[0].name,
+      description: filteredData[0].description,
+      link: filteredData[0].link,
+    });
+  };
+
+  const showTechInformationHandler = async function (arg: HTMLElement) {
+    await fetchTechDescription(String(arg.getAttribute('data-tech')));
+    setShowModal(true);
+  };
+
+  const closeModalHandler = function () {
+    setShowModal(false);
   };
 
   return (
@@ -43,6 +85,13 @@ const AboutMe = function () {
           content="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/capa_Lt5CpWfSYm.png?updatedAt=1707230740618"
         />
       </Head>
+      <TechModal
+        techName={currentModalTech.name}
+        techDescription={currentModalTech.description}
+        techLink={currentModalTech.link}
+        className={showModal ? 'active' : ''}
+        closeModal={closeModalHandler}
+      />
       <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
         <GlobalStyled />
         <ThemeContainer>
@@ -52,7 +101,10 @@ const AboutMe = function () {
             themeToggler={() => themeToggler()}
             scrollIntoView={() => scrollIntoViewHandler()}
           />
-          <Profile className="profile" />
+          <Profile
+            className="profile"
+            onShowTechInformationHandler={showTechInformationHandler}
+          />
           <Footer />
         </ThemeContainer>
       </ThemeProvider>

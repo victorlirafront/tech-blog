@@ -1,47 +1,47 @@
 {
   "next": {
     "name": "Next JS",
-    "description": "Additionally, make sure to import SlideTech properly in your Profile component. If it's exported as a default component, you should import it without curly braces. If it's exported as a named component, use curly braces.",
+    "description": "Next.js is a powerful and flexible framework for building React.js applications. It enables developers to create production-ready applications with ease, providing a robust foundation and a wide range of features out of the box.",
     "link": "https://nextjs.org/docs"
   },
   "react": {
     "name": "React JS",
-    "description": "Additionally, make sure to import SlideTech properly in your Profile component. If it's exported as a default component, you should import it without curly braces. If it's exported as a named component, use curly braces.",
+    "description": "React.js: A dynamic library for building interactive user interfaces with ease, using declarative components for efficient web development.",
     "link": "https://legacy.reactjs.org/docs/getting-started.html"
   },
   "typescript": {
     "name": "TypeScript",
-    "description": "Additionally, make sure to import SlideTech properly in your Profile component. If it's exported as a default component, you should import it without curly braces. If it's exported as a named component, use curly braces.",
+    "description": "TypeScript: Enhances JavaScript with static typing for scalable, maintainable, and error-free web development",
     "link": "https://www.typescriptlang.org/docs/"
   },
   "javascript": {
     "name": "JavaScript",
-    "description": "Additionally, make sure to import SlideTech properly in your Profile component. If it's exported as a default component, you should import it without curly braces. If it's exported as a named component, use curly braces.",
+    "description": "JavaScript: A versatile programming language for web development, enabling dynamic, interactive, and client-side functionality across diverse applications.",
     "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
   },
   "styled-components": {
     "name": "Styled Components",
-    "description": "Additionally, make sure to import SlideTech properly in your Profile component. If it's exported as a default component, you should import it without curly braces. If it's exported as a named component, use curly braces.",
+    "description": "Styled Components: Empowers React developers with CSS-in-JS, enhancing component styling by encapsulating styles within components for robust, maintainable designs",
     "link": "https://styled-components.com/"
   },
   "sass": {
     "name": "SASS",
-    "description": "Additionally, make sure to import SlideTech properly in your Profile component. If it's exported as a default component, you should import it without curly braces. If it's exported as a named component, use curly braces.",
+    "description": "Sass: A powerful CSS preprocessor offering features like variables, nesting, and mixins to streamline stylesheet authoring and enhance maintainability in web projects.",
     "link": "https://sass-lang.com/documentation/"
   },
   "html": {
     "name": "HTML",
-    "description": "Additionally, make sure to import SlideTech properly in your Profile component. If it's exported as a default component, you should import it without curly braces. If it's exported as a named component, use curly braces.",
+    "description": "HTML: The foundation of web development, enabling creation of structured, semantic content for building user interfaces and presenting information across the web.",
     "link": "https://developer.mozilla.org/en-US/docs/Web/HTML"
   },
   "css": {
     "name": "CSS",
-    "description": "Additionally, make sure to import SlideTech properly in your Profile component. If it's exported as a default component, you should import it without curly braces. If it's exported as a named component, use curly braces.",
+    "description": "Cascading Style Sheets, a fundamental technology for web design, enabling customization of layout, typography, and visual presentation to enhance user experience.",
     "link": "https://developer.mozilla.org/en-US/docs/Web/CSS"
   },
   "jest": {
     "name": "Jest",
-    "description": "Additionally, make sure to import SlideTech properly in your Profile component. If it's exported as a default component, you should import it without curly braces. If it's exported as a named component, use curly braces.",
+    "description": "A delightful JavaScript testing framework, providing a simple and intuitive testing experience for ensuring code quality and reliability in projects.",
     "link": "https://jestjs.io/docs/getting-started"
   }
 }

@@ -6,6 +6,7 @@ const Profile = styled.div`
   padding: 20px 60px;
   background-color: #151515;
   border: 2px solid #1f1f1f;
+  max-width: 1400px;
 
   @media screen and (max-width: 450px) {
     padding: 20px;
@@ -108,7 +109,6 @@ const Profile = styled.div`
           }
 
           .download-btn {
-            /* padding: 15px 30px; */
             cursor: pointer;
             background: transparent;
             font-size: 15px;
@@ -124,46 +124,8 @@ const Profile = styled.div`
       width: 100%;
 
       .modal-tech-information {
-        background: white;
-        height: 290px;
-        position: absolute;
-        width: 100%;
-        transform: translateY(-150%);
-        transition: 0.5s;
-        color: #000;
-        padding: 20px;
-        text-align: center;
-        opacity: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        border-radius: 4px;
 
-        &.active {
-          transform: translateY(0%);
-          opacity: 1;
-        }
 
-        .error-icon {
-          position: absolute;
-          width: 30px;
-          height: 30px;
-          right: 10px;
-          top: 10px;
-          cursor: pointer;
-        }
-
-        .tech-documentation {
-          margin: 10px 0;
-        }
-        .documentation-anchor {
-          background: #6449ff;
-          padding: 5px 10px;
-          border-radius: 6px;
-          color: #fff;
-          text-decoration: none;
-        }
       }
 
       @media screen and (max-width: 1040px) {

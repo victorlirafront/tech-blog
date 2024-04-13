@@ -4,26 +4,14 @@ import SlideTech from '@/components/SlickTech';
 import Image from 'next/image';
 import React from 'react';
 import { MouseEvent } from 'react';
-import techJson from '@/data/slider-tech.json';
 
 interface IProfile {
   className: string;
-}
-
-interface TechInfo {
-  name: string;
-  description: string;
-  link: string;
+  onShowTechInformationHandler: (arg: HTMLElement) => void;
 }
 
 const Profile = function (props: IProfile) {
   const [resumeLanguage, setResumeLanguage] = useState('English');
-  const [showModal, setShowModal] = useState(false);
-  const [currentModalTech, setCurrentModalTech] = useState({
-    name: '',
-    description: '',
-    link: '',
-  });
 
   const portugueseResume =
     'https://drive.google.com/file/d/1jf-P0HWU5DDWVfBKsOlz7_0N8APNx0-o/view?usp=sharing';
@@ -34,38 +22,13 @@ const Profile = function (props: IProfile) {
     setResumeLanguage(language);
   };
 
-  const filterByName = (json: Record<string, TechInfo>, name: string) => {
-    const keys = Object.keys(json);
-
-    const filteredKeys = keys.filter(
-      key => json[key].name.toLowerCase() === name.toLowerCase(),
-    );
-
-    return filteredKeys.map(key => json[key]);
-  };
-
-  const fetchTechDescription = async function (tech: string) {
-    const filteredData = filterByName(techJson, tech);
-    setCurrentModalTech({
-      name: filteredData[0].name,
-      description: filteredData[0].description,
-      link: filteredData[0].link,
-    });
-  };
-
   const showTechInformationHandler = async function (e: MouseEvent) {
     const target = e.target as Element;
     const closestWithDataTech = target.closest('[data-tech]');
-    if (closestWithDataTech) {
-      await fetchTechDescription(
-        String(closestWithDataTech.getAttribute('data-tech')),
-      );
-      setShowModal(true);
-    }
-  };
 
-  const closeModal = function () {
-    setShowModal(false);
+    if (closestWithDataTech) {
+      props.onShowTechInformationHandler(closestWithDataTech as HTMLElement);
+    }
   };
 
   return (
@@ -117,28 +80,6 @@ const Profile = function (props: IProfile) {
           </div>
         </div>
         <div className="about-wrapper" data-aos="fade-left">
-          <div
-            className={`modal-tech-information ${showModal ? 'active' : ''}`}
-          >
-            <Image
-              onClick={closeModal}
-              className="error-icon"
-              width={50}
-              height={50}
-              src="/error.png"
-              alt="teste"
-            />
-            <h1>{currentModalTech.name}</h1>
-            <p className="tech-documentation">{currentModalTech.description}</p>
-            <a
-              className="documentation-anchor"
-              href={currentModalTech.link}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Oficial documentation
-            </a>
-          </div>
           <p className="text-1">About me</p>
           <h1 className="profile-h1">Victor Lira</h1>
           <h2 className="profession">Frontend Developer</h2>
