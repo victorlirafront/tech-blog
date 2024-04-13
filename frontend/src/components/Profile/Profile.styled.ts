@@ -133,9 +133,11 @@ const Profile = styled.div`
         color: #000;
         padding: 20px;
         text-align: center;
+        opacity: 0;
 
         &.active {
           transform: translateY(0%);
+          opacity: 1;
         }
 
         .error-icon {
