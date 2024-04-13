@@ -19,6 +19,7 @@ import { ThemeContainer } from '@/ThemeContainer.styled';
 import { useScrollContext } from '@/Context/scrollProvider';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 interface IProps {
   post: {
@@ -128,11 +129,18 @@ function Posts(props: IProps) {
             scrollIntoView={() => scrollIntoViewHandler()}
           />
           <div className="profile">
-            <div
-              data-aos="fade-down"
-              className="background-image"
-              style={{ backgroundImage: `url(${props.post.post_background})` }}
-            ></div>
+            <div className="background-image-container">
+              <LazyLoadImage
+                className="background-image"
+                src={props.post.post_background}
+                width={600}
+                height={400}
+                placeholderSrc={
+                  'https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/blur-background_4vViPJ3V6.png?updatedAt=1713050797910'
+                }
+                alt="Image Alt"
+              />
+            </div>
 
             <div className="body-post" data-aos="fade-up">
               <h1 className="title">{props.post.title}</h1>

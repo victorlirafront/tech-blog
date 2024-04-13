@@ -6,16 +6,20 @@ const StyledPostNew = styled.div`
     color: #ccc;
     margin-bottom: 60px;
 
-    .background-image {
-      height: 500px;
-      width: 100%;
-      background-size: cover;
-      background-position: center;
-      object-fit: contain;
-      background-repeat: no-repeat;
+    .background-image-container {
+      display: flex;
+      justify-content: center;
+      background: #9156ec;
+      .background-image {
+        width: 100%;
+        background-size: cover;
+        background-position: center;
+        object-fit: contain;
+        background-repeat: no-repeat;
 
-      @media screen and (max-width: 700px) {
-        height: 270px;
+        @media screen and (max-width: 700px) {
+          height: 270px;
+        }
       }
     }
 
