@@ -13,10 +13,10 @@ import { useEffect } from 'react';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
 import { useTheme } from '@/Context/darkmode';
-import { lightTheme, darkTheme } from '../theme';
+import { lightTheme, darkTheme } from '../components/themes/theme';
 import { ThemeProvider } from 'styled-components';
-import { GlobalStyled } from '@/GlobalStyles';
-import { ThemeContainer } from '@/ThemeContainer.styled';
+import { GlobalStyled } from '@/components/themes/GlobalStyles';
+import { ThemeContainer } from '@/components/themes/ThemeContainer.styled';
 import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 
 interface IPost {

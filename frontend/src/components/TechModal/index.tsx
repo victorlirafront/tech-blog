@@ -24,14 +24,16 @@ const TechModal = function (props: Iprops) {
           height={50}
           src="/error.png"
           alt="teste"
+          data-aos="fade-down"
         />
-        <h1>{props.techName}</h1>
+        <h1 data-aos="fade-down">{props.techName}</h1>
         <p className="tech-documentation">{props.techDescription}</p>
         <a
           className="documentation-anchor"
           href={props.techLink}
           target="_blank"
           rel="noopener noreferrer"
+          data-aos="fade-down"
         >
           Oficial documentation
         </a>

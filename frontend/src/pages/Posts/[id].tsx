@@ -12,10 +12,10 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Slider from 'react-slick';
 import { useTheme } from '@/Context/darkmode';
-import { lightTheme, darkTheme } from '../../theme';
+import { lightTheme, darkTheme } from '../../components/themes/theme';
 import { ThemeProvider } from 'styled-components';
-import { GlobalStyled } from '@/GlobalStyles';
-import { ThemeContainer } from '@/ThemeContainer.styled';
+import { GlobalStyled } from '@/components/themes/GlobalStyles';
+import { ThemeContainer } from '@/components/themes/ThemeContainer.styled';
 import { useScrollContext } from '@/Context/scrollProvider';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -128,7 +128,7 @@ function Posts(props: IProps) {
             themeToggler={() => themeToggler()}
             scrollIntoView={() => scrollIntoViewHandler()}
           />
-          <div className="profile">
+          <div className="profile" data-aos="fade-down">
             <div className="background-image-container">
               <LazyLoadImage
                 className="background-image"

@@ -18,7 +18,10 @@ const StyledPostNew = styled.div`
         background-repeat: no-repeat;
 
         @media screen and (max-width: 700px) {
-          height: 270px;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
       }
     }
@@ -187,9 +190,6 @@ const StyledPostNew = styled.div`
         flex-direction: column;
         align-items: flex-start;
         justify-content: center;
-        /* border: 1px solid #41516e;
-                border: 3px solid #bad7e5;
-                box-shadow: 0px 0px 10px 0px #0497EF; */
 
         @media screen and (max-width: 700px) {
           margin-right: unset;

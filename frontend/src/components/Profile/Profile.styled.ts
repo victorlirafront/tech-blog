@@ -124,8 +124,6 @@ const Profile = styled.div`
       width: 100%;
 
       .modal-tech-information {
-
-
       }
 
       @media screen and (max-width: 1040px) {

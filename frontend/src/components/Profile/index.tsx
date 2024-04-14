@@ -89,7 +89,7 @@ const Profile = function (props: IProfile) {
             projects for large companies, and I took the initiative to create
             this blog to share important topics related to web development.
           </p>
-          <p className="tip">Feel free to click on the icons below :)</p>
+          <p className="tip">Feel free to <span className='span-click'>click on the icons</span> below : )</p>
           <SlideTech onClick={showTechInformationHandler} />
         </div>
       </div>
