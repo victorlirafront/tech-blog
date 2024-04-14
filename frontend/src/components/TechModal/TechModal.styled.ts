@@ -4,7 +4,6 @@ export const StyledSlickTech = styled.div`
   background: white;
   position: fixed;
   z-index: 20;
-  transform: translateY(-100%);
   color: #000;
   padding: 20px;
   text-align: center;
@@ -14,10 +13,14 @@ export const StyledSlickTech = styled.div`
   justify-content: center;
   flex-direction: column;
   border-radius: 4px;
-  transition: 0.5s;
   width: 600px;
   top: 200px;
   right: 100px;
+
+  &.onDomLoad {
+    transform: translateY(-100%);
+    transition: 0.5s;
+  }
 
   @media screen and (max-width: 1035px) {
     right: 50%;
@@ -47,13 +50,22 @@ export const StyledSlickTech = styled.div`
     line-height: 30px;
   }
 
-  .error-icon {
+  .error-box {
+    padding: 20px;
     position: absolute;
-    width: 30px;
-    height: 30px;
-    right: 10px;
-    top: 10px;
-    cursor: pointer;
+    right: -10px;
+    top: -10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .error-icon {
+      min-width: 30px;
+      min-height: 30px;
+      max-width: 30px;
+      max-height: 30px;
+      cursor: pointer;
+    }
   }
 
   .tech-documentation {

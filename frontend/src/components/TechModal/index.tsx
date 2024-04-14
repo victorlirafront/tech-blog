@@ -1,5 +1,6 @@
 import { StyledSlickTech, StyledSlickTechWrapper } from './TechModal.styled';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 
 interface Iprops {
   closeModal: () => void;
@@ -10,22 +11,31 @@ interface Iprops {
 }
 
 const TechModal = function (props: Iprops) {
+  const [fadeDownOnLoad, setFadeDownOnLoad] = useState(false);
+
   const onCloseModalHandler = function () {
     props.closeModal();
   };
 
+  useEffect(() => {
+    setFadeDownOnLoad(true);
+  }, []);
+
   return (
     <StyledSlickTechWrapper className={props.className}>
-      <StyledSlickTech className={props.className}>
-        <Image
-          onClick={onCloseModalHandler}
-          className="error-icon"
-          width={50}
-          height={50}
-          src="/error.png"
-          alt="teste"
-          data-aos="fade-down"
-        />
+      <StyledSlickTech
+        className={`${props.className} ${fadeDownOnLoad ? 'onDomLoad' : ''} `}
+      >
+        <div className="error-box" onClick={onCloseModalHandler}>
+          <Image
+            className="error-icon"
+            width={50}
+            height={50}
+            src="/error.png"
+            alt="teste"
+            data-aos="fade-down"
+          />
+        </div>
         <h1 data-aos="fade-down">{props.techName}</h1>
         <p className="tech-documentation">{props.techDescription}</p>
         <a
