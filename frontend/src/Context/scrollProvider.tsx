@@ -26,7 +26,9 @@ export const ScrollProvider: React.FC<ScrollProviderProps> = ({ children }) => {
     const container = containerRef.current;
 
     if (container) {
-      container.scrollIntoView({ behavior: 'smooth' });
+      setTimeout(() => {
+        container.scrollIntoView({ behavior: 'smooth' });
+      }, 400);
     }
   };
 
