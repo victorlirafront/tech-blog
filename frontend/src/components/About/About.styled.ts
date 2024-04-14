@@ -168,8 +168,9 @@ const StyledAbout = styled.div`
           font-size: 25px;
         }
 
-        .svg {
+        img {
           width: 20px;
+          height: 20px;
           margin-left: 10px;
         }
       }
