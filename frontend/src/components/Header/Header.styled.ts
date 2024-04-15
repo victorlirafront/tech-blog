@@ -135,20 +135,22 @@ const StyledHeader = styled.header`
           .category-conteiner {
             display: flex;
             justify-content: space-between;
+            align-items: center;
             cursor: pointer;
 
             .arrow {
-              height: 30px;
+              height: 20px;
               margin-left: 10px;
-              max-width: 27px;
+              max-width: 20px;
               transform: scale(0.7);
+              margin-top: 6px;  
             }
           }
 
           .category-options {
             position: absolute;
             z-index: 2;
-            top: 64px;
+            top: 60px;
             list-style: none;
             text-align: center;
             cursor: pointer;
@@ -178,13 +180,23 @@ const StyledHeader = styled.header`
             }
 
             li {
-              padding: 7px;
+              padding: 7px 20px;
             }
 
             .option {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+
               &:hover {
                 transition: 0.3s;
                 background: #149b78;
+              }
+
+              img {
+                width: 10px;
+                height: 10px;
+                transform: rotate(86deg);
               }
             }
           }

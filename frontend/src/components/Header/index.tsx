@@ -176,31 +176,71 @@ const Header = function (props: IHeaderProps) {
                     className="option"
                     onClick={() => categoryOptionHandler('1', 'all')}
                   >
-                    All
+                    <span>All</span>
+                    <Image
+                      width={10}
+                      height={10}
+                      alt="re"
+                      src={
+                        'https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow_Qvhukz-ZL.png'
+                      }
+                    />
                   </li>
                   <li
                     className="option"
                     onClick={() => categoryOptionHandler('1', 'javascript')}
                   >
-                    JavaScript
+                    <span>JavaScript</span>
+                    <Image
+                      width={10}
+                      height={10}
+                      alt="re"
+                      src={
+                        'https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow_Qvhukz-ZL.png'
+                      }
+                    />
                   </li>
                   <li
                     className="option"
                     onClick={() => categoryOptionHandler('1', 'typescript')}
                   >
-                    TypeScript
+                    <span>TypeScript</span>
+                    <Image
+                      width={10}
+                      height={10}
+                      alt="re"
+                      src={
+                        'https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow_Qvhukz-ZL.png'
+                      }
+                    />
                   </li>
                   <li
                     className="option"
                     onClick={() => categoryOptionHandler('1', 'react')}
                   >
-                    React JS
+                    <span>React JS</span>
+                    <Image
+                      width={10}
+                      height={10}
+                      alt="re"
+                      src={
+                        'https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow_Qvhukz-ZL.png'
+                      }
+                    />
                   </li>
                   <li
                     className="option"
                     onClick={() => categoryOptionHandler('1', 'next')}
                   >
-                    Next JS
+                    <span>Next JS</span>
+                    <Image
+                      width={10}
+                      height={10}
+                      alt="re"
+                      src={
+                        'https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow_Qvhukz-ZL.png'
+                      }
+                    />
                   </li>
                 </ul>
               </div>
