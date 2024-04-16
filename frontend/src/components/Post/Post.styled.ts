@@ -20,29 +20,19 @@ const StyledPost = styled.div`
     text-align: center;
     text-decoration: none;
     border-radius: 10px;
-    overflow: hidden;
   }
 
-  .post-image-wrapper {
-    overflow: hidden;
+  .post-image {
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
 
-    .post-image {
-      width: 100%;
-      height: 200px;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      border-top-right-radius: 10px;
-      border-top-left-radius: 10px;
-      transition: 0.5s;
-
-      &:hover {
-        scale: 1.2;
-      }
-
-      @media screen and (max-width: 641px) {
-        height: 130px;
-      }
+    @media screen and (max-width: 641px) {
+      height: 130px;
     }
   }
 

@@ -47,12 +47,10 @@ const Post: React.FC<IProps> = props => {
         whileHover={{ y: props.hover_animation }}
         className="motion-box"
       >
-        <div className='post-image-wrapper'>
-          <div
-            className="post-image"
-            style={{ backgroundImage: `url(${props.post_image})` }}
-          ></div>
-        </div>
+        <div
+          className="post-image"
+          style={{ backgroundImage: `url(${props.post_image})` }}
+        ></div>
         <div className="post-body">
           <div className="category-wrapper">
             <p className="post-date">{dateFormatter(formattedDate)}</p>
