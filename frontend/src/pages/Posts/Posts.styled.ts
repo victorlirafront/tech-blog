@@ -10,18 +10,36 @@ const StyledPostNew = styled.div`
       display: flex;
       justify-content: center;
       background: #9156ec;
+      overflow: hidden;
+      height: 400px;
+      @media screen and (max-width: 500px) {
+        height: 240px;
+      }
+
       .background-image {
         width: 100%;
         background-size: cover;
         background-position: center;
         object-fit: contain;
         background-repeat: no-repeat;
+        transition: 0.5s ease-in-out;
+
+        &:hover {
+          scale: 1.1;
+          transition: 0.5s ease-in-out;
+        }
 
         @media screen and (max-width: 700px) {
           height: 100%;
           display: flex;
           align-items: center;
           justify-content: center;
+          width: 80%;
+          margin: 0 auto;
+        }
+
+        @media screen and (max-width: 500px) {
+          height: 240px;
         }
       }
     }
