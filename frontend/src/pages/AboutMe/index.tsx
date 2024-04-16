@@ -34,6 +34,7 @@ const AboutMe = function () {
 
   useEffect(() => {
     AOS.init();
+    console.log('teste 123')
   }, []);
 
   const themeToggler = function () {
