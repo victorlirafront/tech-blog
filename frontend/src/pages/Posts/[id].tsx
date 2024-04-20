@@ -20,6 +20,8 @@ import { useScrollContext } from '@/Context/scrollProvider';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import Image from 'next/image';
+import { FacebookShareButton, TwitterShareButton } from 'react-share';
 
 interface IProps {
   post: {
@@ -60,6 +62,7 @@ function Posts(props: IProps) {
   const [settings, setSettings] = useState({});
   const { theme, toggleTheme } = useTheme();
   const { scrollIntoViewHandler } = useScrollContext();
+  const [currentPostId, setCurrentPostId] = useState('');
 
   const dateObject = new Date(props.post.date);
   const formattedDate = dateObject.toLocaleDateString();
@@ -67,6 +70,17 @@ function Posts(props: IProps) {
   const themeToggler = function () {
     toggleTheme();
   };
+
+  useEffect(() => {
+    const url = window.location.href;
+    const regex = /\/Posts\/(\d+)(\/.*)?/;
+    const match = url.match(regex);
+    if (match) {
+      setCurrentPostId(String(match[1]));
+    } else {
+      setCurrentPostId(String(2));
+    }
+  }, []);
 
   useEffect(() => {
     setIsLoading(false);
@@ -146,6 +160,33 @@ function Posts(props: IProps) {
               <h1 className="title">{props.post.title}</h1>
               <p className="date">{dateFormatter(formattedDate)}</p>
               <MarkdownRenderer> {props.post.content} </MarkdownRenderer>
+              <div className="aside-absolute">
+                <div className="content">
+                  <FacebookShareButton
+                    url="https://www.victorlirablog.com/Posts/16"
+                    title="teste"
+                  >
+                    <Image
+                      src="/facebook.png"
+                      width={30}
+                      height={30}
+                      alt="dd"
+                      className="img-facebook"
+                    />
+                  </FacebookShareButton>
+                  <TwitterShareButton
+                    url={`https://www.victorlirablog.com/Posts/${currentPostId}`}
+                  >
+                    <Image
+                      src="/twitter.png"
+                      width={30}
+                      height={30}
+                      alt="dd"
+                      className="img-twitter"
+                    />
+                  </TwitterShareButton>
+                </div>
+              </div>
             </div>
             <div className="writter">
               <div className="author"></div>

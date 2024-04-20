@@ -49,6 +49,72 @@ const StyledPostNew = styled.div`
       margin: 0 auto;
       padding: 20px 30px;
       padding-top: 60px;
+      position: relative;
+
+      .aside-absolute {
+        position: absolute;
+        right: -100px;
+        top: 10px;
+        height: 100%;
+        padding: 100px 0 60px 0;
+
+        @media screen and (max-width: 1037px) {
+          left: 0;
+          width: 100%;
+          top: 0px;
+          left: 0;
+          padding: unset;
+
+          img {
+            &.img-facebook {
+              margin-right: 20px;
+            }
+            &.img-twitter {
+              margin-left: 20px;
+            }
+          }
+        }
+
+        .content {
+          position: sticky;
+          width: 100px;
+          height: auto;
+          top: 40px;
+          left: 0;
+          color: white;
+          flex-grow: 0;
+          flex-shrink: 0;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          @media screen and (max-width: 1037px) {
+            flex-direction: row;
+            width: 100%;
+            height: 50px;
+            background-color: black;
+            top: -2px;
+          }
+
+          img {
+            padding: unset;
+            width: 30px;
+            height: 30px;
+            background: unset;
+            cursor: pointer;
+
+            &.img-twitter {
+              width: 25px;
+              height: 25px;
+            }
+            &.img-facebook {
+              width: 25px;
+              height: 25px;
+            }
+          }
+        }
+      }
 
       .title {
         letter-spacing: 0.7px;
