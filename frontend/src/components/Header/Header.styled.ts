@@ -63,6 +63,7 @@ const StyledHeader = styled.header`
 
           @media screen and (max-width: 700px) {
             display: block;
+            top: 15px;
           }
         }
 

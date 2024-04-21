@@ -47,7 +47,9 @@ const SignIn = function () {
           </Link>
         </StyledProfile>
       ) : (
-        <StyledSignIn onClick={handleClick}>Login</StyledSignIn>
+        <StyledSignIn>
+          <button className='button' onClick={handleClick}>Login</button>
+        </StyledSignIn>
       )}
     </div>
   );
