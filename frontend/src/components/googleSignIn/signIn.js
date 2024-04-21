@@ -12,7 +12,6 @@ const SignIn = function () {
     try {
       const data = await signInWithPopup(auth, provider);
 
-      console.log(data)
       const currentUser = {
         firstName: data._tokenResponse.firstName,
         lastName: data._tokenResponse.lastName,
@@ -20,6 +19,9 @@ const SignIn = function () {
         photo: data._tokenResponse.photoUrl,
       };
 
+      if (!currentUser) return;
+
+      setUser(currentUser);
       const currentUserJSON = JSON.stringify(currentUser);
       localStorage.setItem('currentUser', currentUserJSON);
     } catch (error) {
