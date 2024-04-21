@@ -60,6 +60,7 @@ const StyledHeader = styled.header`
           top: 40px;
           right: 20px;
           display: none;
+          z-index: 555;
 
           @media screen and (max-width: 700px) {
             display: block;
