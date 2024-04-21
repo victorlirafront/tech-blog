@@ -12,6 +12,7 @@ const SignIn = function () {
     try {
       const data = await signInWithPopup(auth, provider);
 
+      console.log(data)
       const currentUser = {
         firstName: data._tokenResponse.firstName,
         lastName: data._tokenResponse.lastName,

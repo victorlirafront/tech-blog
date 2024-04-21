@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import 'aos/dist/aos.css';
@@ -13,13 +13,30 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import StyledProfile from './Profile.styled';
 
+interface IProfile {
+  firstName: string;
+  lastName: string;
+}
+
 function Profile() {
   const { theme, toggleTheme } = useTheme();
   const { scrollIntoViewHandler } = useScrollContext();
+  const [user, setUser] = useState<IProfile>({
+    firstName: '',
+    lastName: '',
+  });
 
   const themeToggler = function () {
     toggleTheme();
   };
+
+  useEffect(() => {
+    const currentUserJSON = localStorage.getItem('currentUser');
+    if (currentUserJSON) {
+      const currentUser = JSON.parse(currentUserJSON);
+      setUser(currentUser);
+    }
+  }, []);
 
   return (
     <div>
@@ -41,7 +58,12 @@ function Profile() {
             themeToggler={() => themeToggler()}
             scrollIntoView={() => scrollIntoViewHandler()}
           />
-          <StyledProfile data-aos="fade-down">Profile</StyledProfile>
+          <StyledProfile data-aos="fade-down" data-aos-delay="200">
+            <h1>
+              Hello {user.firstName} {user.lastName}
+            </h1>
+            <h1> Be very welcome : )</h1>
+          </StyledProfile>
           <Footer />
         </ThemeContainer>
       </ThemeProvider>
