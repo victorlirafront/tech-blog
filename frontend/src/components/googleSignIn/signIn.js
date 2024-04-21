@@ -15,12 +15,15 @@ const SignIn = function () {
 
   useEffect(() => {
     // setValue(localStorage.getItem('email'));
-    console.log(value)
   }, [value]);
 
   return (
     <div>
-      <StyledSignIn onClick={handleClick}>Login</StyledSignIn>
+      {value ? (
+        <StyledSignIn>Profile</StyledSignIn>
+      ) : (
+        <StyledSignIn onClick={handleClick}>Login</StyledSignIn>
+      )}
     </div>
   );
 };
