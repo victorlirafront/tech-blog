@@ -21,7 +21,13 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Image from 'next/image';
-import { FacebookShareButton, TwitterShareButton } from 'react-share';
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  RedditShareButton,
+  WhatsappShareButton,
+  TelegramShareButton,
+} from 'react-share';
 
 interface IProps {
   post: {
@@ -47,7 +53,7 @@ interface IProps {
     title: string;
     content: string;
     post_image: string;
-    author?: string; // Make 'author' property optional
+    author?: string;
     keywords: string;
   }[];
 }
@@ -170,7 +176,7 @@ function Posts(props: IProps) {
                       src="/facebook.png"
                       width={30}
                       height={30}
-                      alt="dd"
+                      alt="facebook icon"
                       className="img-facebook"
                     />
                   </FacebookShareButton>
@@ -181,10 +187,43 @@ function Posts(props: IProps) {
                       src="/twitter.png"
                       width={30}
                       height={30}
-                      alt="dd"
+                      alt="twitter icon"
                       className="img-twitter"
                     />
                   </TwitterShareButton>
+                  <RedditShareButton
+                    url={`https://www.victorlirablog.com/Posts/${currentPostId}`}
+                  >
+                    <Image
+                      src="/reddit.png"
+                      width={30}
+                      height={30}
+                      alt="reddit icon"
+                      className="img-reddit"
+                    />
+                  </RedditShareButton>
+                  <WhatsappShareButton
+                    url={`https://www.victorlirablog.com/Posts/${currentPostId}`}
+                  >
+                    <Image
+                      src="/whatsapp.png"
+                      width={30}
+                      height={30}
+                      alt="whatsapp icon"
+                      className="img-whatsapp"
+                    />
+                  </WhatsappShareButton>
+                  <TelegramShareButton
+                    url={`https://www.victorlirablog.com/Posts/${currentPostId}`}
+                  >
+                    <Image
+                      src="/telegram.png"
+                      width={30}
+                      height={30}
+                      alt="telegram icon"
+                      className="img-telegram"
+                    />
+                  </TelegramShareButton>
                 </div>
               </div>
             </div>

@@ -66,10 +66,19 @@ const StyledPostNew = styled.div`
           padding: unset;
 
           img {
-            &.img-facebook {
-              margin-right: 20px;
-            }
             &.img-twitter {
+              margin-left: 20px;
+            }
+
+            &.img-reddit {
+              margin-left: 20px;
+            }
+
+            &.img-whatsapp {
+              margin-left: 20px;
+            }
+
+            &.img-telegram {
               margin-left: 20px;
             }
           }
@@ -109,6 +118,16 @@ const StyledPostNew = styled.div`
               height: 25px;
             }
             &.img-facebook {
+              width: 25px;
+              height: 25px;
+            }
+
+            &.img-reddit {
+              width: 25px;
+              height: 25px;
+            }
+
+            &.img-telegram {
               width: 25px;
               height: 25px;
             }
