@@ -14,7 +14,7 @@ const SignIn = function () {
   };
 
   useEffect(() => {
-    // setValue(localStorage.getItem('email'));
+    setValue(localStorage.getItem('email'));
   }, [value]);
 
   return (
