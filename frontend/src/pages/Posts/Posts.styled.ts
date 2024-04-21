@@ -104,6 +104,7 @@ const StyledPostNew = styled.div`
             height: 50px;
             background-color: black;
             top: -2px;
+            justify-content: space-evenly;
           }
 
           img {
