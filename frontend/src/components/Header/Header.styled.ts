@@ -119,6 +119,17 @@ const StyledHeader = styled.header`
           }
         }
 
+        .div-right {
+          display: flex;
+
+          .dark-mode {
+            margin-left: 20px;
+            @media screen and (max-width: 700px){
+              margin-left: unset;
+            }
+          }
+        }
+
         .category {
           text-align: center;
           position: relative;

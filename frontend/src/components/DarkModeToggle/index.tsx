@@ -4,11 +4,12 @@ import StyledDarkModeToggle from './DarkModeToggle.styled';
 interface DarkModeToggleProps {
   onclick: () => void;
   themeMode: string;
+  className: string;
 }
 
-const DarkModeToggle = ({ onclick, themeMode }: DarkModeToggleProps) => {
+const DarkModeToggle = ({ onclick, themeMode, className }: DarkModeToggleProps) => {
   return (
-    <StyledDarkModeToggle onClick={onclick}>
+    <StyledDarkModeToggle onClick={onclick} className={className}>
       <button className={`toggle ${themeMode}`}></button>
     </StyledDarkModeToggle>
   );

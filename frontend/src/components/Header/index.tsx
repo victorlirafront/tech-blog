@@ -8,6 +8,7 @@ import { useContext } from 'react';
 import { GlobalContext } from '../../Context/pagination';
 import Image from 'next/image';
 import DarkModeToggle from '../DarkModeToggle';
+import SignIn from '../../components/googleSignIn/signIn';
 
 interface IHeaderProps {
   scrollIntoView?: () => void;
@@ -252,10 +253,14 @@ const Header = function (props: IHeaderProps) {
                 Portfolio
               </Link>
             </div>
-            <DarkModeToggle
-              themeMode={props.theme}
-              onclick={props.themeToggler}
-            ></DarkModeToggle>
+            <div className="div-right">
+              <SignIn />
+              <DarkModeToggle
+                themeMode={props.theme}
+                onclick={props.themeToggler}
+                className="dark-mode"
+              ></DarkModeToggle>
+            </div>
           </div>
           <Image
             width={50}
