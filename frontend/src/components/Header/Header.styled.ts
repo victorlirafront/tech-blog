@@ -121,11 +121,12 @@ const StyledHeader = styled.header`
 
         .div-right {
           display: flex;
+          align-items: center;
 
           .dark-mode {
-            margin-left: 20px;
-            @media screen and (max-width: 700px){
-              margin-left: unset;
+            margin-right: 20px;
+            @media screen and (max-width: 700px) {
+              margin-right: unset;
             }
           }
         }
@@ -154,7 +155,7 @@ const StyledHeader = styled.header`
               margin-left: 10px;
               max-width: 20px;
               transform: scale(0.7);
-              margin-top: 6px;  
+              margin-top: 6px;
             }
           }
 

@@ -89,15 +89,6 @@ export default function Home({ data }: IData) {
           content="Hello, I'm Victor Lira, the creator behind a blog dedicated to exploring the realms of JavaScript, React, Next.js, TypeScript, and other cutting-edge frontend technologies. Join me on this journey as I share insights, tutorials, and tips to enhance your skills and stay abreast of the latest trends in frontend development. Dive into the fascinating world of web development through my blog and empower yourself with knowledge and expertise."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <script
-          async={true}
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3834333278222212"
-          crossOrigin="anonymous"
-        ></script>
-        <meta
-          name="google-adsense-account"
-          content="ca-pub-3834333278222212"
-        ></meta>
         <meta name="author" content="Victor Lira" />
         <meta name="robots" content="index, follow" />
         <meta property="og:site_name" content="Victor Lira" />

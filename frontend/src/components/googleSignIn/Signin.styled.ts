@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 
-const StyledSignIn = styled.button`
+export const StyledSignIn = styled.button`
   padding: 5px 10px;
-  background: #06e7b2;
   border: none;
   border-radius: 4px;
   font-weight: bolder;
   cursor: pointer;
   transition: 0.2s;
+  background-color: #0beeb2;
 
   &:hover {
     background: #04c99b;
@@ -21,4 +21,18 @@ const StyledSignIn = styled.button`
   }
 `;
 
-export default StyledSignIn;
+export const StyledProfile = styled.div`
+  .profile-anchor {
+    text-decoration: none;
+    color: #fff;
+    display: flex;
+    align-items: center;
+
+    img {
+      border-radius: 50%;
+      margin-left: 10px;
+      width: 40px;
+      height: 40px;
+    }
+  }
+`;

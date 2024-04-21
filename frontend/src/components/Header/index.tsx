@@ -254,12 +254,12 @@ const Header = function (props: IHeaderProps) {
               </Link>
             </div>
             <div className="div-right">
-              <SignIn />
               <DarkModeToggle
                 themeMode={props.theme}
                 onclick={props.themeToggler}
                 className="dark-mode"
               ></DarkModeToggle>
+              <SignIn />
             </div>
           </div>
           <Image

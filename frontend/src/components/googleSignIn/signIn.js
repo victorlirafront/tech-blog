@@ -1,26 +1,48 @@
 import React, { useEffect, useState } from 'react';
 import { auth, provider } from './config';
 import { signInWithPopup } from 'firebase/auth';
-import StyledSignIn from './Signin.styled';
+import { StyledSignIn, StyledProfile } from './Signin.styled';
+import Link from 'next/link';
+import Image from 'next/image';
 
 const SignIn = function () {
-  const [value, setValue] = useState('');
+  const [user, setUser] = useState('');
 
-  const handleClick = function () {
-    signInWithPopup(auth, provider).then(data => {
-      setValue(data.user.email);
-      localStorage.setItem('email', data.user.email);
-    });
+  const handleClick = async function () {
+    try {
+      const data = await signInWithPopup(auth, provider);
+
+      const currentUser = {
+        firstName: data._tokenResponse.firstName,
+        lastName: data._tokenResponse.lastName,
+        email: data._tokenResponse.email,
+        photo: data._tokenResponse.photoUrl,
+      };
+
+      const currentUserJSON = JSON.stringify(currentUser);
+      localStorage.setItem('currentUser', currentUserJSON);
+    } catch (error) {
+      console.error('Error signing in:', error);
+    }
   };
 
   useEffect(() => {
-    setValue(localStorage.getItem('email'));
-  }, [value]);
+    const currentUserJSON = localStorage.getItem('currentUser');
+    const currentUser = JSON.parse(currentUserJSON);
+    if (currentUser) {
+      setUser(currentUser);
+    }
+  }, []);
 
   return (
     <div>
-      {value ? (
-        <StyledSignIn>Profile</StyledSignIn>
+      {user ? (
+        <StyledProfile>
+          <Link className="profile-anchor" href="/Profile">
+            {user.firstName}
+            <Image src={user.photo} height={30} width={30} alt="teste" />
+          </Link>
+        </StyledProfile>
       ) : (
         <StyledSignIn onClick={handleClick}>Login</StyledSignIn>
       )}
