@@ -9,7 +9,7 @@ export const StyledSignIn = styled.div`
     width: 90%;
     left: 10px;
     right: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
     margin: 0 auto;
   }
 
