@@ -40,8 +40,8 @@ const StyledAbout = styled.div`
 
         &:nth-child(1) {
           left: 25%;
-          width: 45px;
-          height: 45px;
+          width: 20px;
+          height: 20px;
           animation-delay: 0s;
           background-color: #0edba4;
         }
@@ -81,15 +81,15 @@ const StyledAbout = styled.div`
 
         &:nth-child(6) {
           left: 75%;
-          width: 50px;
-          height: 50px;
+          width: 20px;
+          height: 20px;
           animation-delay: 2s;
         }
 
         &:nth-child(7) {
           left: 35%;
-          width: 55px;
-          height: 55px;
+          width: 20px;
+          height: 20px;
           animation-delay: 5s;
         }
 
