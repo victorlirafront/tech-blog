@@ -4,7 +4,7 @@ import dateFormatter from '@/helperFunctions/dateFormatter';
 import 'aos/dist/aos.css';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 
 interface IProps {
@@ -26,10 +26,17 @@ interface IProps {
 
 const Post: React.FC<IProps> = props => {
   const dateObject = new Date(props.date);
-  const formattedDate = dateObject.toLocaleDateString();
+  const formattedDate = dateFormatter(dateObject.toLocaleDateString());
   const router = useRouter();
 
-  const handleLinkClick = async () => {
+  const [heartIconSource, setHeartIconSource] = useState("/heart-white.png");
+
+  const handleLinkClick = async (e: React.MouseEvent) => {
+    if ((e.target as HTMLElement).classList.contains("favorits--trigger")) {
+      setHeartIconSource("/heart-pink.png");
+      return;
+    }
+
     router.push({
       pathname: `/Posts/${props.id}`,
       query: {},
@@ -48,6 +55,15 @@ const Post: React.FC<IProps> = props => {
         className="motion-box"
       >
         <div className="post-image-wrapper">
+          <div className="add-to-favorits__wrapper favorits--trigger">
+            <Image
+              className="add-to-favorits favorits--trigger"
+              width={40}
+              height={40}
+              alt="add to favorits"
+              src={heartIconSource}
+            />
+          </div>
           <div className="post-image-wrapper">
             <div
               className="post-image"
@@ -57,7 +73,7 @@ const Post: React.FC<IProps> = props => {
         </div>
         <div className="post-body">
           <div className="category-wrapper">
-            <p className="post-date">{dateFormatter(formattedDate)}</p>
+            <p className="post-date">{formattedDate}</p>
             <p className="post-category">{props.category}</p>
           </div>
 
@@ -69,7 +85,7 @@ const Post: React.FC<IProps> = props => {
           </p>
 
           <ul className="post-author">
-            <li>Autor: {props.author}</li>
+            <li>Author: {props.author}</li>
           </ul>
 
           <div className="read-more-wrapper">

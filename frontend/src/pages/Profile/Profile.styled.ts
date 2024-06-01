@@ -10,11 +10,12 @@ const StyledProfile = styled.div`
   max-width: 1200px;
   margin: 0 auto;
   color: #b4b4b4;
-  border: 2px solid #1f1f1f;
+  border: 2px solid #dadada;
   box-shadow: none;
   border-radius: 7px;
   height: 400px;
   text-align: center;
+  margin-top: 60px;
 `;
 
 export default StyledProfile;

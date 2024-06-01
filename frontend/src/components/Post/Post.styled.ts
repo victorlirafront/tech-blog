@@ -26,6 +26,22 @@ const StyledPost = styled.div`
   .post-image-wrapper {
     overflow: hidden;
 
+    .add-to-favorits__wrapper {
+      position: absolute;
+      height: 40px;
+      width: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      right: 0px;
+      z-index: 20;
+
+      .add-to-favorits {
+        width: 30px;
+        height: auto;
+      }
+    }
+
     .post-image {
       width: 100%;
       height: 200px;
