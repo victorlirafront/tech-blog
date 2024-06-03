@@ -39,8 +39,7 @@ const Header = function (props: IHeaderProps) {
   useEffect(() => {
     if (
       urlParams.page === '0' ||
-      (router.query.page === urlParams.page &&
-        router.query.category === urlParams.category)
+      (router.query.page === urlParams.page && router.query.category === urlParams.category)
     ) {
       return;
     }
@@ -74,9 +73,7 @@ const Header = function (props: IHeaderProps) {
     updateWindowWidth();
   }, [menuToggleBaseOnUrl]);
 
-  const categoryToggle = function (
-    e: React.MouseEvent<HTMLDivElement, MouseEvent>,
-  ) {
+  const categoryToggle = function (e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
     setIsCategoryActive(!isCategoryActive);
 
     if ((e.target as HTMLElement).classList.contains('option')) {
@@ -168,15 +165,8 @@ const Header = function (props: IHeaderProps) {
                     alt=""
                   />
                 </div>
-                <ul
-                  className={`category-options ${
-                    !isCategoryActive ? '' : 'active'
-                  }`}
-                >
-                  <li
-                    className="option"
-                    onClick={() => categoryOptionHandler('1', 'all')}
-                  >
+                <ul className={`category-options ${!isCategoryActive ? '' : 'active'}`}>
+                  <li className="option" onClick={() => categoryOptionHandler('1', 'all')}>
                     <span>All</span>
                     <Image
                       width={10}
@@ -187,10 +177,7 @@ const Header = function (props: IHeaderProps) {
                       }
                     />
                   </li>
-                  <li
-                    className="option"
-                    onClick={() => categoryOptionHandler('1', 'javascript')}
-                  >
+                  <li className="option" onClick={() => categoryOptionHandler('1', 'javascript')}>
                     <span>JavaScript</span>
                     <Image
                       width={10}
@@ -201,10 +188,7 @@ const Header = function (props: IHeaderProps) {
                       }
                     />
                   </li>
-                  <li
-                    className="option"
-                    onClick={() => categoryOptionHandler('1', 'typescript')}
-                  >
+                  <li className="option" onClick={() => categoryOptionHandler('1', 'typescript')}>
                     <span>TypeScript</span>
                     <Image
                       width={10}
@@ -215,10 +199,7 @@ const Header = function (props: IHeaderProps) {
                       }
                     />
                   </li>
-                  <li
-                    className="option"
-                    onClick={() => categoryOptionHandler('1', 'react')}
-                  >
+                  <li className="option" onClick={() => categoryOptionHandler('1', 'react')}>
                     <span>React JS</span>
                     <Image
                       width={10}
@@ -229,10 +210,7 @@ const Header = function (props: IHeaderProps) {
                       }
                     />
                   </li>
-                  <li
-                    className="option"
-                    onClick={() => categoryOptionHandler('1', 'next')}
-                  >
+                  <li className="option" onClick={() => categoryOptionHandler('1', 'next')}>
                     <span>Next JS</span>
                     <Image
                       width={10}
