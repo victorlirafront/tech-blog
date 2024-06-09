@@ -13,6 +13,19 @@ interface IAddToFavoritsProps {
 
 const AddToFavoritsContext = createContext<IAddToFavoritsProps | undefined>(undefined);
 
+function savePostToFavorites(favoritPosts: any) {
+  if (Array.isArray(favoritPosts)) {
+    try {
+      const arrayEmString = JSON.stringify(favoritPosts);
+      localStorage.setItem('lira-favorit-posts', arrayEmString);
+    } catch (error) {
+      console.error('Erro ao salvar posts favoritos no localStorage:', error);
+    }
+  } else {
+    console.error('O parâmetro fornecido não é um array.');
+  }
+}
+
 export const AddToFavoritsProvider = ({ children }: { children: ReactNode }) => {
   const [favoritPosts, setFavoritPosts] = useState<{ post: number }[]>([]);
   const [currentPostId, setCurrentPostId] = useState<{ id: number; date: any }>();
@@ -29,10 +42,13 @@ export const AddToFavoritsProvider = ({ children }: { children: ReactNode }) => 
     } else {
       setFavoritPosts(prevFavoritPosts => [...prevFavoritPosts, { post: currentPostId.id }]);
     }
+
+    savePostToFavorites(favoritPosts);
   }, [currentPostId]);
 
   useEffect(() => {
-    console.log(favoritPosts);
+    if(favoritPosts.length <= 0)return //FIX
+    savePostToFavorites(favoritPosts);
   }, [favoritPosts]);
 
   const addToFavoritsHandler = (e: MouseEvent) => {

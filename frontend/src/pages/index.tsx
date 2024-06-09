@@ -8,7 +8,7 @@ import Axios from 'axios';
 import Pagination from '@/components/Pagination';
 import { GlobalContext } from '../Context/pagination';
 import { useScrollContext } from '@/Context/scrollProvider';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { useEffect } from 'react';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
@@ -50,15 +50,22 @@ export default function Home({ data }: IData) {
   const { setPage } = useContext(GlobalContext);
   const { theme, toggleTheme } = useTheme();
   const { scrollIntoViewHandler, containerRef } = useScrollContext();
+  const [favoritPosts, setFavoritPosts] = useState()
 
   const themeToggler = function () {
     toggleTheme();
   };
 
   useEffect(() => {
-    AOS.init();
     setPage(data?.next?.page);
   }, [data?.next?.page, setPage]);
+
+  useEffect(() => {
+    AOS.init();
+    const favoritPostsString = localStorage.getItem('lira-favorit-posts') || '';
+    const favoritPostsArray = JSON.parse(favoritPostsString);
+    setFavoritPosts(favoritPostsArray);
+  }, [])
 
   const checkNextPage = function () {
     if (data?.next) {
@@ -113,10 +120,7 @@ export default function Home({ data }: IData) {
           />
           <About />
           <MainPage className="main-page">
-            <div
-              className="container"
-              ref={containerRef as React.RefObject<HTMLDivElement>}
-            >
+            <div className="container" ref={containerRef as React.RefObject<HTMLDivElement>}>
               {data?.results &&
                 data.results.map((post: IPost, index: number) => {
                   let costumizeFirstPost = false;
@@ -151,11 +155,7 @@ export default function Home({ data }: IData) {
           </MainPage>
           <Pagination
             pageLength={Math.ceil(data?.totalPages)}
-            page={
-              data?.next?.page
-                ? data?.next?.page - 1
-                : Math.ceil(data?.totalPages)
-            }
+            page={data?.next?.page ? data?.next?.page - 1 : Math.ceil(data?.totalPages)}
             hasNextPage={checkNextPage()}
             hasPreviousPage={checkPreviousPage()}
             previousPage={data?.previous?.page ? data.previous.page : 1}
