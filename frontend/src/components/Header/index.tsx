@@ -228,7 +228,7 @@ const Header = function (props: IHeaderProps) {
                 className={`anchor ${currentTab === 'about' ? 'active' : ''}`}
                 href="/AboutMe"
               >
-                Portfolio
+                About me
               </Link>
             </div>
             <div className="div-right">
