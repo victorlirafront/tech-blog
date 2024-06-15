@@ -25,6 +25,7 @@ const StyledPost = styled.div`
 
   .post-image-wrapper {
     overflow: hidden;
+    position: relative;
 
     .add-to-favorits__wrapper {
       position: absolute;

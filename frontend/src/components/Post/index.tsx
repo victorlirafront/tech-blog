@@ -27,8 +27,6 @@ interface IProps {
 }
 
 const Post: React.FC<IProps> = (props) => {
-  const [heartIconSource, setHeartIconSource] = useState('/heart-white.png');
-  const [updateIconSource, setUpdateIconSouce] = useState(false);
   const { addToFavoritsHandler } = useAddToFavoritsContext();
 
   const dateObject = new Date(props.date);
