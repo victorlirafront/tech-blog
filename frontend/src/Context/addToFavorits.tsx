@@ -9,11 +9,19 @@ import React, {
 
 interface IAddToFavoritsProps {
   addToFavoritsHandler: (e: MouseEvent) => void;
+  favoritPosts: any;
 }
 
 const AddToFavoritsContext = createContext<IAddToFavoritsProps | undefined>(undefined);
 
-function savePostToFavorites(favoritPosts: any) {
+function fetchFavoritPosts() {
+  const favoritPostsString = localStorage.getItem('lira-favorit-posts') || '';
+  if (!favoritPostsString) return;
+  const favoritPostsArray = JSON.parse(favoritPostsString);
+  return favoritPostsArray;
+}
+
+function savePostToFavorits(favoritPosts: any) {
   if (Array.isArray(favoritPosts)) {
     try {
       const arrayEmString = JSON.stringify(favoritPosts);
@@ -27,12 +35,21 @@ function savePostToFavorites(favoritPosts: any) {
 }
 
 export const AddToFavoritsProvider = ({ children }: { children: ReactNode }) => {
-  const [favoritPosts, setFavoritPosts] = useState<{ post: number }[]>([]);
+  const [favoritPosts, setFavoritPosts] = useState<{ post: number }[]>([
+    {
+      post: 1, //FIX IT
+    },
+  ]);
   const [currentPostId, setCurrentPostId] = useState<{ id: number; date: any }>();
 
   useEffect(() => {
-    if (!currentPostId?.id) return;
+    const favoritPostsArray = fetchFavoritPosts();
+    setFavoritPosts(favoritPostsArray);
+  }, []);
 
+  useEffect(() => {
+    if (!currentPostId?.id) return; //FIX IT
+    if (!favoritPosts) return; //FIX IT
     const alreadyFavoritedThisPost = favoritPosts.some(item => item.post === currentPostId.id);
 
     if (alreadyFavoritedThisPost) {
@@ -43,12 +60,14 @@ export const AddToFavoritsProvider = ({ children }: { children: ReactNode }) => 
       setFavoritPosts(prevFavoritPosts => [...prevFavoritPosts, { post: currentPostId.id }]);
     }
 
-    savePostToFavorites(favoritPosts);
+    savePostToFavorits(favoritPosts);
   }, [currentPostId]);
 
   useEffect(() => {
-    if(favoritPosts.length <= 0)return //FIX
-    savePostToFavorites(favoritPosts);
+    if (!favoritPosts) return; //FIX IT
+    if (favoritPosts.length <= 0) return; //FIX IT
+    if (favoritPosts.length === 1 && favoritPosts[0].post === 1) return;
+    savePostToFavorits(favoritPosts);
   }, [favoritPosts]);
 
   const addToFavoritsHandler = (e: MouseEvent) => {
@@ -64,7 +83,7 @@ export const AddToFavoritsProvider = ({ children }: { children: ReactNode }) => 
   };
 
   return (
-    <AddToFavoritsContext.Provider value={{ addToFavoritsHandler }}>
+    <AddToFavoritsContext.Provider value={{ addToFavoritsHandler, favoritPosts }}>
       {children}
     </AddToFavoritsContext.Provider>
   );

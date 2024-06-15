@@ -28,6 +28,8 @@ import {
   WhatsappShareButton,
   TelegramShareButton,
 } from 'react-share';
+import { useAddToFavoritsContext } from '@/Context/addToFavorits';
+import { updateFavoritSource } from '@/utils/resusableFunctions';
 
 interface IProps {
   post: {
@@ -69,6 +71,7 @@ function Posts(props: IProps) {
   const { theme, toggleTheme } = useTheme();
   const { scrollIntoViewHandler } = useScrollContext();
   const [currentPostId, setCurrentPostId] = useState('');
+  const { favoritPosts } = useAddToFavoritsContext();
 
   const dateObject = new Date(props.post.date);
   const formattedDate = dateObject.toLocaleDateString();
@@ -127,10 +130,7 @@ function Posts(props: IProps) {
     <StyledPostNew>
       <Head>
         <title>{props.post.meta_tag_title}</title>
-        <meta
-          name="description"
-          content={props.post.meta_tag_description}
-        ></meta>
+        <meta name="description" content={props.post.meta_tag_description}></meta>
         <meta name="author" content={props.post.author} />
         <meta name="robots" content="index, follow" />
         <meta name="keywords" content={props.post.keywords} />
@@ -168,10 +168,7 @@ function Posts(props: IProps) {
               <MarkdownRenderer> {props.post.content} </MarkdownRenderer>
               <div className="aside-absolute">
                 <div className="content">
-                  <FacebookShareButton
-                    url="https://www.victorlirablog.com/Posts/16"
-                    title="teste"
-                  >
+                  <FacebookShareButton url="https://www.victorlirablog.com/Posts/16" title="teste">
                     <Image
                       src="/facebook.png"
                       width={30}
@@ -180,9 +177,7 @@ function Posts(props: IProps) {
                       className="img-facebook"
                     />
                   </FacebookShareButton>
-                  <TwitterShareButton
-                    url={`https://www.victorlirablog.com/Posts/${currentPostId}`}
-                  >
+                  <TwitterShareButton url={`https://www.victorlirablog.com/Posts/${currentPostId}`}>
                     <Image
                       src="/twitter.png"
                       width={30}
@@ -191,9 +186,7 @@ function Posts(props: IProps) {
                       className="img-twitter"
                     />
                   </TwitterShareButton>
-                  <RedditShareButton
-                    url={`https://www.victorlirablog.com/Posts/${currentPostId}`}
-                  >
+                  <RedditShareButton url={`https://www.victorlirablog.com/Posts/${currentPostId}`}>
                     <Image
                       src="/reddit.png"
                       width={30}
@@ -254,6 +247,7 @@ function Posts(props: IProps) {
                       aos_delay=""
                       aos_type=""
                       hover_animation={-7}
+                      onUpdateFavoritSource={updateFavoritSource(favoritPosts, post)}
                     />
                   </div>
                 );
@@ -294,8 +288,7 @@ export const getServerSideProps: GetServerSideProps = async (
       'https://blog-backend-tau-three.vercel.app/api/get?page=1&limit=100&category=all';
     const baseUrl2 =
       'https://blog-backend-g9k4y75fk-victorlirafront.vercel.app/api/get?page=1&limit=100&category=all';
-    const baseUrl3 =
-      'https://blog-tau-rosy-55.vercel.app/api/get?page=1&limit=100&category=all';
+    const baseUrl3 = 'https://blog-tau-rosy-55.vercel.app/api/get?page=1&limit=100&category=all';
     const baseUrl4 =
       'https://blog-git-main-victorlirafront.vercel.app/api/get?page=1&limit=100&category=all';
 

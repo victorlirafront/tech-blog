@@ -8,7 +8,7 @@ import Axios from 'axios';
 import Pagination from '@/components/Pagination';
 import { GlobalContext } from '../Context/pagination';
 import { useScrollContext } from '@/Context/scrollProvider';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { useEffect } from 'react';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
@@ -18,6 +18,8 @@ import { ThemeProvider } from 'styled-components';
 import { GlobalStyled } from '@/components/themes/GlobalStyles';
 import { ThemeContainer } from '@/components/themes/ThemeContainer.styled';
 import { GetServerSideProps, GetServerSidePropsContext } from 'next';
+import { useAddToFavoritsContext } from '@/Context/addToFavorits';
+import { updateFavoritSource } from '@/utils/resusableFunctions';
 
 interface IPost {
   id: number;
@@ -50,7 +52,7 @@ export default function Home({ data }: IData) {
   const { setPage } = useContext(GlobalContext);
   const { theme, toggleTheme } = useTheme();
   const { scrollIntoViewHandler, containerRef } = useScrollContext();
-  const [favoritPosts, setFavoritPosts] = useState()
+  const { favoritPosts } = useAddToFavoritsContext();
 
   const themeToggler = function () {
     toggleTheme();
@@ -62,10 +64,7 @@ export default function Home({ data }: IData) {
 
   useEffect(() => {
     AOS.init();
-    const favoritPostsString = localStorage.getItem('lira-favorit-posts') || '';
-    const favoritPostsArray = JSON.parse(favoritPostsString);
-    setFavoritPosts(favoritPostsArray);
-  }, [])
+  }, []);
 
   const checkNextPage = function () {
     if (data?.next) {
@@ -148,6 +147,7 @@ export default function Home({ data }: IData) {
                       aos_delay="100"
                       aos_type="fade-up"
                       hover_animation={-7}
+                      onUpdateFavoritSource={updateFavoritSource(favoritPosts, post)}
                     />
                   );
                 })}

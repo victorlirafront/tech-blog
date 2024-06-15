@@ -4,7 +4,7 @@ import dateFormatter from '@/helperFunctions/dateFormatter';
 import 'aos/dist/aos.css';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { useAddToFavoritsContext } from '@/Context/addToFavorits';
 
@@ -23,10 +23,12 @@ interface IProps {
   aos_delay: string;
   aos_type: string;
   hover_animation: number;
+  onUpdateFavoritSource: string //FIX
 }
 
-const Post: React.FC<IProps> = props => {
+const Post: React.FC<IProps> = (props) => {
   const [heartIconSource, setHeartIconSource] = useState('/heart-white.png');
+  const [updateIconSource, setUpdateIconSouce] = useState(false);
   const { addToFavoritsHandler } = useAddToFavoritsContext();
 
   const dateObject = new Date(props.date);
@@ -34,16 +36,9 @@ const Post: React.FC<IProps> = props => {
   const router = useRouter();
 
   const handleLinkClick = async (e: React.MouseEvent) => {
-    const heartWhiteIcon = '/heart-white.png';
-    const heartPinkIcon = '/heart-pink.png';
-
     const target = e.target as HTMLElement;
 
     if (target.classList.contains('favorits--trigger')) {
-      setHeartIconSource(prevSource =>
-        prevSource === heartWhiteIcon ? heartPinkIcon : heartWhiteIcon,
-      );
-
       addToFavoritsHandler(e);
       return;
     }
@@ -70,7 +65,7 @@ const Post: React.FC<IProps> = props => {
               width={40}
               height={40}
               alt="add to favorits"
-              src={heartIconSource}
+              src={props.onUpdateFavoritSource}
             />
           </div>
           <div className="post-image-wrapper">
