@@ -9,7 +9,7 @@ import React, {
 
 interface IAddToFavoritsProps {
   addToFavoritsHandler: (e: MouseEvent) => void;
-  favoritPosts: {post: number}[];
+  favoritPosts: { post: number }[];
 }
 
 const AddToFavoritsContext = createContext<IAddToFavoritsProps | undefined>(undefined);
@@ -21,7 +21,7 @@ function fetchFavoritPosts() {
   return favoritPostsArray;
 }
 
-function savePostToFavorits(favoritPosts: {post: number}[]) {
+function savePostToFavorits(favoritPosts: { post: number }[]) {
   if (Array.isArray(favoritPosts)) {
     try {
       const arrayEmString = JSON.stringify(favoritPosts);
@@ -44,6 +44,7 @@ export const AddToFavoritsProvider = ({ children }: { children: ReactNode }) => 
 
   useEffect(() => {
     const favoritPostsArray = fetchFavoritPosts();
+    if (!favoritPostsArray) return;
     setFavoritPosts(favoritPostsArray);
   }, []);
 
