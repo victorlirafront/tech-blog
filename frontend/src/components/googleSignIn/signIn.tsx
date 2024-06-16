@@ -12,7 +12,7 @@ const SignIn: React.FC = () => {
       {user ? (
         <StyledProfile>
           <Link className="profile-anchor" href="/Profile">
-            {user.firstName}
+            Profile
             <Image src={user.photo} height={30} width={30} alt="Profile Photo" />
           </Link>
         </StyledProfile>

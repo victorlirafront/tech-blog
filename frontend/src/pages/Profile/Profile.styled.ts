@@ -5,17 +5,23 @@ const StyledProfile = styled.div`
   max-width: 1400px;
   margin: 0 auto;
   color: #fff;
-  padding: 60px 30px;
   border-radius: 4px;
-  max-width: 1200px;
   margin: 0 auto;
   color: #b4b4b4;
-  border: 2px solid #dadada;
   box-shadow: none;
   border-radius: 7px;
-  height: 400px;
   text-align: center;
   margin-top: 60px;
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    padding-top: 60px;
+  }
 `;
 
 export default StyledProfile;
