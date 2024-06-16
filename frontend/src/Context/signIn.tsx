@@ -12,12 +12,14 @@ interface IUser {
 interface ISignIn {
   handleClick: () => void;
   user: any;
+  isloggedIn: boolean
 }
 
 const SignInContext = createContext<ISignIn | undefined>(undefined);
 
 export const SignInProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<IUser | null>(null);
+  const [isloggedIn, setIsLoggedIn] = useState<boolean>(false)
 
   const handleClick = async () => {
     try {
@@ -32,6 +34,7 @@ export const SignInProvider = ({ children }: { children: ReactNode }) => {
       if (!currentUser) return;
 
       setUser(currentUser);
+      setIsLoggedIn(true)
       const currentUserJSON = JSON.stringify(currentUser);
       localStorage.setItem('currentUser', currentUserJSON);
     } catch (error) {
@@ -44,10 +47,13 @@ export const SignInProvider = ({ children }: { children: ReactNode }) => {
     if (currentUserJSON) {
       const currentUser: IUser = JSON.parse(currentUserJSON);
       setUser(currentUser);
+      setIsLoggedIn(true)
+    }else {
+      setIsLoggedIn(false)
     }
   }, []);
 
-  return <SignInContext.Provider value={{ handleClick, user }}>{children}</SignInContext.Provider>;
+  return <SignInContext.Provider value={{ handleClick, user, isloggedIn }}>{children}</SignInContext.Provider>;
 };
 
 export const useSignInContext = () => {

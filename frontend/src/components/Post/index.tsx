@@ -7,6 +7,7 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import Image from 'next/image';
 import { useAddToFavoritsContext } from '@/Context/addToFavorits';
+import { useSignInContext } from '@/Context/signIn';
 
 interface IProps {
   date: string;
@@ -23,11 +24,12 @@ interface IProps {
   aos_delay: string;
   aos_type: string;
   hover_animation: number;
-  onUpdateFavoritSource: string //FIX
+  onUpdateFavoritSource: string; //FIX
 }
 
-const Post: React.FC<IProps> = (props) => {
+const Post: React.FC<IProps> = props => {
   const { addToFavoritsHandler } = useAddToFavoritsContext();
+  const { isloggedIn, handleClick } = useSignInContext();
 
   const dateObject = new Date(props.date);
   const formattedDate = dateFormatter(dateObject.toLocaleDateString());
@@ -37,6 +39,10 @@ const Post: React.FC<IProps> = (props) => {
     const target = e.target as HTMLElement;
 
     if (target.classList.contains('favorits--trigger')) {
+      if (!isloggedIn) {
+        handleClick();
+        return;
+      }
       addToFavoritsHandler(e);
       return;
     }
