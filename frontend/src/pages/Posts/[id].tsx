@@ -42,7 +42,7 @@ interface IProps {
     title: string;
     content: string;
     post_image: string;
-    author?: string; // Make 'author' property optional
+    author: string; // Make 'author' property optional
     keywords: string;
   };
   data: {
@@ -55,7 +55,7 @@ interface IProps {
     title: string;
     content: string;
     post_image: string;
-    author?: string;
+    author: string;
     keywords: string;
   }[];
 }

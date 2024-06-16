@@ -4,7 +4,7 @@ import dateFormatter from '@/helperFunctions/dateFormatter';
 import 'aos/dist/aos.css';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import { useAddToFavoritsContext } from '@/Context/addToFavorits';
 
