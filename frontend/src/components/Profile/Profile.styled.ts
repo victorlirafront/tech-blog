@@ -100,9 +100,8 @@ const Profile = styled.div`
         .download-wrapper {
           margin-top: 70px;
           width: 230px;
-          padding: 10px 10px;
           text-align: center;
-          border-radius: 30px;
+          border-radius: 4px;
 
           @media screen and (max-width: 1040px) {
             margin-top: 100px;
@@ -113,6 +112,10 @@ const Profile = styled.div`
             background: transparent;
             font-size: 15px;
             text-decoration: none;
+            padding: 10px 10px;
+            display: block;
+            width: 100%;
+            height: 100%;
           }
         }
       }
