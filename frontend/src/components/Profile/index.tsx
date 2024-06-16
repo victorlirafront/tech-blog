@@ -39,39 +39,21 @@ const Profile = function (props: IProfile) {
           <div className="button-wrapper">
             <div
               onClick={() => changeResumeLanguage('English')}
-              className={`usa-box ${
-                resumeLanguage === 'English' ? '' : 'active'
-              }`}
+              className={`usa-box ${resumeLanguage === 'English' ? '' : 'active'}`}
             >
-              <Image
-                width={30}
-                height={30}
-                src="/usa.png"
-                alt="USA flag image"
-              />
+              <Image width={30} height={30} src="/usa.png" alt="USA flag image" />
             </div>
             <div
               onClick={() => changeResumeLanguage('Portuguese')}
-              className={`br-box ${
-                resumeLanguage === 'Portuguese' ? '' : 'active'
-              }`}
+              className={`br-box ${resumeLanguage === 'Portuguese' ? '' : 'active'}`}
             >
-              <Image
-                width={30}
-                height={30}
-                src="/brasil.png"
-                alt="BRAZIL flag image"
-              />
+              <Image width={30} height={30} src="/brasil.png" alt="BRAZIL flag image" />
             </div>
             <div className="download-wrapper">
               <a
                 className="download-btn"
                 target="_blank"
-                href={
-                  resumeLanguage === 'English'
-                    ? englishResume
-                    : portugueseResume
-                }
+                href={resumeLanguage === 'English' ? englishResume : portugueseResume}
                 rel="noreferrer"
               >
                 Resume - {resumeLanguage}
@@ -84,12 +66,13 @@ const Profile = function (props: IProfile) {
           <h1 className="profile-h1">Victor Lira</h1>
           <h2 className="profession">Frontend Developer</h2>
           <p className="description">
-            My name is Victor, I am a Front-end developer, passionate about the
-            JavaScript universe. I have had the opportunity to create internal
-            projects for large companies, and I took the initiative to create
-            this blog to share important topics related to web development.
+            I have experience in Front-end Development, actively contributing to projects that have
+            significantly impacted both end users and employees. I have been recognized for creating
+            web tools aimed at automating internal operational processes.
           </p>
-          <p className="tip">Feel free to <span className='span-click'>click on the icons</span> below : )</p>
+          <p className="tip">
+            Feel free to <span className="span-click">click on the icons</span> below : )
+          </p>
           <SlideTech onClick={showTechInformationHandler} />
         </div>
       </div>
