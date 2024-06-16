@@ -115,6 +115,10 @@ const Header = function (props: IHeaderProps) {
     menuTab(menuOption);
   };
 
+  const goBackToHomePage = function(){
+    categoryOptionHandler("1", "all")
+  }
+
   const deg = !isCategoryActive ? '-180deg' : '0deg';
   const ctrans = `rotate(${deg}) scale(0.7)`;
   const css = {
@@ -126,7 +130,7 @@ const Header = function (props: IHeaderProps) {
     <StyledHeader data-aos={headerFadeDown} className={props.className}>
       <div className="container">
         <nav>
-          <Link className="home" href="/">
+          <div className="home" onClick={goBackToHomePage}>
             <Image
               width={50}
               height={40}
@@ -134,7 +138,7 @@ const Header = function (props: IHeaderProps) {
               src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/code_2GKuQisNn.png?updatedAt=1697217597567"
               alt=""
             />
-          </Link>
+          </div>
           <div className={`menu-wrapper ${openMobileMenu ? 'active' : ''}`}>
             <Image
               width={50}
@@ -146,13 +150,15 @@ const Header = function (props: IHeaderProps) {
             />
 
             <div className="div-left">
-              <Link
-                onClick={() => menuHandler('blog')}
+              <div
+                onClick={() => {
+                  menuHandler('blog')
+                  goBackToHomePage()
+                }}
                 className={`anchor ${currentTab === 'blog' ? 'active' : ''}`}
-                href="/"
               >
                 Blog
-              </Link>
+              </div>
               <div className="category" onClick={e => categoryToggle(e)}>
                 <div className="category-conteiner">
                   <p>Category</p>

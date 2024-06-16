@@ -33,6 +33,7 @@ const StyledHeader = styled.header`
       .header-icon {
         width: 34px;
         margin-right: 15px;
+        cursor: pointer;
       }
 
       .menu-wrapper {
