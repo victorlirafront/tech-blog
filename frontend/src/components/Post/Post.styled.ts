@@ -40,6 +40,10 @@ const StyledPost = styled.div`
       .add-to-favorits {
         width: 30px;
         height: auto;
+
+        @media screen and (max-width: 500px) {
+          width: 23px;
+        }
       }
     }
 
