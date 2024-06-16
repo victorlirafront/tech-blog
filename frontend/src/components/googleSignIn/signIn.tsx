@@ -1,17 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { auth, provider } from './config';
-import { signInWithPopup } from 'firebase/auth';
+import React from 'react';
 import { StyledSignIn, StyledProfile } from './Signin.styled';
 import { useSignInContext } from '@/Context/signIn';
 import Link from 'next/link';
 import Image from 'next/image';
-
-interface User {
-  firstName: string;
-  lastName: string;
-  email: string;
-  photo: string;
-}
 
 const SignIn: React.FC = () => {
   const { user, handleClick } = useSignInContext();

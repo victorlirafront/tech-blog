@@ -1,5 +1,5 @@
 import { auth, provider } from '@/components/googleSignIn/config';
-import { User, signInWithPopup } from 'firebase/auth';
+import { signInWithPopup } from 'firebase/auth';
 import React, { createContext, ReactNode, useContext, useState, useEffect } from 'react';
 
 interface IUser {
@@ -11,7 +11,7 @@ interface IUser {
 
 interface ISignIn {
   handleClick: () => void;
-  user: any;
+  user: IUser | null;
   isloggedIn: boolean
 }
 
