@@ -5,18 +5,25 @@ import { StyledSignIn, StyledProfile } from './Signin.styled';
 import Link from 'next/link';
 import Image from 'next/image';
 
-const SignIn = function () {
-  const [user, setUser] = useState('');
+interface User {
+  firstName: string;
+  lastName: string;
+  email: string;
+  photo: string;
+}
 
-  const handleClick = async function () {
+const SignIn: React.FC = () => {
+  const [user, setUser] = useState<User | null>(null);
+
+  const handleClick = async () => {
     try {
       const data = await signInWithPopup(auth, provider);
 
-      const currentUser = {
-        firstName: data._tokenResponse.firstName,
-        lastName: data._tokenResponse.lastName,
-        email: data._tokenResponse.email,
-        photo: data._tokenResponse.photoUrl,
+      const currentUser: User = {
+        firstName: data.user.displayName?.split(' ')[0] || '',
+        lastName: data.user.displayName?.split(' ')[1] || '',
+        email: data.user.email || '',
+        photo: data.user.photoURL || '',
       };
 
       if (!currentUser) return;
@@ -31,8 +38,8 @@ const SignIn = function () {
 
   useEffect(() => {
     const currentUserJSON = localStorage.getItem('currentUser');
-    const currentUser = JSON.parse(currentUserJSON);
-    if (currentUser) {
+    if (currentUserJSON) {
+      const currentUser: User = JSON.parse(currentUserJSON);
       setUser(currentUser);
     }
   }, []);
@@ -43,7 +50,7 @@ const SignIn = function () {
         <StyledProfile>
           <Link className="profile-anchor" href="/Profile">
             {user.firstName}
-            <Image src={user.photo} height={30} width={30} alt="teste" />
+            <Image src={user.photo} height={30} width={30} alt="Profile Photo" />
           </Link>
         </StyledProfile>
       ) : (
