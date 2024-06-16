@@ -14,9 +14,9 @@ const Profile = function (props: IProfile) {
   const [resumeLanguage, setResumeLanguage] = useState('English');
 
   const portugueseResume =
-    'https://drive.google.com/file/d/1jf-P0HWU5DDWVfBKsOlz7_0N8APNx0-o/view?usp=sharing';
+    'https://drive.google.com/file/d/1ejMZZj6qdqwEIMgXtVWpOj9zSAS8ftOo/view?usp=drive_link';
   const englishResume =
-    'https://drive.google.com/file/d/1PgmPF4ozacghtBIiZf1FHhUDrCzPcXg9/view?usp=sharing';
+    'https://drive.google.com/file/d/15C7dyDHY9jrq-ZkkmUGgKp4JwpaCIHEa/view?usp=drive_link';
 
   const changeResumeLanguage = function (language: string) {
     setResumeLanguage(language);
