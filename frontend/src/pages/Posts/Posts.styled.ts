@@ -176,7 +176,7 @@ const StyledPostNew = styled.div`
       h1 {
         @media screen and (max-width: 700px) {
           font-size: 22px;
-          line-height: 26px;
+          line-height: 30px;
         }
       }
 
@@ -216,22 +216,23 @@ const StyledPostNew = styled.div`
       }
 
       code {
-        background: #23312e;
         color: #30c85e;
-        padding: 20px;
-        margin: 20px 0;
         display: flex;
         align-items: center;
-        line-height: 28px;
         align-items: center;
         justify-content: flex-start;
-        overflow: auto;
         border-left: 4px solid #31c85e;
-        font-family: neo-sans, sans-serif;
         border-bottom-right-radius: 0.5rem;
         border-top-right-radius: 0.5rem;
-        font-size: 14px;
-        line-height: 24px;
+
+        font-family: monospace, Monaco;
+        font-size: 13px;
+        line-height: 27px;
+        background: #383b41;
+        padding: 10px 12px;
+        border-radius: 4px;
+        margin: 15px 0;
+        overflow: overlay;
 
         @media screen and (max-width: 700px) {
           font-size: 14px;
