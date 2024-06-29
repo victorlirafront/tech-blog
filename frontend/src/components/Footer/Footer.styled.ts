@@ -5,6 +5,7 @@ const StyledFooter = styled.footer`
   padding: 75px 0;
   margin: 0 auto;
   margin-top: 130px;
+  background: #000;
 
   .icons-wrapper {
     display: flex;

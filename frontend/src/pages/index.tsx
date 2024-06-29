@@ -12,14 +12,10 @@ import { useContext } from 'react';
 import { useEffect } from 'react';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
-import { useTheme } from '@/Context/darkmode';
-import { lightTheme, darkTheme } from '../components/themes/theme';
-import { ThemeProvider } from 'styled-components';
-import { GlobalStyled } from '@/components/themes/GlobalStyles';
-import { ThemeContainer } from '@/components/themes/ThemeContainer.styled';
 import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 import { useAddToFavoritsContext } from '@/Context/addToFavorits';
 import { updateFavoritSource } from '@/utils/resusableFunctions';
+import { useTheme } from 'styled-components';
 
 interface IPost {
   id: number;
@@ -50,13 +46,8 @@ interface IData {
 
 export default function Home({ data }: IData) {
   const { setPage } = useContext(GlobalContext);
-  const { theme, toggleTheme } = useTheme();
   const { scrollIntoViewHandler, containerRef } = useScrollContext();
   const { favoritPosts } = useAddToFavoritsContext();
-
-  const themeToggler = function () {
-    toggleTheme();
-  };
 
   useEffect(() => {
     setPage(data?.next?.page);
@@ -108,62 +99,52 @@ export default function Home({ data }: IData) {
           href="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/binary-code_WBpGXnWnG.png?updatedAt=1700431546132"
         />
       </Head>
-      <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
-        <GlobalStyled theme={theme === 'light' ? lightTheme : darkTheme} />
-        <ThemeContainer>
-          <Header
-            className="header"
-            theme={theme}
-            themeToggler={() => themeToggler()}
-            scrollIntoView={() => scrollIntoViewHandler()}
-          />
-          <About />
-          <MainPage className="main-page">
-            <div className="container" ref={containerRef as React.RefObject<HTMLDivElement>}>
-              {data?.results &&
-                data.results.map((post: IPost, index: number) => {
-                  let costumizeFirstPost = false;
+      <Header className="header" scrollIntoView={() => scrollIntoViewHandler()} />
+      <About />
+      <MainPage className="main-page">
+        <div className="container" ref={containerRef as React.RefObject<HTMLDivElement>}>
+          {data?.results &&
+            data.results.map((post: IPost, index: number) => {
+              let costumizeFirstPost = false;
 
-                  index === 0 ? (costumizeFirstPost = true) : false;
+              index === 0 ? (costumizeFirstPost = true) : false;
 
-                  const styled = {
-                    width: 'calc(66.66667% - 40px)',
-                    minWidth: '300px',
-                  };
+              const styled = {
+                width: 'calc(66.66667% - 40px)',
+                minWidth: '300px',
+              };
 
-                  return (
-                    <Post
-                      style={costumizeFirstPost ? styled : {}}
-                      id={post.id}
-                      key={post.id}
-                      title={post.title}
-                      content={post.content}
-                      author={post.author}
-                      meta_tag_title={post.meta_tag_title}
-                      meta_tag_description={post.meta_tag_description}
-                      post_image={post.post_image}
-                      date={post.date}
-                      category={post.category}
-                      aos_delay="100"
-                      aos_type="fade-up"
-                      hover_animation={-7}
-                      onUpdateFavoritSource={updateFavoritSource(favoritPosts, post)}
-                    />
-                  );
-                })}
-            </div>
-          </MainPage>
-          <Pagination
-            pageLength={Math.ceil(data?.totalPages)}
-            page={data?.next?.page ? data?.next?.page - 1 : Math.ceil(data?.totalPages)}
-            hasNextPage={checkNextPage()}
-            hasPreviousPage={checkPreviousPage()}
-            previousPage={data?.previous?.page ? data.previous.page : 1}
-            nextPage={data?.next?.page}
-          />
-          <Footer />
-        </ThemeContainer>
-      </ThemeProvider>
+              return (
+                <Post
+                  style={costumizeFirstPost ? styled : {}}
+                  id={post.id}
+                  key={post.id}
+                  title={post.title}
+                  content={post.content}
+                  author={post.author}
+                  meta_tag_title={post.meta_tag_title}
+                  meta_tag_description={post.meta_tag_description}
+                  post_image={post.post_image}
+                  date={post.date}
+                  category={post.category}
+                  aos_delay="100"
+                  aos_type="fade-up"
+                  hover_animation={-7}
+                  onUpdateFavoritSource={updateFavoritSource(favoritPosts, post)}
+                />
+              );
+            })}
+        </div>
+      </MainPage>
+      <Pagination
+        pageLength={Math.ceil(data?.totalPages)}
+        page={data?.next?.page ? data?.next?.page - 1 : Math.ceil(data?.totalPages)}
+        hasNextPage={checkNextPage()}
+        hasPreviousPage={checkPreviousPage()}
+        previousPage={data?.previous?.page ? data.previous.page : 1}
+        nextPage={data?.next?.page}
+      />
+      <Footer />
     </>
   );
 }

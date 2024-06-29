@@ -1,18 +1,10 @@
 import React, { useState } from 'react';
 import { Fragment } from 'react';
 import Head from 'next/head';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
 import Profile from '@/components/Profile';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
 import { useEffect } from 'react';
-import { lightTheme, darkTheme } from '../../components/themes/theme';
-import { ThemeProvider } from 'styled-components';
-import { GlobalStyled } from '@/components/themes/GlobalStyles';
-import { ThemeContainer } from '@/components/themes/ThemeContainer.styled';
-import { useTheme } from '@/Context/darkmode';
-import { useScrollContext } from '@/Context/scrollProvider';
 import TechModal from '@/components/TechModal';
 import techJson from '@/data/slider-tech.json';
 
@@ -23,8 +15,6 @@ interface TechInfo {
 }
 
 const AboutMe = function () {
-  const { scrollIntoViewHandler } = useScrollContext();
-  const { theme, toggleTheme } = useTheme();
   const [showModal, setShowModal] = useState(false);
   const [currentModalTech, setCurrentModalTech] = useState({
     name: '',
@@ -36,16 +26,10 @@ const AboutMe = function () {
     AOS.init();
   }, []);
 
-  const themeToggler = function () {
-    toggleTheme();
-  };
-
   const filterByName = (json: Record<string, TechInfo>, name: string) => {
     const keys = Object.keys(json);
 
-    const filteredKeys = keys.filter(
-      key => json[key].name.toLowerCase() === name.toLowerCase(),
-    );
+    const filteredKeys = keys.filter(key => json[key].name.toLowerCase() === name.toLowerCase());
 
     return filteredKeys.map(key => json[key]);
   };
@@ -92,22 +76,7 @@ const AboutMe = function () {
         className={showModal ? 'active' : ''}
         closeModal={closeModalHandler}
       />
-      <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
-        <GlobalStyled />
-        <ThemeContainer>
-          <Header
-            className="header"
-            theme={theme}
-            themeToggler={() => themeToggler()}
-            scrollIntoView={() => scrollIntoViewHandler()}
-          />
-          <Profile
-            className="profile"
-            onShowTechInformationHandler={showTechInformationHandler}
-          />
-          <Footer />
-        </ThemeContainer>
-      </ThemeProvider>
+      <Profile className="profile" onShowTechInformationHandler={showTechInformationHandler} />
     </Fragment>
   );
 };

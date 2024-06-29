@@ -5,7 +5,7 @@ const StyledHeader = styled.header`
   padding: 20px 60px;
   margin: 0 auto;
   z-index: 3;
-  background: #000;
+  background: #121212 !important;
 
   @media screen and (max-width: 500px) {
     padding: 10px 20px;
@@ -20,11 +20,11 @@ const StyledHeader = styled.header`
   .container {
     margin: 0 auto;
     max-width: 1200px;
+    color: #ffffff;
 
     nav {
       width: 100%;
       display: flex;
-      background: #000;
 
       @media screen and (max-width: 700px) {
         justify-content: space-between;
@@ -83,16 +83,55 @@ const StyledHeader = styled.header`
 
         .div-left {
           display: flex;
-          min-width: 320px;
           justify-content: space-between;
+
+          .home {
+            &.active {
+              border-bottom: 3px solid rgb(11, 238, 178);
+              padding-bottom: 6px;
+            }
+          }
 
           @media screen and (max-width: 700px) {
             flex-direction: column;
             min-width: 87%;
-            /* height: 100px; */
+          }
+
+          .category-options {
+            margin-right: 30px;
+            margin-left: 30px;
+            display: flex;
+
+            p {
+              &.front-end-option {
+                &.active {
+                  border-bottom: 3px solid rgb(11, 238, 178);
+                  padding-bottom: 6px;
+                }
+              }
+
+              &.react-option {
+                &.active {
+                  border-bottom: 3px solid rgb(11, 238, 178);
+                  padding-bottom: 6px;
+                }
+              }
+
+              &.typescript-option {
+                &.active {
+                  border-bottom: 3px solid rgb(11, 238, 178);
+                  padding-bottom: 6px;
+                }
+              }
+
+              &:not(:last-child) {
+                margin-right: 30px;
+              }
+            }
           }
 
           .anchor {
+            color: #fff;
             @media screen and (max-width: 700px) {
               &:first-child {
                 margin-bottom: 40px;
@@ -130,89 +169,6 @@ const StyledHeader = styled.header`
             margin-right: 20px;
             @media screen and (max-width: 700px) {
               margin-right: unset;
-            }
-          }
-        }
-
-        .category {
-          text-align: center;
-          position: relative;
-          min-height: 30px;
-
-          @media screen and (max-width: 700px) {
-            min-width: 100%;
-          }
-
-          a {
-            text-decoration: none;
-          }
-
-          .category-conteiner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-
-            .arrow {
-              height: 20px;
-              margin-left: 10px;
-              max-width: 20px;
-              transform: scale(0.7);
-              margin-top: 6px;
-            }
-          }
-
-          .category-options {
-            position: absolute;
-            z-index: 2;
-            top: 60px;
-            list-style: none;
-            text-align: center;
-            cursor: pointer;
-            width: 200px;
-            margin-left: -40px;
-            height: 0;
-            transition: 0.5s;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-
-            @media screen and (max-width: 700px) {
-              width: 100%;
-              margin-left: 0px;
-              overflow: scroll;
-              position: static;
-
-              &.active {
-                margin-top: 30px;
-              }
-            }
-
-            &.active {
-              border-radius: 4px;
-              transition: 0.5s;
-              height: 200px;
-            }
-
-            li {
-              padding: 7px 20px;
-            }
-
-            .option {
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-
-              &:hover {
-                transition: 0.3s;
-                background: #149b78;
-              }
-
-              img {
-                width: 10px;
-                height: 10px;
-                transform: rotate(86deg);
-              }
             }
           }
         }

@@ -1,9 +1,12 @@
 import StyledAboutMe from './Profile.styled';
 import { useState } from 'react';
 import SlideTech from '@/components/SlickTech';
+import Header from '../Header';
 import Image from 'next/image';
 import React from 'react';
 import { MouseEvent } from 'react';
+import { useScrollContext } from '@/Context/scrollProvider';
+import { useTheme } from 'styled-components';
 
 interface IProfile {
   className: string;
@@ -11,16 +14,7 @@ interface IProfile {
 }
 
 const Profile = function (props: IProfile) {
-  const [resumeLanguage, setResumeLanguage] = useState('English');
-
-  const portugueseResume =
-    'https://drive.google.com/file/d/1ejMZZj6qdqwEIMgXtVWpOj9zSAS8ftOo/view?usp=drive_link';
-  const englishResume =
-    'https://drive.google.com/file/d/15C7dyDHY9jrq-ZkkmUGgKp4JwpaCIHEa/view?usp=drive_link';
-
-  const changeResumeLanguage = function (language: string) {
-    setResumeLanguage(language);
-  };
+  const { scrollIntoViewHandler } = useScrollContext();
 
   const showTechInformationHandler = async function (e: MouseEvent) {
     const target = e.target as Element;
@@ -33,47 +27,37 @@ const Profile = function (props: IProfile) {
 
   return (
     <StyledAboutMe className={props.className}>
-      <div className="box-1">
-        <div className="profile-wrapper" data-aos="fade-right">
-          <div className="card-image"></div>
-          <div className="button-wrapper">
-            <div
-              onClick={() => changeResumeLanguage('English')}
-              className={`usa-box ${resumeLanguage === 'English' ? '' : 'active'}`}
-            >
-              <Image width={30} height={30} src="/usa.png" alt="USA flag image" />
+      <div className="container-vh">
+        <div className="item">
+          <Header className="header" scrollIntoView={() => scrollIntoViewHandler()} />
+
+          <div className="profile-wrapper" data-aos="fade-right">
+            <div className="card-image"></div>
+            <div className="name-box">
+              <h1 className="name">Victor Lira</h1>
+              <Image src={'/verify.png'} width={20} height={20} alt="teste" />
             </div>
-            <div
-              onClick={() => changeResumeLanguage('Portuguese')}
-              className={`br-box ${resumeLanguage === 'Portuguese' ? '' : 'active'}`}
-            >
-              <Image width={30} height={30} src="/brasil.png" alt="BRAZIL flag image" />
-            </div>
-            <div className="download-wrapper">
-              <a
-                className="download-btn"
-                target="_blank"
-                href={resumeLanguage === 'English' ? englishResume : portugueseResume}
-                rel="noreferrer"
-              >
-                Resume - {resumeLanguage}
-              </a>
-            </div>
+            <h1 className="profile-h1">
+              <span>DESENVOLVENDO SOLUÇÕES PARA</span> <br />
+              <span>o amanhã</span>
+            </h1>
           </div>
         </div>
-        <div className="about-wrapper" data-aos="fade-left">
-          <p className="text-1">About me</p>
-          <h1 className="profile-h1">Victor Lira</h1>
-          <h2 className="profession">Frontend Developer</h2>
-          <p className="description">
-            I have experience in Front-end Development, actively contributing to projects that have
-            significantly impacted both end users and employees. I have been recognized for creating
-            web tools aimed at automating internal operational processes.
-          </p>
-          <p className="tip">
-            Feel free to <span className="span-click">click on the icons</span> below : )
-          </p>
-          <SlideTech onClick={showTechInformationHandler} />
+        <div className="item item-1">
+          <h1>Principais projetos</h1>
+        </div>
+        <div className="item">
+          <div className="about-wrapper">
+            <p className="skills">MINHAS SKILLS E POWER UP’S</p>
+
+            <p className="tip">
+              Feel free to <span className="span-click">click on the icons</span> below : )
+            </p>
+            <SlideTech onClick={showTechInformationHandler} />
+          </div>
+        </div>
+        <div className="item">
+          <h1>Form</h1>
         </div>
       </div>
     </StyledAboutMe>

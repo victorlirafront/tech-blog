@@ -201,6 +201,7 @@ const StyledPostNew = styled.div`
         img {
           max-width: 100%;
           border-radius: 5px;
+          background: rgb(32, 32, 32);
         }
       }
 
@@ -270,11 +271,13 @@ const StyledPostNew = styled.div`
 
     .writter {
       display: flex;
+      -webkit-box-pack: center;
       justify-content: center;
       padding: 60px 40px;
       border-style: solid;
-      border-width: 1px 0;
-      margin: 0 auto;
+      border-width: 1px 0px;
+      margin: 0px auto;
+      border-color: #1c1c1c;
 
       @media screen and (max-width: 700px) {
         flex-direction: column;
@@ -331,6 +334,7 @@ const StyledPostNew = styled.div`
   .title {
     text-align: center;
     margin-bottom: 70px;
+    color: #b4b4b4;
 
     @media screen and (max-width: 700px) {
       font-size: 1.25rem;

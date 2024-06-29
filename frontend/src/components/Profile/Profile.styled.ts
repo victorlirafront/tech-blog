@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 
 const Profile = styled.div`
-  max-width: 90%;
+  /* max-width: 90%; */
   margin: 0 auto;
-  padding: 20px 60px;
-  background-color: #151515;
-  border: 2px solid #1f1f1f;
-  max-width: 1400px;
-  margin-top: 30px;
+  /* padding: 20px 60px; */
+  /* background-color: #151515; */
+  /* border: 2px solid #1f1f1f; */
+  /* max-width: 1400px; */
+  /* margin-top: 30px; */
 
   @media screen and (max-width: 450px) {
     padding: 20px;
@@ -17,10 +17,11 @@ const Profile = styled.div`
     display: flex;
     color: #fff;
     justify-content: space-between;
-    padding: 60px 30px;
+    /* padding: 60px 30px; */
     border-radius: 4px;
     max-width: 1200px;
     margin: 0 auto;
+    flex-direction: column;
 
     @media screen and (max-width: 1040px) {
       flex-direction: column;
@@ -36,148 +37,148 @@ const Profile = styled.div`
       padding-bottom: 100px;
     }
 
-    .profile-wrapper {
+    //container
+    scroll-snap-type: y;
+  }
+
+  .container-vh {
+    max-height: 100vh;
+    overflow: scroll;
+    scroll-snap-type: y mandatory;
+    width: 100vw;
+
+    .item {
+      border-bottom: 1px solid white;
+      color: #fff;
       display: flex;
-      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      margin-right: 30px;
-
-      @media screen and (max-width: 1040px) {
-        margin-right: unset;
+      height: 100vh;
+      scroll-snap-align: center;
+      position: relative;
+      .header {
+        max-width: 1200px;
+        padding-left: 0;
+        padding-right: 0;
+        position: absolute;
+        top: 0;
+        right: 50%;
+        transform: translate(50%, 0%);
+        width: 100%;
       }
 
-      .card-image {
-        border: 2px solid #1f1f1f;
-        border-radius: 5px;
-        width: 250px;
-        height: 250px;
-        background-image: url(https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/profile-1_feYey8V23.jpeg?updatedAt=1712709533286);
-        background-size: cover;
-
-        @media screen and (max-width: 767px) {
-          width: 170px;
-          height: 170px;
+      .profile-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        margin-top: 86px;
+        @media screen and (max-width: 1040px) {
+          margin-right: unset;
         }
-      }
 
-      .button-wrapper {
-        position: relative;
+        .card-image {
+          border: 2px solid #1f1f1f;
+          border-radius: 5px;
+          width: 250px;
+          height: 250px;
+          background-image: url(https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/profile-1_feYey8V23.jpeg?updatedAt=1712709533286);
+          background-size: cover;
+          border-radius: 100%;
 
-        .usa-box {
-          width: 30px;
-          position: absolute;
+          @media screen and (max-width: 767px) {
+            width: 170px;
+            height: 170px;
+          }
+        }
+
+        .name-box {
           display: flex;
-          justify-content: center;
           align-items: center;
-          bottom: 60px;
 
-          cursor: pointer;
-
-          &.active {
-            filter: grayscale();
-          }
-
-          img {
-            width: 100%;
-            height: auto;
+          .name {
+            margin-right: 10px;
           }
         }
 
-        .br-box {
-          width: 30px;
-          position: absolute;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          bottom: 60px;
-          left: 33px;
-          cursor: pointer;
+        .profile-h1 {
+          margin: 10px 0px;
+          max-width: 42rem;
+          font-size: 3rem;
+          line-height: 1;
+          margin: 0 auto;
+          margin: 50px auto 50px auto;
+          color: #fff;
 
-          &.active {
-            filter: grayscale();
+          span:first-child {
+            font-size: 18px;
+            letter-spacing: 4px;
+            text-align: center;
           }
 
-          img {
-            width: 100%;
-            height: auto;
+          span:last-child {
+            font-size: 80px;
+            line-height: 80px;
+            font-weight: 700;
           }
-        }
-
-        .download-wrapper {
-          margin-top: 70px;
-          width: 230px;
-          text-align: center;
-          border-radius: 4px;
 
           @media screen and (max-width: 1040px) {
-            margin-top: 100px;
+            text-align: center;
           }
 
-          .download-btn {
-            cursor: pointer;
-            background: transparent;
-            font-size: 15px;
-            text-decoration: none;
-            padding: 10px 10px;
-            display: block;
-            width: 100%;
-            height: 100%;
+          @media screen and (max-width: 400px) {
+            font-size: 34px;
           }
         }
       }
-    }
 
-    .about-wrapper {
-      position: relative;
-      max-width: 830px;
-      width: 100%;
+      .about-wrapper {
+        position: relative;
+        max-width: 830px;
+        width: 100%;
+        margin: 0 auto;
+        text-align: center;
+        /* height: 100vh; */
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        scroll-snap-align: center;
 
-      .modal-tech-information {
-      }
-
-      @media screen and (max-width: 1040px) {
-        margin-top: 50px;
-      }
-
-      .text-1 {
-        @media screen and (max-width: 1040px) {
-          text-align: center;
+        .modal-tech-information {
         }
-      }
-
-      .profile-h1 {
-        margin: 10px 0px;
 
         @media screen and (max-width: 1040px) {
-          text-align: center;
+          margin-top: 50px;
         }
 
-        @media screen and (max-width: 400px) {
-          font-size: 34px;
-        }
-      }
+        .profession {
+          font-size: 20px;
+          @media screen and (max-width: 1040px) {
+            text-align: center;
+          }
 
-      .profession {
-        font-size: 20px;
-        @media screen and (max-width: 1040px) {
-          text-align: center;
+          @media screen and (max-width: 400px) {
+            font-size: 16px;
+          }
         }
 
-        @media screen and (max-width: 400px) {
-          font-size: 16px;
+        .description {
+          @media screen and (max-width: 400px) {
+            font-size: 14px;
+            line-height: 24px;
+          }
         }
-      }
 
-      .description {
-        @media screen and (max-width: 400px) {
-          font-size: 14px;
-          line-height: 24px;
+        .skills {
+          font-size: 30px;
+          font-weight: bold;
+          margin-top: 0px;
         }
-      }
 
-      .tip {
-        margin: 20px 0px 48px 0px;
+        .tip {
+          margin: 20px 0px 48px 0px;
+        }
       }
     }
   }

@@ -21,6 +21,7 @@ const StyledPost = styled.div`
     text-decoration: none;
     border-radius: 10px;
     overflow: hidden;
+    box-shadow: #ffffff 0px 0px 2px 0px;
   }
 
   .post-image-wrapper {
@@ -98,6 +99,7 @@ const StyledPost = styled.div`
       .post-category {
         font-size: 12px;
         transition: 0.2s;
+        color: #9ec0fa;
       }
     }
 
@@ -147,6 +149,7 @@ const StyledPost = styled.div`
       margin-right: 10px;
       transition: 0.2s;
       cursor: pointer;
+      color: #9ec0fa;
     }
 
     img {

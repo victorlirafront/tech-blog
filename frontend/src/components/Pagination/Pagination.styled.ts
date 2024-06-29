@@ -7,6 +7,7 @@ const StyledPagination = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
+      color: #fff;
 
       li {
         list-style: none;

@@ -4,17 +4,13 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import StyledHeader from './Header.styled';
 import AOS from 'aos';
-import { useContext } from 'react';
-import { GlobalContext } from '../../Context/pagination';
 import Image from 'next/image';
 import DarkModeToggle from '../DarkModeToggle';
 import SignIn from '../../components/googleSignIn/signIn';
 
 interface IHeaderProps {
   scrollIntoView?: () => void;
-  theme: string;
   className: string;
-  themeToggler: () => void;
 }
 
 interface UrlParams {
@@ -23,8 +19,6 @@ interface UrlParams {
 }
 
 const Header = function (props: IHeaderProps) {
-  const { setPage } = useContext(GlobalContext);
-  const [isCategoryActive, setIsCategoryActive] = useState(false);
   const [currentTab, setCurrentTab] = useState('');
   const [openMobileMenu, setOpenMobileMenu] = useState(false);
   const router = useRouter();
@@ -54,10 +48,18 @@ const Header = function (props: IHeaderProps) {
   }, [urlParams, router]);
 
   const menuToggleBaseOnUrl = useCallback(() => {
-    if (currentUrl.includes('AboutMe')) {
+    if (currentUrl.includes('all')) {
+      setCurrentTab('all');
+    } else if (currentUrl.includes('javascript')) {
+      setCurrentTab('javascript');
+    } else if (currentUrl.includes('react')) {
+      setCurrentTab('react');
+    } else if (currentUrl.includes('AboutMe')) {
       setCurrentTab('about');
+    } else if (currentUrl.includes('typescript')) {
+      setCurrentTab('typescript');
     } else {
-      setCurrentTab('blog');
+      setCurrentTab('all');
     }
   }, [currentUrl, setCurrentTab]);
 
@@ -72,17 +74,6 @@ const Header = function (props: IHeaderProps) {
     };
     updateWindowWidth();
   }, [menuToggleBaseOnUrl]);
-
-  const categoryToggle = function (e: React.MouseEvent<HTMLDivElement, MouseEvent>) {
-    setIsCategoryActive(!isCategoryActive);
-
-    if ((e.target as HTMLElement).classList.contains('option')) {
-      setPage(2);
-    }
-  };
-  const menuTab = function (currentPage: string) {
-    setCurrentTab(currentPage);
-  };
 
   const showMobileMenu = function () {
     setOpenMobileMenu(true);
@@ -110,20 +101,8 @@ const Header = function (props: IHeaderProps) {
     setOpenMobileMenu(false);
   };
 
-  const menuHandler = function (menuOption: string) {
-    hideMobileMenu();
-    menuTab(menuOption);
-  };
-
-  const goBackToHomePage = function(){
-    categoryOptionHandler("1", "all")
-  }
-
-  const deg = !isCategoryActive ? '-180deg' : '0deg';
-  const ctrans = `rotate(${deg}) scale(0.7)`;
-  const css = {
-    transition: '0.2s',
-    transform: ctrans,
+  const goBackToHomePage = function () {
+    categoryOptionHandler('1', 'all');
   };
 
   return shouldRender ? (
@@ -152,97 +131,38 @@ const Header = function (props: IHeaderProps) {
             <div className="div-left">
               <div
                 onClick={() => {
-                  menuHandler('blog')
-                  goBackToHomePage()
+                  goBackToHomePage();
                 }}
-                className={`anchor ${currentTab === 'blog' ? 'active' : ''}`}
+                className={`home ${currentTab === 'all' ? 'active' : ''}`}
               >
-                Blog
+                Home
               </div>
-              <div className="category" onClick={e => categoryToggle(e)}>
-                <div className="category-conteiner">
-                  <p>Category</p>
-                  <Image
-                    width={40}
-                    height={40}
-                    style={css}
-                    className={`arrow`}
-                    src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow_Qvhukz-ZL.png"
-                    alt=""
-                  />
-                </div>
-                <ul className={`category-options ${!isCategoryActive ? '' : 'active'}`}>
-                  <li className="option" onClick={() => categoryOptionHandler('1', 'all')}>
-                    <span>All</span>
-                    <Image
-                      width={10}
-                      height={10}
-                      alt="re"
-                      src={
-                        'https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow_Qvhukz-ZL.png'
-                      }
-                    />
-                  </li>
-                  <li className="option" onClick={() => categoryOptionHandler('1', 'javascript')}>
-                    <span>JavaScript</span>
-                    <Image
-                      width={10}
-                      height={10}
-                      alt="re"
-                      src={
-                        'https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow_Qvhukz-ZL.png'
-                      }
-                    />
-                  </li>
-                  <li className="option" onClick={() => categoryOptionHandler('1', 'typescript')}>
-                    <span>TypeScript</span>
-                    <Image
-                      width={10}
-                      height={10}
-                      alt="re"
-                      src={
-                        'https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow_Qvhukz-ZL.png'
-                      }
-                    />
-                  </li>
-                  <li className="option" onClick={() => categoryOptionHandler('1', 'react')}>
-                    <span>React JS</span>
-                    <Image
-                      width={10}
-                      height={10}
-                      alt="re"
-                      src={
-                        'https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow_Qvhukz-ZL.png'
-                      }
-                    />
-                  </li>
-                  <li className="option" onClick={() => categoryOptionHandler('1', 'next')}>
-                    <span>Next JS</span>
-                    <Image
-                      width={10}
-                      height={10}
-                      alt="re"
-                      src={
-                        'https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow_Qvhukz-ZL.png'
-                      }
-                    />
-                  </li>
-                </ul>
+
+              <div className="category-options">
+                <p
+                  className={`front-end-option ${currentTab === 'javascript' ? 'active' : ''}`}
+                  onClick={() => categoryOptionHandler('1', 'javascript')}
+                >
+                  Front-end
+                </p>
+                <p
+                  className={`react-option ${currentTab === 'react' ? 'active' : ''}`}
+                  onClick={() => categoryOptionHandler('1', 'react')}
+                >
+                  Carreira
+                </p>
+                <p
+                  className={`typescript-option ${currentTab === 'typescript' ? 'active' : ''}`}
+                  onClick={() => categoryOptionHandler('1', 'typescript')}
+                >
+                  Abstrações
+                </p>
               </div>
-              <Link
-                onClick={() => menuHandler('about')}
-                className={`anchor ${currentTab === 'about' ? 'active' : ''}`}
-                href="/AboutMe"
-              >
-                About me
+              <Link className={`anchor ${currentTab === 'about' ? 'active' : ''}`} href="/AboutMe">
+                Portfólio
               </Link>
             </div>
             <div className="div-right">
-              <DarkModeToggle
-                themeMode={props.theme}
-                onclick={props.themeToggler}
-                className="dark-mode"
-              ></DarkModeToggle>
               <SignIn />
             </div>
           </div>

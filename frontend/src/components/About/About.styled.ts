@@ -18,6 +18,7 @@ const StyledAbout = styled.div`
     left: 0;
     z-index: -1;
     margin-bottom: 60px;
+    background: linear-gradient(rgb(0, 0, 0), rgb(18, 18, 18));
 
     @media screen and (max-width: 767px) {
       height: calc(100vh - 60px);
@@ -194,6 +195,7 @@ const StyledAbout = styled.div`
         font-family: 'bolder-font', sans-serif;
         font-weight: bold;
         text-transform: uppercase;
+        color: #fff;
       }
 
       h1 {

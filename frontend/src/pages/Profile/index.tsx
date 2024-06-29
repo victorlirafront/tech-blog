@@ -3,11 +3,6 @@ import React, { useEffect, useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import 'aos/dist/aos.css';
-import { useTheme } from '@/Context/darkmode';
-import { lightTheme, darkTheme } from '../../components/themes/theme';
-import { ThemeProvider } from 'styled-components';
-import { GlobalStyled } from '@/components/themes/GlobalStyles';
-import { ThemeContainer } from '@/components/themes/ThemeContainer.styled';
 import { useScrollContext } from '@/Context/scrollProvider';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -35,7 +30,6 @@ interface IPost {
 }
 
 function Profile() {
-  const { theme, toggleTheme } = useTheme();
   const { scrollIntoViewHandler } = useScrollContext();
   const { favoritPosts } = useAddToFavoritsContext();
   const [currentPostArray, setCurrentPostArray] = useState<IPost[]>();
@@ -43,10 +37,6 @@ function Profile() {
     firstName: '',
     lastName: '',
   });
-
-  const themeToggler = function () {
-    toggleTheme();
-  };
 
   useEffect(() => {
     const currentUserJSON = localStorage.getItem('currentUser');
@@ -90,48 +80,38 @@ function Profile() {
           href="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/binary-code_WBpGXnWnG.png?updatedAt=1700431546132"
         />
       </Head>
-      <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
-        <GlobalStyled />
-        <ThemeContainer>
-          <Header
-            className="header"
-            theme={theme}
-            themeToggler={() => themeToggler()}
-            scrollIntoView={() => scrollIntoViewHandler()}
-          />
-          <StyledProfile data-aos="fade-down" data-aos-delay="200">
-            <h1>
-              Hello {user.firstName} {user.lastName}
-            </h1>
-            <h1> - These are your favorite posts - </h1>
-            <div className="container">
-              {currentPostArray &&
-                currentPostArray.map(post => {
-                  return (
-                    <Post
-                      style={{}}
-                      id={post.id}
-                      key={post.id}
-                      title={post.title}
-                      content={post.content}
-                      author={post.author}
-                      meta_tag_title={post.meta_tag_title}
-                      meta_tag_description={post.meta_tag_description}
-                      post_image={post.post_image}
-                      date={post.date}
-                      category={post.category}
-                      aos_delay="100"
-                      aos_type="fade-up"
-                      hover_animation={-7}
-                      onUpdateFavoritSource={updateFavoritSource(favoritPosts, post)}
-                    />
-                  );
-                })}
-            </div>
-          </StyledProfile>
-          <Footer />
-        </ThemeContainer>
-      </ThemeProvider>
+      <Header className="header" scrollIntoView={() => scrollIntoViewHandler()} />
+      <StyledProfile data-aos="fade-down" data-aos-delay="200">
+        <h1>
+          Hello {user.firstName} {user.lastName}
+        </h1>
+        <h1> - These are your favorite posts - </h1>
+        <div className="container">
+          {currentPostArray &&
+            currentPostArray.map(post => {
+              return (
+                <Post
+                  style={{}}
+                  id={post.id}
+                  key={post.id}
+                  title={post.title}
+                  content={post.content}
+                  author={post.author}
+                  meta_tag_title={post.meta_tag_title}
+                  meta_tag_description={post.meta_tag_description}
+                  post_image={post.post_image}
+                  date={post.date}
+                  category={post.category}
+                  aos_delay="100"
+                  aos_type="fade-up"
+                  hover_animation={-7}
+                  onUpdateFavoritSource={updateFavoritSource(favoritPosts, post)}
+                />
+              );
+            })}
+        </div>
+      </StyledProfile>
+      <Footer />
     </div>
   );
 }

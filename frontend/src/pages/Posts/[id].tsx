@@ -11,11 +11,7 @@ import Post from '@/components/Post';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Slider from 'react-slick';
-import { useTheme } from '@/Context/darkmode';
-import { lightTheme, darkTheme } from '../../components/themes/theme';
-import { ThemeProvider } from 'styled-components';
-import { GlobalStyled } from '@/components/themes/GlobalStyles';
-import { ThemeContainer } from '@/components/themes/ThemeContainer.styled';
+import { ThemeProvider, useTheme } from 'styled-components';
 import { useScrollContext } from '@/Context/scrollProvider';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -68,17 +64,12 @@ function Posts(props: IProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [lastPosts, setLastPost] = useState<IProps['data']>([]);
   const [settings, setSettings] = useState({});
-  const { theme, toggleTheme } = useTheme();
   const { scrollIntoViewHandler } = useScrollContext();
   const [currentPostId, setCurrentPostId] = useState('');
   const { favoritPosts } = useAddToFavoritsContext();
 
   const dateObject = new Date(props.post.date);
   const formattedDate = dateObject.toLocaleDateString();
-
-  const themeToggler = function () {
-    toggleTheme();
-  };
 
   useEffect(() => {
     const url = window.location.href;
@@ -139,124 +130,110 @@ function Posts(props: IProps) {
           href="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/binary-code_WBpGXnWnG.png?updatedAt=1700431546132"
         />
       </Head>
-      <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
-        <GlobalStyled />
-        <ThemeContainer>
-          <Header
-            className="header"
-            theme={theme}
-            themeToggler={() => themeToggler()}
-            scrollIntoView={() => scrollIntoViewHandler()}
+      <Header className="header" scrollIntoView={() => scrollIntoViewHandler()} />
+      <div className="profile" data-aos="fade-down">
+        <div className="background-image-container">
+          <LazyLoadImage
+            className="background-image"
+            src={props.post.post_background}
+            width={600}
+            height={400}
+            placeholderSrc={
+              'https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/blur-background_4vViPJ3V6.png?updatedAt=1713050797910'
+            }
+            alt="Image Alt"
           />
-          <div className="profile" data-aos="fade-down">
-            <div className="background-image-container">
-              <LazyLoadImage
-                className="background-image"
-                src={props.post.post_background}
-                width={600}
-                height={400}
-                placeholderSrc={
-                  'https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/blur-background_4vViPJ3V6.png?updatedAt=1713050797910'
-                }
-                alt="Image Alt"
-              />
-            </div>
+        </div>
 
-            <div className="body-post" data-aos="fade-up">
-              <h1 className="title">{props.post.title}</h1>
-              <p className="date">{dateFormatter(formattedDate)}</p>
-              <MarkdownRenderer> {props.post.content} </MarkdownRenderer>
-              <div className="aside-absolute">
-                <div className="content">
-                  <FacebookShareButton url="https://www.victorlirablog.com/Posts/16" title="teste">
-                    <Image
-                      src="/facebook.png"
-                      width={30}
-                      height={30}
-                      alt="facebook icon"
-                      className="img-facebook"
-                    />
-                  </FacebookShareButton>
-                  <TwitterShareButton url={`https://www.victorlirablog.com/Posts/${currentPostId}`}>
-                    <Image
-                      src="/twitter.png"
-                      width={30}
-                      height={30}
-                      alt="twitter icon"
-                      className="img-twitter"
-                    />
-                  </TwitterShareButton>
-                  <RedditShareButton url={`https://www.victorlirablog.com/Posts/${currentPostId}`}>
-                    <Image
-                      src="/reddit.png"
-                      width={30}
-                      height={30}
-                      alt="reddit icon"
-                      className="img-reddit"
-                    />
-                  </RedditShareButton>
-                  <WhatsappShareButton
-                    url={`https://www.victorlirablog.com/Posts/${currentPostId}`}
-                  >
-                    <Image
-                      src="/whatsapp.png"
-                      width={30}
-                      height={30}
-                      alt="whatsapp icon"
-                      className="img-whatsapp"
-                    />
-                  </WhatsappShareButton>
-                  <TelegramShareButton
-                    url={`https://www.victorlirablog.com/Posts/${currentPostId}`}
-                  >
-                    <Image
-                      src="/telegram.png"
-                      width={30}
-                      height={30}
-                      alt="telegram icon"
-                      className="img-telegram"
-                    />
-                  </TelegramShareButton>
-                </div>
-              </div>
-            </div>
-            <div className="writter">
-              <div className="author"></div>
-              <div className="name-container">
-                <p className="text-1">Victor Lira &nbsp; 🚀</p>
-                <p className="text-2">Content writer @victorlira_ws</p>
-              </div>
+        <div className="body-post" data-aos="fade-up">
+          <h1 className="title">{props.post.title}</h1>
+          <p className="date">{dateFormatter(formattedDate)}</p>
+          <MarkdownRenderer> {props.post.content} </MarkdownRenderer>
+          <div className="aside-absolute">
+            <div className="content">
+              <FacebookShareButton url="https://www.victorlirablog.com/Posts/16" title="teste">
+                <Image
+                  src="/facebook.png"
+                  width={30}
+                  height={30}
+                  alt="facebook icon"
+                  className="img-facebook"
+                />
+              </FacebookShareButton>
+              <TwitterShareButton url={`https://www.victorlirablog.com/Posts/${currentPostId}`}>
+                <Image
+                  src="/twitter.png"
+                  width={30}
+                  height={30}
+                  alt="twitter icon"
+                  className="img-twitter"
+                />
+              </TwitterShareButton>
+              <RedditShareButton url={`https://www.victorlirablog.com/Posts/${currentPostId}`}>
+                <Image
+                  src="/reddit.png"
+                  width={30}
+                  height={30}
+                  alt="reddit icon"
+                  className="img-reddit"
+                />
+              </RedditShareButton>
+              <WhatsappShareButton url={`https://www.victorlirablog.com/Posts/${currentPostId}`}>
+                <Image
+                  src="/whatsapp.png"
+                  width={30}
+                  height={30}
+                  alt="whatsapp icon"
+                  className="img-whatsapp"
+                />
+              </WhatsappShareButton>
+              <TelegramShareButton url={`https://www.victorlirablog.com/Posts/${currentPostId}`}>
+                <Image
+                  src="/telegram.png"
+                  width={30}
+                  height={30}
+                  alt="telegram icon"
+                  className="img-telegram"
+                />
+              </TelegramShareButton>
             </div>
           </div>
-          <h1 className="title">Last Posts</h1>
-          <div className="last-posts">
-            <Slider {...settings}>
-              {lastPosts.map((post: IProps['post']) => {
-                return (
-                  <div className="slider-content" key={post.id}>
-                    <Post
-                      id={post.id}
-                      category={post.category}
-                      content={post.content}
-                      date={post.date}
-                      meta_tag_description={post.meta_tag_description}
-                      meta_tag_title={post.meta_tag_title}
-                      title={post.title}
-                      post_image={post.post_image}
-                      author={post.author ?? 'Unknown Author'}
-                      aos_delay=""
-                      aos_type=""
-                      hover_animation={-7}
-                      onUpdateFavoritSource={updateFavoritSource(favoritPosts, post)}
-                    />
-                  </div>
-                );
-              })}
-            </Slider>
+        </div>
+        <div className="writter">
+          <div className="author"></div>
+          <div className="name-container">
+            <p className="text-1">Victor Lira &nbsp; 🚀</p>
+            <p className="text-2">Content writer @victorlira_ws</p>
           </div>
-          <Footer />
-        </ThemeContainer>
-      </ThemeProvider>
+        </div>
+      </div>
+      <h1 className="title">Last Posts</h1>
+      <div className="last-posts">
+        <Slider {...settings}>
+          {lastPosts.map((post: IProps['post']) => {
+            return (
+              <div className="slider-content" key={post.id}>
+                <Post
+                  id={post.id}
+                  category={post.category}
+                  content={post.content}
+                  date={post.date}
+                  meta_tag_description={post.meta_tag_description}
+                  meta_tag_title={post.meta_tag_title}
+                  title={post.title}
+                  post_image={post.post_image}
+                  author={post.author ?? 'Unknown Author'}
+                  aos_delay=""
+                  aos_type=""
+                  hover_animation={-7}
+                  onUpdateFavoritSource={updateFavoritSource(favoritPosts, post)}
+                />
+              </div>
+            );
+          })}
+        </Slider>
+      </div>
+      <Footer />
     </StyledPostNew>
   );
 }
