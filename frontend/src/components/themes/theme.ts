@@ -1,6 +1,6 @@
 export const lightTheme = {
   fontColor: '#000',
-  aboutBackground: '#362692',
+  aboutBackground: '#362692, #362692',
   footerBackground: '#362692',
   countryBoxShadow: '1px 3px 5px 1px #d3d3d3',
 
@@ -9,7 +9,7 @@ export const lightTheme = {
     techSliderDots: '#000',
     techSliderDotActive: '#5c47d6',
   },
-  
+
   card: {
     cardBody: '#fff',
     cardSecudaryColor: '#204c97',
@@ -48,7 +48,7 @@ export const lightTheme = {
 
 export const darkTheme = {
   fontColor: '#fff',
-  aboutBackground: '#020709',
+  aboutBackground: '#000, #121212',
   footerBackground: '#080808',
   countryBoxShadow: 'none',
 
@@ -60,8 +60,7 @@ export const darkTheme = {
 
   card: {
     cardBody: '#',
-    cardBorder: '1px solid #0497EF',
-    cardBoxShadow: '0px 0px 10px 0px #0497EF',
+    cardBoxShadow: '0px 0px 2px 0px #fff',
     cardBorderRadius: '10px',
     cardColor: '#b4b4b4',
     cardSecudaryColor: '#9ec0fa',

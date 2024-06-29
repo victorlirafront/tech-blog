@@ -64,13 +64,11 @@ export const GlobalStyled = createGlobalStyle<IProps>`
             max-width: 1200px;
 
             nav {
-                background-color: ${props =>
-                  props.theme.header.headerBackground};
+                background-color: ${props => props.theme.header.headerBackground};
                 color: ${props => props.theme.header.headerColor};
 
                 .menu-wrapper {
-                    background-color: ${props =>
-                      props.theme.header.headerBackground};
+                    background-color: ${props => props.theme.header.headerBackground};
                 }
             }
         }
@@ -144,8 +142,7 @@ export const GlobalStyled = createGlobalStyle<IProps>`
 
             .card-image {
                 border: ${props => props.theme.profile.profileBorderCardImage};
-                box-shadow: ${props =>
-                  props.theme.profile.profileBoxShadowCardImage};
+                box-shadow: ${props => props.theme.profile.profileBoxShadowCardImage};
             }
 
             .button-wrapper {
@@ -158,16 +155,12 @@ export const GlobalStyled = createGlobalStyle<IProps>`
                 }
 
                 .download-wrapper {
-                    border: ${props =>
-                      props.theme.profile.profileDownloadResumeButton};
-                    background: ${props =>
-                      props.theme.profile.profileDownloadBackground};
-                    box-shadow: ${props =>
-                      props.theme.profile.profileDownloadResumeBoxShadow};
+                    border: ${props => props.theme.profile.profileDownloadResumeButton};
+                    background: ${props => props.theme.profile.profileDownloadBackground};
+                    box-shadow: ${props => props.theme.profile.profileDownloadResumeBoxShadow};
 
                     .download-btn {
-                        color: ${props =>
-                          props.theme.profile.profileDownloadColor};
+                        color: ${props => props.theme.profile.profileDownloadColor};
                     }
                 }
             }
@@ -182,15 +175,13 @@ export const GlobalStyled = createGlobalStyle<IProps>`
                 li {
                     button {
                         &::after {
-                            color: ${props =>
-                              props.theme.techSlider.techSliderDots};
+                            color: ${props => props.theme.techSlider.techSliderDots};
                         }
                     }
                     &.slick-active {
                         &::after {
                             /* color: #0beeb2; */
-                            color:${props =>
-                              props.theme.techSlider.techSliderDotActive};
+                            color:${props => props.theme.techSlider.techSliderDotActive};
                         }
             }
                 }
@@ -210,8 +201,7 @@ export const GlobalStyled = createGlobalStyle<IProps>`
         }
 
         img {
-            background: ${props =>
-              props.theme.bodyTheme.bodyPostImageBackground};
+            background: ${props => props.theme.bodyTheme.bodyPostImageBackground};
         }
     }
 
@@ -220,11 +210,9 @@ export const GlobalStyled = createGlobalStyle<IProps>`
     }
 
     .writter {
-        border-color: ${props =>
-          props.theme.bodyTheme.bodyPostWriterBorderColor};
+        border-color: ${props => props.theme.bodyTheme.bodyPostWriterBorderColor};
         .author {
-            border:1px solid ${props =>
-              props.theme.bodyTheme.bodyPostMainWriterBorderColor};
+            border:1px solid ${props => props.theme.bodyTheme.bodyPostMainWriterBorderColor};
         }
 
         .name-container {
@@ -253,7 +241,7 @@ export const GlobalStyled = createGlobalStyle<IProps>`
     }
 
     .area {
-        background-color:  ${props => props.theme.aboutBackground};
+        background: linear-gradient(${props => props.theme.aboutBackground});
     }
 
     .pagination {

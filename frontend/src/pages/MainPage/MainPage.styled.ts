@@ -19,7 +19,6 @@ const StyledMainPage = styled.div`
     align-items: center;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    padding-top: 60px;
   }
 `;
 

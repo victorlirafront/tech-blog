@@ -8,13 +8,16 @@ const StyledAbout = styled.div`
       url('bold-2.oft') format('woff');
     font-style: normal; /* Estilo da fonte, ajuste conforme necessário */
   }
+
   position: relative;
+
   .area {
     width: 100%;
-    height: 500px;
+    height: 440px;
     top: 0;
     left: 0;
     z-index: -1;
+    margin-bottom: 60px;
 
     @media screen and (max-width: 767px) {
       height: calc(100vh - 60px);
