@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 const StyledSlickTech = styled.div`
   //slick dots
+  width: 100%;
   .slick-dots {
     @media screen and (max-width: 453px) {
       bottom: -75px;

@@ -7,7 +7,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import { MouseEvent } from 'react';
 
 interface Iprops {
-  onClick: (e: MouseEvent) => void
+  onClick: (e: MouseEvent) => void;
 }
 
 const SimpleSlider = (props: Iprops) => {
@@ -15,7 +15,7 @@ const SimpleSlider = (props: Iprops) => {
     dots: true,
     infinite: true,
     speed: 400,
-    slidesToShow: 4,
+    slidesToShow: 5,
     slidesToScroll: 2,
     autoplay: true,
     responsive: [

@@ -100,8 +100,12 @@ export const StyledSlickTechWrapper = styled.div`
   height: 100vh;
   visibility: hidden;
   top: 50%;
-  right: 50%;
+  right: 60%;
   transform: translate(50%, -50%);
+
+  @media screen and (max-width: 1035px) {
+    right: 50%;
+  }
 
   @media screen and (max-width: 1286px) {
     width: 100vw;

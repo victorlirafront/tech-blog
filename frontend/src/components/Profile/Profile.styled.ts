@@ -7,6 +7,7 @@ const Profile = styled.div`
   background-color: #151515;
   border: 2px solid #1f1f1f;
   max-width: 1400px;
+  margin-top: 30px;
 
   @media screen and (max-width: 450px) {
     padding: 20px;
@@ -40,9 +41,15 @@ const Profile = styled.div`
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      margin-right: 30px;
+
+      @media screen and (max-width: 1040px) {
+        margin-right: unset;
+      }
 
       .card-image {
-        border-radius: 100%;
+        border: 2px solid #1f1f1f;
+        border-radius: 5px;
         width: 250px;
         height: 250px;
         background-image: url(https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/profile-1_feYey8V23.jpeg?updatedAt=1712709533286);
@@ -123,7 +130,7 @@ const Profile = styled.div`
 
     .about-wrapper {
       position: relative;
-      max-width: 550px;
+      max-width: 830px;
       width: 100%;
 
       .modal-tech-information {

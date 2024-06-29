@@ -141,8 +141,8 @@ export const GlobalStyled = createGlobalStyle<IProps>`
             }
 
             .card-image {
-                border: ${props => props.theme.profile.profileBorderCardImage};
-                box-shadow: ${props => props.theme.profile.profileBoxShadowCardImage};
+                /* border: ${props => props.theme.profile.profileBorderCardImage};
+                box-shadow: ${props => props.theme.profile.profileBoxShadowCardImage}; */
             }
 
             .button-wrapper {
