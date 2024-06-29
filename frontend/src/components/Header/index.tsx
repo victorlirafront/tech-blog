@@ -87,14 +87,14 @@ const Header = function (props: IHeaderProps) {
 
     hideMobileMenu();
 
-    const handleRouteChangeComplete = () => {
-      if (props && props.scrollIntoView) {
-        props.scrollIntoView();
-      }
-      router.events.off('routeChangeComplete', handleRouteChangeComplete);
-    };
+    // const handleRouteChangeComplete = () => {
+    //   if (props && props.scrollIntoView) {
+    //     props.scrollIntoView();
+    //   }
+    //   router.events.off('routeChangeComplete', handleRouteChangeComplete);
+    // };
 
-    router.events.on('routeChangeComplete', handleRouteChangeComplete);
+    // router.events.on('routeChangeComplete', handleRouteChangeComplete);
   };
 
   const hideMobileMenu = function () {

@@ -32,7 +32,23 @@ const Profile = function (props: IProfile) {
           <Header className="header" scrollIntoView={() => scrollIntoViewHandler()} />
 
           <div className="profile-wrapper" data-aos="fade-right">
-            <div className="card-image"></div>
+            <div className="card-wrapper">
+              <Image
+                src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/profile-1_feYey8V23.jpeg?updatedAt=1712709533286"
+                alt="teste"
+                width={100}
+                height={100}
+                className="card-image"
+              />
+              <Image
+                className="circle"
+                src={'/profile-circle.png'}
+                width={100}
+                height={100}
+                alt="teste"
+              />
+            </div>
+
             <div className="name-box">
               <h1 className="name">Victor Lira</h1>
               <Image src={'/verify.png'} width={20} height={20} alt="teste" />

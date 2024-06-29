@@ -46,6 +46,7 @@ const Profile = styled.div`
     overflow: scroll;
     scroll-snap-type: y mandatory;
     width: 100vw;
+    background: linear-gradient(rgb(0, 0, 0), rgb(18, 18, 18));
 
     .item {
       border-bottom: 1px solid white;
@@ -77,18 +78,38 @@ const Profile = styled.div`
           margin-right: unset;
         }
 
-        .card-image {
-          border: 2px solid #1f1f1f;
-          border-radius: 5px;
-          width: 250px;
-          height: 250px;
-          background-image: url(https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/profile-1_feYey8V23.jpeg?updatedAt=1712709533286);
-          background-size: cover;
+        .card-wrapper {
+          position: relative;
+          width: 270px;
+          height: 270px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
           border-radius: 100%;
 
-          @media screen and (max-width: 767px) {
-            width: 170px;
-            height: 170px;
+          .card-image {
+            /* border: 2px solid #1f1f1f;
+            border-radius: 5px;
+            width: 250px;
+            height: 250px;
+            background-image: url();
+            background-size: cover;
+            border-radius: 100%; */
+            width: 200px;
+            height: 200px;
+            border-radius: 100%;
+
+            @media screen and (max-width: 767px) {
+              width: 170px;
+              height: 170px;
+            }
+          }
+
+          .circle {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
           }
         }
 
@@ -114,12 +135,22 @@ const Profile = styled.div`
             font-size: 18px;
             letter-spacing: 4px;
             text-align: center;
+            /* background-size: 100%;
+            background-image: linear-gradient(135deg, #80ffea 0%, #8aff80 100%);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            -webkit-box-decoration-break: clone; */
           }
 
           span:last-child {
             font-size: 80px;
             line-height: 80px;
             font-weight: 700;
+            background-size: 100%;
+            background-image: linear-gradient(135deg, #80ffea 0%, #8aff80 100%);
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            -webkit-box-decoration-break: clone;
           }
 
           @media screen and (max-width: 1040px) {

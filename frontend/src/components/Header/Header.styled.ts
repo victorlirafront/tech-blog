@@ -5,7 +5,7 @@ const StyledHeader = styled.header`
   padding: 20px 60px;
   margin: 0 auto;
   z-index: 3;
-  background: #121212 !important;
+  background: #000;
 
   @media screen and (max-width: 500px) {
     padding: 10px 20px;
