@@ -13,7 +13,7 @@ const StyledAbout = styled.div`
 
   .area {
     width: 100%;
-    height: 440px;
+    height: 350px;
     top: 0;
     left: 0;
     z-index: -1;
@@ -46,7 +46,7 @@ const StyledAbout = styled.div`
           width: 20px;
           height: 20px;
           animation-delay: 0s;
-          background-color: #0edba4;
+          background-color: #ffffff4d;
         }
 
         &:nth-child(2) {
@@ -55,7 +55,7 @@ const StyledAbout = styled.div`
           height: 20px;
           animation-delay: 2s;
           animation-duration: 7s;
-          background-color: #0edba4;
+          background-color: #ffffff4d;
         }
 
         &:nth-child(3) {
@@ -63,7 +63,7 @@ const StyledAbout = styled.div`
           width: 20px;
           height: 20px;
           animation-delay: 4s;
-          background-color: #0edba4;
+          background-color: #ffffff4d;
         }
 
         &:nth-child(4) {
@@ -79,7 +79,7 @@ const StyledAbout = styled.div`
           width: 20px;
           height: 20px;
           animation-delay: 0s;
-          background-color: #0edba4;
+          background-color: #ffffff4d;
         }
 
         &:nth-child(6) {
@@ -110,7 +110,7 @@ const StyledAbout = styled.div`
           height: 15px;
           animation-delay: 1s;
           animation-duration: 7s;
-          background-color: #0edba4;
+          background-color: #ffffff4d;
         }
 
         &:nth-child(10) {
@@ -171,28 +171,33 @@ const StyledAbout = styled.div`
           font-size: 25px;
         }
 
+        .name {
+          color: rgba(255, 255, 255, 0.9);
+          font-size: 14px;
+          white-space: nowrap;
+          font-family: 'bolder-font', sans-serif;
+          font-weight: bold;
+          text-transform: uppercase;
+        }
+
         img {
-          width: 20px;
-          height: 20px;
+          width: 15px;
+          height: 15px;
           margin-left: 10px;
         }
       }
 
-      p {
-        color: rgba(255, 255, 255, 0.9);
-        font-size: 25px;
+      .profession {
+        font-size: 20px;
+        margin-top: 40px;
         white-space: nowrap;
         font-family: 'bolder-font', sans-serif;
         font-weight: bold;
         text-transform: uppercase;
-
-        &.profession {
-          margin-top: 40px;
-        }
       }
 
       h1 {
-        font-size: 80px;
+        font-size: 70px;
         background-size: 0.25rem 0.25rem;
         -webkit-background-clip: text;
         background-clip: text;

@@ -28,7 +28,7 @@ const About = function () {
       <div className="wrapper">
         <div id="div-mask-front">
           <div className="writter">
-            <p>Victor Lira</p>
+            <p className="name">Victor Lira</p>
             <Image src="/verify.png" width={30} height={30} alt="teste" />
           </div>
           <h1>
