@@ -11,7 +11,6 @@ import Post from '@/components/Post';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Slider from 'react-slick';
-import { ThemeProvider, useTheme } from 'styled-components';
 import { useScrollContext } from '@/Context/scrollProvider';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';

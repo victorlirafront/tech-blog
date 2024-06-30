@@ -6,7 +6,7 @@ import StyledHeader from './Header.styled';
 import AOS from 'aos';
 import Image from 'next/image';
 import SignIn from '../GoogleSignIn/signIn';
-import { IHeaderProps, UrlParams } from './interface';
+import { IHeaderProps, UrlParams } from './Interface';
 
 const Header = function (props: IHeaderProps) {
   const [currentTab, setCurrentTab] = useState('');

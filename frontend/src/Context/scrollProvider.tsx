@@ -35,9 +35,5 @@ export const ScrollProvider: React.FC<ScrollProviderProps> = ({ children }) => {
     containerRef,
   };
 
-  return (
-    <ScrollContext.Provider value={contextValue}>
-      {children}
-    </ScrollContext.Provider>
-  );
+  return <ScrollContext.Provider value={contextValue}>{children}</ScrollContext.Provider>;
 };

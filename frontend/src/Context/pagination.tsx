@@ -1,12 +1,6 @@
 'use client';
 
-import {
-  createContext,
-  useContext,
-  Dispatch,
-  SetStateAction,
-  useState,
-} from 'react';
+import { createContext, useContext, Dispatch, SetStateAction, useState } from 'react';
 import React from 'react';
 
 interface ContextProps {
@@ -23,16 +17,12 @@ export const GlobalContext = createContext<ContextProps>({
   setTotalPages: (): number => 1,
 });
 
-export const GlobalContextProvider: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
+export const GlobalContextProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
 
   return (
-    <GlobalContext.Provider
-      value={{ page, setPage, totalPages, setTotalPages }}
-    >
+    <GlobalContext.Provider value={{ page, setPage, totalPages, setTotalPages }}>
       {children}
     </GlobalContext.Provider>
   );

@@ -15,7 +15,6 @@ import AOS from 'aos';
 import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 import { useAddToFavoritsContext } from '@/Context/addToFavorits';
 import { updateFavoritSource } from '@/utils/resusableFunctions';
-import { useTheme } from 'styled-components';
 
 interface IPost {
   id: number;
