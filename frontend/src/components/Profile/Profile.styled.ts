@@ -116,6 +116,7 @@ const Profile = styled.div`
         .name-box {
           display: flex;
           align-items: center;
+          margin-right: -20px;
 
           .name {
             margin-right: 10px;

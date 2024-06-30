@@ -25,8 +25,8 @@ const Profile = function (props: IProfile) {
         <div className="item">
           <Header className="header" scrollIntoView={() => scrollIntoViewHandler()} />
 
-          <div className="profile-wrapper" data-aos="fade-right">
-            <div className="card-wrapper">
+          <div className="profile-wrapper">
+            <div className="card-wrapper" data-aos="fade-down" data-aos-delay="100">
               <Image
                 src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/profile-1_feYey8V23.jpeg?updatedAt=1712709533286"
                 alt="teste"
@@ -43,11 +43,11 @@ const Profile = function (props: IProfile) {
               />
             </div>
 
-            <div className="name-box">
+            <div className="name-box" data-aos="fade-down" data-aos-delay="200">
               <h1 className="name">Victor Lira</h1>
               <Image src={'/verify.png'} width={20} height={20} alt="teste" />
             </div>
-            <h1 className="profile-h1">
+            <h1 className="profile-h1" data-aos="fade-down" data-aos-delay="250">
               <span>DESENVOLVENDO SOLUÇÕES PARA</span> <br />
               <span>o amanhã</span>
             </h1>

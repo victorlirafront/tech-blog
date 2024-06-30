@@ -9,7 +9,7 @@ const About = function () {
   const codeClosing = '/ >';
 
   return (
-    <StyledAbout data-aos="fade-down" data-aos-delay="200">
+    <StyledAbout>
       <div className="area">
         <ul className="circles">
           <li></li>
@@ -27,21 +27,25 @@ const About = function () {
 
       <div className="wrapper">
         <div id="div-mask-front">
-          <div className="writter">
+          <div className="writter" data-aos="fade-down" data-aos-delay="200">
             <p className="name">Victor Lira</p>
             <Image src="/verify.png" width={30} height={30} alt="teste" />
           </div>
-          <h1>
+          <h1 data-aos="fade-down" data-aos-delay="250">
             <span>{codeOpening}</span> {heading} <span>{codeClosing}</span>
           </h1>
-          <p className="profession">Front-end Developer</p>
-          <Image
-            className="arrow-down"
-            width={50}
-            height={40}
-            alt="teste"
-            src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow-down_R_O49Lmno.webp?updatedAt=1708117050694"
-          />
+          <p className="profession" data-aos="fade-down" data-aos-delay="300">
+            Front-end Developer
+          </p>
+          <div data-aos="fade-down" data-aos-delay="350" data-aos-offset="10">
+            <Image
+              className="arrow-down"
+              width={50}
+              height={40}
+              alt="teste"
+              src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow-down_R_O49Lmno.webp?updatedAt=1708117050694"
+            />
+          </div>
         </div>
       </div>
     </StyledAbout>
