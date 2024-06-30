@@ -12,6 +12,7 @@ const StyledProfile = styled.div`
   text-align: center;
   padding-top: 60px;
   background: linear-gradient(rgb(0, 0, 0), rgb(18, 18, 18));
+  min-height: 100vh;
 
   .favorit-post-title {
     font-size: 48px;

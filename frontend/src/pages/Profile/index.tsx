@@ -66,7 +66,9 @@ function Profile() {
       return null;
     }
 
-    fetchData('https://blog-tau-rosy-55.vercel.app/api/get?page=1&limit=9999&category=all');
+    fetchData(
+      'https://blog-git-main-victorlirafront.vercel.app/api/get?page=1&limit=9999&category=all',
+    );
   }, [favoritPosts]);
 
   return (
