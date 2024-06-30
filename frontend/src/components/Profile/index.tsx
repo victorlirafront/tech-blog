@@ -6,6 +6,7 @@ import React from 'react';
 import { MouseEvent } from 'react';
 import { useScrollContext } from '@/Context/scrollProvider';
 import { IProfile } from './Interface';
+import SlickProjects from '../SlickProjects';
 
 const Profile = function (props: IProfile) {
   const { scrollIntoViewHandler } = useScrollContext();
@@ -54,9 +55,7 @@ const Profile = function (props: IProfile) {
           </div>
         </div>
         <div className="item item-1">
-          <h1>
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita quis minima impedit
-          </h1>
+          <SlickProjects onClick={() => console.log('slick projects')} />
         </div>
         <div className="item">
           <div className="about-wrapper">

@@ -1,52 +1,15 @@
 import styled from 'styled-components';
 
 const Profile = styled.div`
-  /* max-width: 90%; */
   margin: 0 auto;
-  /* padding: 20px 60px; */
-  /* background-color: #151515; */
-  /* border: 2px solid #1f1f1f; */
-  /* max-width: 1400px; */
-  /* margin-top: 30px; */
-
-  @media screen and (max-width: 450px) {
-    padding: 20px;
-  }
-
-  .box-1 {
-    display: flex;
-    color: #fff;
-    justify-content: space-between;
-    /* padding: 60px 30px; */
-    border-radius: 4px;
-    max-width: 1200px;
-    margin: 0 auto;
-    flex-direction: column;
-
-    @media screen and (max-width: 1040px) {
-      flex-direction: column;
-      align-items: center;
-    }
-
-    @media screen and (max-width: 767px) {
-      padding: 30px;
-    }
-
-    @media screen and (max-width: 453px) {
-      padding: 30px 10px;
-      padding-bottom: 100px;
-    }
-
-    //container
-    scroll-snap-type: y;
-  }
+  background: linear-gradient(rgb(0, 0, 0), rgb(18, 18, 18));
 
   .container-vh {
     max-height: 100vh;
     overflow: scroll;
     /* scroll-snap-type: y mandatory; */
-    width: 100vw;
-    background: linear-gradient(rgb(0, 0, 0), rgb(18, 18, 18));
+    width: 1200px;
+    margin: 0 auto;
 
     .item {
       border-bottom: 1px solid white;
