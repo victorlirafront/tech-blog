@@ -44,7 +44,7 @@ const Profile = styled.div`
   .container-vh {
     max-height: 100vh;
     overflow: scroll;
-    scroll-snap-type: y mandatory;
+    /* scroll-snap-type: y mandatory; */
     width: 100vw;
     background: linear-gradient(rgb(0, 0, 0), rgb(18, 18, 18));
 

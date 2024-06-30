@@ -1,17 +1,11 @@
 import StyledAboutMe from './Profile.styled';
-import { useState } from 'react';
 import SlideTech from '@/components/SlickTech';
 import Header from '../Header';
 import Image from 'next/image';
 import React from 'react';
 import { MouseEvent } from 'react';
 import { useScrollContext } from '@/Context/scrollProvider';
-import { useTheme } from 'styled-components';
-
-interface IProfile {
-  className: string;
-  onShowTechInformationHandler: (arg: HTMLElement) => void;
-}
+import { IProfile } from './Interface';
 
 const Profile = function (props: IProfile) {
   const { scrollIntoViewHandler } = useScrollContext();
@@ -60,7 +54,9 @@ const Profile = function (props: IProfile) {
           </div>
         </div>
         <div className="item item-1">
-          <h1>Principais projetos</h1>
+          <h1>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Expedita quis minima impedit
+          </h1>
         </div>
         <div className="item">
           <div className="about-wrapper">

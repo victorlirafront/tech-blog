@@ -4,11 +4,7 @@ import Image from 'next/image';
 import StyledSlickTech from './SlickTech.styled';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { MouseEvent } from 'react';
-
-interface Iprops {
-  onClick: (e: MouseEvent) => void;
-}
+import { Iprops } from './Interface';
 
 const SimpleSlider = (props: Iprops) => {
   const [settings] = useState({

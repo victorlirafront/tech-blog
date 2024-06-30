@@ -6,7 +6,7 @@ const StyledAbout = styled.div`
     font-family: 'bolder-font';
     src: local('Sua Fonte'), local('bolder-font'), url('bold-1.ttf') format('woff2'),
       url('bold-2.oft') format('woff');
-    font-style: normal; /* Estilo da fonte, ajuste conforme necessário */
+    font-style: normal;
   }
 
   position: relative;

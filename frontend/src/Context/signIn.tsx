@@ -1,4 +1,4 @@
-import { auth, provider } from '@/components/googleSignIn/config';
+import { auth, provider } from '../config/firebase';
 import { signInWithPopup } from 'firebase/auth';
 import React, { createContext, ReactNode, useContext, useState, useEffect } from 'react';
 
@@ -12,14 +12,14 @@ interface IUser {
 interface ISignIn {
   handleClick: () => void;
   user: IUser | null;
-  isloggedIn: boolean
+  isloggedIn: boolean;
 }
 
 const SignInContext = createContext<ISignIn | undefined>(undefined);
 
 export const SignInProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<IUser | null>(null);
-  const [isloggedIn, setIsLoggedIn] = useState<boolean>(false)
+  const [isloggedIn, setIsLoggedIn] = useState<boolean>(false);
 
   const handleClick = async () => {
     try {
@@ -34,7 +34,7 @@ export const SignInProvider = ({ children }: { children: ReactNode }) => {
       if (!currentUser) return;
 
       setUser(currentUser);
-      setIsLoggedIn(true)
+      setIsLoggedIn(true);
       const currentUserJSON = JSON.stringify(currentUser);
       localStorage.setItem('currentUser', currentUserJSON);
     } catch (error) {
@@ -47,13 +47,17 @@ export const SignInProvider = ({ children }: { children: ReactNode }) => {
     if (currentUserJSON) {
       const currentUser: IUser = JSON.parse(currentUserJSON);
       setUser(currentUser);
-      setIsLoggedIn(true)
-    }else {
-      setIsLoggedIn(false)
+      setIsLoggedIn(true);
+    } else {
+      setIsLoggedIn(false);
     }
   }, []);
 
-  return <SignInContext.Provider value={{ handleClick, user, isloggedIn }}>{children}</SignInContext.Provider>;
+  return (
+    <SignInContext.Provider value={{ handleClick, user, isloggedIn }}>
+      {children}
+    </SignInContext.Provider>
+  );
 };
 
 export const useSignInContext = () => {

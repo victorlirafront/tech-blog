@@ -5,18 +5,8 @@ import Link from 'next/link';
 import StyledHeader from './Header.styled';
 import AOS from 'aos';
 import Image from 'next/image';
-import DarkModeToggle from '../DarkModeToggle';
-import SignIn from '../../components/googleSignIn/signIn';
-
-interface IHeaderProps {
-  scrollIntoView?: () => void;
-  className: string;
-}
-
-interface UrlParams {
-  page: string;
-  category: string;
-}
+import SignIn from '../GoogleSignIn/signIn';
+import { IHeaderProps, UrlParams } from './interface';
 
 const Header = function (props: IHeaderProps) {
   const [currentTab, setCurrentTab] = useState('');
