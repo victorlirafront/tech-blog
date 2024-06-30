@@ -62,7 +62,7 @@ export const AddToFavoritsProvider = ({ children }: { children: ReactNode }) => 
     }
 
     savePostToFavorits(favoritPosts);
-  }, [currentPostId, favoritPosts]);
+  }, [currentPostId]);
 
   useEffect(() => {
     if (!favoritPosts) return; //FIX IT
