@@ -7,18 +7,28 @@ const Profile = styled.div`
   .container-vh {
     max-height: 100vh;
     overflow: scroll;
-    /* scroll-snap-type: y mandatory; */
-    width: 1200px;
     margin: 0 auto;
 
     .item {
-      border-bottom: 1px solid white;
       color: #fff;
       display: flex;
       align-items: center;
       height: 100vh;
       scroll-snap-align: center;
       position: relative;
+
+      &.item-1 {
+        height: 600px;
+      }
+
+      &.item-2 {
+        height: 600px;
+      }
+
+      &.item-3 {
+        height: 600px;
+      }
+
       .header {
         max-width: 1200px;
         padding-left: 0;
@@ -169,6 +179,14 @@ const Profile = styled.div`
           font-size: 30px;
           font-weight: bold;
           margin-top: 0px;
+          background-size: 100%;
+          background-image: linear-gradient(135deg, #80ffea 0%, #8aff80 100%);
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          -webkit-box-decoration-break: clone;
+          font-size: 40px;
+          line-height: 80px;
+          font-weight: 700;
         }
 
         .tip {

@@ -41,134 +41,58 @@ const SlickProjects = (props: Iprops) => {
 
   return (
     <StyledSlickTech onClick={props.onClick}>
-      <div className="arrows-containers"></div>
-
+      <div className="arrows-containers">
+        <h1>Projetos</h1>
+        <p>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque amet dolores saepe
+          exercitationem! Molestias impedit ipsa eius suscipit nemo modi velit! Corrupti obcaecati
+        </p>
+      </div>
       <Slider {...settings}>
         <div className="slider-container">
           <div className="slider-box next">
-            <Image
-              loading="lazy"
-              width={100}
-              height={75}
-              className="slide-image"
-              src="/next.png"
-              alt=""
-              data-tech="Next JS"
-            />
-            <p className="text">Next JS</p>
+            <h1>teste</h1>
           </div>
         </div>
         <div className="slider-container">
           <div className="slider-box react">
-            <Image
-              loading="lazy"
-              width={100}
-              height={75}
-              className="slide-image"
-              src="/react.png"
-              alt=""
-              data-tech="React JS"
-            />
-            <p className="text">React</p>
+            <h1>teste</h1>
           </div>
         </div>
         <div className="slider-container">
           <div className="slider-box typescript">
-            <Image
-              loading="lazy"
-              width={100}
-              height={75}
-              className="slide-image"
-              src="/typescript.png"
-              alt=""
-              data-tech="TypeScript"
-            />
-            <p className="text">TypeScript</p>
+            <h1>teste</h1>
           </div>
         </div>
         <div className="slider-container">
           <div className="slider-box javascript">
-            <Image
-              loading="lazy"
-              width={100}
-              height={75}
-              className="slide-image"
-              src="/javascript.png"
-              alt=""
-              data-tech="JavaScript"
-            />
-            <p className="text">JavaScript</p>
+            <h1>teste</h1>
           </div>
         </div>
         <div className="slider-container">
           <div className="slider-box styled-components">
-            <Image
-              loading="lazy"
-              width={100}
-              height={75}
-              className="slide-image"
-              src="/styled-components.png"
-              alt=""
-              data-tech="Styled Components"
-            />
-            <p className="text">Styled Components</p>
+            <h1>teste</h1>
           </div>
         </div>
         <div className="slider-container">
           <div className="slider-box sass">
-            <Image
-              loading="lazy"
-              width={100}
-              height={75}
-              className="slide-image"
-              src="/sass.png"
-              alt=""
-              data-tech="SASS"
-            />
-            <p className="text">SASS</p>
+            <h1>teste</h1>
           </div>
         </div>
 
         <div className="slider-container">
           <div className="slider-box html">
-            <Image
-              loading="lazy"
-              width={100}
-              height={75}
-              className="slide-image"
-              src="/html.png"
-              alt=""
-              data-tech="HTML"
-            />
-            <p className="text">HTML</p>
+            <h1>teste</h1>
           </div>
         </div>
         <div className="slider-container">
           <div className="slider-box css">
-            <Image
-              loading="lazy"
-              width={100}
-              height={75}
-              className="slide-image"
-              src="/css.png"
-              alt=""
-              data-tech="CSS"
-            />
-            <p className="text">CSS</p>
+            <h1>teste</h1>
           </div>
         </div>
         <div className="slider-container">
           <div className="slider-box css">
-            <Image
-              loading="lazy"
-              width={100}
-              height={75}
-              className="slide-image"
-              src="/jest.png"
-              alt=""
-              data-tech="Jest"
-            />
-            <p className="text">Jest</p>
+            <h1>teste</h1>
           </div>
         </div>
       </Slider>

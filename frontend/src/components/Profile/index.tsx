@@ -57,7 +57,7 @@ const Profile = function (props: IProfile) {
         <div className="item item-1">
           <SlickProjects onClick={() => console.log('slick projects')} />
         </div>
-        <div className="item">
+        <div className="item item-2">
           <div className="about-wrapper">
             <p className="skills">MINHAS SKILLS E POWER UP’S</p>
 
@@ -67,7 +67,7 @@ const Profile = function (props: IProfile) {
             <SlideTech onClick={showTechInformationHandler} />
           </div>
         </div>
-        <div className="item">
+        <div className="item item-3">
           <h1>Form</h1>
         </div>
       </div>

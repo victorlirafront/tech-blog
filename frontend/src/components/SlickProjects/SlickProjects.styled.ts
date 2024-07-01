@@ -2,14 +2,22 @@ import styled from 'styled-components';
 
 const SlickProjects = styled.div`
   //slick dots
-  width: 100%;
-  height: 100%;
+  width: 1200px;
+  margin: 0 auto;
 
   .arrows-containers {
     width: 300px;
-    height: 100px;
+    height: 400px;
     border: 1px solid red;
     position: absolute;
+    padding: 30px;
+
+    p {
+      font-size: 13px;
+      letter-spacing: 2px;
+      line-height: 24px;
+      margin-top: 20px;
+    }
   }
 
   .slick-dots {
@@ -61,29 +69,58 @@ const SlickProjects = styled.div`
   //arrow
   .slick-arrow {
     display: block;
-    background: blue;
+    border: 1px solid #fff;
+    border-radius: 20px;
   }
 
   .slick-prev {
-    left: unset !important;
-    right: unset !important;
+    left: 50px;
     top: -10px !important;
+    transform: rotate(-180deg);
+    top: 300px !important;
+    width: 40px !important;
+    height: 40px !important;
+
+    &::before {
+      content: '';
+      background-image: url('../../../teste.svg');
+      display: inline-block; /* Ensure the pseudo-element takes up space */
+      width: 20px; /* Adjust the size as needed */
+      height: 20px; /* Adjust the size as needed */
+      opacity: 0.75;
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
   }
 
   .slick-next {
-    left: unset !important;
-    right: unset !important;
-    top: 10px !important;
-    background-color: red;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    left: 200px;
+    top: 320px !important;
+
+    &::before {
+      content: '';
+      background-image: url('../../../teste.svg');
+      display: inline-block; /* Ensure the pseudo-element takes up space */
+      width: 20px; /* Adjust the size as needed */
+      height: 20px; /* Adjust the size as needed */
+      opacity: 0.75;
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
   }
 
   .slick-list {
-    width: 800px;
-    position: absolute;
+    width: 900px;
     right: 0;
     border: 1px solid red;
     height: 400px;
     top: 0;
+    margin-left: 300px;
   }
 
   .slider-container {
@@ -92,9 +129,10 @@ const SlickProjects = styled.div`
       flex-direction: column;
       justify-content: flex-start;
       align-items: center;
-      width: 150px;
-      height: 130px;
+      width: 297px;
+      height: 400px;
       margin: 0 auto;
+      border: 1px solid white;
 
       .slide-image {
         width: 70px;
