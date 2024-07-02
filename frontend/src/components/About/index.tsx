@@ -42,7 +42,7 @@ const About = function () {
               className="arrow-down"
               width={50}
               height={40}
-              alt="teste"
+              alt="arrow down"
               src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow-down_R_O49Lmno.webp?updatedAt=1708117050694"
             />
           </div>

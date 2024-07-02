@@ -30,7 +30,7 @@ const Profile = function (props: IProfile) {
             <div className="card-wrapper" data-aos="fade-down" data-aos-delay="100">
               <Image
                 src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/profile-1_feYey8V23.jpeg?updatedAt=1712709533286"
-                alt="teste"
+                alt="Profile Picture"
                 width={100}
                 height={100}
                 className="card-image"
@@ -40,7 +40,7 @@ const Profile = function (props: IProfile) {
                 src={'/profile-circle.png'}
                 width={100}
                 height={100}
-                alt="teste"
+                alt="circle"
               />
             </div>
 

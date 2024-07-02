@@ -105,7 +105,7 @@ const Header = function (props: IHeaderProps) {
               height={40}
               className="header-icon"
               src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/code_2GKuQisNn.png?updatedAt=1697217597567"
-              alt=""
+              alt="header icon"
             />
           </div>
           <div className={`menu-wrapper ${openMobileMenu ? 'active' : ''}`}>
@@ -115,7 +115,7 @@ const Header = function (props: IHeaderProps) {
               onClick={() => hideMobileMenu()}
               className="close"
               src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/close_eNQqVeiw3.png?updatedAt=1703309380667"
-              alt=""
+              alt="close menu"
             />
 
             <div className="div-left">
@@ -162,7 +162,7 @@ const Header = function (props: IHeaderProps) {
             onClick={() => showMobileMenu()}
             className={`menu-hamburguer`}
             src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/hamburguer_1id8uhYeQ.png?updatedAt=1703307554746"
-            alt=""
+            alt="menu"
           />
         </nav>
       </div>

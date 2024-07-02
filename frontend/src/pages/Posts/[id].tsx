@@ -140,7 +140,7 @@ function Posts(props: IProps) {
             placeholderSrc={
               'https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/blur-background_4vViPJ3V6.png?updatedAt=1713050797910'
             }
-            alt="Image Alt"
+            alt="Blur background"
           />
         </div>
 

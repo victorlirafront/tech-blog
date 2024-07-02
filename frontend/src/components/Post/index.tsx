@@ -84,7 +84,7 @@ const Post: React.FC<IProps> = props => {
             <Image
               width={20}
               height={20}
-              alt=""
+              alt="arrow right"
               loading="lazy"
               src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow-right_eVbRRghk9.png?updatedAt=1696390413993"
             />

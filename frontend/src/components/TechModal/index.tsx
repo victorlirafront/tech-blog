@@ -23,7 +23,7 @@ const TechModal = function (props: IModal) {
             width={50}
             height={50}
             src="/error.png"
-            alt="teste"
+            alt="Error icon"
             data-aos="fade-down"
           />
         </div>

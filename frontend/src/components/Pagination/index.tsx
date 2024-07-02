@@ -53,7 +53,7 @@ const Pagination = function (props: IpropsPagination) {
               height={20}
               loading="lazy"
               src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow-right_eVbRRghk9.png?updatedAt=1696390413993"
-              alt=""
+              alt="arrow right"
             />
           </div>
         </li>
@@ -71,7 +71,7 @@ const Pagination = function (props: IpropsPagination) {
               height={20}
               loading="lazy"
               src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow-right_eVbRRghk9.png?updatedAt=1696390413993"
-              alt=""
+              alt="arrow left"
             />
           </div>
         </li>
