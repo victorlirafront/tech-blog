@@ -35,6 +35,15 @@ const Header = function (props: IHeaderProps) {
         category: urlParams.category,
       },
     });
+
+    const handleRouteChangeComplete = () => {
+      if (props && props.scrollIntoView && urlParams.category !== 'all') {
+        props.scrollIntoView();
+      }
+      router.events.off('routeChangeComplete', handleRouteChangeComplete);
+    };
+
+    router.events.on('routeChangeComplete', handleRouteChangeComplete);
   }, [urlParams, router]);
 
   const menuToggleBaseOnUrl = useCallback(() => {
@@ -76,15 +85,6 @@ const Header = function (props: IHeaderProps) {
     });
 
     hideMobileMenu();
-
-    // const handleRouteChangeComplete = () => {
-    //   if (props && props.scrollIntoView) {
-    //     props.scrollIntoView();
-    //   }
-    //   router.events.off('routeChangeComplete', handleRouteChangeComplete);
-    // };
-
-    // router.events.on('routeChangeComplete', handleRouteChangeComplete);
   };
 
   const hideMobileMenu = function () {
