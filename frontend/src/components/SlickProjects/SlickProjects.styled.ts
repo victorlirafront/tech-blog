@@ -10,7 +10,7 @@ const SlickProjects = styled.div`
     height: 400px;
     position: absolute;
     padding: 30px;
-    background: #f7414e;
+    background: linear-gradient(135deg, #182517 0%, #71cd6a 100%);
 
     p {
       font-size: 13px;
