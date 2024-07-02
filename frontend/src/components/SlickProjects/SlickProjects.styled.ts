@@ -139,11 +139,11 @@ const SlickProjects = styled.div`
       }
 
       &.project-1 {
-        border: 1px solid #00a3ff;
+        border: 1px solid #a6fb98;
       }
 
       &.project-2 {
-        border: 1px solid #e51d37;
+        border: 1px solid #a6fb98;
       }
 
       &.project-3 {
@@ -151,7 +151,7 @@ const SlickProjects = styled.div`
       }
 
       &.project-4 {
-        border: 1px solid #986dff;
+        border: 1px solid #a6fb98;
       }
 
       h1 {

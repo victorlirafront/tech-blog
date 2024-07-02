@@ -93,6 +93,7 @@ const Profile = styled.div`
 
           .name {
             margin-right: 10px;
+            margin-top: 15px;
           }
         }
 
