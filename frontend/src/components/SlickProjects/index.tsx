@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Slider from 'react-slick';
-import Image from 'next/image';
 import StyledSlickTech from './SlickProjects.styled';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -50,49 +49,35 @@ const SlickProjects = (props: Iprops) => {
       </div>
       <Slider {...settings}>
         <div className="slider-container">
-          <div className="slider-box next">
-            <h1>teste</h1>
+          <div className="slider-box project-1">
+            <h1>Em construção...</h1>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, accusantium.
+            </p>
           </div>
         </div>
         <div className="slider-container">
-          <div className="slider-box react">
-            <h1>teste</h1>
+          <div className="slider-box project-2">
+            <h1>Em construção...</h1>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, accusantium.
+            </p>
           </div>
         </div>
         <div className="slider-container">
-          <div className="slider-box typescript">
-            <h1>teste</h1>
+          <div className="slider-box project-3">
+            <h1>Em construção...</h1>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, accusantium.
+            </p>
           </div>
         </div>
         <div className="slider-container">
-          <div className="slider-box javascript">
-            <h1>teste</h1>
-          </div>
-        </div>
-        <div className="slider-container">
-          <div className="slider-box styled-components">
-            <h1>teste</h1>
-          </div>
-        </div>
-        <div className="slider-container">
-          <div className="slider-box sass">
-            <h1>teste</h1>
-          </div>
-        </div>
-
-        <div className="slider-container">
-          <div className="slider-box html">
-            <h1>teste</h1>
-          </div>
-        </div>
-        <div className="slider-container">
-          <div className="slider-box css">
-            <h1>teste</h1>
-          </div>
-        </div>
-        <div className="slider-container">
-          <div className="slider-box css">
-            <h1>teste</h1>
+          <div className="slider-box project-4">
+            <h1>Em construção...</h1>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, accusantium.
+            </p>
           </div>
         </div>
       </Slider>

@@ -8,9 +8,9 @@ const SlickProjects = styled.div`
   .arrows-containers {
     width: 300px;
     height: 400px;
-    border: 1px solid red;
     position: absolute;
     padding: 30px;
+    background: #f7414e;
 
     p {
       font-size: 13px;
@@ -115,9 +115,8 @@ const SlickProjects = styled.div`
   }
 
   .slick-list {
-    width: 900px;
+    width: 940px;
     right: 0;
-    border: 1px solid red;
     height: 400px;
     top: 0;
     margin-left: 300px;
@@ -129,106 +128,38 @@ const SlickProjects = styled.div`
       flex-direction: column;
       justify-content: flex-start;
       align-items: center;
+      justify-content: center;
       width: 297px;
       height: 400px;
       margin: 0 auto;
-      border: 1px solid white;
+      padding: 30px;
 
-      .slide-image {
-        width: 70px;
-        height: auto;
-        cursor: pointer;
+      &:not(:last-child) {
+        margin-right: 20px;
       }
 
-      &.next {
-        img {
-          width: 90px;
-        }
-
-        .text {
-          font-size: 13px;
-          margin-top: 10px;
-        }
+      &.project-1 {
+        border: 1px solid #00a3ff;
       }
 
-      &.react {
-        img {
-          width: 90px;
-        }
-        .text {
-          font-size: 13px;
-          margin-top: 10px;
-        }
+      &.project-2 {
+        border: 1px solid #e51d37;
       }
 
-      &.typescript {
-        img {
-          width: 70px;
-        }
-        .text {
-          font-size: 13px;
-          margin-top: 20px;
-        }
+      &.project-3 {
+        border: 1px solid #a6fb98;
       }
 
-      &.javascript {
-        img {
-          width: 70px;
-        }
-        .text {
-          font-size: 13px;
-          margin-top: 20px;
-        }
+      &.project-4 {
+        border: 1px solid #986dff;
       }
 
-      &.wordpress {
-        img {
-          width: 70px;
-        }
-        .text {
-          font-size: 13px;
-          margin-top: 20px;
-        }
+      h1 {
+        font-size: 26px;
       }
 
-      &.styled-components {
-        img {
-          width: 70px;
-        }
-        .text {
-          font-size: 13px;
-          margin-top: 20px;
-        }
-      }
-
-      &.html {
-        img {
-          width: 70px;
-        }
-        .text {
-          font-size: 13px;
-          margin-top: 18px;
-        }
-      }
-
-      &.sass {
-        img {
-          width: 70px;
-        }
-        .text {
-          font-size: 13px;
-          margin-top: 18px;
-        }
-      }
-
-      &.css {
-        img {
-          width: 70px;
-        }
-        .text {
-          font-size: 13px;
-          margin-top: 18px;
-        }
+      p {
+        margin: 24px 0px;
       }
     }
   }

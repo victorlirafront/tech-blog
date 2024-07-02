@@ -11,6 +11,7 @@ import axios from 'axios';
 import { useAddToFavoritsContext } from '@/Context/addToFavorits';
 import Post from '@/components/Post';
 import { updateFavoritSource } from '@/utils/resusableFunctions';
+import Image from 'next/image';
 
 interface IProfile {
   firstName: string;
@@ -85,6 +86,9 @@ function Profile() {
       <Header className="header" scrollIntoView={() => scrollIntoViewHandler()} />
       <StyledProfile data-aos="fade-down" data-aos-delay="200">
         <h1 className="favorit-post-title">These are your favorite posts</h1>
+        <div>
+          <Image src="/loading.gif" width={100} height={100} alt="teste" />
+        </div>
         <div className="container">
           {currentPostArray &&
             currentPostArray.map(post => {
