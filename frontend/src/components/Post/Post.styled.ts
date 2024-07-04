@@ -39,7 +39,7 @@ const StyledPost = styled.div`
       z-index: 20;
 
       .add-to-favorits {
-        width: 30px;
+        width: 23px;
         height: auto;
 
         @media screen and (max-width: 500px) {

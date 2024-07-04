@@ -24,6 +24,7 @@ const StyledSlickTech = styled.div`
           text-align: center;
           opacity: 0.25;
           -webkit-font-smoothing: antialiased;
+          color: rgb(255, 255, 255);
         }
       }
     }
