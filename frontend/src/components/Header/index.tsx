@@ -14,7 +14,6 @@ const Header = function (props: IHeaderProps) {
   const router = useRouter();
   const currentUrl = router.asPath;
   const [headerFadeDown, setHeaderFadeDown] = useState('fade-down');
-  const [shouldRender, setShouldRender] = useState(false);
   const [urlParams, setUrlParams] = useState<UrlParams>({
     page: '0',
     category: '',
@@ -63,7 +62,6 @@ const Header = function (props: IHeaderProps) {
   }, [currentUrl, setCurrentTab]);
 
   useEffect(() => {
-    setShouldRender(true);
     AOS.init();
     menuToggleBaseOnUrl();
     const updateWindowWidth = () => {
@@ -95,7 +93,7 @@ const Header = function (props: IHeaderProps) {
     categoryOptionHandler('1', 'all');
   };
 
-  return shouldRender ? (
+  return (
     <StyledHeader data-aos={headerFadeDown} className={props.className}>
       <div className="container">
         <nav>
@@ -167,8 +165,6 @@ const Header = function (props: IHeaderProps) {
         </nav>
       </div>
     </StyledHeader>
-  ) : (
-    <div></div>
   );
 };
 
