@@ -27,6 +27,7 @@ const Profile = styled.div`
 
       &.item-3 {
         height: 600px;
+        margin-top: 100px;
       }
 
       .header {
@@ -61,13 +62,6 @@ const Profile = styled.div`
           border-radius: 100%;
 
           .card-image {
-            /* border: 2px solid #1f1f1f;
-            border-radius: 5px;
-            width: 250px;
-            height: 250px;
-            background-image: url();
-            background-size: cover;
-            border-radius: 100%; */
             width: 200px;
             height: 200px;
             border-radius: 100%;
@@ -110,11 +104,6 @@ const Profile = styled.div`
             font-size: 18px;
             letter-spacing: 4px;
             text-align: center;
-            /* background-size: 100%;
-            background-image: linear-gradient(135deg, #80ffea 0%, #8aff80 100%);
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            -webkit-box-decoration-break: clone; */
           }
 
           span:last-child {
@@ -192,6 +181,96 @@ const Profile = styled.div`
 
         .tip {
           margin: 20px 0px 48px 0px;
+        }
+      }
+
+      .form-wrapper {
+        width: 980px;
+        margin: 0 auto;
+        color: #fff;
+        text-align: center;
+
+        .title {
+          text-align: center;
+          font-size: 60px;
+          margin-bottom: 20px;
+        }
+
+        .p-1 {
+          text-align: center;
+        }
+
+        #form {
+          .box-1 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 48px;
+          }
+
+          .box-2 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+
+          .box-3 {
+          }
+
+          .form-control {
+            padding: 10px 20px;
+            text-align: start;
+
+            &.control-1,
+            &.control-2 {
+              width: 480px;
+            }
+
+            &.control-3 {
+              width: 500px;
+            }
+            &.control-4 {
+              width: 100%;
+            }
+
+            &.control-5 {
+              width: 100%;
+            }
+
+            label {
+              white-space: nowrap;
+              text-transform: uppercase;
+            }
+
+            input {
+              border: none;
+              padding: 13px 20px;
+              width: 100%;
+              outline: none;
+              width: 100%;
+              background: #fff;
+              border-radius: 30px;
+              margin-bottom: 20px;
+              margin-top: 7px;
+              font-size: 16px;
+              color: #333;
+            }
+
+            textarea {
+              border: none;
+              padding: 13px 20px;
+              width: 100%;
+              outline: none;
+              width: 100%;
+              background: #fff;
+              border-radius: 30px;
+              margin-bottom: 20px;
+              margin-top: 7px;
+              font-size: 16px;
+              color: #333;
+              height: 200px;
+            }
+          }
         }
       }
     }

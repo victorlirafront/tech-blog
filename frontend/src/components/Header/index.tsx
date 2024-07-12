@@ -133,17 +133,18 @@ const Header = function (props: IHeaderProps) {
                 >
                   Front-end
                 </p>
-                <p
-                  className={`react-option ${currentTab === 'react' ? 'active' : ''}`}
-                  onClick={() => categoryOptionHandler('1', 'react')}
-                >
-                  Carreira
-                </p>
+
                 <p
                   className={`typescript-option ${currentTab === 'typescript' ? 'active' : ''}`}
                   onClick={() => categoryOptionHandler('1', 'typescript')}
                 >
-                  Abstrações
+                  Mobile
+                </p>
+                <p
+                  className={`react-option ${currentTab === 'react' ? 'active' : ''}`}
+                  onClick={() => categoryOptionHandler('1', 'react')}
+                >
+                  Práticas
                 </p>
               </div>
               <Link className={`anchor ${currentTab === 'about' ? 'active' : ''}`} href="/AboutMe">

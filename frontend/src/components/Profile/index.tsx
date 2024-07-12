@@ -7,6 +7,7 @@ import { MouseEvent } from 'react';
 import { useScrollContext } from '@/Context/scrollProvider';
 import { IProfile } from './Interface';
 import SlickProjects from '../SlickProjects';
+import Footer from '../Footer';
 
 const Profile = function (props: IProfile) {
   const { scrollIntoViewHandler } = useScrollContext();
@@ -68,8 +69,45 @@ const Profile = function (props: IProfile) {
           </div>
         </div>
         <div className="item item-3">
-          <h1>Form</h1>
+          <div className="form-wrapper">
+            <h1 className="title">Fale comigo</h1>
+            <p className="p-1">
+              Resta alguma dúvida? Preencha os campos abaixo com os seguintes dados que em breve
+              entraremos em contato.{' '}
+            </p>
+            <form id="form" action="">
+              <div className="box-1">
+                <div className="form-control control-1">
+                  <label>Seu Nome</label>
+                  <input type="text" placeholder="Digite aqui" />
+                </div>
+                <div className="form-control control-2">
+                  <label>e-mail</label>
+                  <input type="text" placeholder="email@example.com.br" />
+                </div>
+              </div>
+
+              <div className="box-2">
+                <div className="form-control control-3">
+                  <label>Telefone</label>
+                  <input type="tel" placeholder="( _ _ ) _ ____ ____" />
+                </div>
+                <div className="form-control control-4">
+                  <label>Assunto</label>
+                  <input type="text" placeholder="text" />
+                </div>
+              </div>
+
+              <div className="box-3">
+                <div className="form-control control-5">
+                  <label>Telefone</label>
+                  <textarea placeholder="Escreva aqui sua mensagem" />
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
+        <Footer />
       </div>
     </StyledAboutMe>
   );
