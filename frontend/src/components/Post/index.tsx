@@ -7,28 +7,17 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import Image from 'next/image';
 import { useAddToFavoritsContext } from '@/Context/addToFavorits';
-import { useSignInContext } from '@/Context/signIn';
 import { IProps } from './Interface';
 
 const Post: React.FC<IProps> = props => {
   const { addToFavoritsHandler } = useAddToFavoritsContext();
-  const { isloggedIn, handleClick } = useSignInContext();
 
   const dateObject = new Date(props.date);
   const formattedDate = dateFormatter(dateObject.toLocaleDateString());
   const router = useRouter();
 
   const handleLinkClick = async (e: React.MouseEvent) => {
-    const target = e.target as HTMLElement;
-
-    if (target.classList.contains('favorits--trigger')) {
-      if (!isloggedIn) {
-        handleClick();
-        return;
-      }
-      addToFavoritsHandler(e);
-      return;
-    }
+    addToFavoritsHandler(e);
 
     router.push({
       pathname: `/Posts/${props.id}`,

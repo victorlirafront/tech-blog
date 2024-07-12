@@ -85,11 +85,11 @@ function Profile() {
       </Head>
       <Header className="header" scrollIntoView={() => scrollIntoViewHandler()} />
       <StyledProfile data-aos="fade-down" data-aos-delay="200">
-        <h1 className="favorit-post-title">These are your favorite posts</h1>
+        {/* <h1 className="favorit-post-title">These are your favorite posts</h1>
         <div>
           <Image src="/loading.gif" width={100} height={100} alt="teste" />
-        </div>
-        <div className="container">
+        </div> */}
+        {/* <div className="container">
           {currentPostArray &&
             currentPostArray.map(post => {
               return (
@@ -112,7 +112,7 @@ function Profile() {
                 />
               );
             })}
-        </div>
+        </div> */}
       </StyledProfile>
       <Footer />
     </div>

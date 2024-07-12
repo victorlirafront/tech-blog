@@ -5,7 +5,6 @@ import Link from 'next/link';
 import StyledHeader from './Header.styled';
 import AOS from 'aos';
 import Image from 'next/image';
-import SignIn from '../GoogleSignIn/signIn';
 import { IHeaderProps, UrlParams } from './Interface';
 
 const Header = function (props: IHeaderProps) {
@@ -150,9 +149,6 @@ const Header = function (props: IHeaderProps) {
               <Link className={`anchor ${currentTab === 'about' ? 'active' : ''}`} href="/AboutMe">
                 Portfólio
               </Link>
-            </div>
-            <div className="div-right">
-              <SignIn />
             </div>
           </div>
           <Image
