@@ -104,6 +104,7 @@ const Profile = function (props: IProfile) {
                   <textarea placeholder="Escreva aqui sua mensagem" />
                 </div>
               </div>
+              <button className="submit">Enviar contato</button>
             </form>
           </div>
         </div>

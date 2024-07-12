@@ -271,6 +271,22 @@ const Profile = styled.div`
               height: 200px;
             }
           }
+
+          .submit {
+            border: none;
+            border-radius: 30px;
+            padding: 10px 30px;
+            display: inline-block;
+            transition: 0.5s ease-out;
+            color: #000;
+            background: #12edb2;
+            display: block;
+            width: 100%;
+            max-width: 300px;
+            margin: auto;
+            font-weight: bold;
+            cursor: pointer;
+          }
         }
       }
     }
