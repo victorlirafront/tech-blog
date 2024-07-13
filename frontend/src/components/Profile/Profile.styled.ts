@@ -17,17 +17,37 @@ const Profile = styled.div`
       scroll-snap-align: center;
       position: relative;
 
+      @media screen and (max-width: 600px) {
+        height: calc(100vh + 58px);
+      }
+
       &.item-1 {
         height: 600px;
       }
 
       &.item-2 {
         height: 600px;
+
+        @media screen and (max-width: 1274px) {
+          height: auto;
+        }
+
+        @media screen and (max-width: 800px) {
+          height: auto;
+        }
+
+        @media screen and (max-width: 500px) {
+          margin-bottom: 200px;
+        }
       }
 
       &.item-3 {
         height: 600px;
         margin-top: 100px;
+
+        @media screen and (max-width: 800px) {
+          height: auto;
+        }
       }
 
       .header {
@@ -49,7 +69,10 @@ const Profile = styled.div`
         margin: 0 auto;
         margin-top: 86px;
         @media screen and (max-width: 1040px) {
-          margin-right: unset;
+          margin: 0 auto;
+        }
+
+        @media screen and (max-width: 500px) {
         }
 
         .card-wrapper {
@@ -115,10 +138,20 @@ const Profile = styled.div`
             background-clip: text;
             -webkit-text-fill-color: transparent;
             -webkit-box-decoration-break: clone;
+
+            @media screen and (max-width: 500px) {
+              font-size: 40px;
+            }
           }
 
           @media screen and (max-width: 1040px) {
             text-align: center;
+          }
+
+          @media screen and (max-width: 500px) {
+            max-width: 300px;
+            line-height: 21px;
+            font-weight: 500;
           }
 
           @media screen and (max-width: 400px) {
@@ -133,7 +166,6 @@ const Profile = styled.div`
         width: 100%;
         margin: 0 auto;
         text-align: center;
-        /* height: 100vh; */
         display: flex;
         align-items: center;
         flex-direction: column;
@@ -144,7 +176,7 @@ const Profile = styled.div`
         }
 
         @media screen and (max-width: 1040px) {
-          margin-top: 50px;
+          margin-top: 440px;
         }
 
         .profession {
@@ -177,6 +209,10 @@ const Profile = styled.div`
           font-size: 40px;
           line-height: 80px;
           font-weight: 700;
+
+          @media screen and (max-width: 800px) {
+            font-size: 20px;
+          }
         }
 
         .tip {
@@ -185,7 +221,7 @@ const Profile = styled.div`
       }
 
       .form-wrapper {
-        width: 980px;
+        width: 800px;
         margin: 0 auto;
         color: #fff;
         text-align: center;
@@ -194,10 +230,18 @@ const Profile = styled.div`
           text-align: center;
           font-size: 60px;
           margin-bottom: 20px;
+
+          @media screen and (max-width: 800px) {
+            font-size: 32px;
+          }
         }
 
         .p-1 {
           text-align: center;
+          @media screen and (max-width: 800px) {
+            font-size: 14px;
+            padding: 0 20px;
+          }
         }
 
         #form {
@@ -206,12 +250,20 @@ const Profile = styled.div`
             align-items: center;
             justify-content: center;
             margin-top: 48px;
+
+            @media screen and (max-width: 800px) {
+              flex-direction: column;
+            }
           }
 
           .box-2 {
             display: flex;
             align-items: center;
             justify-content: center;
+
+            @media screen and (max-width: 800px) {
+              flex-direction: column;
+            }
           }
 
           .box-3 {
@@ -221,13 +273,23 @@ const Profile = styled.div`
             padding: 10px 20px;
             text-align: start;
 
+            @media screen and (max-width: 800px) {
+              padding: 5px 20px;
+            }
+
             &.control-1,
             &.control-2 {
               width: 480px;
+              @media screen and (max-width: 800px) {
+                width: 100%;
+              }
             }
 
             &.control-3 {
               width: 500px;
+              @media screen and (max-width: 800px) {
+                width: 100%;
+              }
             }
             &.control-4 {
               width: 100%;
@@ -240,6 +302,9 @@ const Profile = styled.div`
             label {
               white-space: nowrap;
               text-transform: uppercase;
+              @media screen and (max-width: 800px) {
+                font-size: 14px;
+              }
             }
 
             input {
@@ -254,6 +319,12 @@ const Profile = styled.div`
               margin-top: 7px;
               font-size: 16px;
               color: #333;
+
+              @media screen and (max-width: 800px) {
+                padding: 10px 20px;
+                margin-bottom: 10px;
+                font-size: 14px;
+              }
             }
 
             textarea {
@@ -269,6 +340,9 @@ const Profile = styled.div`
               font-size: 16px;
               color: #333;
               height: 200px;
+              @media screen and (max-width: 800px) {
+                font-size: 14px;
+              }
             }
           }
 

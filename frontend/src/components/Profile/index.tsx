@@ -94,7 +94,7 @@ const Profile = function (props: IProfile) {
                 </div>
                 <div className="form-control control-4">
                   <label>Assunto</label>
-                  <input type="text" placeholder="text" />
+                  <input type="text" placeholder="Digite aqui" />
                 </div>
               </div>
 

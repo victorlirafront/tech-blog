@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 
 const SlickProjects = styled.div`
-  //slick dots
-  width: 1200px;
+  max-width: 1200px;
   margin: 0 auto;
 
+  @media screen and (max-width: 1274px) {
+    width: 100%;
+  }
   .arrows-containers {
     width: 300px;
     height: 400px;
@@ -17,6 +19,12 @@ const SlickProjects = styled.div`
       letter-spacing: 2px;
       line-height: 24px;
       margin-top: 20px;
+    }
+
+    @media screen and (max-width: 1274px) {
+      width: 100%;
+      top: 530px;
+      height: 350px;
     }
   }
 
@@ -80,6 +88,11 @@ const SlickProjects = styled.div`
     top: 300px !important;
     width: 40px !important;
     height: 40px !important;
+    z-index: 3;
+
+    @media screen and (max-width: 1274px) {
+      top: 700px !important;
+    }
 
     &::before {
       content: '';
@@ -100,6 +113,13 @@ const SlickProjects = styled.div`
     height: 40px;
     left: 200px;
     top: 320px !important;
+    z-index: 3;
+
+    @media screen and (max-width: 1274px) {
+      left: unset;
+      right: 50px;
+      top: 720px !important;
+    }
 
     &::before {
       content: '';
@@ -120,6 +140,11 @@ const SlickProjects = styled.div`
     height: 400px;
     top: 0;
     margin-left: 300px;
+
+    @media screen and (max-width: 1274px) {
+      margin-left: 0px;
+      width: 100%;
+    }
   }
 
   .slider-container {
@@ -133,6 +158,10 @@ const SlickProjects = styled.div`
       height: 400px;
       margin: 0 auto;
       padding: 30px;
+
+      @media screen and (max-width: 500px) {
+        width: 90%;
+      }
 
       &:not(:last-child) {
         margin-right: 20px;
