@@ -2,14 +2,9 @@ import styled from 'styled-components';
 
 const StyledHeader = styled.header`
   position: relative;
-  padding: 20px 60px;
   margin: 0 auto;
   z-index: 3;
   background: #000;
-
-  @media screen and (max-width: 500px) {
-    padding: 10px 20px;
-  }
 
   .home {
     @media screen and (max-width: 500px) {
@@ -21,6 +16,11 @@ const StyledHeader = styled.header`
     margin: 0 auto;
     max-width: 1200px;
     color: #ffffff;
+    padding: 20px 60px;
+
+    @media screen and (max-width: 500px) {
+      padding: 10px 20px;
+    }
 
     nav {
       width: 100%;
