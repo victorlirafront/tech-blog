@@ -23,14 +23,16 @@ const SlickProjects = styled.div`
 
     @media screen and (max-width: 1274px) {
       width: 100%;
-      top: 530px;
+      top: 600px;
       height: 350px;
     }
   }
 
   .slick-dots {
+    bottom: -65px;
+
     @media screen and (max-width: 453px) {
-      bottom: -75px;
+      bottom: -60px;
       line-height: 0;
     }
 
@@ -49,6 +51,7 @@ const SlickProjects = styled.div`
           text-align: center;
           opacity: 0.25;
           -webkit-font-smoothing: antialiased;
+          color: rgb(255, 255, 255);
         }
       }
     }
@@ -91,7 +94,7 @@ const SlickProjects = styled.div`
     z-index: 3;
 
     @media screen and (max-width: 1274px) {
-      top: 700px !important;
+      top: 780px !important;
     }
 
     &::before {
@@ -118,7 +121,7 @@ const SlickProjects = styled.div`
     @media screen and (max-width: 1274px) {
       left: unset;
       right: 50px;
-      top: 720px !important;
+      top: 790px !important;
     }
 
     &::before {

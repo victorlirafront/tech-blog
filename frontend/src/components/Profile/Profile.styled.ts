@@ -44,9 +44,18 @@ const Profile = styled.div`
       &.item-3 {
         height: 600px;
         margin-top: 100px;
+        margin-bottom: 200px;
+
+        @media screen and (max-width: 1274px) {
+          margin-top: 200px;
+        }
 
         @media screen and (max-width: 800px) {
-          height: auto;
+          margin-top: 250px;
+        }
+
+        @media screen and (max-width: 450px) {
+          margin-top: 300px;
         }
       }
 
@@ -175,7 +184,7 @@ const Profile = styled.div`
         .modal-tech-information {
         }
 
-        @media screen and (max-width: 1040px) {
+        @media screen and (max-width: 1274px) {
           margin-top: 440px;
         }
 

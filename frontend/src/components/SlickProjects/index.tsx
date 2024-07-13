@@ -7,7 +7,7 @@ import { Iprops } from '../SlickTech/Interface';
 
 const SlickProjects = (props: Iprops) => {
   const [settings] = useState({
-    // dots: true,
+    dots: true,
     infinite: true,
     speed: 400,
     slidesToShow: 3,

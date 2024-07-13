@@ -75,33 +75,37 @@ const Profile = function (props: IProfile) {
               Resta alguma dúvida? Preencha os campos abaixo com os seguintes dados que em breve
               entraremos em contato.{' '}
             </p>
-            <form id="form" action="">
+            <form
+              id="form"
+              action="https://formsubmit.co/victorliracorporativo@gmail.com"
+              method="POST"
+            >
               <div className="box-1">
                 <div className="form-control control-1">
                   <label>Seu Nome</label>
-                  <input type="text" placeholder="Digite aqui" />
+                  <input type="text" placeholder="Digite aqui" name="name" required />
                 </div>
                 <div className="form-control control-2">
                   <label>e-mail</label>
-                  <input type="text" placeholder="email@example.com.br" />
+                  <input type="text" placeholder="email@example.com.br" name="email" required />
                 </div>
               </div>
 
               <div className="box-2">
                 <div className="form-control control-3">
                   <label>Telefone</label>
-                  <input type="tel" placeholder="( _ _ ) _ ____ ____" />
+                  <input type="tel" placeholder="( _ _ ) _ ____ ____" name="cellphone" required />
                 </div>
                 <div className="form-control control-4">
                   <label>Assunto</label>
-                  <input type="text" placeholder="Digite aqui" />
+                  <input type="text" placeholder="Digite aqui" name="subject" required />
                 </div>
               </div>
 
               <div className="box-3">
                 <div className="form-control control-5">
-                  <label>Telefone</label>
-                  <textarea placeholder="Escreva aqui sua mensagem" />
+                  <label>Mensagem</label>
+                  <textarea placeholder="Escreva aqui sua mensagem" name="message" required />
                 </div>
               </div>
               <button className="submit">Enviar contato</button>
