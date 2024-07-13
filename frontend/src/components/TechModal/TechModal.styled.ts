@@ -15,7 +15,9 @@ export const StyledSlickTech = styled.div`
   border-radius: 4px;
   width: 600px;
   top: 200px;
-  right: 100px;
+  right: 50%;
+  top: 50%;
+  transform: translate(50%, -250%) !important;
 
   &.onDomLoad {
     transform: translateY(-100%);
@@ -38,6 +40,9 @@ export const StyledSlickTech = styled.div`
     opacity: 1;
     transition: 0.5s;
     visibility: visible;
+    right: 50%;
+    top: 50%;
+    transform: translate(50%, -50%) !important;
 
     @media screen and (max-width: 1035px) {
       right: 50%;
@@ -100,7 +105,7 @@ export const StyledSlickTechWrapper = styled.div`
   height: 100vh;
   visibility: hidden;
   top: 50%;
-  right: 60%;
+  right: 50%;
   transform: translate(50%, -50%);
 
   @media screen and (max-width: 1035px) {
