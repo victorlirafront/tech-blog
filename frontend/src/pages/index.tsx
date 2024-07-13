@@ -15,6 +15,11 @@ import AOS from 'aos';
 import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 import { useAddToFavoritsContext } from '@/Context/addToFavorits';
 import { updateFavoritSource } from '@/utils/resusableFunctions';
+// import { gapi, loadGapiInsideDOM } from 'gapi-script';
+// import Login from '@/components/Login';
+// import { start } from 'repl';
+// import { gapi } from 'gapi-script';
+// import { gapi } from 'gapi-script';
 
 interface IPost {
   id: number;
@@ -43,6 +48,13 @@ interface IData {
   };
 }
 
+const clientId = '1038532450717-5sjt921eagtenq8oe19at9548fq4rpea.apps.googleusercontent.com';
+
+// const handleClick = async () => {
+//   const gapi = await import('gapi-script').then(pack => pack.gapi);
+//   console.log(gapi);
+// };
+
 export default function Home({ data }: IData) {
   const { setPage } = useContext(GlobalContext);
   const { scrollIntoViewHandler, containerRef } = useScrollContext();
@@ -54,6 +66,19 @@ export default function Home({ data }: IData) {
 
   useEffect(() => {
     AOS.init();
+
+    const handleClick = async () => {
+      const gapi = await import('gapi-script').then(pack => pack.gapi);
+      const loadAuth2 = await import('gapi-script').then(pack => pack.loadAuth2);
+      // const loadAuth2WithProps = await import('gapi-script').then(pack => pack.loadAuth2WithProps);
+      // const loadClientAuth2 = await import('gapi-script').then(pack => pack.loadClientAuth2);
+
+      let auth2 = await loadAuth2(gapi, clientId, '');
+
+      console.log(auth2);
+    };
+
+    handleClick();
   }, []);
 
   const checkNextPage = function () {

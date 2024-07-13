@@ -6,6 +6,7 @@ import StyledHeader from './Header.styled';
 import AOS from 'aos';
 import Image from 'next/image';
 import { IHeaderProps, UrlParams } from './Interface';
+import Login from '../Login';
 
 const Header = function (props: IHeaderProps) {
   const [currentTab, setCurrentTab] = useState('');
@@ -150,6 +151,8 @@ const Header = function (props: IHeaderProps) {
                 Portfólio
               </Link>
             </div>
+
+            <Login />
           </div>
           <Image
             width={50}
