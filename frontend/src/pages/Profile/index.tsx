@@ -52,9 +52,7 @@ function Profile() {
       return null;
     }
 
-    fetchData(
-      'https://blog-git-main-victorlirafront.vercel.app/api/get?page=1&limit=9999&category=all',
-    );
+    fetchData('https://blog-tau-rosy-55.vercel.app/api/get?page=1&limit=9999&category=all');
   }, [favoritPosts]);
 
   return (
@@ -71,11 +69,8 @@ function Profile() {
       <Header className="header" scrollIntoView={() => scrollIntoViewHandler()} />
       <StyledProfile data-aos="fade-down" data-aos-delay="200">
         <h1 className="favorit-post-title">These are your favorite posts</h1>
-        <div>
-          <Image src="/loading.gif" width={100} height={100} alt="teste" />
-        </div>
         <div className="container">
-          {currentPostArray &&
+          {currentPostArray ? (
             currentPostArray.map(post => {
               return (
                 <Post
@@ -96,7 +91,12 @@ function Profile() {
                   onUpdateFavoritSource={updateFavoritSource(favoritPosts, post)}
                 />
               );
-            })}
+            })
+          ) : (
+            <div>
+              <Image src="/loading.gif" width={100} height={100} alt="teste" />
+            </div>
+          )}
         </div>
       </StyledProfile>
       <Footer />
