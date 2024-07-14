@@ -9,6 +9,7 @@ import { IHeaderProps, UrlParams } from './Interface';
 import { GoogleLogin, CredentialResponse } from '@react-oauth/google';
 import { jwtDecode } from 'jwt-decode';
 import GooleProfile from '../GoogleProfile';
+import { useGoogleSignInContext } from '@/Context/googleSignIn';
 
 const Header = function (props: IHeaderProps) {
   const [currentTab, setCurrentTab] = useState('');
@@ -21,9 +22,7 @@ const Header = function (props: IHeaderProps) {
     category: '',
   });
 
-  const [currentUser, setCurrentUser] = useState({
-    picture: '',
-  });
+  const { setCurrentUser, currentUser } = useGoogleSignInContext();
 
   useEffect(() => {
     if (
