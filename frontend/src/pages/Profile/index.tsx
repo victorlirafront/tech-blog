@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import 'aos/dist/aos.css';
@@ -9,11 +9,9 @@ import 'slick-carousel/slick/slick-theme.css';
 import StyledProfile from './Profile.styled';
 import axios from 'axios';
 import { useAddToFavoritsContext } from '@/Context/addToFavorits';
-
-// interface IProfile {
-//   firstName: string;
-//   lastName: string;
-// }
+import Post from '@/components/Post';
+import { updateFavoritSource } from '@/utils/resusableFunctions';
+import Image from 'next/image';
 
 interface IPost {
   id: number;
@@ -30,19 +28,9 @@ interface IPost {
 function Profile() {
   const { scrollIntoViewHandler } = useScrollContext();
   const { favoritPosts } = useAddToFavoritsContext();
-  // const [currentPostArray, setCurrentPostArray] = useState<IPost[]>();
-  // const [user, setUser] = useState<IProfile>({
-  //   firstName: '',
-  //   lastName: '',
-  // });
+  const [currentPostArray, setCurrentPostArray] = useState<IPost[]>();
 
   useEffect(() => {
-    const currentUserJSON = localStorage.getItem('currentUser');
-    if (currentUserJSON) {
-      // const currentUser = JSON.parse(currentUserJSON);
-      // setUser(currentUser);
-    }
-
     async function fetchData(baseUrl: string) {
       try {
         const response = await axios.get(baseUrl);
@@ -54,7 +42,7 @@ function Profile() {
             favoritPosts.some(variant2 => variant2.post === variant1.id),
           );
           if (intersecao) {
-            // setCurrentPostArray(intersecao);
+            setCurrentPostArray(intersecao);
           }
         }
       } catch (error) {
@@ -82,11 +70,11 @@ function Profile() {
       </Head>
       <Header className="header" scrollIntoView={() => scrollIntoViewHandler()} />
       <StyledProfile data-aos="fade-down" data-aos-delay="200">
-        {/* <h1 className="favorit-post-title">These are your favorite posts</h1>
+        <h1 className="favorit-post-title">These are your favorite posts</h1>
         <div>
           <Image src="/loading.gif" width={100} height={100} alt="teste" />
-        </div> */}
-        {/* <div className="container">
+        </div>
+        <div className="container">
           {currentPostArray &&
             currentPostArray.map(post => {
               return (
@@ -109,7 +97,7 @@ function Profile() {
                 />
               );
             })}
-        </div> */}
+        </div>
       </StyledProfile>
       <Footer />
     </div>
