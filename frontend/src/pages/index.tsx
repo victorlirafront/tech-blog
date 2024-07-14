@@ -15,6 +15,8 @@ import AOS from 'aos';
 import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 import { useAddToFavoritsContext } from '@/Context/addToFavorits';
 import { updateFavoritSource } from '@/utils/resusableFunctions';
+import { GoogleLogin, CredentialResponse } from '@react-oauth/google';
+import { jwtDecode } from 'jwt-decode';
 // import { gapi, loadGapiInsideDOM } from 'gapi-script';
 // import Login from '@/components/Login';
 // import { start } from 'repl';
@@ -67,40 +69,40 @@ export default function Home({ data }: IData) {
   useEffect(() => {
     AOS.init();
 
-    const handleClick = async () => {
-      try {
-        const pack = await import('gapi-script');
-        const gapi = pack.gapi;
+    // const handleClick = async () => {
+    //   try {
+    //     const pack = await import('gapi-script');
+    //     const gapi = pack.gapi;
 
-        if (!gapi) {
-          throw new Error('gapi is not defined');
-        }
+    //     if (!gapi) {
+    //       throw new Error('gapi is not defined');
+    //     }
 
-        await new Promise((resolve, reject) => {
-          gapi.load('auth2', {
-            callback: () => resolve(gapi.auth2),
-            onerror: () => reject(new Error('Failed to load auth2')),
-            timeout: 5000,
-            ontimeout: () => reject(new Error('auth2 load timed out')),
-          });
-        });
+    //     await new Promise((resolve, reject) => {
+    //       gapi.load('auth2', {
+    //         callback: () => resolve(gapi.auth2),
+    //         onerror: () => reject(new Error('Failed to load auth2')),
+    //         timeout: 5000,
+    //         ontimeout: () => reject(new Error('auth2 load timed out')),
+    //       });
+    //     });
 
-        if (!gapi.auth2) {
-          throw new Error('auth2 is not initialized');
-        }
+    //     if (!gapi.auth2) {
+    //       throw new Error('auth2 is not initialized');
+    //     }
 
-        await gapi.auth2.init({
-          client_id: 'YOUR_CLIENT_ID',
-          // other config options
-        });
+    //     await gapi.auth2.init({
+    //       client_id: 'YOUR_CLIENT_ID',
+    //       // other config options
+    //     });
 
-        console.log('auth2 initialized successfully');
-      } catch (err) {
-        console.error(err);
-      }
-    };
+    //     console.log('auth2 initialized successfully');
+    //   } catch (err) {
+    //     console.error(err);
+    //   }
+    // };
 
-    handleClick();
+    // handleClick();
   }, []);
 
   const checkNextPage = function () {
@@ -145,6 +147,17 @@ export default function Home({ data }: IData) {
           href="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/binary-code_WBpGXnWnG.png?updatedAt=1700431546132"
         />
       </Head>
+      <GoogleLogin
+        onSuccess={(credentialResponse: CredentialResponse) => {
+          if (credentialResponse?.credential) {
+            const decoded = jwtDecode(credentialResponse?.credential);
+            console.log(decoded);
+          }
+        }}
+        onError={() => {
+          console.log('Login error');
+        }}
+      />
       <Header className="header" scrollIntoView={() => scrollIntoViewHandler()} />
       <About />
       <MainPage className="main-page">
