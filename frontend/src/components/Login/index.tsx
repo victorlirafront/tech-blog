@@ -3,6 +3,7 @@ const clientId = '1038532450717-5sjt921eagtenq8oe19at9548fq4rpea.apps.googleuser
 
 function Login() {
   const responseGoogle = (response: GoogleLoginResponse | GoogleLoginResponseOffline) => {
+    console.log('testte');
     console.log(response);
     // Aqui você pode tratar a resposta conforme necessário
   };

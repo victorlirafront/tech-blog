@@ -48,7 +48,7 @@ interface IData {
   };
 }
 
-const clientId = '1038532450717-5sjt921eagtenq8oe19at9548fq4rpea.apps.googleusercontent.com';
+// const clientId = '1038532450717-5sjt921eagtenq8oe19at9548fq4rpea.apps.googleusercontent.com';
 
 // const handleClick = async () => {
 //   const gapi = await import('gapi-script').then(pack => pack.gapi);
@@ -68,14 +68,36 @@ export default function Home({ data }: IData) {
     AOS.init();
 
     const handleClick = async () => {
-      const gapi = await import('gapi-script').then(pack => pack.gapi);
-      const loadAuth2 = await import('gapi-script').then(pack => pack.loadAuth2);
-      // const loadAuth2WithProps = await import('gapi-script').then(pack => pack.loadAuth2WithProps);
-      // const loadClientAuth2 = await import('gapi-script').then(pack => pack.loadClientAuth2);
+      try {
+        const pack = await import('gapi-script');
+        const gapi = pack.gapi;
 
-      let auth2 = await loadAuth2(gapi, clientId, '');
+        if (!gapi) {
+          throw new Error('gapi is not defined');
+        }
 
-      console.log(auth2);
+        await new Promise((resolve, reject) => {
+          gapi.load('auth2', {
+            callback: () => resolve(gapi.auth2),
+            onerror: () => reject(new Error('Failed to load auth2')),
+            timeout: 5000,
+            ontimeout: () => reject(new Error('auth2 load timed out')),
+          });
+        });
+
+        if (!gapi.auth2) {
+          throw new Error('auth2 is not initialized');
+        }
+
+        await gapi.auth2.init({
+          client_id: 'YOUR_CLIENT_ID',
+          // other config options
+        });
+
+        console.log('auth2 initialized successfully');
+      } catch (err) {
+        console.error(err);
+      }
     };
 
     handleClick();
