@@ -15,13 +15,6 @@ import AOS from 'aos';
 import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 import { useAddToFavoritsContext } from '@/Context/addToFavorits';
 import { updateFavoritSource } from '@/utils/resusableFunctions';
-import { GoogleLogin, CredentialResponse } from '@react-oauth/google';
-import { jwtDecode } from 'jwt-decode';
-// import { gapi, loadGapiInsideDOM } from 'gapi-script';
-// import Login from '@/components/Login';
-// import { start } from 'repl';
-// import { gapi } from 'gapi-script';
-// import { gapi } from 'gapi-script';
 
 interface IPost {
   id: number;
@@ -50,13 +43,6 @@ interface IData {
   };
 }
 
-// const clientId = '1038532450717-5sjt921eagtenq8oe19at9548fq4rpea.apps.googleusercontent.com';
-
-// const handleClick = async () => {
-//   const gapi = await import('gapi-script').then(pack => pack.gapi);
-//   console.log(gapi);
-// };
-
 export default function Home({ data }: IData) {
   const { setPage } = useContext(GlobalContext);
   const { scrollIntoViewHandler, containerRef } = useScrollContext();
@@ -68,9 +54,6 @@ export default function Home({ data }: IData) {
 
   useEffect(() => {
     AOS.init();
-
-    // const handleClick = async () => {
-    //   try {
     //     const pack = await import('gapi-script');
     //     const gapi = pack.gapi;
 
@@ -147,17 +130,6 @@ export default function Home({ data }: IData) {
           href="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/binary-code_WBpGXnWnG.png?updatedAt=1700431546132"
         />
       </Head>
-      <GoogleLogin
-        onSuccess={(credentialResponse: CredentialResponse) => {
-          if (credentialResponse?.credential) {
-            const decoded = jwtDecode(credentialResponse?.credential);
-            console.log(decoded);
-          }
-        }}
-        onError={() => {
-          console.log('Login error');
-        }}
-      />
       <Header className="header" scrollIntoView={() => scrollIntoViewHandler()} />
       <About />
       <MainPage className="main-page">

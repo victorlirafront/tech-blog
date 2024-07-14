@@ -6,6 +6,8 @@ import StyledHeader from './Header.styled';
 import AOS from 'aos';
 import Image from 'next/image';
 import { IHeaderProps, UrlParams } from './Interface';
+import { GoogleLogin, CredentialResponse } from '@react-oauth/google';
+import { jwtDecode } from 'jwt-decode';
 
 const Header = function (props: IHeaderProps) {
   const [currentTab, setCurrentTab] = useState('');
@@ -149,6 +151,22 @@ const Header = function (props: IHeaderProps) {
               <Link className={`anchor ${currentTab === 'about' ? 'active' : ''}`} href="/AboutMe">
                 Portfólio
               </Link>
+            </div>
+            <div>
+              <GoogleLogin
+                text="signin"
+                width={100}
+                theme={'filled_black'}
+                onSuccess={(credentialResponse: CredentialResponse) => {
+                  if (credentialResponse?.credential) {
+                    const decoded = jwtDecode(credentialResponse?.credential);
+                    console.log(decoded);
+                  }
+                }}
+                onError={() => {
+                  console.log('Login error');
+                }}
+              />
             </div>
           </div>
           <Image
