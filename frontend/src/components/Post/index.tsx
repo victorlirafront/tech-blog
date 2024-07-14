@@ -17,7 +17,11 @@ const Post: React.FC<IProps> = props => {
   const router = useRouter();
 
   const handleLinkClick = async (e: React.MouseEvent) => {
-    addToFavoritsHandler(e);
+    const target = e.target as HTMLElement;
+    if (target.classList.contains('favorits--trigger')) {
+      addToFavoritsHandler(e);
+      return;
+    }
 
     router.push({
       pathname: `/Posts/${props.id}`,
