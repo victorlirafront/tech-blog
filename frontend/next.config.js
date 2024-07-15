@@ -6,7 +6,9 @@ const nextConfig = {
     // deviceSizes: [320, 640, 768, 1024, 1600],   Specify device sizes for automatic responsive images
   },
   compiler: {
-    styledComponents: true,
+    styledComponents: {
+      ssr: true,
+    },
   },
 };
 
