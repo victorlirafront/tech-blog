@@ -3,7 +3,7 @@ import Slider from 'react-slick';
 import StyledSlickTech from './SlickProjects.styled';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { Iprops } from '../SlickTech/Interface';
+import { Iprops } from '../SlickTech/types';
 
 const SlickProjects = (props: Iprops) => {
   const [settings] = useState({

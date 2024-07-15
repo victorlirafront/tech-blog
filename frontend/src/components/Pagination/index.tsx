@@ -4,7 +4,7 @@ import { useContext } from 'react';
 import { useRouter } from 'next/router';
 import React from 'react';
 import Image from 'next/image';
-import { IpropsPagination } from './Interface';
+import { IpropsPagination } from './types';
 
 const Pagination = function (props: IpropsPagination) {
   const { setPage, page } = useContext(GlobalContext);

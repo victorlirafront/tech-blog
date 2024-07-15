@@ -5,7 +5,7 @@ import Image from 'next/image';
 import React from 'react';
 import { MouseEvent } from 'react';
 import { useScrollContext } from '@/Context/scrollProvider';
-import { IProfile } from './Interface';
+import { IProfile } from './types';
 import SlickProjects from '../SlickProjects';
 import Footer from '../Footer';
 

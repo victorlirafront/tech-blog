@@ -5,7 +5,7 @@ import Link from 'next/link';
 import StyledHeader from './Header.styled';
 import AOS from 'aos';
 import Image from 'next/image';
-import { IHeaderProps, UrlParams } from './Interface';
+import { IHeaderProps, UrlParams } from './types';
 import { GoogleLogin, CredentialResponse } from '@react-oauth/google';
 import { jwtDecode } from 'jwt-decode';
 import GooleProfile from '../GoogleProfile';

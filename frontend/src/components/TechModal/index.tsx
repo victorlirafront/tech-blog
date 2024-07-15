@@ -1,7 +1,7 @@
 import { StyledSlickTech, StyledSlickTechWrapper } from './TechModal.styled';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import { IModal } from './Interface';
+import { IModal } from './types';
 
 const TechModal = function (props: IModal) {
   const [fadeDownOnLoad, setFadeDownOnLoad] = useState(false);

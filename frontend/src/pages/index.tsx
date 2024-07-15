@@ -54,38 +54,6 @@ export default function Home({ data }: IData) {
 
   useEffect(() => {
     AOS.init();
-    //     const pack = await import('gapi-script');
-    //     const gapi = pack.gapi;
-
-    //     if (!gapi) {
-    //       throw new Error('gapi is not defined');
-    //     }
-
-    //     await new Promise((resolve, reject) => {
-    //       gapi.load('auth2', {
-    //         callback: () => resolve(gapi.auth2),
-    //         onerror: () => reject(new Error('Failed to load auth2')),
-    //         timeout: 5000,
-    //         ontimeout: () => reject(new Error('auth2 load timed out')),
-    //       });
-    //     });
-
-    //     if (!gapi.auth2) {
-    //       throw new Error('auth2 is not initialized');
-    //     }
-
-    //     await gapi.auth2.init({
-    //       client_id: 'YOUR_CLIENT_ID',
-    //       // other config options
-    //     });
-
-    //     console.log('auth2 initialized successfully');
-    //   } catch (err) {
-    //     console.error(err);
-    //   }
-    // };
-
-    // handleClick();
   }, []);
 
   const checkNextPage = function () {
