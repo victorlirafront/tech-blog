@@ -20,7 +20,6 @@ import {
   FacebookShareButton,
   TwitterShareButton,
   RedditShareButton,
-  WhatsappShareButton,
   TelegramShareButton,
 } from 'react-share';
 import { useAddToFavoritsContext } from '@/Context/addToFavorits';
@@ -150,16 +149,10 @@ function Posts(props: IProps) {
           <MarkdownRenderer> {props.post.content} </MarkdownRenderer>
           <div className="aside-absolute">
             <div className="content">
-              <FacebookShareButton url="https://www.victorlirablog.com/Posts/16" title="teste">
-                <Image
-                  src="/facebook.png"
-                  width={30}
-                  height={30}
-                  alt="facebook icon"
-                  className="img-facebook"
-                />
-              </FacebookShareButton>
-              <TwitterShareButton url={`https://www.victorlirablog.com/Posts/${currentPostId}`}>
+              <TwitterShareButton
+                title={props.post.meta_tag_title}
+                url={`https://www.victorlirablog.com/Posts/${currentPostId}`}
+              >
                 <Image
                   src="/twitter.png"
                   width={30}
@@ -168,7 +161,10 @@ function Posts(props: IProps) {
                   className="img-twitter"
                 />
               </TwitterShareButton>
-              <RedditShareButton url={`https://www.victorlirablog.com/Posts/${currentPostId}`}>
+              <RedditShareButton
+                title={props.post.meta_tag_title}
+                url={`https://www.victorlirablog.com/Posts/${currentPostId}`}
+              >
                 <Image
                   src="/reddit.png"
                   width={30}
@@ -177,16 +173,10 @@ function Posts(props: IProps) {
                   className="img-reddit"
                 />
               </RedditShareButton>
-              <WhatsappShareButton url={`https://www.victorlirablog.com/Posts/${currentPostId}`}>
-                <Image
-                  src="/whatsapp.png"
-                  width={30}
-                  height={30}
-                  alt="whatsapp icon"
-                  className="img-whatsapp"
-                />
-              </WhatsappShareButton>
-              <TelegramShareButton url={`https://www.victorlirablog.com/Posts/${currentPostId}`}>
+              <TelegramShareButton
+                url={`https://www.victorlirablog.com/Posts/${currentPostId}`}
+                title={props.post.meta_tag_title}
+              >
                 <Image
                   src="/telegram.png"
                   width={30}
@@ -195,6 +185,18 @@ function Posts(props: IProps) {
                   className="img-telegram"
                 />
               </TelegramShareButton>
+              <FacebookShareButton
+                title={props.post.meta_tag_title}
+                url="https://www.victorlirablog.com/Posts/16"
+              >
+                <Image
+                  src="/facebook.png"
+                  width={30}
+                  height={30}
+                  alt="facebook icon"
+                  className="img-facebook"
+                />
+              </FacebookShareButton>
             </div>
           </div>
         </div>

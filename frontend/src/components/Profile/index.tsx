@@ -32,8 +32,8 @@ const Profile = function (props: IProfile) {
               <Image
                 src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/profile-1_feYey8V23.jpeg?updatedAt=1712709533286"
                 alt="Profile Picture"
-                width={100}
-                height={100}
+                width={300}
+                height={300}
                 className="card-image"
               />
               <Image

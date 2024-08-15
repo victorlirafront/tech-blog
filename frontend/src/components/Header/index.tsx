@@ -6,10 +6,6 @@ import StyledHeader from './Header.styled';
 import AOS from 'aos';
 import Image from 'next/image';
 import { IHeaderProps, UrlParams } from './types';
-import { GoogleLogin, CredentialResponse } from '@react-oauth/google';
-import { jwtDecode } from 'jwt-decode';
-import GooleProfile from '../GoogleProfile';
-import { useGoogleSignInContext } from '@/Context/googleSignIn';
 
 const Header = function (props: IHeaderProps) {
   const [currentTab, setCurrentTab] = useState('');
@@ -21,8 +17,6 @@ const Header = function (props: IHeaderProps) {
     page: '0',
     category: '',
   });
-
-  const { setCurrentUser, currentUser } = useGoogleSignInContext();
 
   useEffect(() => {
     if (
@@ -98,20 +92,6 @@ const Header = function (props: IHeaderProps) {
     categoryOptionHandler('1', 'all');
   };
 
-  const onAuthSuccess = function (credentialResponse: CredentialResponse) {
-    if (credentialResponse?.credential) {
-      const decoded = jwtDecode(credentialResponse?.credential);
-
-      if (decoded) {
-        const obj = {
-          picture:
-            'https://lh3.googleusercontent.com/a/ACg8ocLAeUhqPXBkkKX4sK4NA4Bi_ScprMrpsGKudAnIiX_XBOsMxAY=s96-c',
-        };
-        setCurrentUser(obj);
-      }
-    }
-  };
-
   return (
     <StyledHeader data-aos={headerFadeDown} className={props.className}>
       <div className="container">
@@ -169,23 +149,6 @@ const Header = function (props: IHeaderProps) {
               <Link className={`anchor ${currentTab === 'about' ? 'active' : ''}`} href="/AboutMe">
                 Portfólio
               </Link>
-            </div>
-            <div>
-              {currentUser.picture ? (
-                <GooleProfile profileSrc={currentUser.picture} />
-              ) : (
-                <GoogleLogin
-                  text="signin"
-                  width={100}
-                  theme={'filled_black'}
-                  onSuccess={(credentialResponse: CredentialResponse) => {
-                    onAuthSuccess(credentialResponse);
-                  }}
-                  onError={() => {
-                    console.log('Login error');
-                  }}
-                />
-              )}
             </div>
           </div>
           <Image

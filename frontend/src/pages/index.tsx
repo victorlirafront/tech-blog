@@ -100,6 +100,7 @@ export default function Home({ data }: IData) {
       </Head>
       <Header className="header" scrollIntoView={() => scrollIntoViewHandler()} />
       <About />
+
       <MainPage className="main-page">
         <div className="container" ref={containerRef as React.RefObject<HTMLDivElement>}>
           {data?.results &&

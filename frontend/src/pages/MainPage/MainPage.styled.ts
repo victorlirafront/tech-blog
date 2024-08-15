@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const StyledMainPage = styled.div`
   padding: 0 60px 60px 60px;
-  background: #121212;
+  background: #000;
   max-width: 1920px;
   margin: 0 auto;
   color: #fff;
@@ -19,6 +19,11 @@ const StyledMainPage = styled.div`
     align-items: center;
     justify-content: space-evenly;
     flex-wrap: wrap;
+    padding-top: 100px;
+
+    @media screen and (max-width: 750px) {
+      padding-top: 70px;
+    }
   }
 `;
 

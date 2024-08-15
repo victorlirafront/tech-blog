@@ -6,7 +6,7 @@ const Profile = styled.div`
 
   .container-vh {
     max-height: 100vh;
-    overflow: scroll;
+    overflow: auto;
     margin: 0 auto;
 
     .item {
