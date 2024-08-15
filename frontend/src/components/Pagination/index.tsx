@@ -86,7 +86,7 @@ const Pagination = function (props: IpropsPagination) {
           {createPreviousPageArrow()}
           &nbsp;
           <p>
-            {props.page} / {props.pageLength} Pages
+            {props.page} / {props.pageLength} Páginas
           </p>
           &nbsp;
           {createNextPageArrow()}

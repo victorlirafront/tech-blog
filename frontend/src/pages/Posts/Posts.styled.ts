@@ -225,11 +225,10 @@ const StyledPostNew = styled.div`
         border-left: 4px solid #31c85e;
         border-bottom-right-radius: 0.5rem;
         border-top-right-radius: 0.5rem;
-
         font-family: monospace, Monaco;
         font-size: 13px;
         line-height: 27px;
-        background: #383b41;
+        background: #0c0c0c;
         padding: 10px 12px;
         border-radius: 4px;
         margin: 15px 0;

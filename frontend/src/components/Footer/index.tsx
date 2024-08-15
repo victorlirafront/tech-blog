@@ -53,7 +53,7 @@ const Footer = () => {
           </div>
 
           <div className="direitos-autorais">
-            <p>All rights reserved to © Victor Lira {getCurrentYear()}</p>
+            <p>Todos os direitos reservados © {getCurrentYear()} Victor Lira </p>
           </div>
         </StyledFooter>
       ) : (
