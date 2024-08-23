@@ -4,19 +4,22 @@ import { GlobalContextProvider } from '@/Context/pagination';
 import { ScrollProvider } from '@/Context/scrollProvider';
 import { AddToFavoritsProvider } from '@/Context/addToFavorits';
 import React from 'react';
-// import { GoogleOAuthProvider } from '@react-oauth/google';
+import { GoogleOAuthProvider } from '@react-oauth/google';
 import { GoogleSignInProvider } from '@/Context/googleSignIn';
+import { CurrentUserProvider } from '@/Context/currentUser';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <GoogleSignInProvider>
       <GlobalContextProvider>
         <ScrollProvider>
+          <CurrentUserProvider>
           <AddToFavoritsProvider>
-            {/* <GoogleOAuthProvider clientId="1038532450717-5sjt921eagtenq8oe19at9548fq4rpea.apps.googleusercontent.com"> */}
+            <GoogleOAuthProvider clientId="1038532450717-5sjt921eagtenq8oe19at9548fq4rpea.apps.googleusercontent.com">
               <Component {...pageProps} />
-            {/* </GoogleOAuthProvider> */}
+            </GoogleOAuthProvider>
           </AddToFavoritsProvider>
+          </CurrentUserProvider>
         </ScrollProvider>
       </GlobalContextProvider>
     </GoogleSignInProvider>

@@ -84,11 +84,22 @@ const StyledHeader = styled.header`
         .div-left {
           display: flex;
           justify-content: space-between;
+          width: 100%;
 
           .home {
             &.active {
               border-bottom: 3px solid rgb(11, 238, 178);
               padding-bottom: 6px;
+            }
+          }
+
+          .google-wrapper {
+
+            .profile {
+              background: #12edb2;
+              padding: 5px 20px;
+              border-radius: 4px;
+              color: #000;
             }
           }
 
@@ -157,18 +168,6 @@ const StyledHeader = styled.header`
               &:hover {
                 color: #fff;
               }
-            }
-          }
-        }
-
-        .div-right {
-          display: flex;
-          align-items: center;
-
-          .dark-mode {
-            margin-right: 20px;
-            @media screen and (max-width: 700px) {
-              margin-right: unset;
             }
           }
         }

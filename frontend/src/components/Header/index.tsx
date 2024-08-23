@@ -6,6 +6,9 @@ import StyledHeader from './Header.styled';
 import AOS from 'aos';
 import Image from 'next/image';
 import { IHeaderProps, UrlParams } from './types';
+import { GoogleLogin } from '@react-oauth/google';
+import { jwtDecode } from 'jwt-decode';
+import { useCurrentUser } from '@/Context/currentUser';
 
 const Header = function (props: IHeaderProps) {
   const [currentTab, setCurrentTab] = useState('');
@@ -13,6 +16,7 @@ const Header = function (props: IHeaderProps) {
   const router = useRouter();
   const currentUrl = router.asPath;
   const [headerFadeDown, setHeaderFadeDown] = useState('fade-down');
+  const { callSetCurrentUser, currentUser } = useCurrentUser();
   const [urlParams, setUrlParams] = useState<UrlParams>({
     page: '0',
     category: '',
@@ -116,39 +120,65 @@ const Header = function (props: IHeaderProps) {
             />
 
             <div className="div-left">
-              <div
-                onClick={() => {
-                  goBackToHomePage();
-                }}
-                className={`home ${currentTab === 'all' ? 'active' : ''}`}
-              >
-                Home
+              <div style={{ display: 'flex' }}>
+                <div
+                  onClick={() => {
+                    goBackToHomePage();
+                  }}
+                  className={`home ${currentTab === 'all' ? 'active' : ''}`}
+                >
+                  Home
+                </div>
+
+                <div className="category-options">
+                  <p
+                    className={`front-end-option ${currentTab === 'javascript' ? 'active' : ''}`}
+                    onClick={() => categoryOptionHandler('1', 'javascript')}
+                  >
+                    Front-end
+                  </p>
+
+                  <p
+                    className={`typescript-option ${currentTab === 'typescript' ? 'active' : ''}`}
+                    onClick={() => categoryOptionHandler('1', 'typescript')}
+                  >
+                    Mobile
+                  </p>
+                  <p
+                    className={`react-option ${currentTab === 'react' ? 'active' : ''}`}
+                    onClick={() => categoryOptionHandler('1', 'react')}
+                  >
+                    Práticas
+                  </p>
+                </div>
+                <Link
+                  className={`anchor ${currentTab === 'about' ? 'active' : ''}`}
+                  href="/AboutMe"
+                >
+                  Portfólio
+                </Link>
               </div>
 
-              <div className="category-options">
-                <p
-                  className={`front-end-option ${currentTab === 'javascript' ? 'active' : ''}`}
-                  onClick={() => categoryOptionHandler('1', 'javascript')}
-                >
-                  Front-end
-                </p>
-
-                <p
-                  className={`typescript-option ${currentTab === 'typescript' ? 'active' : ''}`}
-                  onClick={() => categoryOptionHandler('1', 'typescript')}
-                >
-                  Mobile
-                </p>
-                <p
-                  className={`react-option ${currentTab === 'react' ? 'active' : ''}`}
-                  onClick={() => categoryOptionHandler('1', 'react')}
-                >
-                  Práticas
-                </p>
+              <div className='google-wrapper'>
+                {currentUser !== true ? (
+                  <GoogleLogin
+                    onError={() => console.log('Login failed')}
+                    theme="filled_black"
+                    size="large"
+                    shape="square"
+                    type="standard"
+                    width="100"
+                    text="signin"
+                    onSuccess={credentialResponse => {
+                      const user = jwtDecode(String(credentialResponse?.credential));
+                      console.log(user)
+                      callSetCurrentUser(true)
+                    }}
+                  ></GoogleLogin>
+                ) : (
+                  <Link className='profile' href="/Profile">Perfil</Link>
+                )}
               </div>
-              <Link className={`anchor ${currentTab === 'about' ? 'active' : ''}`} href="/AboutMe">
-                Portfólio
-              </Link>
             </div>
           </div>
           <Image

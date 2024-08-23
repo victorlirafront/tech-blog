@@ -17,7 +17,7 @@ interface IFavoritPost {
 export const updateFavoritSource = function (favoritPosts: IFavoritPost[], post: IPost) {
   const exists = favoritPosts.some((item: { post: number }) => item.post === post.id);
   if (exists) {
-    return '/heart-pink.png';
+    return 'https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/heart_ckLrCN-SF.svg';
   } else {
     return '/heart-white.png';
   }

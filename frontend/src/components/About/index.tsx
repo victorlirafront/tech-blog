@@ -13,8 +13,8 @@ const About = function () {
         Artigos
       </h1>
       <p data-aos="fade-down" data-aos-delay="200">
-        Desenvolvimento de software e tecnologia em artigos, toda semana! Conteúdo{' '}
-        <span>{teste()}</span>.
+        Desenvolvimento de WEB e Mobile e tecnologia em artigos, toda semana! Conteúdo{' '}
+        <span>{teste()}</span>
       </p>
     </StyledAbout>
   );
