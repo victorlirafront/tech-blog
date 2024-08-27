@@ -204,11 +204,11 @@ function Posts(props: IProps) {
           <div className="author"></div>
           <div className="name-container">
             <p className="text-1">Victor Lira &nbsp; 🚀</p>
-            <p className="text-2">Content writer @victorlira_ws</p>
+            <p className="text-2">Escrito por Victor Lira</p>
           </div>
         </div>
       </div>
-      <h1 className="title">Last Posts</h1>
+      <h1 className="title">Últimas postagens</h1>
       <div className="last-posts">
         <Slider {...settings}>
           {lastPosts.map((post: IProps['post']) => {

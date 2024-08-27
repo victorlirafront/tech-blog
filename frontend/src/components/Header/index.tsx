@@ -5,7 +5,7 @@ import Link from 'next/link';
 import StyledHeader from './Header.styled';
 import AOS from 'aos';
 import Image from 'next/image';
-import { IHeaderProps, UrlParams } from './types';
+import { IHeaderProps } from './types';
 import { GoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from 'jwt-decode';
 import { useCurrentUser } from '@/Context/currentUser';
@@ -17,36 +17,6 @@ const Header = function (props: IHeaderProps) {
   const currentUrl = router.asPath;
   const [headerFadeDown, setHeaderFadeDown] = useState('fade-down');
   const { callSetCurrentUser, currentUser } = useCurrentUser();
-  const [urlParams, setUrlParams] = useState<UrlParams>({
-    page: '0',
-    category: '',
-  });
-
-  useEffect(() => {
-    if (
-      urlParams.page === '0' ||
-      (router.query.page === urlParams.page && router.query.category === urlParams.category)
-    ) {
-      return;
-    }
-
-    router.push({
-      pathname: '/',
-      query: {
-        page: urlParams.page,
-        category: urlParams.category,
-      },
-    });
-
-    const handleRouteChangeComplete = () => {
-      if (props && props.scrollIntoView && urlParams.category !== 'all') {
-        props.scrollIntoView();
-      }
-      router.events.off('routeChangeComplete', handleRouteChangeComplete);
-    };
-
-    router.events.on('routeChangeComplete', handleRouteChangeComplete);
-  }, [urlParams, router]);
 
   const menuToggleBaseOnUrl = useCallback(() => {
     if (currentUrl.includes('all')) {
@@ -80,10 +50,22 @@ const Header = function (props: IHeaderProps) {
   };
 
   const categoryOptionHandler = function (route: string, category: string) {
-    setUrlParams({
-      page: route,
-      category: category,
+    router.push({
+      pathname: '/',
+      query: {
+        page: route,
+        category: category,
+      },
     });
+
+    const handleRouteChangeComplete = () => {
+      if (props && props.scrollIntoView) {
+        props.scrollIntoView();
+      }
+      router.events.off('routeChangeComplete', handleRouteChangeComplete);
+    };
+
+    router.events.on('routeChangeComplete', handleRouteChangeComplete);
 
     hideMobileMenu();
   };
@@ -159,7 +141,7 @@ const Header = function (props: IHeaderProps) {
                 </Link>
               </div>
 
-              <div className='google-wrapper'>
+              <div className="google-wrapper">
                 {currentUser !== true ? (
                   <GoogleLogin
                     onError={() => console.log('Login failed')}
@@ -171,12 +153,14 @@ const Header = function (props: IHeaderProps) {
                     text="signin"
                     onSuccess={credentialResponse => {
                       const user = jwtDecode(String(credentialResponse?.credential));
-                      console.log(user)
-                      callSetCurrentUser(true)
+                      console.log(user);
+                      callSetCurrentUser(true);
                     }}
                   ></GoogleLogin>
                 ) : (
-                  <Link className='profile' href="/Profile">Perfil</Link>
+                  <Link className="profile" href="/Profile">
+                    Perfil
+                  </Link>
                 )}
               </div>
             </div>

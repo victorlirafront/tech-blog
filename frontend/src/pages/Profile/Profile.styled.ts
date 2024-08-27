@@ -17,7 +17,7 @@ const StyledProfile = styled.div`
   .favorit-post-title {
     font-size: 48px;
     background-size: 100%;
-    background-image: linear-gradient(135deg, #9580ff 0%, #80ffea 100%);
+    background-image: linear-gradient(135deg, #80ffea 0%, #8aff80 100%);
     background-clip: text;
     -webkit-text-fill-color: transparent;
     -webkit-box-decoration-break: clone;
