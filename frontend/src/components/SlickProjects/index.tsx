@@ -43,8 +43,7 @@ const SlickProjects = (props: Iprops) => {
       <div className="arrows-containers">
         <h1>Projetos</h1>
         <p>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque amet dolores saepe
-          exercitationem! Molestias impedit ipsa eius suscipit nemo modi velit! Corrupti obcaecati
+          Aqui estão algumas das soluções que desenvolvi e implementei para empresas ao longo da minha trajetória profissional.
         </p>
       </div>
       <Slider {...settings}>
@@ -52,7 +51,7 @@ const SlickProjects = (props: Iprops) => {
           <div className="slider-box project-1">
             <h1>Em construção...</h1>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, accusantium.
+              Esse projeto está em contrução, em breve teremos novidades : )
             </p>
           </div>
         </div>
@@ -60,7 +59,7 @@ const SlickProjects = (props: Iprops) => {
           <div className="slider-box project-2">
             <h1>Em construção...</h1>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, accusantium.
+               Esse projeto está em contrução, em breve teremos novidades : )
             </p>
           </div>
         </div>
@@ -68,7 +67,7 @@ const SlickProjects = (props: Iprops) => {
           <div className="slider-box project-3">
             <h1>Em construção...</h1>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, accusantium.
+               Esse projeto está em contrução, em breve teremos novidades : )
             </p>
           </div>
         </div>
@@ -76,7 +75,7 @@ const SlickProjects = (props: Iprops) => {
           <div className="slider-box project-4">
             <h1>Em construção...</h1>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, accusantium.
+               Esse projeto está em contrução, em breve teremos novidades : )
             </p>
           </div>
         </div>

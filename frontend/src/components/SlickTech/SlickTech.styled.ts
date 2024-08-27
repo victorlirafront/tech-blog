@@ -64,7 +64,6 @@ const StyledSlickTech = styled.div`
       width: 150px;
       height: 130px;
       margin: 0 auto;
-
       .slide-image {
         width: 70px;
         height: auto;

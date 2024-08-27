@@ -19,6 +19,7 @@ const SlickProjects = styled.div`
       letter-spacing: 2px;
       line-height: 24px;
       margin-top: 20px;
+      text-transform: uppercase;
     }
 
     @media screen and (max-width: 1274px) {
@@ -192,6 +193,7 @@ const SlickProjects = styled.div`
 
       p {
         margin: 24px 0px;
+        text-align: center;
       }
     }
   }

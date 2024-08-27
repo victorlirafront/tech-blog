@@ -63,7 +63,7 @@ const Profile = function (props: IProfile) {
             <p className="skills">MINHAS SKILLS E POWER UP’S</p>
 
             <p className="tip">
-              Feel free to <span className="span-click">click on the icons</span> below : )
+              Sinta-se à vontade para <span className="span-click">clicar nos ícones</span> abaixo : )
             </p>
             <SlideTech onClick={showTechInformationHandler} />
           </div>

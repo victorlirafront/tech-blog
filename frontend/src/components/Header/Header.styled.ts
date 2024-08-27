@@ -70,7 +70,7 @@ const StyledHeader = styled.header`
         }
 
         @media screen and (max-width: 700px) {
-          background: rgb(0, 98, 72);
+          background: #000;
           position: fixed;
           left: -100%;
           top: 0;
@@ -96,10 +96,10 @@ const StyledHeader = styled.header`
           .google-wrapper {
 
             .profile {
-              background: #12edb2;
+              background: #00c08e;
               padding: 5px 20px;
               border-radius: 4px;
-              color: #000;
+              color: #fff;
             }
           }
 
