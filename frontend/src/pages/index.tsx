@@ -16,7 +16,7 @@ import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 import { useAddToFavoritsContext } from '@/Context/addToFavorits';
 import { updateFavoritSource } from '@/utils/resusableFunctions';
 
-interface IPost {
+type PostProps = {
   id: number;
   title: string;
   content: string;
@@ -28,7 +28,7 @@ interface IPost {
   author: string;
 }
 
-interface IData {
+type Data = {
   data: {
     totalPages: number;
     next: {
@@ -39,11 +39,11 @@ interface IData {
       page: number;
       limit: number;
     };
-    results: IPost[];
+    results: PostProps[];
   };
 }
 
-export default function Home({ data }: IData) {
+export default function Home({ data }: Data) {
   const { setPage } = useContext(GlobalContext);
   const { scrollIntoViewHandler, containerRef } = useScrollContext();
   const { favoritPosts } = useAddToFavoritsContext();
@@ -104,7 +104,7 @@ export default function Home({ data }: IData) {
       <MainPage className="main-page">
         <div className="container" ref={containerRef as React.RefObject<HTMLDivElement>}>
           {data?.results &&
-            data.results.map((post: IPost, index: number) => {
+            data.results.map((post: PostProps, index: number) => {
               let costumizeFirstPost = false;
 
               index === 0 ? (costumizeFirstPost = true) : false;

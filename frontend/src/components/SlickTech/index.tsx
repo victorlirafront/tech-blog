@@ -4,9 +4,9 @@ import Image from 'next/image';
 import StyledSlickTech from './SlickTech.styled';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { Iprops } from './types';
+import { SlickTechProps } from './types';
 
-const SimpleSlider = (props: Iprops) => {
+const SimpleSlider = (props: SlickTechProps) => {
   const [settings] = useState({
     dots: true,
     infinite: true,

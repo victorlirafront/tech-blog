@@ -1,4 +1,4 @@
-export interface IProps {
+export type IProps = {
   date: string;
   style?: React.CSSProperties;
   post_image: string;

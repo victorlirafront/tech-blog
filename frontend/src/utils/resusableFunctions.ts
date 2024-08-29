@@ -1,4 +1,4 @@
-interface IPost {
+type IPost = {
   id: number;
   title: string;
   content: string;
@@ -10,7 +10,7 @@ interface IPost {
   author: string;
 }
 
-interface IFavoritPost {
+type IFavoritPost = {
   post: number;
 }
 

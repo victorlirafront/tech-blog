@@ -3,7 +3,7 @@
 import { createContext, useContext, Dispatch, SetStateAction, useState } from 'react';
 import React from 'react';
 
-interface ContextProps {
+type ContextProps = {
   page: number;
   setPage: Dispatch<SetStateAction<number>>;
   totalPages: number;

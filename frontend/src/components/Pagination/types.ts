@@ -1,4 +1,4 @@
-export interface IpropsPagination {
+export type IpropsPagination = {
   pageLength: number;
   page: number;
   hasNextPage: boolean;

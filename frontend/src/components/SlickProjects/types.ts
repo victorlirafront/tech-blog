@@ -1,5 +1,5 @@
 import { MouseEvent } from 'react';
 
-export type SlickTechProps = {
+export type SlickProjectsProps = {
   onClick: (e: MouseEvent) => void;
 }

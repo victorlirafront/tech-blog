@@ -1,6 +1,6 @@
 import React, { createContext, useContext, ReactNode, useState } from 'react';
 
-interface IGoogleSignInContext {
+type IGoogleSignInContext = {
   setCurrentUser: (a: { picture: string }) => void;
   currentUser: { picture: string };
 }

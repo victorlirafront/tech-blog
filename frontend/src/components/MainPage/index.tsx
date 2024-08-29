@@ -1,12 +1,7 @@
-import { ReactNode } from 'react';
 import StyledMainPage from './MainPage.styled';
+import { MainPageProps } from './types'
 
-interface Iprops {
-  children: ReactNode;
-  className: string;
-}
-
-const MainPage = function (props: Iprops) {
+const MainPage = function (props: MainPageProps) {
   return (
     <StyledMainPage className={props.className}>
       {props.children}

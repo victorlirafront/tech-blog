@@ -3,7 +3,7 @@ import StyledAbout from './About.styled';
 import React from 'react';
 
 const About = function () {
-  function teste() {
+  function returnDevText() {
     return '<dev>';
   }
 
@@ -14,7 +14,7 @@ const About = function () {
       </h1>
       <p data-aos="fade-down" data-aos-delay="200">
         Desenvolvimento de WEB e Mobile e tecnologia em artigos, toda semana! Conteúdo{' '}
-        <span>{teste()}</span>
+        <span>{returnDevText()}</span>
       </p>
     </StyledAbout>
   );

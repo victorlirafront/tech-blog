@@ -1,4 +1,4 @@
-export interface IModal {
+export type IModalProps = {
   closeModal: () => void;
   className: string;
   techName: string;

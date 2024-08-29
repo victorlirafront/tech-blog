@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useRef, ReactNode } from 'react';
 
-interface ScrollContextProps {
+type ScrollContextProps = {
   scrollIntoViewHandler: () => void;
   containerRef: React.RefObject<HTMLElement>;
 }
@@ -15,7 +15,7 @@ export const useScrollContext = (): ScrollContextProps => {
   return context;
 };
 
-interface ScrollProviderProps {
+type ScrollProviderProps = {
   children: ReactNode;
 }
 

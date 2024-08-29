@@ -25,7 +25,7 @@ import {
 import { useAddToFavoritsContext } from '@/Context/addToFavorits';
 import { updateFavoritSource } from '@/utils/resusableFunctions';
 
-interface IProps {
+type IProps = {
   post: {
     id: number;
     category: string;
@@ -54,7 +54,7 @@ interface IProps {
   }[];
 }
 
-interface ICurrentPost {
+type ICurrentPost = {
   id: number;
 }
 

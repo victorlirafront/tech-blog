@@ -7,12 +7,7 @@ import AOS from 'aos';
 import { useEffect } from 'react';
 import TechModal from '@/components/TechModal';
 import techJson from '@/data/slider-tech.json';
-
-interface TechInfo {
-  name: string;
-  description: string;
-  link: string;
-}
+import { TechInfoProps } from './types';
 
 export const AboutMe = function () {
   const [showModal, setShowModal] = useState(false);
@@ -26,7 +21,7 @@ export const AboutMe = function () {
     AOS.init();
   }, []);
 
-  const filterByName = (json: Record<string, TechInfo>, name: string) => {
+  const filterByName = (json: Record<string, TechInfoProps>, name: string) => {
     const keys = Object.keys(json);
 
     const filteredKeys = keys.filter(key => json[key].name.toLowerCase() === name.toLowerCase());

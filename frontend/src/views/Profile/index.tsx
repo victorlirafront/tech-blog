@@ -12,23 +12,12 @@ import { updateFavoritSource } from '@/utils/resusableFunctions';
 import Image from 'next/image';
 import StyledProfile from './Profile.styled';
 import Header from '@/components/Header';
-
-interface IPost {
-  id: number;
-  title: string;
-  content: string;
-  date: string;
-  category: string;
-  meta_tag_title: string;
-  meta_tag_description: string;
-  post_image: string;
-  author: string;
-}
+import { PostsProps } from './types';
 
 export function Profile() {
   const { scrollIntoViewHandler } = useScrollContext();
   const { favoritPosts } = useAddToFavoritsContext();
-  const [currentPostArray, setCurrentPostArray] = useState<IPost[]>();
+  const [currentPostArray, setCurrentPostArray] = useState<PostsProps[]>();
 
   useEffect(() => {
     async function fetchData(baseUrl: string) {
@@ -38,7 +27,7 @@ export function Profile() {
 
         if (favoritPosts.length === 1 && favoritPosts[0].post === 1) return;
         if (results.length > 0) {
-          const intersecao = results.filter((variant1: IPost) =>
+          const intersecao = results.filter((variant1: PostsProps) =>
             favoritPosts.some(variant2 => variant2.post === variant1.id),
           );
           if (intersecao) {

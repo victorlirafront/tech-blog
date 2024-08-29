@@ -3,9 +3,9 @@ import Slider from 'react-slick';
 import StyledSlickTech from './SlickProjects.styled';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { Iprops } from '../SlickTech/types';
+import { SlickProjectsProps } from './types';
 
-const SlickProjects = (props: Iprops) => {
+const SlickProjects = (props: SlickProjectsProps) => {
   const [settings] = useState({
     dots: true,
     infinite: true,

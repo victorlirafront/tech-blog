@@ -7,7 +7,7 @@ import React, {
   useEffect,
 } from 'react';
 
-interface IAddToFavoritsProps {
+type IAddToFavoritsProps = {
   addToFavoritsHandler: (e: MouseEvent) => void;
   favoritPosts: { post: number }[];
 }

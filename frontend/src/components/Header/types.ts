@@ -1,9 +1,9 @@
-export interface IHeaderProps {
+export type IHeaderProps = {
   scrollIntoView?: () => void;
   className: string;
 }
 
-export interface UrlParams {
+export type UrlParams = {
   page: string;
   category: string;
 }

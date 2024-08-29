@@ -1,6 +1,6 @@
 import React, { createContext, useContext, ReactNode, useState } from 'react';
 
-interface CurrentUserContextProps {
+type CurrentUserContextProps = {
   callSetCurrentUser: (a: boolean) => void;
   currentUser: boolean;
 }
@@ -15,7 +15,7 @@ export const useCurrentUser = (): CurrentUserContextProps => {
   return context;
 };
 
-interface CurrentUserProps {
+type CurrentUserProps = {
   children: ReactNode;
 }
 

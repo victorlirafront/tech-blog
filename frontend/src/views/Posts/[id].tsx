@@ -24,43 +24,11 @@ import {
 } from 'react-share';
 import { useAddToFavoritsContext } from '@/Context/addToFavorits';
 import { updateFavoritSource } from '@/utils/resusableFunctions';
+import { PostsProps, CurrentPost } from './types';
 
-interface IProps {
-  post: {
-    id: number;
-    category: string;
-    post_background: string;
-    date: string;
-    meta_tag_title: string;
-    meta_tag_description: string;
-    title: string;
-    content: string;
-    post_image: string;
-    author: string; // Make 'author' property optional
-    keywords: string;
-  };
-  data: {
-    id: number;
-    category: string;
-    post_background: string;
-    date: string;
-    meta_tag_title: string;
-    meta_tag_description: string;
-    title: string;
-    content: string;
-    post_image: string;
-    author: string;
-    keywords: string;
-  }[];
-}
-
-interface ICurrentPost {
-  id: number;
-}
-
-function Posts(props: IProps) {
+function Posts(props: PostsProps) {
   const [isLoading, setIsLoading] = useState(true);
-  const [lastPosts, setLastPost] = useState<IProps['data']>([]);
+  const [lastPosts, setLastPost] = useState<PostsProps['data']>([]);
   const [settings, setSettings] = useState({});
   const { scrollIntoViewHandler } = useScrollContext();
   const [currentPostId, setCurrentPostId] = useState('');
@@ -211,7 +179,7 @@ function Posts(props: IProps) {
       <h1 className="title">Últimas postagens</h1>
       <div className="last-posts">
         <Slider {...settings}>
-          {lastPosts.map((post: IProps['post']) => {
+          {lastPosts.map((post: PostsProps['post']) => {
             return (
               <div className="slider-content" key={post.id}>
                 <Post
@@ -278,7 +246,7 @@ export const getServerSideProps: GetServerSideProps = async (
       (await fetchData(baseUrl3)) ||
       (await fetchData(baseUrl4));
 
-    const currentPost = data.find((post: ICurrentPost) => {
+    const currentPost = data.find((post: CurrentPost) => {
       return String(post.id) === String(id);
     });
 
