@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Header from '../components/Header';
-import MainPage from './MainPage';
+import MainPage from '../components/MainPage';
 import Post from '@/components/Post';
 import About from '@/components/About';
 import Footer from '@/components/Footer';
