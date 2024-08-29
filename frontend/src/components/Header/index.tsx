@@ -117,7 +117,7 @@ const Header = function (props: IHeaderProps) {
                     className={`front-end-option ${currentTab === 'javascript' ? 'active' : ''}`}
                     onClick={() => categoryOptionHandler('1', 'javascript')}
                   >
-                    Front-end
+                    Web
                   </p>
 
                   <p
@@ -130,7 +130,7 @@ const Header = function (props: IHeaderProps) {
                     className={`react-option ${currentTab === 'react' ? 'active' : ''}`}
                     onClick={() => categoryOptionHandler('1', 'react')}
                   >
-                    Práticas
+                    Outros
                   </p>
                 </div>
                 <Link
