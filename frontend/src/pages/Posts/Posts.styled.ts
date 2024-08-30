@@ -1,5 +1,6 @@
 'use client';
 import styled from 'styled-components';
+import { POST_CONTENT_WRITER, PROJECTS_SLIDER_ARROW } from "@/constants/images"
 
 const StyledPostNew = styled.div`
   .profile {
@@ -292,7 +293,7 @@ const StyledPostNew = styled.div`
         background-position: 50%;
         background-size: cover;
         margin-right: 30px;
-        background-image: url(https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/profile_-roAsJAbQ.png?updatedAt=1688612357551);
+        background-image: url('${POST_CONTENT_WRITER}');
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -370,7 +371,7 @@ const StyledPostNew = styled.div`
           height: 30px;
           background-color: #3b3b3b;
           top: 220px;
-          background-image: url(https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow-white_bw7BBf49A.png?updatedAt=1705780260703);
+          background-image: url('${PROJECTS_SLIDER_ARROW}');
           background-position: 9px 9px;
           background-size: 13px;
           background-repeat: no-repeat;
@@ -387,7 +388,7 @@ const StyledPostNew = styled.div`
           width: 30px;
           height: 30px;
           background-color: #3b3b3b;
-          background-image: url(https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow-white_bw7BBf49A.png?updatedAt=1705780260703);
+          background-image: url('${PROJECTS_SLIDER_ARROW}');
           background-position: 9px 9px;
           background-size: 13px;
           background-repeat: no-repeat;

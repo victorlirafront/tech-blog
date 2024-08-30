@@ -25,6 +25,7 @@ import {
 import { useAddToFavoritsContext } from '@/Context/addToFavorits';
 import { updateFavoritSource } from '@/utils/resusableFunctions';
 import { PostsProps, CurrentPost } from './types';
+import { FAVICON, POST_BACKGROUND_BLUR } from '@/constants/images';
 
 function Posts(props: PostsProps) {
   const [isLoading, setIsLoading] = useState(true);
@@ -93,7 +94,7 @@ function Posts(props: PostsProps) {
         <meta name="keywords" content={props.post.keywords} />
         <link
           rel="icon"
-          href="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/binary-code_WBpGXnWnG.png?updatedAt=1700431546132"
+          href={FAVICON}
         />
       </Head>
       <Header className="header" scrollIntoView={() => scrollIntoViewHandler()} />
@@ -104,9 +105,7 @@ function Posts(props: PostsProps) {
             src={props.post.post_background}
             width={600}
             height={400}
-            placeholderSrc={
-              'https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/blur-background_4vViPJ3V6.png?updatedAt=1713050797910'
-            }
+            placeholderSrc={POST_BACKGROUND_BLUR}
             alt="Blur background"
           />
         </div>

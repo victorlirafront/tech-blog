@@ -5,6 +5,17 @@ import StyledSlickTech from './SlickTech.styled';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { SlickTechProps } from './types';
+import {
+  CSS_ICON,
+  HTML_ICON,
+  JAVASCRIPT_ICON,
+  NEXT_JS_ICON,
+  REACT_JS_ICON,
+  SASS_ICON,
+  STYLED_COMPONENTS_ICON,
+  TYPESCRIPT_ICON,
+  JEST_ICON,
+} from '@/constants/images';
 
 const SimpleSlider = (props: SlickTechProps) => {
   const [settings] = useState({
@@ -49,7 +60,7 @@ const SimpleSlider = (props: SlickTechProps) => {
               width={100}
               height={75}
               className="slide-image"
-              src="/next.png"
+              src={NEXT_JS_ICON}
               alt="Next JS icon"
               data-tech="Next JS"
             />
@@ -63,7 +74,7 @@ const SimpleSlider = (props: SlickTechProps) => {
               width={100}
               height={75}
               className="slide-image"
-              src="/react.png"
+              src={REACT_JS_ICON}
               alt="React JS icon"
               data-tech="React JS"
             />
@@ -77,7 +88,7 @@ const SimpleSlider = (props: SlickTechProps) => {
               width={100}
               height={75}
               className="slide-image"
-              src="/typescript.png"
+              src={TYPESCRIPT_ICON}
               alt="TypeScript icon"
               data-tech="TypeScript"
             />
@@ -91,7 +102,7 @@ const SimpleSlider = (props: SlickTechProps) => {
               width={100}
               height={75}
               className="slide-image"
-              src="/javascript.png"
+              src={JAVASCRIPT_ICON}
               alt="JavaScript icon"
               data-tech="JavaScript"
             />
@@ -105,7 +116,7 @@ const SimpleSlider = (props: SlickTechProps) => {
               width={100}
               height={75}
               className="slide-image"
-              src="/styled-components.png"
+              src={STYLED_COMPONENTS_ICON}
               alt="Styled components"
               data-tech="Styled Components"
             />
@@ -119,7 +130,7 @@ const SimpleSlider = (props: SlickTechProps) => {
               width={100}
               height={75}
               className="slide-image"
-              src="/sass.png"
+              src={SASS_ICON}
               alt="Sass icon"
               data-tech="SASS"
             />
@@ -134,7 +145,7 @@ const SimpleSlider = (props: SlickTechProps) => {
               width={100}
               height={75}
               className="slide-image"
-              src="/html.png"
+              src={HTML_ICON}
               alt="HTML icon"
               data-tech="HTML"
             />
@@ -148,7 +159,7 @@ const SimpleSlider = (props: SlickTechProps) => {
               width={100}
               height={75}
               className="slide-image"
-              src="/css.png"
+              src={CSS_ICON}
               alt="CSS Icon"
               data-tech="CSS"
             />
@@ -162,7 +173,7 @@ const SimpleSlider = (props: SlickTechProps) => {
               width={100}
               height={75}
               className="slide-image"
-              src="/jest.png"
+              src={JEST_ICON}
               alt="Jest png"
               data-tech="Jest"
             />

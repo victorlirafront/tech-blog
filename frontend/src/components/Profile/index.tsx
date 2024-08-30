@@ -8,6 +8,7 @@ import { useScrollContext } from '@/Context/scrollProvider';
 import { IProfile } from './types';
 import SlickProjects from '../SlickProjects';
 import Footer from '../Footer';
+import { PROFILE_CIRCLE, PROFILE_PICTURE, VERIFY_ICON } from "@/constants/images"
 
 const Profile = function (props: IProfile) {
   const { scrollIntoViewHandler } = useScrollContext();
@@ -30,7 +31,7 @@ const Profile = function (props: IProfile) {
           <div className="profile-wrapper">
             <div className="card-wrapper" data-aos="fade-down" data-aos-delay="100">
               <Image
-                src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/profile-1_feYey8V23.jpeg?updatedAt=1712709533286"
+                src={PROFILE_PICTURE}
                 alt="Profile Picture"
                 width={300}
                 height={300}
@@ -38,7 +39,7 @@ const Profile = function (props: IProfile) {
               />
               <Image
                 className="circle"
-                src={'/profile-circle.png'}
+                src={PROFILE_CIRCLE}
                 width={100}
                 height={100}
                 alt="circle"
@@ -47,7 +48,7 @@ const Profile = function (props: IProfile) {
 
             <div className="name-box" data-aos="fade-down" data-aos-delay="200">
               <h1 className="name">Victor Lira</h1>
-              <Image src={'/verify.png'} width={20} height={20} alt="teste" />
+              <Image src={VERIFY_ICON} width={20} height={20} alt="teste" />
             </div>
             <h1 className="profile-h1" data-aos="fade-down" data-aos-delay="250">
               <span>DESENVOLVENDO SOLUÇÕES PARA</span> <br />

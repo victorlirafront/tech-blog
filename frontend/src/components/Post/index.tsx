@@ -8,6 +8,7 @@ import React from 'react';
 import Image from 'next/image';
 import { useAddToFavoritsContext } from '@/Context/addToFavorits';
 import { IProps } from './types';
+import { PAGINATION_ARROW } from '@/constants/images';
 
 const Post: React.FC<IProps> = props => {
   const { addToFavoritsHandler } = useAddToFavoritsContext();
@@ -79,7 +80,7 @@ const Post: React.FC<IProps> = props => {
               height={20}
               alt="arrow right"
               loading="lazy"
-              src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow-right_eVbRRghk9.png?updatedAt=1696390413993"
+              src={PAGINATION_ARROW}
             />
           </div>
         </div>

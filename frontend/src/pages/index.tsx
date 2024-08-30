@@ -15,6 +15,7 @@ import AOS from 'aos';
 import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 import { useAddToFavoritsContext } from '@/Context/addToFavorits';
 import { updateFavoritSource } from '@/utils/resusableFunctions';
+import { META_TAG_IMAGE, FAVICON } from "@/constants/images"
 
 type PostProps = {
   id: number;
@@ -90,12 +91,12 @@ export default function Home({ data }: Data) {
         <meta property="og:site_name" content="Victor Lira" />
         <meta
           property="og:image"
-          content="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/capa_Lt5CpWfSYm.png?updatedAt=1707230740618"
+          content={META_TAG_IMAGE}
         />
         <meta property="og:url" content="https://www.victorlirablog.com/" />
         <link
           rel="icon"
-          href="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/binary-code_WBpGXnWnG.png?updatedAt=1700431546132"
+          href={FAVICON}
         />
       </Head>
       <Header className="header" scrollIntoView={() => scrollIntoViewHandler()} />

@@ -24,6 +24,7 @@ import {
 } from 'react-share';
 import { useAddToFavoritsContext } from '@/Context/addToFavorits';
 import { updateFavoritSource } from '@/utils/resusableFunctions';
+import { FAVICON, POST_BACKGROUND_BLUR } from '@/constants/images';
 
 type IProps = {
   post: {
@@ -125,7 +126,7 @@ function Posts(props: IProps) {
         <meta name="keywords" content={props.post.keywords} />
         <link
           rel="icon"
-          href="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/binary-code_WBpGXnWnG.png?updatedAt=1700431546132"
+          href={FAVICON}
         />
       </Head>
       <Header className="header" scrollIntoView={() => scrollIntoViewHandler()} />
@@ -136,9 +137,7 @@ function Posts(props: IProps) {
             src={props.post.post_background}
             width={600}
             height={400}
-            placeholderSrc={
-              'https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/blur-background_4vViPJ3V6.png?updatedAt=1713050797910'
-            }
+            placeholderSrc={POST_BACKGROUND_BLUR}
             alt="Blur background"
           />
         </div>

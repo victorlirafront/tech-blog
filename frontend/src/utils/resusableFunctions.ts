@@ -1,3 +1,5 @@
+import { HEART_GREEN, HEART_WHITE } from "@/constants/images"
+
 type IPost = {
   id: number;
   title: string;
@@ -17,8 +19,8 @@ type IFavoritPost = {
 export const updateFavoritSource = function (favoritPosts: IFavoritPost[], post: IPost) {
   const exists = favoritPosts.some((item: { post: number }) => item.post === post.id);
   if (exists) {
-    return 'https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/heart_ckLrCN-SF.svg';
+    return HEART_GREEN;
   } else {
-    return '/heart-white.png';
+    return HEART_WHITE;
   }
 };

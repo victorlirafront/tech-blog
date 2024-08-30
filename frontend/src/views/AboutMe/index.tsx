@@ -8,6 +8,7 @@ import { useEffect } from 'react';
 import TechModal from '@/components/TechModal';
 import techJson from '@/data/slider-tech.json';
 import { TechInfoProps } from './types';
+import { FAVICON, META_TAG_IMAGE } from '@/constants/images';
 
 export const AboutMe = function () {
   const [showModal, setShowModal] = useState(false);
@@ -57,11 +58,11 @@ export const AboutMe = function () {
         <meta property="og:site_name" content="Victor Lira" />
         <link
           rel="icon"
-          href="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/binary-code_WBpGXnWnG.png?updatedAt=1700431546132"
+          href={FAVICON}
         />
         <meta
           property="og:image"
-          content="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/capa_Lt5CpWfSYm.png?updatedAt=1707230740618"
+          content={META_TAG_IMAGE}
         />
       </Head>
       <TechModal

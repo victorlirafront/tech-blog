@@ -9,6 +9,7 @@ import { IHeaderProps } from './types';
 import { GoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from 'jwt-decode';
 import { useCurrentUser } from '@/Context/currentUser';
+import { CODE_ICON, CLOSE_MENU_ICON, MENU_HAMBURGUER } from '@/constants/images';
 
 const Header = function (props: IHeaderProps) {
   const [currentTab, setCurrentTab] = useState('');
@@ -87,7 +88,7 @@ const Header = function (props: IHeaderProps) {
               width={50}
               height={40}
               className="header-icon"
-              src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/code_2GKuQisNn.png?updatedAt=1697217597567"
+              src={CODE_ICON}
               alt="header icon"
             />
           </div>
@@ -97,7 +98,7 @@ const Header = function (props: IHeaderProps) {
               height={20}
               onClick={() => hideMobileMenu()}
               className="close"
-              src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/close_eNQqVeiw3.png?updatedAt=1703309380667"
+              src={CLOSE_MENU_ICON}
               alt="close menu"
             />
 
@@ -170,7 +171,7 @@ const Header = function (props: IHeaderProps) {
             height={50}
             onClick={() => showMobileMenu()}
             className={`menu-hamburguer`}
-            src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/hamburguer_1id8uhYeQ.png?updatedAt=1703307554746"
+            src={MENU_HAMBURGUER}
             alt="menu"
           />
         </nav>

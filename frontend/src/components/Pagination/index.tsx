@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import Image from 'next/image';
 import { IpropsPagination } from './types';
+import { PAGINATION_ARROW } from "@/constants/images"
 
 const Pagination = function (props: IpropsPagination) {
   const { setPage, page } = useContext(GlobalContext);
@@ -52,7 +53,7 @@ const Pagination = function (props: IpropsPagination) {
               width={20}
               height={20}
               loading="lazy"
-              src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow-right_eVbRRghk9.png?updatedAt=1696390413993"
+              src={PAGINATION_ARROW}
               alt="arrow right"
             />
           </div>
@@ -70,7 +71,7 @@ const Pagination = function (props: IpropsPagination) {
               width={20}
               height={20}
               loading="lazy"
-              src="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/arrow-right_eVbRRghk9.png?updatedAt=1696390413993"
+              src={PAGINATION_ARROW}
               alt="arrow left"
             />
           </div>

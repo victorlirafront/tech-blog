@@ -13,6 +13,7 @@ import Image from 'next/image';
 import StyledProfile from './Profile.styled';
 import Header from '@/components/Header';
 import { PostsProps } from './types';
+import { FAVICON } from '@/constants/images';
 
 export function Profile() {
   const { scrollIntoViewHandler } = useScrollContext();
@@ -52,7 +53,7 @@ export function Profile() {
         <meta name="robots" content="index, follow" />
         <link
           rel="icon"
-          href="https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/binary-code_WBpGXnWnG.png?updatedAt=1700431546132"
+          href={FAVICON}
         />
       </Head>
       <Header className="header" scrollIntoView={() => scrollIntoViewHandler()} />

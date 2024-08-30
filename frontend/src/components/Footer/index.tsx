@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import React from 'react';
+import { GITHUB_ICON, LINKEDIN_ICON } from '@/constants/images';
 
 const getCurrentYear = () => new Date().getFullYear();
 
@@ -15,10 +16,6 @@ const Footer = () => {
 
   const githubUrl = 'https://github.com/victorlirafront';
   const linkedinUrl = 'https://www.linkedin.com/in/victor-lira-front-end/';
-  const githubImageSrc =
-    'https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/github_LDTcy1bc_.png?updatedAt=16886127797';
-  const linkedinImageSrc =
-    'https://ik.imagekit.io/Victorliradev/blog_pessoal/assets/linkedin_aDQr6Huy2.png?updatedAt=16886127938';
 
   return (
     <React.Fragment>
@@ -33,7 +30,7 @@ const Footer = () => {
                   height={30}
                   alt="GitHub"
                   className="icon"
-                  src={githubImageSrc}
+                  src={GITHUB_ICON}
                 />
               </div>
             </Link>
@@ -46,7 +43,7 @@ const Footer = () => {
                   height={30}
                   alt="LinkedIn"
                   className="icon"
-                  src={linkedinImageSrc}
+                  src={LINKEDIN_ICON}
                 />
               </div>
             </Link>
