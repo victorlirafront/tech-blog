@@ -2,6 +2,7 @@ import { StyledSlickTech, StyledSlickTechWrapper } from './TechModal.styled';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { IModalProps } from './types';
+import { CLOSE_MODAL_ICON } from '@/constants/images';
 
 const TechModal = function (props: IModalProps) {
   const [fadeDownOnLoad, setFadeDownOnLoad] = useState(false);
@@ -22,7 +23,7 @@ const TechModal = function (props: IModalProps) {
             className="error-icon"
             width={50}
             height={50}
-            src="/error.png"
+            src={CLOSE_MODAL_ICON}
             alt="Error icon"
             data-aos="fade-down"
           />
