@@ -116,10 +116,10 @@ const Profile = styled.div`
           display: flex;
           align-items: center;
           margin-right: -20px;
+          margin-top: 15px;
 
           .name {
             margin-right: 10px;
-            margin-top: 15px;
           }
         }
 
@@ -186,6 +186,10 @@ const Profile = styled.div`
 
         @media screen and (max-width: 1274px) {
           margin-top: 440px;
+        }
+
+        @media screen and (max-width: 1274px) {
+          margin-top: 200px;
         }
 
         .profession {

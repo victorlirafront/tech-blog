@@ -14,6 +14,19 @@ const SlickProjects = styled.div`
     padding: 30px;
     background: linear-gradient(135deg, #182517 0%, #71cd6a 100%);
 
+    h1 {
+      @media screen and (max-width: 768px) {
+        text-align: center;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      height: 150px !important;
+      p {
+        display: none;
+      }
+    }
+
     p {
       font-size: 13px;
       letter-spacing: 2px;
@@ -98,6 +111,10 @@ const SlickProjects = styled.div`
       top: 780px !important;
     }
 
+    @media screen and (max-width: 768px) {
+      top: 590px !important;
+    }
+
     &::before {
       content: '';
       background-image: url('../../../teste.svg');
@@ -123,6 +140,12 @@ const SlickProjects = styled.div`
       left: unset;
       right: 50px;
       top: 790px !important;
+    }
+
+    @media screen and (max-width: 768px) {
+      left: unset;
+      right: 50px;
+      top: 610px !important;
     }
 
     &::before {
