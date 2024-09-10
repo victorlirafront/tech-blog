@@ -29,7 +29,6 @@ export const CreatePost = function () {
 
   return (
     <React.Fragment>
-      {/* <Header /> */}
       <StyledCreatePost>
         <form id="form" onSubmit={submitPost}>
           <div className="form-control username">
