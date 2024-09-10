@@ -127,7 +127,7 @@ export const AboutMe = function () {
 
               <div className="name-box" data-aos="fade-down" data-aos-delay="200">
                 <h1 className="name">Victor Lira</h1>
-                <Image src={VERIFY_ICON} width={20} height={20} alt="teste" />
+                <Image src={VERIFY_ICON} width={20} height={20} alt="verify icon" />
               </div>
               <h1 className="profile-h1" data-aos="fade-down" data-aos-delay="250">
                 <span>DESENVOLVENDO SOLUÇÕES PARA</span> <br />

@@ -91,7 +91,7 @@ export function Profile() {
             })
           ) : (
             <div>
-              <Image src="/loading.gif" width={100} height={100} alt="teste" />
+              <Image src="/loading.gif" width={100} height={100} alt="loading icon" />
             </div>
           )}
         </div>
