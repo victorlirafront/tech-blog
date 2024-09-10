@@ -60,7 +60,7 @@ const Header = function (props: IHeaderProps) {
     });
 
     const handleRouteChangeComplete = () => {
-      if (props && props.scrollIntoView && category !== "all") {
+      if (props && props.scrollIntoView && category !== 'all') {
         props.scrollIntoView();
       }
       router.events.off('routeChangeComplete', handleRouteChangeComplete);

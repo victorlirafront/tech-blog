@@ -8,4 +8,4 @@ export type PostsProps = {
   meta_tag_description: string;
   post_image: string;
   author: string;
-}
+};

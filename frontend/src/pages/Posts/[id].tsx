@@ -53,11 +53,11 @@ type IProps = {
     author: string;
     keywords: string;
   }[];
-}
+};
 
 type ICurrentPost = {
   id: number;
-}
+};
 
 function Posts(props: IProps) {
   const [isLoading, setIsLoading] = useState(true);
@@ -124,10 +124,7 @@ function Posts(props: IProps) {
         <meta name="author" content={props.post.author} />
         <meta name="robots" content="index, follow" />
         <meta name="keywords" content={props.post.keywords} />
-        <link
-          rel="icon"
-          href={FAVICON}
-        />
+        <link rel="icon" href={FAVICON} />
       </Head>
       <Header className="header" scrollIntoView={() => scrollIntoViewHandler()} />
       <div className="profile" data-aos="fade-down">
