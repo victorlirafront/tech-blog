@@ -8,7 +8,7 @@ const StyledHeader = styled.header`
 
   .home {
     @media screen and (max-width: 500px) {
-      height: 38px;
+      margin-bottom: 15px;
     }
   }
 
@@ -52,6 +52,7 @@ const StyledHeader = styled.header`
 
           @media screen and (max-width: 700px) {
             transition: 0.5s;
+            padding: 70px 20px;
           }
         }
 
@@ -78,13 +79,20 @@ const StyledHeader = styled.header`
           height: 100vh;
           width: 100vw;
           flex-direction: column-reverse;
-          justify-content: center;
+          justify-content: flex-end;
         }
 
         .div-left {
           display: flex;
           justify-content: space-between;
           width: 100%;
+
+          > div {
+            @media screen and (max-width: 700px){
+              display: flex;
+              flex-direction: column;
+            }
+          }
 
           .home {
             &.active {
@@ -113,7 +121,16 @@ const StyledHeader = styled.header`
             margin-left: 30px;
             display: flex;
 
+            @media screen and (max-width: 700px){
+              flex-direction: column;
+              margin: 0;
+            }
+
             p {
+              @media screen and (max-width: 700px){
+                margin-bottom: 15px;
+              }
+
               &.front-end-option {
                 &.active {
                   border-bottom: 3px solid rgb(11, 238, 178);
@@ -144,6 +161,8 @@ const StyledHeader = styled.header`
           .anchor {
             color: #fff;
             @media screen and (max-width: 700px) {
+              margin-bottom: 15px;
+
               &:first-child {
                 margin-bottom: 40px;
               }
@@ -173,11 +192,7 @@ const StyledHeader = styled.header`
         }
 
         .anchor {
-          &:last-child {
-            @media screen and (max-width: 700px) {
-              margin-top: 40px;
-            }
-          }
+
         }
       }
 
