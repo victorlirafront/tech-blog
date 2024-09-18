@@ -32,12 +32,12 @@ const StyledFooter = styled.footer`
   }
 
   .direitos-autorais {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    margin: 0 auto;
     color: #ccc;
     font-size: 12px;
     margin-top: 20px;
+    width: 375px;
+    text-align: center;
   }
 `;
 

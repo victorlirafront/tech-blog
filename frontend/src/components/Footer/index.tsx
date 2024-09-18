@@ -50,7 +50,8 @@ const Footer = () => {
           </div>
 
           <div className="direitos-autorais">
-            <p>Todos os direitos reservados © {getCurrentYear()} Victor Lira </p>
+            <p>Todos os direitos reservados © {getCurrentYear()} <strong>Victor Lira</strong> </p>
+            <p>Blog criado com <strong>Next.js</strong></p>
           </div>
         </StyledFooter>
       ) : (
