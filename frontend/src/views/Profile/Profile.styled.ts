@@ -14,6 +14,10 @@ const StyledProfile = styled.div`
   background: linear-gradient(rgb(0, 0, 0), rgb(18, 18, 18));
   min-height: 100vh;
 
+  @media screen and (max-width: 700px){
+    padding-top: 20px;
+  }
+
   .favorit-post-title {
     font-size: 48px;
     background-size: 100%;
@@ -21,6 +25,10 @@ const StyledProfile = styled.div`
     background-clip: text;
     -webkit-text-fill-color: transparent;
     -webkit-box-decoration-break: clone;
+
+    @media screen and (max-width: 700px){
+      font-size: 26px;
+    }
   }
 
   .container {
