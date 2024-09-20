@@ -58,10 +58,12 @@ export function Profile() {
           content="Olá, sou Victor Lira, o criador de um blog dedicado a explorar os domínios do JavaScript, React, Next.js, TypeScript e outras tecnologias de front-end de ponta. Junte-se a mim nesta jornada enquanto compartilho insights, tutoriais e dicas para aprimorar suas habilidades e ficar por dentro das últimas tendências em desenvolvimento de front-end. Mergulhe no fascinante mundo do desenvolvimento web através do meu blog e capacite-se com conhecimento e experiência."
         />
         <meta name="robots" content="index, follow" />
-        <link
-          rel="icon"
-          href={FAVICON}
-        />
+        <link rel="icon" href={FAVICON} />
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3834333278222212"
+          crossOrigin="anonymous"
+        ></script>
       </Head>
       <Header className="header" scrollIntoView={() => scrollIntoViewHandler()} />
       <StyledProfile data-aos="fade-down" data-aos-delay="200">

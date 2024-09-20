@@ -92,10 +92,12 @@ function Posts(props: PostsProps) {
         <meta name="author" content={props.post.author} />
         <meta name="robots" content="index, follow" />
         <meta name="keywords" content={props.post.keywords} />
-        <link
-          rel="icon"
-          href={FAVICON}
-        />
+        <link rel="icon" href={FAVICON} />
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3834333278222212"
+          crossOrigin="anonymous"
+        ></script>
       </Head>
       <Header className="header" scrollIntoView={() => scrollIntoViewHandler()} />
       <div className="profile" data-aos="fade-down">
@@ -206,7 +208,7 @@ function Posts(props: PostsProps) {
   );
 }
 
-export default Posts
+export default Posts;
 
 async function fetchData(baseUrl: string) {
   try {

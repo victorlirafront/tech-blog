@@ -15,7 +15,7 @@ import AOS from 'aos';
 import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 import { useAddToFavoritsContext } from '@/Context/addToFavorits';
 import { updateFavoritSource } from '@/utils/resusableFunctions';
-import { META_TAG_IMAGE, FAVICON } from "@/constants/images"
+import { META_TAG_IMAGE, FAVICON } from '@/constants/images';
 
 type PostProps = {
   id: number;
@@ -27,7 +27,7 @@ type PostProps = {
   meta_tag_description: string;
   post_image: string;
   author: string;
-}
+};
 
 type Data = {
   data: {
@@ -42,7 +42,7 @@ type Data = {
     };
     results: PostProps[];
   };
-}
+};
 
 export default function Home({ data }: Data) {
   const { setPage } = useContext(GlobalContext);
@@ -89,15 +89,14 @@ export default function Home({ data }: Data) {
         <meta name="author" content="Victor Lira" />
         <meta name="robots" content="index, follow" />
         <meta property="og:site_name" content="Victor Lira" />
-        <meta
-          property="og:image"
-          content={META_TAG_IMAGE}
-        />
+        <meta property="og:image" content={META_TAG_IMAGE} />
         <meta property="og:url" content="https://www.victorlirablog.com/" />
-        <link
-          rel="icon"
-          href={FAVICON}
-        />
+        <link rel="icon" href={FAVICON} />
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3834333278222212"
+          crossOrigin="anonymous"
+        ></script>
       </Head>
       <Header className="header" scrollIntoView={() => scrollIntoViewHandler()} />
       <About />

@@ -1,5 +1,5 @@
 export type IHeaderProps = {
-  scrollIntoView?: () => void;
+  scrollIntoView: () => void;
   className: string;
 }
 
