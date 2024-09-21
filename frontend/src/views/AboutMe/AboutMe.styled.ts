@@ -93,6 +93,11 @@ const Profile = styled.div`
           justify-content: center;
           border-radius: 100%;
 
+          @media screen and (max-width: 767px) {
+            width: 240px;
+            height: 240px;
+          }
+
           .card-image {
             width: 200px;
             height: 200px;

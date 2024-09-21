@@ -24,6 +24,7 @@ import { useScrollContext } from '@/Context/scrollProvider';
 
 export const AboutMe = function () {
   const [showModal, setShowModal] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const { scrollIntoViewHandler } = useScrollContext();
   const [currentModalTech, setCurrentModalTech] = useState({
     name: '',
@@ -33,6 +34,10 @@ export const AboutMe = function () {
 
   useEffect(() => {
     AOS.init();
+    const viewportWidth = window.innerWidth;
+    if (viewportWidth <= 768) {
+      setIsMobile(true);
+    }
   }, []);
 
   const filterByName = (json: Record<string, TechInfoProps>, name: string) => {
@@ -109,7 +114,7 @@ export const AboutMe = function () {
       />
       <StyledAboutMe className="profile">
         <div className="container-vh">
-          <div className="item">
+          <div className="item" style={isMobile ? { height: 'auto', paddingTop: '120px' } : {}}>
             <Header className="header" scrollIntoView={() => scrollIntoViewHandler()} />
 
             <div className="profile-wrapper">
