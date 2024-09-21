@@ -112,11 +112,10 @@ export const AboutMe = function () {
         className={showModal ? 'active' : ''}
         closeModal={closeModalHandler}
       />
+      <Header className="header" scrollIntoView={() => scrollIntoViewHandler()} />
       <StyledAboutMe className="profile">
         <div className="container-vh">
           <div className="item" style={isMobile ? { height: 'auto', paddingTop: '120px' } : {}}>
-            <Header className="header" scrollIntoView={() => scrollIntoViewHandler()} />
-
             <div className="profile-wrapper">
               <div className="card-wrapper" data-aos="fade-down" data-aos-delay="100">
                 <Image

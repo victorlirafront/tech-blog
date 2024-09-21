@@ -105,7 +105,7 @@ const SlickProjects = styled.div`
     top: 300px !important;
     width: 40px !important;
     height: 40px !important;
-    z-index: 3;
+    z-index: 1;
 
     @media screen and (max-width: 1274px) {
       top: 780px !important;
@@ -134,7 +134,7 @@ const SlickProjects = styled.div`
     height: 40px;
     left: 200px;
     top: 320px !important;
-    z-index: 3;
+    z-index: 1;
 
     @media screen and (max-width: 1274px) {
       left: unset;

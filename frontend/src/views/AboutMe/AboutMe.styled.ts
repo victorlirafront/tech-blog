@@ -2,11 +2,10 @@ import styled from 'styled-components';
 
 const Profile = styled.div`
   margin: 0 auto;
-  background: linear-gradient(rgb(0, 0, 0), rgb(18, 18, 18));
+  background: #000;
 
   .container-vh {
     max-height: 100vh;
-    overflow: auto;
     margin: 0 auto;
 
     .item {
