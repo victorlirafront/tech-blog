@@ -290,6 +290,44 @@ const Profile = styled.div`
             padding: 10px 20px;
             text-align: start;
 
+            .input {
+              border: 1px solid #ccc;
+              &.name {
+                &.error {
+                  border: 1px solid red;
+                  background: #f9e8e8;
+                }
+              }
+
+              &.email {
+                &.error {
+                  border: 1px solid red;
+                  background: #f9e8e8;
+                }
+              }
+
+              &.cellphone {
+                &.error {
+                  border: 1px solid red;
+                  background: #f9e8e8;
+                }
+              }
+
+              &.subject {
+                &.error {
+                  border: 1px solid red;
+                  background: #f9e8e8;
+                }
+              }
+
+              &.message {
+                &.error {
+                  border: 1px solid red;
+                  background: #f9e8e8;
+                }
+              }
+            }
+
             @media screen and (max-width: 800px) {
               padding: 5px 20px;
             }
@@ -357,6 +395,14 @@ const Profile = styled.div`
               font-size: 16px;
               color: #333;
               height: 200px;
+
+              &.message {
+                &.error {
+                  border: 1px solid red;
+                  background: #f9e8e8;
+                }
+              }
+
               @media screen and (max-width: 800px) {
                 font-size: 14px;
               }

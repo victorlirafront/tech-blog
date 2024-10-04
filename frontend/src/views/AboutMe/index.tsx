@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
-import { Fragment } from 'react';
+import React, { useState, Fragment } from 'react';
 import Head from 'next/head';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
 import { useEffect } from 'react';
 import TechModal from '@/components/TechModal';
 import techJson from '@/data/slider-tech.json';
-import { TechInfoProps } from './types';
+import { TechInfoProps, FormFieldName, FormData } from './types';
 import {
   FAVICON,
   META_TAG_IMAGE,
@@ -21,8 +20,23 @@ import StyledAboutMe from './AboutMe.styled';
 import Image from 'next/image';
 import SlideTech from '@/components/SlickTech';
 import { useScrollContext } from '@/Context/scrollProvider';
+import {
+  validateName,
+  validateEmail,
+  validatePhone,
+  validateSubject,
+  validateMessage,
+} from './formValidation';
 
 export const AboutMe = function () {
+  const [formSubmitted, setFormSubmitted] = useState(false);
+  const [formData, setFormData] = useState<FormData>({
+    name: { value: '', isValid: false },
+    email: { value: '', isValid: false },
+    cellphone: { value: '', isValid: false },
+    subject: { value: '', isValid: false },
+    message: { value: '', isValid: false },
+  });
   const [showModal, setShowModal] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const { scrollIntoViewHandler } = useScrollContext();
@@ -82,6 +96,60 @@ export const AboutMe = function () {
     }
   };
 
+  const formSubmit = function (e: React.MouseEvent<HTMLButtonElement>) {
+    e.preventDefault();
+    setFormSubmitted(true);
+
+    setFormData(prevData => {
+      const isNameValid = validateName(prevData.name.value);
+      const isEmailValid = validateEmail(prevData.email.value);
+      const isPhoneValid = validatePhone(prevData.cellphone.value);
+      const isSubjectValid = validateSubject(prevData.subject.value);
+      const isMessageValid = validateMessage(prevData.message.value);
+
+      return {
+        ...prevData,
+        name: {
+          ...prevData.name,
+          isValid: isNameValid,
+        },
+        email: {
+          ...prevData.email,
+          isValid: isEmailValid,
+        },
+        cellphone: {
+          ...prevData.cellphone,
+          isValid: isPhoneValid,
+        },
+        subject: {
+          ...prevData.subject,
+          isValid: isSubjectValid,
+        },
+        message: {
+          ...prevData.message,
+          isValid: isMessageValid,
+        },
+      };
+    });
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
+    const { name, value } = e.target;
+
+    if (
+      name === 'name' ||
+      name === 'email' ||
+      name === 'cellphone' ||
+      name === 'subject' ||
+      name === 'message'
+    ) {
+      setFormData(prevData => ({
+        ...prevData,
+        [name]: { ...prevData[name as FormFieldName], value },
+      }));
+    }
+  };
+
   return (
     <Fragment>
       <Head>
@@ -115,7 +183,7 @@ export const AboutMe = function () {
       <Header className="header" scrollIntoView={() => scrollIntoViewHandler()} />
       <StyledAboutMe className="profile">
         <div className="container-vh">
-          <div className="item" style={isMobile ? { height: 'auto', paddingTop: '120px' } : {}}>
+          <div className="item" style={isMobile ? { height: 'auto', paddingTop: '40px' } : {}}>
             <div className="profile-wrapper">
               <div className="card-wrapper" data-aos="fade-down" data-aos-delay="100">
                 <Image
@@ -165,40 +233,80 @@ export const AboutMe = function () {
                 Resta alguma dúvida? Preencha os campos abaixo com os seguintes dados que em breve
                 entraremos em contato.{' '}
               </p>
-              <form
-                id="form"
-                action="https://formsubmit.co/victorliracorporativo@gmail.com"
-                method="POST"
-              >
+              <form id="form">
                 <div className="box-1">
                   <div className="form-control control-1">
                     <label>Seu Nome</label>
-                    <input type="text" placeholder="Digite aqui" name="name" required />
+                    <input
+                      className={`input name ${
+                        !formData.name.isValid && formSubmitted ? 'error' : ''
+                      }`}
+                      value={formData.name.value}
+                      type="text"
+                      placeholder="Digite aqui"
+                      name="name"
+                      onChange={handleChange}
+                    />
                   </div>
                   <div className="form-control control-2">
                     <label>e-mail</label>
-                    <input type="text" placeholder="email@example.com.br" name="email" required />
+                    <input
+                      className={`input email ${
+                        !formData.email.isValid && formSubmitted ? 'error' : ''
+                      }`}
+                      value={formData.email.value}
+                      type="text"
+                      placeholder="email@example.com.br"
+                      name="email"
+                      onChange={handleChange}
+                    />
                   </div>
                 </div>
 
                 <div className="box-2">
                   <div className="form-control control-3">
                     <label>Telefone</label>
-                    <input type="tel" placeholder="( _ _ ) _ ____ ____" name="cellphone" required />
+                    <input
+                      className={`input cellphone ${
+                        !formData.cellphone.isValid && formSubmitted ? 'error' : ''
+                      }`}
+                      value={formData.cellphone.value}
+                      type="text"
+                      placeholder="( _ _ ) _ ____ ____"
+                      name="cellphone"
+                      onChange={handleChange}
+                    />
                   </div>
                   <div className="form-control control-4">
                     <label>Assunto</label>
-                    <input type="text" placeholder="Digite aqui" name="subject" required />
+                    <input
+                      className={`input cellphone ${
+                        !formData.subject.isValid && formSubmitted ? 'error' : ''
+                      }`}
+                      type="text"
+                      placeholder="Digite aqui"
+                      name="subject"
+                      onChange={handleChange}
+                    />
                   </div>
                 </div>
 
                 <div className="box-3">
                   <div className="form-control control-5">
                     <label>Mensagem</label>
-                    <textarea placeholder="Escreva aqui sua mensagem" name="message" required />
+                    <textarea
+                      className={`input message ${
+                        !formData.message.isValid && formSubmitted ? 'error' : ''
+                      }`}
+                      placeholder="Escreva aqui sua mensagem"
+                      name="message"
+                      onChange={handleChange}
+                    />
                   </div>
                 </div>
-                <button className="submit">Enviar contato</button>
+                <button type="button" onClick={formSubmit} className="submit">
+                  Enviar contato
+                </button>
               </form>
             </div>
           </div>
