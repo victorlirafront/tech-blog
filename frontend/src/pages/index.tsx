@@ -16,7 +16,7 @@ import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 import { useAddToFavoritsContext } from '@/Context/addToFavorits';
 import { updateFavoritSource } from '@/utils/resusableFunctions';
 import { META_TAG_IMAGE, FAVICON } from '@/constants/images';
-import {  postsEndPoints } from "../constants/postsEndPoints"
+import { postsEndPoints } from '../constants/postsEndPoints';
 
 type PostProps = {
   id: number;
@@ -169,13 +169,17 @@ export const getServerSideProps: GetServerSideProps = async (
   context: GetServerSidePropsContext,
 ) => {
   try {
-    const page = context.query?.page ?? '1';
-    const category = context.query?.category ?? 'all';
+    const page = Array.isArray(context.query?.page)
+      ? context.query.page[0]
+      : context.query?.page ?? '1';
+    const category = Array.isArray(context.query?.category)
+      ? context.query.category[0]
+      : context.query?.category ?? 'all';
     const limit = '8';
-    
-    const buildUrl = (baseUrl: string, page: string, limit: string, category: string) => 
+
+    const buildUrl = (baseUrl: string, page: string, limit: string, category: string) =>
       `${baseUrl}/api/get/?page=${page}&limit=${limit}&category=${category}`;
-    
+
     const fetchDataFromUrls = async (page: string, limit: string, category: string) => {
       for (const baseUrl of postsEndPoints) {
         const url = buildUrl(baseUrl, page, limit, category);
@@ -188,17 +192,17 @@ export const getServerSideProps: GetServerSideProps = async (
     };
 
     const data = await fetchDataFromUrls(page, limit, category);
-    
+
     return {
       props: {
-        data
+        data,
       },
     };
   } catch (error) {
     console.error('Error fetching data:', error);
     return {
       props: {
-        data: [],
+        data: null,
       },
     };
   }
