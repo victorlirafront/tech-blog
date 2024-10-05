@@ -173,10 +173,10 @@ export const getServerSideProps: GetServerSideProps = async (
     const category = context.query?.category ?? 'all';
     const limit = '8';
     
-    const buildUrl = (baseUrl: any, page: any, limit: any, category: any) => 
-      `${baseUrl}?page=${page}&limit=${limit}&category=${category}`;
+    const buildUrl = (baseUrl: string, page: string, limit: string, category: string) => 
+      `${baseUrl}/api/get/?page=${page}&limit=${limit}&category=${category}`;
     
-    const fetchDataFromUrls = async (page: any, limit: any, category: any) => {
+    const fetchDataFromUrls = async (page: string, limit: string, category: string) => {
       for (const baseUrl of postsEndPoints) {
         const url = buildUrl(baseUrl, page, limit, category);
         const data = await fetchData(url);

@@ -28,6 +28,7 @@ import {
   validateMessage,
 } from './formValidation';
 import Axios from 'axios';
+import { postsEndPoints } from "../../constants/postsEndPoints"
 
 export const AboutMe = function () {
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -97,7 +98,26 @@ export const AboutMe = function () {
     }
   };
 
-  const formSubmit = function (e: React.MouseEvent<HTMLButtonElement>) {
+  const sendEmail = async (formData: { name: string; email: string; cellphone: string; subject: string; message: string }) => {
+    for (const baseUrl of postsEndPoints) {
+
+      try {
+        const response = await Axios.post(`${baseUrl}/api/sendEmail`, {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.cellphone,
+          subject: formData.subject,
+          message: formData.message,
+        });
+        return response.data;
+      } catch (error) {
+        console.error(`Error sending email via ${baseUrl}:`, error);
+      }
+    }
+    return null; 
+  };
+
+  const formSubmit = async function (e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
 
     setFormSubmitted(true);
@@ -108,13 +128,8 @@ export const AboutMe = function () {
     const isMessageValid = validateMessage(formData.message);
 
     if (isNameValid && isEmailValid && isPhoneValid && isSubjectValid && isMessageValid) {
-      Axios.post('http://localhost:3001/api/sendEmail', {
-        name: formData.name,
-        email: formData.email,
-        phone: formData.cellphone,
-        subject: formData.subject,
-        message: formData.message,
-      });
+      const response = await sendEmail(formData);
+      console.log(response)
     }
   };
 
