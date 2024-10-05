@@ -43,7 +43,7 @@ const Footer = () => {
           Todos os direitos reservados © {getCurrentYear()} <strong>Victor Lira</strong>
         </p>
         <p>
-          Blog criado com <strong>Next.js</strong>
+          Blog criado com <strong style={{color: "#9ec0fa"}}>Next.js</strong>
         </p>
       </div>
     </StyledFooter>
