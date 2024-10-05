@@ -5,7 +5,7 @@ import AOS from 'aos';
 import { useEffect } from 'react';
 import TechModal from '@/components/TechModal';
 import techJson from '@/data/slider-tech.json';
-import { TechInfoProps, FormFieldName, FormData } from './types';
+import { TechInfoProps, FormData } from './types';
 import {
   FAVICON,
   META_TAG_IMAGE,
@@ -27,15 +27,16 @@ import {
   validateSubject,
   validateMessage,
 } from './formValidation';
+import Axios from 'axios';
 
 export const AboutMe = function () {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formData, setFormData] = useState<FormData>({
-    name: { value: '', isValid: false },
-    email: { value: '', isValid: false },
-    cellphone: { value: '', isValid: false },
-    subject: { value: '', isValid: false },
-    message: { value: '', isValid: false },
+    name: '',
+    email: '',
+    cellphone: '',
+    subject: '',
+    message: '',
   });
   const [showModal, setShowModal] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -98,54 +99,32 @@ export const AboutMe = function () {
 
   const formSubmit = function (e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault();
+
     setFormSubmitted(true);
+    const isNameValid = validateName(formData.name);
+    const isEmailValid = validateEmail(formData.email);
+    const isPhoneValid = validatePhone(formData.cellphone);
+    const isSubjectValid = validateSubject(formData.subject);
+    const isMessageValid = validateMessage(formData.message);
 
-    setFormData(prevData => {
-      const isNameValid = validateName(prevData.name.value);
-      const isEmailValid = validateEmail(prevData.email.value);
-      const isPhoneValid = validatePhone(prevData.cellphone.value);
-      const isSubjectValid = validateSubject(prevData.subject.value);
-      const isMessageValid = validateMessage(prevData.message.value);
-
-      return {
-        ...prevData,
-        name: {
-          ...prevData.name,
-          isValid: isNameValid,
-        },
-        email: {
-          ...prevData.email,
-          isValid: isEmailValid,
-        },
-        cellphone: {
-          ...prevData.cellphone,
-          isValid: isPhoneValid,
-        },
-        subject: {
-          ...prevData.subject,
-          isValid: isSubjectValid,
-        },
-        message: {
-          ...prevData.message,
-          isValid: isMessageValid,
-        },
-      };
-    });
+    if (isNameValid && isEmailValid && isPhoneValid && isSubjectValid && isMessageValid) {
+      Axios.post('http://localhost:3001/api/sendEmail', {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.cellphone,
+        subject: formData.subject,
+        message: formData.message,
+      });
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
     const { name, value } = e.target;
 
-    if (
-      name === 'name' ||
-      name === 'email' ||
-      name === 'cellphone' ||
-      name === 'subject' ||
-      name === 'message'
-    ) {
+    if (['name', 'email', 'cellphone', 'subject', 'message'].includes(name)) {
       setFormData(prevData => ({
         ...prevData,
-        [name]: { ...prevData[name as FormFieldName], value },
+        [name]: value
       }));
     }
   };
@@ -239,9 +218,9 @@ export const AboutMe = function () {
                     <label>Seu Nome</label>
                     <input
                       className={`input name ${
-                        !formData.name.isValid && formSubmitted ? 'error' : ''
+                        !validateName(formData.name) && formSubmitted ? 'error' : ''
                       }`}
-                      value={formData.name.value}
+                      value={formData.name}
                       type="text"
                       placeholder="Digite aqui"
                       name="name"
@@ -252,9 +231,9 @@ export const AboutMe = function () {
                     <label>e-mail</label>
                     <input
                       className={`input email ${
-                        !formData.email.isValid && formSubmitted ? 'error' : ''
+                        !validateEmail(formData.email) && formSubmitted ? 'error' : ''
                       }`}
-                      value={formData.email.value}
+                      value={formData.email}
                       type="text"
                       placeholder="email@example.com.br"
                       name="email"
@@ -268,9 +247,9 @@ export const AboutMe = function () {
                     <label>Telefone</label>
                     <input
                       className={`input cellphone ${
-                        !formData.cellphone.isValid && formSubmitted ? 'error' : ''
+                        !validatePhone(formData.cellphone) && formSubmitted ? 'error' : ''
                       }`}
-                      value={formData.cellphone.value}
+                      value={formData.cellphone}
                       type="text"
                       placeholder="( _ _ ) _ ____ ____"
                       name="cellphone"
@@ -281,7 +260,7 @@ export const AboutMe = function () {
                     <label>Assunto</label>
                     <input
                       className={`input cellphone ${
-                        !formData.subject.isValid && formSubmitted ? 'error' : ''
+                        !validateSubject(formData.subject) && formSubmitted ? 'error' : ''
                       }`}
                       type="text"
                       placeholder="Digite aqui"
@@ -296,7 +275,7 @@ export const AboutMe = function () {
                     <label>Mensagem</label>
                     <textarea
                       className={`input message ${
-                        !formData.message.isValid && formSubmitted ? 'error' : ''
+                        !validateMessage(formData.message) && formSubmitted ? 'error' : ''
                       }`}
                       placeholder="Escreva aqui sua mensagem"
                       name="message"

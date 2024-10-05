@@ -20,18 +20,24 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const mailOptions = {
-  from: {
-    name: "Victor Lira",
-    address: process.env.USER_EMAIL
-  },
-  to: ["victorliracorporativo@gmail.com"],
-  subject: 'Hello ✔',
-  text: 'Hello world?',
-  html: '<b>Hello world?</b>',
-};
+const sendMail = async function(transporter: any, data: any){
+  const { name, email, phone, subject, message} = data
 
-const sendMail = async function(transporter: any, mailOptions: any){
+  const mailOptions = {
+    from: {
+      name: name,
+      address: process.env.USER_EMAIL
+    },
+    to: ["victorliracorporativo@gmail.com"],
+    subject: `${subject} ✔`,
+    text: 'Hello world?',
+    html: `
+      <p> celular: ${phone} </p>
+      <p> email: ${email} </p>
+      <p> email: ${message} </p>
+    `,
+  };
+
   try{
     await transporter.sendMail(mailOptions)
     console.log("Email has been sent")
@@ -40,8 +46,21 @@ const sendMail = async function(transporter: any, mailOptions: any){
   }
 }
 
-app.get("/api/sendEmail", (req: Request, res: any) => {
-  sendMail(transporter, mailOptions)
+app.post("/api/sendEmail", (req: Request, res: any) => {
+  const name = req.body.name
+  const email = req.body.email
+  const phone = req.body.phone
+  const subject = req.body.subject
+  const message = req.body.message
+
+  const data = {
+    name,
+    email,
+    phone,
+    subject,
+    message
+  }
+  sendMail(transporter, data)
 })
 
 const paginatedResults = function (model: any) {
