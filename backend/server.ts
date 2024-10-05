@@ -1,11 +1,48 @@
 import express, { Request } from 'express';
 import { connection } from './config/db';
 import cors from 'cors';
+import nodemailer from 'nodemailer';
+
 require('dotenv').config();
 
 const app = express();
 app.use(cors());
 app.use(express.json());
+
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  host: 'smtp.gmail.com',
+  port: 587,
+  secure: false,
+  auth: {
+    user: process.env.USER_EMAIL,
+    pass: process.env.APP_PASSWORD,
+  },
+});
+
+const mailOptions = {
+  from: {
+    name: "Victor Lira",
+    address: process.env.USER_EMAIL
+  },
+  to: ["victorliracorporativo@gmail.com"],
+  subject: 'Hello ✔',
+  text: 'Hello world?',
+  html: '<b>Hello world?</b>',
+};
+
+const sendMail = async function(transporter: any, mailOptions: any){
+  try{
+    await transporter.sendMail(mailOptions)
+    console.log("Email has been sent")
+  }catch(error){
+    console.error(error)
+  }
+}
+
+app.get("/api/sendEmail", (req: Request, res: any) => {
+  sendMail(transporter, mailOptions)
+})
 
 const paginatedResults = function (model: any) {
   return (req: any, res: any, next: any) => {
