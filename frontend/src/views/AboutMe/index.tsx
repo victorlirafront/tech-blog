@@ -6,13 +6,6 @@ import { useEffect } from 'react';
 import TechModal from '@/components/TechModal';
 import techJson from '@/data/slider-tech.json';
 import { TechInfoProps, FormData } from './types';
-import {
-  FAVICON,
-  META_TAG_IMAGE,
-  PROFILE_CIRCLE,
-  PROFILE_PICTURE,
-  VERIFY_ICON,
-} from '@/constants/images';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import SlickProjects from '@/components/SlickProjects';
@@ -20,6 +13,9 @@ import StyledAboutMe from './AboutMe.styled';
 import Image from 'next/image';
 import SlideTech from '@/components/SlickTech';
 import { useScrollContext } from '@/Context/scrollProvider';
+import Axios from 'axios';
+import { postsEndPoints } from '../../constants/postsEndPoints';
+import FormModal from '@/components/FormModal';
 import {
   validateName,
   validateEmail,
@@ -27,11 +23,20 @@ import {
   validateSubject,
   validateMessage,
 } from './formValidation';
-import Axios from 'axios';
-import { postsEndPoints } from "../../constants/postsEndPoints"
+import {
+  FAVICON,
+  META_TAG_IMAGE,
+  PROFILE_CIRCLE,
+  PROFILE_PICTURE,
+  VERIFY_ICON,
+} from '@/constants/images';
 
 export const AboutMe = function () {
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [showFormModal, setShowFormModal] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const { scrollIntoViewHandler } = useScrollContext();
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -39,9 +44,6 @@ export const AboutMe = function () {
     subject: '',
     message: '',
   });
-  const [showModal, setShowModal] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-  const { scrollIntoViewHandler } = useScrollContext();
   const [currentModalTech, setCurrentModalTech] = useState({
     name: '',
     description: '',
@@ -58,9 +60,7 @@ export const AboutMe = function () {
 
   const filterByName = (json: Record<string, TechInfoProps>, name: string) => {
     const keys = Object.keys(json);
-
     const filteredKeys = keys.filter(key => json[key].name.toLowerCase() === name.toLowerCase());
-
     return filteredKeys.map(key => json[key]);
   };
 
@@ -98,9 +98,14 @@ export const AboutMe = function () {
     }
   };
 
-  const sendEmail = async (formData: { name: string; email: string; cellphone: string; subject: string; message: string }) => {
+  const sendEmail = async (formData: {
+    name: string;
+    email: string;
+    cellphone: string;
+    subject: string;
+    message: string;
+  }) => {
     for (const baseUrl of postsEndPoints) {
-
       try {
         const response = await Axios.post(`${baseUrl}/api/sendEmail`, {
           name: formData.name,
@@ -114,7 +119,7 @@ export const AboutMe = function () {
         console.error(`Error sending email via ${baseUrl}:`, error);
       }
     }
-    return null; 
+    return null;
   };
 
   const formSubmit = async function (e: React.MouseEvent<HTMLButtonElement>) {
@@ -128,9 +133,18 @@ export const AboutMe = function () {
     const isMessageValid = validateMessage(formData.message);
 
     if (isNameValid && isEmailValid && isPhoneValid && isSubjectValid && isMessageValid) {
-      const response = await sendEmail(formData);
-      console.log(response)
+      try{
+        const response = await sendEmail(formData);
+        console.log(response)
+        setShowFormModal(true)
+      }catch(error){
+        console.error(error)
+      }
     }
+  };
+
+  const closeFormModal = function () {
+    setShowFormModal(false);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
@@ -139,7 +153,7 @@ export const AboutMe = function () {
     if (['name', 'email', 'cellphone', 'subject', 'message'].includes(name)) {
       setFormData(prevData => ({
         ...prevData,
-        [name]: value
+        [name]: value,
       }));
     }
   };
@@ -174,6 +188,9 @@ export const AboutMe = function () {
         className={showModal ? 'active' : ''}
         closeModal={closeModalHandler}
       />
+
+      <FormModal onCloseFormModal={closeFormModal} className={showFormModal ? 'active' : ''} />
+
       <Header className="header" scrollIntoView={() => scrollIntoViewHandler()} />
       <StyledAboutMe className="profile">
         <div className="container-vh">

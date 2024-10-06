@@ -46,7 +46,7 @@ const sendMail = async function(transporter: any, data: any){
   }
 }
 
-app.post("/api/sendEmail", (req: Request, res: any) => {
+app.post("/api/sendEmail", async (req: Request, res: any) => {
   const name = req.body.name
   const email = req.body.email
   const phone = req.body.phone
@@ -60,7 +60,12 @@ app.post("/api/sendEmail", (req: Request, res: any) => {
     subject,
     message
   }
-  sendMail(transporter, data)
+  try{
+    await sendMail(transporter, data)
+    res.status(200).send("Email enviado com sucesso");
+  }catch(error){
+    res.status(500).send("Erro ao enviar o email");
+  }
 })
 
 const paginatedResults = function (model: any) {
