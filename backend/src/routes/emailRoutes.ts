@@ -1,6 +1,8 @@
 import express, { Request, Response } from 'express';
 import nodemailer from 'nodemailer';
+import dotenv from 'dotenv';
 
+dotenv.config();
 const router = express.Router();
 
 const transporter = nodemailer.createTransport({

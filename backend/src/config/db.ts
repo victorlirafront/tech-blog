@@ -9,12 +9,10 @@ export const connection = mysql.createConnection({
   port: parseInt(process.env.PORT!, 10),
 });
 
-connection.connect((err) => {
+connection.connect(err => {
   if (err) {
     console.error('Error connecting to the database:', err);
     return;
   }
   console.log('Connected successfully to the database!');
 });
-
-// Use a conexão aqui para realizar suas consultas, inserções, atualizações, etc.
