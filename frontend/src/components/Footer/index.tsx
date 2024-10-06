@@ -46,14 +46,14 @@ const Footer = () => {
           Blog criado com{' '}
           <a href={`${NEXT_LINK}`} target="_blank" rel="noopener noreferrer">
             <strong style={{ color: '#fff', textDecoration: 'underline' }}>Next.js</strong>
-          </a>
-          ,
-          <a href={`${NODE_LINK}`} target="_blank" rel="noopener noreferrer">
-            <strong style={{ color: '#fff', textDecoration: 'underline' }}> Node</strong>
           </a>{' '}
-          e
+          ,{' '}
+          <a href={`${NODE_LINK}`} target="_blank" rel="noopener noreferrer">
+            <strong style={{ color: '#fff', textDecoration: 'underline' }}>Node</strong>
+          </a>{' '}
+          e{' '}
           <a href={`${MYSQL_LINK}`} target="_blank" rel="noopener noreferrer">
-            <strong style={{ color: '#fff', textDecoration: 'underline' }}> MySql</strong>
+            <strong style={{ color: '#fff', textDecoration: 'underline' }}>MySql</strong>
           </a>
         </p>
       </div>
