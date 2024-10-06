@@ -24,7 +24,6 @@ const SimpleSlider = (props: SlickTechProps) => {
     speed: 400,
     slidesToShow: 5,
     slidesToScroll: 2,
-    autoplay: true,
     responsive: [
       {
         breakpoint: 1024,
