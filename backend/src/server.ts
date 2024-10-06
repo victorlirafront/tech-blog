@@ -1,7 +1,7 @@
 import express, { Request } from 'express';
 import { connection } from './config/db';
 import cors from 'cors';
-import nodemailer from 'nodemailer';
+import emailRoutes from "./routes/emailRoutes"
 
 require('dotenv').config();
 
@@ -9,64 +9,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  host: 'smtp.gmail.com',
-  port: 587,
-  secure: false,
-  auth: {
-    user: process.env.USER_EMAIL,
-    pass: process.env.APP_PASSWORD,
-  },
-});
-
-const sendMail = async function(transporter: any, data: any){
-  const { name, email, phone, subject, message} = data
-
-  const mailOptions = {
-    from: {
-      name: name,
-      address: process.env.USER_EMAIL
-    },
-    to: ["victorliracorporativo@gmail.com"],
-    subject: `${subject} ✔`,
-    text: 'Hello world?',
-    html: `
-      <p> celular: ${phone} </p>
-      <p> email: ${email} </p>
-      <p> email: ${message} </p>
-    `,
-  };
-
-  try{
-    await transporter.sendMail(mailOptions)
-    console.log("Email has been sent")
-  }catch(error){
-    console.error(error)
-  }
-}
-
-app.post("/api/sendEmail", async (req: Request, res: any) => {
-  const name = req.body.name
-  const email = req.body.email
-  const phone = req.body.phone
-  const subject = req.body.subject
-  const message = req.body.message
-
-  const data = {
-    name,
-    email,
-    phone,
-    subject,
-    message
-  }
-  try{
-    await sendMail(transporter, data)
-    res.status(200).send("Email enviado com sucesso");
-  }catch(error){
-    res.status(500).send("Erro ao enviar o email");
-  }
-})
+app.use('/api', emailRoutes);
 
 const paginatedResults = function (model: any) {
   return (req: any, res: any, next: any) => {
