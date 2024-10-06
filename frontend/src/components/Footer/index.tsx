@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import React from 'react';
 import { GITHUB_ICON, LINKEDIN_ICON } from '@/constants/images';
-import { GITHUB_LINk, LINKEDIN_LINK } from '@/constants/links';
+import { GITHUB_LINk, LINKEDIN_LINK, MYSQL_LINK, NEXT_LINK, NODE_LINK } from '@/constants/links';
 
 const getCurrentYear = () => new Date().getFullYear();
 
@@ -43,7 +43,18 @@ const Footer = () => {
           Todos os direitos reservados © {getCurrentYear()} <strong>Victor Lira</strong>
         </p>
         <p>
-          Blog criado com <strong style={{color: "#9ec0fa"}}>Next.js</strong>
+          Blog criado com{' '}
+          <a href={`${NEXT_LINK}`} target="_blank" rel="noopener noreferrer">
+            <strong style={{ color: '#fff', textDecoration: 'underline' }}>Next.js</strong>
+          </a>
+          ,
+          <a href={`${NODE_LINK}`} target="_blank" rel="noopener noreferrer">
+            <strong style={{ color: '#fff', textDecoration: 'underline' }}> Node</strong>
+          </a>{' '}
+          e
+          <a href={`${MYSQL_LINK}`} target="_blank" rel="noopener noreferrer">
+            <strong style={{ color: '#fff', textDecoration: 'underline' }}> MySql</strong>
+          </a>
         </p>
       </div>
     </StyledFooter>
