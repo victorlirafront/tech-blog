@@ -5,7 +5,7 @@ import 'aos/dist/aos.css';
 import { useScrollContext } from '@/Context/scrollProvider';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import axios from 'axios';
+import Axios from 'axios';
 import { useAddToFavoritsContext } from '@/Context/addToFavorits';
 import Post from '@/components/Post';
 import { updateFavoritSource } from '@/utils/resusableFunctions';
@@ -14,6 +14,7 @@ import StyledProfile from './Profile.styled';
 import Header from '@/components/Header';
 import { PostsProps } from './types';
 import { FAVICON } from '@/constants/images';
+import { postsEndPoints } from '@/constants/postsEndPoints';
 
 export function Profile() {
   const { scrollIntoViewHandler } = useScrollContext();
@@ -21,28 +22,55 @@ export function Profile() {
   const [currentPostArray, setCurrentPostArray] = useState<PostsProps[]>();
 
   useEffect(() => {
-    async function fetchData(baseUrl: string) {
+    const buildUrl = (baseUrl: string, page: string, limit: string, category: string) =>
+      `${baseUrl}/api/get/?page=${page}&limit=${limit}&category=${category}`;
+
+    const fetchData = async (baseUrl: string) => {
       try {
-        const response = await axios.get(baseUrl);
+        const response = await Axios.get(baseUrl);
         const results = response.data.results;
 
-        if (favoritPosts.length === 1 && favoritPosts[0].post === 1) return;
-        if (results.length > 0) {
-          const intersecao = results.filter((variant1: PostsProps) =>
-            favoritPosts.some(variant2 => variant2.post === variant1.id),
-          );
-          if (intersecao) {
-            setCurrentPostArray(intersecao);
-          }
-        }
+        if (favoritPosts.length === 1 && favoritPosts[0].post === 1) return null;
+
+        const intersecao = results.filter((variant1: PostsProps) =>
+          favoritPosts.some(variant2 => variant2.post === variant1.id),
+        );
+
+        return intersecao.length > 0 ? intersecao : null;
       } catch (error) {
         console.error(`Erro na requisição: ${error}`);
+        return null;
       }
+    };
 
+    const fetchDataFromUrls = async (
+      postsEndPoints: string[],
+      page: string,
+      limit: string,
+      category: string,
+    ) => {
+      for (const baseUrl of postsEndPoints) {
+        const url = buildUrl(baseUrl, page, limit, category);
+        const data = await fetchData(url);
+        if (data) {
+          return data;
+        }
+      }
       return null;
-    }
+    };
 
-    fetchData('https://blog-tau-rosy-55.vercel.app/api/get?page=1&limit=9999&category=all');
+    const fetchDataAndUpdateState = async () => {
+      try {
+        const data = await fetchDataFromUrls(postsEndPoints, '1', '9999', 'all');
+        if (data) {
+          setCurrentPostArray(data);
+        }
+      } catch (error) {
+        console.error('Erro ao buscar dados:', error);
+      }
+    };
+
+    fetchDataAndUpdateState();
   }, [favoritPosts]);
 
   return (
