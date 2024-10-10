@@ -16,7 +16,6 @@ import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 import { useAddToFavoritsContext } from '@/Context/addToFavorits';
 import { updateFavoritSource } from '@/utils/resusableFunctions';
 import { META_TAG_IMAGE, FAVICON } from '@/constants/images';
-import { postsEndPoints } from '../constants/postsEndPoints';
 
 type PostProps = {
   id: number;
