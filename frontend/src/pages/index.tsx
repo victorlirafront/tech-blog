@@ -169,40 +169,30 @@ export const getServerSideProps: GetServerSideProps = async (
   context: GetServerSidePropsContext,
 ) => {
   try {
-    const page = Array.isArray(context.query?.page)
-      ? context.query.page[0]
-      : context.query?.page ?? '1';
-    const category = Array.isArray(context.query?.category)
-      ? context.query.category[0]
-      : context.query?.category ?? 'all';
+    const page = context.query?.page ?? '1';
+    const category = context.query?.category ?? 'all';
     const limit = '8';
+    const baseUrl1 = `https://blog-backend-tau-three.vercel.app/api/get?page=${page}&limit=${limit}&category=${category}`;
+    const baseUrl2 = `https://blog-backend-g9k4y75fk-victorlirafront.vercel.app/api/get?page=${page}&limit=${limit}&category=${category}`;
+    const baseUrl3 = `https://blog-tau-rosy-55.vercel.app/api/get?page=${page}&limit=${limit}&category=${category}`;
+    const baseUrl4 = `https://blog-git-main-victorlirafront.vercel.app/api/get?page=${page}&limit=${limit}&category=${category}`;
 
-    const buildUrl = (baseUrl: string, page: string, limit: string, category: string) =>
-      `${baseUrl}/api/get/?page=${page}&limit=${limit}&category=${category}`;
-
-    const fetchDataFromUrls = async (page: string, limit: string, category: string) => {
-      for (const baseUrl of postsEndPoints) {
-        const url = buildUrl(baseUrl, page, limit, category);
-        const data = await fetchData(url);
-        if (data) {
-          return data;
-        }
-      }
-      return null;
-    };
-
-    const data = await fetchDataFromUrls(page, limit, category);
+    const data =
+      (await fetchData(baseUrl1)) ||
+      (await fetchData(baseUrl2)) ||
+      (await fetchData(baseUrl3)) ||
+      (await fetchData(baseUrl4));
 
     return {
       props: {
-        data,
+        data, // Pass the extracted data as props
       },
     };
   } catch (error) {
     console.error('Error fetching data:', error);
     return {
       props: {
-        data: null,
+        data: [], // Return an empty array or handle the error as needed
       },
     };
   }
