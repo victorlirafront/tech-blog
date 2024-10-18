@@ -171,16 +171,18 @@ export const getServerSideProps: GetServerSideProps = async (
     const page = context.query?.page ?? '1';
     const category = context.query?.category ?? 'all';
     const limit = '8';
-    const baseUrl1 = `https://blog-backend-tau-three.vercel.app/api/get?page=${page}&limit=${limit}&category=${category}`;
-    const baseUrl2 = `https://blog-backend-g9k4y75fk-victorlirafront.vercel.app/api/get?page=${page}&limit=${limit}&category=${category}`;
-    const baseUrl3 = `https://blog-tau-rosy-55.vercel.app/api/get?page=${page}&limit=${limit}&category=${category}`;
-    const baseUrl4 = `https://blog-git-main-victorlirafront.vercel.app/api/get?page=${page}&limit=${limit}&category=${category}`;
+    const baseUrl1 = `http://localhost:3001/api/get?page=${page}&limit=${limit}&category=${category}`;
+    const baseUrl2 = `https://blog-backend-tau-three.vercel.app/api/get?page=${page}&limit=${limit}&category=${category}`;
+    const baseUrl3 = `https://blog-backend-g9k4y75fk-victorlirafront.vercel.app/api/get?page=${page}&limit=${limit}&category=${category}`;
+    const baseUrl4 = `https://blog-tau-rosy-55.vercel.app/api/get?page=${page}&limit=${limit}&category=${category}`;
+    const baseUrl5 = `https://blog-git-main-victorlirafront.vercel.app/api/get?page=${page}&limit=${limit}&category=${category}`;
 
     const data =
       (await fetchData(baseUrl1)) ||
       (await fetchData(baseUrl2)) ||
       (await fetchData(baseUrl3)) ||
-      (await fetchData(baseUrl4));
+      (await fetchData(baseUrl4)) ||
+      (await fetchData(baseUrl5));
 
     return {
       props: {
