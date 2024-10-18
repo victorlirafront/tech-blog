@@ -1,12 +1,12 @@
 {
   "next": {
     "name": "Next JS",
-    "description": "Next.js is a powerful and flexible framework for building React.js applications. It enables developers to create production-ready applications with ease, providing a robust foundation and a wide range of features out of the box.",
+    "description": "O Next.js é um framework poderoso e flexível para construir aplicações React.js. Ele permite que os desenvolvedores criem aplicações prontas para produção com facilidade, oferecendo uma base robusta e uma ampla gama de recursos já prontos para uso.",
     "link": "https://nextjs.org/docs"
   },
   "react": {
     "name": "React JS",
-    "description": "React.js: A dynamic library for building interactive user interfaces with ease, using declarative components for efficient web development.",
+    "description": "React.js: Uma biblioteca dinâmica para construir interfaces de usuário interativas com facilidade, usando componentes declarativos para um desenvolvimento web eficiente.",
     "link": "https://legacy.reactjs.org/docs/getting-started.html"
   },
   "typescript": {

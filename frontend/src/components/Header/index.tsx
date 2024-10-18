@@ -100,6 +100,7 @@ const Header = function (props: IHeaderProps) {
               className="close"
               src={CLOSE_MENU_ICON}
               alt="close menu"
+              data-id="close-sidebar-btn"
             />
 
             <div className="div-left">
@@ -130,6 +131,7 @@ const Header = function (props: IHeaderProps) {
                   <p
                     className={`react-option ${currentTab === 'react' ? 'active' : ''}`}
                     onClick={() => categoryOptionHandler('1', 'react')}
+                    data-id="outros-link"
                   >
                     Outros
                   </p>
@@ -173,6 +175,7 @@ const Header = function (props: IHeaderProps) {
             className={`menu-hamburguer`}
             src={MENU_HAMBURGUER}
             alt="menu"
+            data-id="open-sidebar-btn"
           />
         </nav>
       </div>

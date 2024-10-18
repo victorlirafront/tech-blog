@@ -77,6 +77,10 @@ const StyledFormModal = styled.div`
     cursor: pointer;
     transition: 0.2s;
 
+    @media screen and (max-width: 768px){
+      font-size: 12px;
+    }
+
     &:hover {
       background: #00B25D;
     }
