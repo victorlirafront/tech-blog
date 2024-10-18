@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import Image from 'next/image';
 import { IpropsPagination } from './types';
-import { PAGINATION_ARROW } from "@/constants/images"
+import { PAGINATION_ARROW } from '@/constants/images';
 
 const Pagination = function (props: IpropsPagination) {
   const { setPage, page } = useContext(GlobalContext);
@@ -49,13 +49,7 @@ const Pagination = function (props: IpropsPagination) {
       return (
         <li onClick={() => setNextPage(props.nextPage)}>
           <div className="icon-arrow icon-arrow-right">
-            <Image
-              width={20}
-              height={20}
-              loading="lazy"
-              src={PAGINATION_ARROW}
-              alt="arrow right"
-            />
+            <Image width={20} height={20} loading="lazy" src={PAGINATION_ARROW} alt="arrow right" />
           </div>
         </li>
       );
@@ -67,13 +61,7 @@ const Pagination = function (props: IpropsPagination) {
       return (
         <li onClick={() => setPreviowPage(props.previousPage)}>
           <div className="icon-arrow icon-arrow-left">
-            <Image
-              width={20}
-              height={20}
-              loading="lazy"
-              src={PAGINATION_ARROW}
-              alt="arrow left"
-            />
+            <Image width={20} height={20} loading="lazy" src={PAGINATION_ARROW} alt="arrow left" />
           </div>
         </li>
       );
