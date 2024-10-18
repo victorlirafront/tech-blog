@@ -29,12 +29,14 @@ import {
   PROFILE_CIRCLE,
   PROFILE_PICTURE,
   VERIFY_ICON,
+  BLACK_LOADING_SPINNER
 } from '@/constants/images';
 
 export const AboutMe = function () {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [showFormModal, setShowFormModal] = useState(false);
+  const [isLoading, setIsLoading] = useState(false)
   const [isMobile, setIsMobile] = useState(false);
   const { scrollIntoViewHandler } = useScrollContext();
   const [formData, setFormData] = useState<FormData>({
@@ -134,11 +136,14 @@ export const AboutMe = function () {
 
     if (isNameValid && isEmailValid && isPhoneValid && isSubjectValid && isMessageValid) {
       try{
+        setIsLoading(true)
         const response = await sendEmail(formData);
         console.log(response)
         setShowFormModal(true)
       }catch(error){
         console.error(error)
+      }finally{
+        setIsLoading(false)
       }
     }
   };
@@ -315,9 +320,19 @@ export const AboutMe = function () {
                     />
                   </div>
                 </div>
-                <button type="button" onClick={formSubmit} className="submit">
+
+                {!isLoading &&
+                  <button type="button" onClick={formSubmit} className="submit">
                   Enviar contato
                 </button>
+                }
+
+                {isLoading &&
+                  <button type="button" className='loading'>
+                  <p>Enviando </p>
+                  <Image src={BLACK_LOADING_SPINNER} width={30} height={30} alt='loading spinner' />
+                </button>
+                }
               </form>
             </div>
           </div>

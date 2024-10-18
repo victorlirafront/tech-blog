@@ -409,7 +409,7 @@ const Profile = styled.div`
             }
           }
 
-          .submit {
+          .submit, .loading {
             border: none;
             border-radius: 30px;
             padding: 10px 30px;
@@ -423,6 +423,20 @@ const Profile = styled.div`
             margin: auto;
             font-weight: bold;
             cursor: pointer;
+            height: 50px;
+            text-transform: uppercase;
+          }
+
+          .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            cursor: not-allowed;
+            img {
+              width: 50px;
+              height: 50px;
+            }
           }
         }
       }

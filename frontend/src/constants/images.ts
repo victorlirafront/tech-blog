@@ -36,3 +36,4 @@ export const CSS_ICON = "/css.png";
 export const JEST_ICON = "/jest.png"
 export const VERIFY_ICON = "/verify.png"
 export const CLOSE_MODAL_ICON = "/error.png"
+export const BLACK_LOADING_SPINNER = "/black-loading.gif"
