@@ -37,7 +37,7 @@ const TechModal = function (props: IModalProps) {
           rel="noopener noreferrer"
           data-aos="fade-down"
         >
-          Oficial documentation
+          Documentação oficial
         </a>
       </StyledSlickTech>
     </StyledSlickTechWrapper>

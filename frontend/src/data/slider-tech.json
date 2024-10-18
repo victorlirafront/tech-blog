@@ -11,37 +11,37 @@
   },
   "typescript": {
     "name": "TypeScript",
-    "description": "TypeScript: Enhances JavaScript with static typing for scalable, maintainable, and error-free web development",
+    "description": "TypeScript: Melhora o JavaScript com tipagem estática para um desenvolvimento web escalável, sustentável e sem erros.",
     "link": "https://www.typescriptlang.org/docs/"
   },
   "javascript": {
     "name": "JavaScript",
-    "description": "JavaScript: A versatile programming language for web development, enabling dynamic, interactive, and client-side functionality across diverse applications.",
+    "description": "JavaScript: Uma linguagem de programação versátil para o desenvolvimento web, permitindo funcionalidade dinâmica, interativa e do lado do cliente em diversas aplicações.",
     "link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
   },
   "styled-components": {
     "name": "Styled Components",
-    "description": "Styled Components: Empowers React developers with CSS-in-JS, enhancing component styling by encapsulating styles within components for robust, maintainable designs",
+    "description": "Styled Components: Capacita desenvolvedores React com CSS-in-JS, aprimorando o estilo dos componentes ao encapsular estilos dentro dos componentes para designs robustos e sustentáveis.",
     "link": "https://styled-components.com/"
   },
   "sass": {
     "name": "SASS",
-    "description": "Sass: A powerful CSS preprocessor offering features like variables, nesting, and mixins to streamline stylesheet authoring and enhance maintainability in web projects.",
+    "description": "Sass: Um poderoso pré-processador CSS que oferece recursos como variáveis, aninhamento e mixins para agilizar a criação de estilos e melhorar a manutenibilidade em projetos web.",
     "link": "https://sass-lang.com/documentation/"
   },
   "html": {
     "name": "HTML",
-    "description": "HTML: The foundation of web development, enabling creation of structured, semantic content for building user interfaces and presenting information across the web.",
+    "description": "HTML: A base do desenvolvimento web, permitindo a criação de conteúdo estruturado e semântico para construir interfaces de usuário e apresentar informações na web.",
     "link": "https://developer.mozilla.org/en-US/docs/Web/HTML"
   },
   "css": {
     "name": "CSS",
-    "description": "Cascading Style Sheets, a fundamental technology for web design, enabling customization of layout, typography, and visual presentation to enhance user experience.",
+    "description": "Cascading Style Sheets (CSS), uma tecnologia fundamental para o design web, que permite a personalização de layout, tipografia e apresentação visual para aprimorar a experiência do usuário.",
     "link": "https://developer.mozilla.org/en-US/docs/Web/CSS"
   },
   "jest": {
     "name": "Jest",
-    "description": "A delightful JavaScript testing framework, providing a simple and intuitive testing experience for ensuring code quality and reliability in projects.",
+    "description": "Um encantador framework de testes em JavaScript, que oferece uma experiência de teste simples e intuitiva para garantir a qualidade e a confiabilidade do código em projetos.",
     "link": "https://jestjs.io/docs/getting-started"
   }
 }
