@@ -201,7 +201,7 @@ export const AboutMe = function () {
         <div className="container-vh">
           <div className="item" style={isMobile ? { height: 'auto', paddingTop: '40px' } : {}}>
             <div className="profile-wrapper">
-              <div className="card-wrapper" data-aos="fade-down" data-aos-delay="100">
+              <div className="card-wrapper" data-aos="fade-down" data-aos-delay="100" data-aos-offset="0">
                 <Image
                   src={PROFILE_PICTURE}
                   alt="Profile Picture"
@@ -218,11 +218,11 @@ export const AboutMe = function () {
                 />
               </div>
 
-              <div className="name-box" data-aos="fade-down" data-aos-delay="200">
+              <div className="name-box" data-aos="fade-down" data-aos-delay="200" data-aos-offset="0">
                 <h1 className="name">Victor Lira</h1>
                 <Image src={VERIFY_ICON} width={20} height={20} alt="verify icon" />
               </div>
-              <h1 className="profile-h1" data-aos="fade-down" data-aos-delay="250">
+              <h1 className="profile-h1" data-aos="fade-down" data-aos-delay="250" data-aos-offset="0">
                 <span>DESENVOLVENDO SOLUÇÕES PARA</span> <br />
                 <span>o amanhã</span>
               </h1>
