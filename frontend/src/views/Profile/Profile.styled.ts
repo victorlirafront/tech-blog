@@ -11,7 +11,7 @@ const StyledProfile = styled.div`
   border-radius: 7px;
   text-align: center;
   padding-top: 60px;
-  background: linear-gradient(rgb(0, 0, 0), rgb(18, 18, 18));
+  background: #000;
   min-height: 100vh;
 
   @media screen and (max-width: 700px){
