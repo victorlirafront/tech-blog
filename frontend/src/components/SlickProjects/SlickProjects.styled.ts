@@ -22,6 +22,7 @@ const SlickProjects = styled.div`
 
     @media screen and (max-width: 768px) {
       height: 150px !important;
+      display: none !important;
       p {
         display: none;
       }
@@ -113,6 +114,7 @@ const SlickProjects = styled.div`
 
     @media screen and (max-width: 768px) {
       top: 590px !important;
+      display: none !important;
     }
 
     &::before {
@@ -146,6 +148,7 @@ const SlickProjects = styled.div`
       left: unset;
       right: 50px;
       top: 610px !important;
+      display: none !important;
     }
 
     &::before {

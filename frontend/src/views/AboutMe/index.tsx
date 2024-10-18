@@ -37,7 +37,6 @@ export const AboutMe = function () {
   const [showModal, setShowModal] = useState(false);
   const [showFormModal, setShowFormModal] = useState(false);
   const [isLoading, setIsLoading] = useState(false)
-  const [isMobile, setIsMobile] = useState(false);
   const { scrollIntoViewHandler } = useScrollContext();
   const [formData, setFormData] = useState<FormData>({
     name: '',
@@ -54,10 +53,6 @@ export const AboutMe = function () {
 
   useEffect(() => {
     AOS.init();
-    const viewportWidth = window.innerWidth;
-    if (viewportWidth <= 768) {
-      setIsMobile(true);
-    }
   }, []);
 
   const filterByName = (json: Record<string, TechInfoProps>, name: string) => {
@@ -199,7 +194,7 @@ export const AboutMe = function () {
       <Header className="header" scrollIntoView={() => scrollIntoViewHandler()} />
       <StyledAboutMe className="profile">
         <div className="container-vh">
-          <div className="item" style={isMobile ? { height: 'auto', paddingTop: '40px' } : {}}>
+          <div className="item main-item">
             <div className="profile-wrapper">
               <div className="card-wrapper" data-aos="fade-down" data-aos-delay="100" data-aos-offset="0">
                 <Image

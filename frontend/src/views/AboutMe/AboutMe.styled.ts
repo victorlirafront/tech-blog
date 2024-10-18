@@ -16,8 +16,8 @@ const Profile = styled.div`
       scroll-snap-align: center;
       position: relative;
 
-      @media screen and (max-width: 600px) {
-        height: calc(100vh + 58px);
+      &.main-item {
+        height: calc(100vh - 86.5px);
       }
 
       &.item-1 {
@@ -28,10 +28,6 @@ const Profile = styled.div`
         height: 600px;
 
         @media screen and (max-width: 1274px) {
-          height: auto;
-        }
-
-        @media screen and (max-width: 800px) {
           height: auto;
         }
 
@@ -193,7 +189,7 @@ const Profile = styled.div`
         }
 
         @media screen and (max-width: 1274px) {
-          margin-top: 200px;
+          margin-top: 20px;
         }
 
         .profession {
