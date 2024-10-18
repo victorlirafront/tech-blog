@@ -22,14 +22,14 @@ const Header = function (props: IHeaderProps) {
   const menuToggleBaseOnUrl = useCallback(() => {
     if (currentUrl.includes('all')) {
       setCurrentTab('all');
-    } else if (currentUrl.includes('javascript')) {
-      setCurrentTab('javascript');
-    } else if (currentUrl.includes('react')) {
-      setCurrentTab('react');
+    } else if (currentUrl.includes('web')) {
+      setCurrentTab('web');
+    }else if (currentUrl.includes('mobile')) {
+      setCurrentTab('mobile');
+    }else if (currentUrl.includes('others')) {
+      setCurrentTab('others');
     } else if (currentUrl.includes('AboutMe')) {
       setCurrentTab('about');
-    } else if (currentUrl.includes('typescript')) {
-      setCurrentTab('typescript');
     } else {
       setCurrentTab('all');
     }
@@ -116,21 +116,21 @@ const Header = function (props: IHeaderProps) {
 
                 <div className="category-options">
                   <p
-                    className={`front-end-option ${currentTab === 'javascript' ? 'active' : ''}`}
-                    onClick={() => categoryOptionHandler('1', 'javascript')}
+                    className={`front-end-option ${currentTab === 'web' ? 'active' : ''}`}
+                    onClick={() => categoryOptionHandler('1', 'web')}
                   >
                     Web
                   </p>
 
                   <p
-                    className={`typescript-option ${currentTab === 'typescript' ? 'active' : ''}`}
-                    onClick={() => categoryOptionHandler('1', 'typescript')}
+                    className={`typescript-option ${currentTab === 'mobile' ? 'active' : ''}`}
+                    onClick={() => categoryOptionHandler('1', 'mobile')}
                   >
                     Mobile
                   </p>
                   <p
-                    className={`react-option ${currentTab === 'react' ? 'active' : ''}`}
-                    onClick={() => categoryOptionHandler('1', 'react')}
+                    className={`react-option ${currentTab === 'others' ? 'active' : ''}`}
+                    onClick={() => categoryOptionHandler('1', 'others')}
                     data-id="outros-link"
                   >
                     Outros
