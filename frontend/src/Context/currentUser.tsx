@@ -1,9 +1,21 @@
 import React, { createContext, useContext, ReactNode, useState } from 'react';
 
+type CurrentUser = {
+  name: string;
+  picture: string;
+  email: string;
+};
+
+const initialValue = {
+  name: '',
+  picture: '',
+  email: '',
+};
+
 type CurrentUserContextProps = {
-  callSetCurrentUser: (a: boolean) => void;
-  currentUser: boolean;
-}
+  callSetCurrentUser: (a: CurrentUser) => void;
+  currentUser: CurrentUser;
+};
 
 const CurrentUserContext = createContext<CurrentUserContextProps | undefined>(undefined);
 
@@ -17,19 +29,18 @@ export const useCurrentUser = (): CurrentUserContextProps => {
 
 type CurrentUserProps = {
   children: ReactNode;
-}
+};
 
 export const CurrentUserProvider: React.FC<CurrentUserProps> = ({ children }) => {
-  const [currentUser, setCurrentUser] = useState(false)
+  const [currentUser, setCurrentUser] = useState<CurrentUser>(initialValue);
 
-  const callSetCurrentUser = (user: boolean) => {
-    setCurrentUser(user)
-
+  const callSetCurrentUser = (user: CurrentUser) => {
+    setCurrentUser(user);
   };
 
   const contextValue: CurrentUserContextProps = {
     callSetCurrentUser,
-    currentUser
+    currentUser,
   };
 
   return <CurrentUserContext.Provider value={contextValue}>{children}</CurrentUserContext.Provider>;

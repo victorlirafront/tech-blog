@@ -15,11 +15,34 @@ import Header from '@/components/Header';
 import { PostsProps } from './types';
 import { FAVICON } from '@/constants/images';
 import { postsEndPoints } from '@/constants/postsEndPoints';
+import { useCurrentUser } from '@/Context/currentUser';
+import { useRouter } from 'next/router';
 
 export function Profile() {
   const { scrollIntoViewHandler } = useScrollContext();
   const { favoritPosts } = useAddToFavoritsContext();
   const [currentPostArray, setCurrentPostArray] = useState<PostsProps[]>();
+  const { currentUser, callSetCurrentUser } = useCurrentUser();
+  const router = useRouter();
+
+  const redirect = async () => {
+    try {
+      await router.push('/');
+    } catch (error) {
+      console.error('Redirecionamento falhou:', error);
+    }
+  };
+
+  const logout = async function () {
+    
+    await redirect()
+
+    callSetCurrentUser({
+      name: '',
+      email: '',
+      picture: '',
+    });
+  };
 
   useEffect(() => {
     const buildUrl = (baseUrl: string, page: string, limit: string, category: string) =>
@@ -95,6 +118,22 @@ export function Profile() {
       </Head>
       <Header className="header" scrollIntoView={() => scrollIntoViewHandler()} />
       <StyledProfile data-aos="fade-down" data-aos-delay="200">
+        {currentUser.email && (
+          <div className="profile">
+            <div className="profile-information">
+              <Image src={currentUser.picture} width={100} height={100} alt="profile picture" />
+              <div className="box">
+                <p className="name">{currentUser.name}</p>
+                <p>{currentUser.email}</p>
+              </div>
+            </div>
+
+            <div className="logout-box">
+              <button onClick={logout}>Sair</button>
+            </div>
+          </div>
+        )}
+
         <h1 className="favorit-post-title">Postagens favoritas</h1>
         <div className="container">
           {currentPostArray ? (

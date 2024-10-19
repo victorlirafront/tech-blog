@@ -14,8 +14,58 @@ const StyledProfile = styled.div`
   background: #000;
   min-height: 100vh;
 
-  @media screen and (max-width: 700px){
+  @media screen and (max-width: 700px) {
     padding-top: 20px;
+  }
+  .profile {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #111111;
+
+    .profile-information {
+      padding: 10px;
+      border-left: 2px solid #fff;
+      width: 500px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding-left: 30px;
+
+      img {
+        border-radius: 100%;
+        margin-right: 50px;
+      }
+
+      .box {
+        text-align: start;
+        .name {
+          font-weight: 600;
+          font-size: 23px;
+        }
+      }
+    }
+
+    .logout-box {
+      button {
+        background: transparent;
+        border: 2px solid #fff;
+        padding: 5px 20px;
+        border-radius: 4px;
+        color: #fff;
+        transition: 0.3s;
+        font-size: 16px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: rgba(255, 255, 255, 0.4);
+        }
+      }
+    }
   }
 
   .favorit-post-title {
@@ -26,7 +76,7 @@ const StyledProfile = styled.div`
     -webkit-text-fill-color: transparent;
     -webkit-box-decoration-break: clone;
 
-    @media screen and (max-width: 700px){
+    @media screen and (max-width: 700px) {
       font-size: 26px;
     }
   }

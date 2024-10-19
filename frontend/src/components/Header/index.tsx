@@ -145,7 +145,7 @@ const Header = function (props: IHeaderProps) {
               </div>
 
               <div className="google-wrapper">
-                {currentUser !== true ? (
+                {!currentUser.name ? (
                   <GoogleLogin
                     onError={() => console.log('Login failed')}
                     theme="filled_black"
@@ -156,8 +156,14 @@ const Header = function (props: IHeaderProps) {
                     text="signin"
                     onSuccess={credentialResponse => {
                       const user = jwtDecode(String(credentialResponse?.credential));
-                      console.log(user);
-                      callSetCurrentUser(true);
+                      
+                      const { picture, name, email } = user;
+
+                      callSetCurrentUser({
+                        name,
+                        picture,
+                        email
+                      });
                     }}
                   ></GoogleLogin>
                 ) : (
