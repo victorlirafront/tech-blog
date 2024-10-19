@@ -24,9 +24,9 @@ const Header = function (props: IHeaderProps) {
       setCurrentTab('all');
     } else if (currentUrl.includes('web')) {
       setCurrentTab('web');
-    }else if (currentUrl.includes('mobile')) {
+    } else if (currentUrl.includes('mobile')) {
       setCurrentTab('mobile');
-    }else if (currentUrl.includes('others')) {
+    } else if (currentUrl.includes('others')) {
       setCurrentTab('others');
     } else if (currentUrl.includes('AboutMe')) {
       setCurrentTab('about');
@@ -147,27 +147,37 @@ const Header = function (props: IHeaderProps) {
               <div className="google-wrapper">
                 {!currentUser.name ? (
                   <GoogleLogin
-                    onError={() => console.log('Login failed')}
-                    theme="filled_black"
-                    size="large"
-                    shape="square"
-                    type="standard"
-                    width="100"
-                    text="signin"
-                    onSuccess={credentialResponse => {
-                      const user = jwtDecode(String(credentialResponse?.credential));
-                      
-                      const { picture, name, email } = user;
+                  onError={() => console.log('Login failed')}
+                  theme="filled_black"
+                  size="large"
+                  shape="square"
+                  type="standard"
+                  width="100"
+                  text="signin"
+                  onSuccess={credentialResponse => {
+                      try {
+                        if (credentialResponse?.credential) {
+                          const user = jwtDecode<{ picture: string; name: string; email: string }>(
+                            credentialResponse.credential,
+                          );
 
-                      callSetCurrentUser({
-                        name,
-                        picture,
-                        email
-                      });
+                          const { picture, name, email } = user;
 
-                      router.push('/Profile');
+                          callSetCurrentUser({
+                            name,
+                            picture,
+                            email,
+                          });
+
+                          router.push('/Profile');
+                        } else {
+                          console.log('No credential received');
+                        }
+                      } catch (error) {
+                        console.error('Error decoding JWT or handling Google login:', error);
+                      }
                     }}
-                  ></GoogleLogin>
+                  />
                 ) : (
                   <Link className="profile" href="/Profile">
                     Perfil
