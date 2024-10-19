@@ -16,6 +16,7 @@ import { useScrollContext } from '@/Context/scrollProvider';
 import Axios from 'axios';
 import { postsEndPoints } from '../../constants/postsEndPoints';
 import FormModal from '@/components/FormModal';
+import { applyPhoneMask } from '@/helperFunctions/applyPhoneMask';
 import {
   validateName,
   validateEmail,
@@ -148,9 +149,14 @@ export const AboutMe = function () {
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>): void => {
-    const { name, value } = e.target;
+    let { name, value } = e.target;
 
     if (['name', 'email', 'cellphone', 'subject', 'message'].includes(name)) {
+
+      if(name === "cellphone"){
+        value = applyPhoneMask(value);
+      }
+
       setFormData(prevData => ({
         ...prevData,
         [name]: value,
