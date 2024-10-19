@@ -411,8 +411,8 @@ const Profile = styled.div`
             padding: 10px 30px;
             display: inline-block;
             transition: 0.5s ease-out;
-            color: #000;
-            background: #12edb2;
+            color: #fff;
+            background: transparent;
             display: block;
             width: 100%;
             max-width: 300px;
@@ -420,7 +420,12 @@ const Profile = styled.div`
             font-weight: bold;
             cursor: pointer;
             height: 50px;
+            border: 2px solid #fff;
             text-transform: uppercase;
+
+            &:hover {
+              background-color: rgba(255, 255, 255, 0.4);
+            }
           }
 
           .loading {

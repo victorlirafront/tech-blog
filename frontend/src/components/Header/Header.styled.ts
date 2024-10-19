@@ -104,10 +104,15 @@ const StyledHeader = styled.header`
           .google-wrapper {
 
             .profile {
-              background: #00c08e;
+              border: 2px solid #fff;
               padding: 5px 20px;
               border-radius: 4px;
               color: #fff;
+              transition: 0.3s;
+
+              &:hover {
+                background-color: rgba(255, 255, 255, 0.4);
+              }
             }
           }
 

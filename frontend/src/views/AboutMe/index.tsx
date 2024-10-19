@@ -30,14 +30,14 @@ import {
   PROFILE_CIRCLE,
   PROFILE_PICTURE,
   VERIFY_ICON,
-  BLACK_LOADING_SPINNER
+  WHITE_LOADING_SPINNER,
 } from '@/constants/images';
 
 export const AboutMe = function () {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [showFormModal, setShowFormModal] = useState(false);
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
   const { scrollIntoViewHandler } = useScrollContext();
   const [formData, setFormData] = useState<FormData>({
     name: '',
@@ -131,15 +131,15 @@ export const AboutMe = function () {
     const isMessageValid = validateMessage(formData.message);
 
     if (isNameValid && isEmailValid && isPhoneValid && isSubjectValid && isMessageValid) {
-      try{
-        setIsLoading(true)
+      try {
+        setIsLoading(true);
         const response = await sendEmail(formData);
-        console.log(response)
-        setShowFormModal(true)
-      }catch(error){
-        console.error(error)
-      }finally{
-        setIsLoading(false)
+        console.log(response);
+        setShowFormModal(true);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        setIsLoading(false);
       }
     }
   };
@@ -152,8 +152,7 @@ export const AboutMe = function () {
     let { name, value } = e.target;
 
     if (['name', 'email', 'cellphone', 'subject', 'message'].includes(name)) {
-
-      if(name === "cellphone"){
+      if (name === 'cellphone') {
         value = applyPhoneMask(value);
       }
 
@@ -202,7 +201,12 @@ export const AboutMe = function () {
         <div className="container-vh">
           <div className="item main-item">
             <div className="profile-wrapper">
-              <div className="card-wrapper" data-aos="fade-down" data-aos-delay="100" data-aos-offset="0">
+              <div
+                className="card-wrapper"
+                data-aos="fade-down"
+                data-aos-delay="100"
+                data-aos-offset="0"
+              >
                 <Image
                   src={PROFILE_PICTURE}
                   alt="Profile Picture"
@@ -219,11 +223,21 @@ export const AboutMe = function () {
                 />
               </div>
 
-              <div className="name-box" data-aos="fade-down" data-aos-delay="200" data-aos-offset="0">
+              <div
+                className="name-box"
+                data-aos="fade-down"
+                data-aos-delay="200"
+                data-aos-offset="0"
+              >
                 <h1 className="name">Victor Lira</h1>
                 <Image src={VERIFY_ICON} width={20} height={20} alt="verify icon" />
               </div>
-              <h1 className="profile-h1" data-aos="fade-down" data-aos-delay="250" data-aos-offset="0">
+              <h1
+                className="profile-h1"
+                data-aos="fade-down"
+                data-aos-delay="250"
+                data-aos-offset="0"
+              >
                 <span>DESENVOLVENDO SOLUÇÕES PARA</span> <br />
                 <span>o amanhã</span>
               </h1>
@@ -322,18 +336,23 @@ export const AboutMe = function () {
                   </div>
                 </div>
 
-                {!isLoading &&
+                {!isLoading && (
                   <button type="button" onClick={formSubmit} className="submit">
-                  Enviar contato
-                </button>
-                }
+                    Enviar contato
+                  </button>
+                )}
 
-                {isLoading &&
-                  <button type="button" className='loading'>
-                  <p>Enviando </p>
-                  <Image src={BLACK_LOADING_SPINNER} width={30} height={30} alt='loading spinner' />
-                </button>
-                }
+                {isLoading && (
+                  <button type="button" className="loading">
+                    <p>Enviando </p>
+                    <Image
+                      src={WHITE_LOADING_SPINNER}
+                      width={30}
+                      height={30}
+                      alt="loading spinner"
+                    />
+                  </button>
+                )}
               </form>
             </div>
           </div>
