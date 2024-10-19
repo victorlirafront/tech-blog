@@ -287,7 +287,7 @@ export const AboutMe = function () {
                       }`}
                       value={formData.email}
                       type="text"
-                      placeholder="email@example.com.br"
+                      placeholder="email@example.com"
                       name="email"
                       onChange={handleChange}
                     />
