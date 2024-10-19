@@ -136,6 +136,13 @@ export const AboutMe = function () {
         const response = await sendEmail(formData);
         console.log(response);
         setShowFormModal(true);
+        setFormData({
+          name: '',
+          email: '',
+          cellphone: '',
+          subject: '',
+          message: '',
+        });
       } catch (error) {
         console.error(error);
       } finally {
@@ -314,6 +321,7 @@ export const AboutMe = function () {
                       className={`input cellphone ${
                         !validateSubject(formData.subject) && formSubmitted ? 'error' : ''
                       }`}
+                      value={formData.subject}
                       type="text"
                       placeholder="Digite aqui"
                       name="subject"
@@ -329,6 +337,7 @@ export const AboutMe = function () {
                       className={`input message ${
                         !validateMessage(formData.message) && formSubmitted ? 'error' : ''
                       }`}
+                      value={formData.message}
                       placeholder="Escreva aqui sua mensagem"
                       name="message"
                       onChange={handleChange}
