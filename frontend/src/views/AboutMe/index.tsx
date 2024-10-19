@@ -282,7 +282,7 @@ export const AboutMe = function () {
 
                 <div className="box-2">
                   <div className="form-control control-3">
-                    <label>Telefone</label>
+                    <label>Celular</label>
                     <input
                       className={`input cellphone ${
                         !validatePhone(formData.cellphone) && formSubmitted ? 'error' : ''
