@@ -37,7 +37,7 @@ function savePostToFavorits(favoritPosts: { post: number }[]) {
 export const AddToFavoritsProvider = ({ children }: { children: ReactNode }) => {
   const [favoritPosts, setFavoritPosts] = useState<{ post: number }[]>([
     {
-      post: 1, //FIX IT
+      post: -1,
     },
   ]);
   const [currentPostId, setCurrentPostId] = useState<{ id: number; date: Date }>();
@@ -49,8 +49,8 @@ export const AddToFavoritsProvider = ({ children }: { children: ReactNode }) => 
   }, []);
 
   useEffect(() => {
-    if (!currentPostId?.id) return; //FIX IT
-    if (!favoritPosts) return; //FIX IT
+    if (!currentPostId?.id) return;
+    if (!favoritPosts) return;
     const alreadyFavoritedThisPost = favoritPosts.some(item => item.post === currentPostId.id);
 
     if (alreadyFavoritedThisPost) {
@@ -65,9 +65,8 @@ export const AddToFavoritsProvider = ({ children }: { children: ReactNode }) => 
   }, [currentPostId]);
 
   useEffect(() => {
-    if (!favoritPosts) return; //FIX IT
-    if (favoritPosts.length <= 0) return; //FIX IT
-    if (favoritPosts.length === 1 && favoritPosts[0].post === 1) return;
+    if (!favoritPosts) return; 
+
     savePostToFavorits(favoritPosts);
   }, [favoritPosts]);
 

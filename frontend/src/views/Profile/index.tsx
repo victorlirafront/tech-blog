@@ -56,8 +56,6 @@ export function Profile() {
         const response = await Axios.get(baseUrl);
         const results = response.data.results;
 
-        if (favoritPosts.length === 1 && favoritPosts[0].post === 1) return null;
-
         const intersecao = results.filter((variant1: PostsProps) =>
           favoritPosts.some(variant2 => variant2.post === variant1.id),
         );
@@ -82,7 +80,7 @@ export function Profile() {
           return data;
         }
       }
-      return null;
+      return [];
     };
 
     const fetchDataAndUpdateState = async () => {
