@@ -34,8 +34,7 @@ export function Profile() {
   };
 
   const logout = async function () {
-    
-    await redirect()
+    await redirect();
 
     callSetCurrentUser({
       name: '',
@@ -45,6 +44,10 @@ export function Profile() {
   };
 
   useEffect(() => {
+    if (!currentUser.email) {
+      router.push('/');
+    }
+
     const buildUrl = (baseUrl: string, page: string, limit: string, category: string) =>
       `${baseUrl}/api/get/?page=${page}&limit=${limit}&category=${category}`;
 
@@ -94,7 +97,7 @@ export function Profile() {
     };
 
     fetchDataAndUpdateState();
-  }, [favoritPosts]);
+  }, [favoritPosts, currentUser]);
 
   return (
     <div>
@@ -116,9 +119,13 @@ export function Profile() {
           crossOrigin="anonymous"
         ></script>
       </Head>
-      <Header className="header" scrollIntoView={() => scrollIntoViewHandler()} />
-      <StyledProfile data-aos="fade-down" data-aos-delay="200">
-        {currentUser.email && (
+
+      {currentUser.email && (
+        <Header className="header" scrollIntoView={() => scrollIntoViewHandler()} />
+      )}
+
+      {currentUser.email && (
+        <StyledProfile data-aos="fade-down" data-aos-delay="200">
           <div className="profile">
             <div className="profile-information">
               <Image src={currentUser.picture} width={100} height={100} alt="profile picture" />
@@ -132,40 +139,40 @@ export function Profile() {
               <button onClick={logout}>Sair</button>
             </div>
           </div>
-        )}
 
-        <h1 className="favorit-post-title">Postagens favoritas</h1>
-        <div className="container">
-          {currentPostArray ? (
-            currentPostArray.map(post => {
-              return (
-                <Post
-                  style={{}}
-                  id={post.id}
-                  key={post.id}
-                  title={post.title}
-                  content={post.content}
-                  author={post.author}
-                  meta_tag_title={post.meta_tag_title}
-                  meta_tag_description={post.meta_tag_description}
-                  post_image={post.post_image}
-                  date={post.date}
-                  category={post.category}
-                  aos_delay="100"
-                  aos_type="fade-up"
-                  hover_animation={-7}
-                  onUpdateFavoritSource={updateFavoritSource(favoritPosts, post)}
-                />
-              );
-            })
-          ) : (
-            <div>
-              <Image src="/loading.gif" width={100} height={100} alt="loading icon" />
-            </div>
-          )}
-        </div>
-      </StyledProfile>
-      <Footer />
+          <h1 className="favorit-post-title">Postagens favoritas</h1>
+          <div className="container">
+            {currentPostArray ? (
+              currentPostArray.map(post => {
+                return (
+                  <Post
+                    style={{}}
+                    id={post.id}
+                    key={post.id}
+                    title={post.title}
+                    content={post.content}
+                    author={post.author}
+                    meta_tag_title={post.meta_tag_title}
+                    meta_tag_description={post.meta_tag_description}
+                    post_image={post.post_image}
+                    date={post.date}
+                    category={post.category}
+                    aos_delay="100"
+                    aos_type="fade-up"
+                    hover_animation={-7}
+                    onUpdateFavoritSource={updateFavoritSource(favoritPosts, post)}
+                  />
+                );
+              })
+            ) : (
+              <div>
+                <Image src="/loading.gif" width={100} height={100} alt="loading icon" />
+              </div>
+            )}
+          </div>
+        </StyledProfile>
+      )}
+      {currentUser.email && <Footer />}
     </div>
   );
 }

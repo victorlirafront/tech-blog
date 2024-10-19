@@ -164,6 +164,8 @@ const Header = function (props: IHeaderProps) {
                         picture,
                         email
                       });
+
+                      router.push('/Profile');
                     }}
                   ></GoogleLogin>
                 ) : (
