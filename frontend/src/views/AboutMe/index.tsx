@@ -147,6 +147,7 @@ export const AboutMe = function () {
         console.error(error);
       } finally {
         setIsLoading(false);
+        setFormSubmitted(false);
       }
     }
   };
