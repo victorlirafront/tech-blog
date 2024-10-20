@@ -27,22 +27,41 @@ const StyledProfile = styled.div`
     align-items: center;
     background: #111111;
 
+    @media screen and (max-width: 600px) {
+      flex-direction: column;
+    }
+
     .profile-information {
       padding: 10px;
       border-left: 2px solid #fff;
-      width: 500px;
+      max-width: 500px;
       display: flex;
       justify-content: flex-start;
       align-items: center;
       padding-left: 30px;
 
+      @media screen and (max-width: 600px) {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding-left: unset;
+        width: 100%;
+      }
+
       img {
         border-radius: 100%;
         margin-right: 50px;
+        @media screen and (max-width: 600px) {
+          margin-right: unset;
+        }
       }
 
       .box {
         text-align: start;
+        @media screen and (max-width: 600px) {
+          text-align: center;
+          margin-top: 20px;
+        }
         .name {
           font-weight: 600;
           font-size: 23px;
@@ -51,6 +70,10 @@ const StyledProfile = styled.div`
     }
 
     .logout-box {
+      @media screen and (max-width: 600px) {
+        margin-top: 10px;
+      }
+
       button {
         background: transparent;
         border: 2px solid #fff;
