@@ -18,6 +18,9 @@ const Post: React.FC<IProps> = props => {
   const router = useRouter();
 
   const handleLinkClick = async (e: React.MouseEvent) => {
+
+    const isAllowed = props.onDisplayLoginAlert(e);
+
     const target = e.target as HTMLElement;
     if (target.classList.contains('favorits--trigger')) {
       addToFavoritsHandler(e);
@@ -75,13 +78,7 @@ const Post: React.FC<IProps> = props => {
 
           <div className="read-more-wrapper">
             <p>Ler mais</p>
-            <Image
-              width={20}
-              height={20}
-              alt="arrow right"
-              loading="lazy"
-              src={PAGINATION_ARROW}
-            />
+            <Image width={20} height={20} alt="arrow right" loading="lazy" src={PAGINATION_ARROW} />
           </div>
         </div>
       </motion.div>

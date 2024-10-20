@@ -8,7 +8,7 @@ import Axios from 'axios';
 import Pagination from '@/components/Pagination';
 import { GlobalContext } from '../Context/pagination';
 import { useScrollContext } from '@/Context/scrollProvider';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { useEffect } from 'react';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
@@ -16,6 +16,8 @@ import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 import { useAddToFavoritsContext } from '@/Context/addToFavorits';
 import { updateFavoritSource } from '@/utils/resusableFunctions';
 import { META_TAG_IMAGE, FAVICON } from '@/constants/images';
+import LoginAlertModal from '@/components/LoginAlertModal';
+import { useCurrentUser } from '@/Context/currentUser';
 
 type PostProps = {
   id: number;
@@ -48,6 +50,8 @@ export default function Home({ data }: Data) {
   const { setPage } = useContext(GlobalContext);
   const { scrollIntoViewHandler, containerRef } = useScrollContext();
   const { favoritPosts } = useAddToFavoritsContext();
+  const { currentUser } = useCurrentUser();
+  const [displayLoginModal, setDisplayLoginModal] = useState(false);
 
   useEffect(() => {
     setPage(data?.next?.page);
@@ -71,6 +75,15 @@ export default function Home({ data }: Data) {
     } else {
       return false;
     }
+  };
+
+  const displayLoginAlert = function (e: React.MouseEvent) {
+    console.log(e)
+    setDisplayLoginModal(true);
+  };
+
+  const closeLoginAlertModal = function () {
+    setDisplayLoginModal(false);
   };
 
   return (
@@ -98,6 +111,9 @@ export default function Home({ data }: Data) {
           crossOrigin="anonymous"
         ></script>
       </Head>
+      {!currentUser.email && displayLoginModal && (
+        <LoginAlertModal onCloseLoginAlertModal={closeLoginAlertModal} />
+      )}
       <Header className="header" scrollIntoView={() => scrollIntoViewHandler()} />
       <About />
 
@@ -116,6 +132,7 @@ export default function Home({ data }: Data) {
 
               return (
                 <Post
+                  onDisplayLoginAlert={displayLoginAlert}
                   style={costumizeFirstPost ? styled : {}}
                   id={post.id}
                   key={post.id}

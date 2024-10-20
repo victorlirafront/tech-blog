@@ -14,4 +14,5 @@ export type IProps = {
   aos_type: string;
   hover_animation: number;
   onUpdateFavoritSource: string;
+  onDisplayLoginAlert: (e: React.MouseEvent) => void
 }
