@@ -20,9 +20,6 @@ const Post: React.FC<IProps> = props => {
   const handleLinkClick = async (e: React.MouseEvent) => {
     const target = e.target as HTMLElement;
 
-    console.log(target.classList.contains('favorits--trigger'));
-    console.log(props.onDisplayLoginAlert);
-
     if (target.classList.contains('favorits--trigger')) {
       if (props.onDisplayLoginAlert) {
         props.onDisplayLoginAlert();
