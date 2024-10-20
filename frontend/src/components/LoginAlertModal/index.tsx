@@ -13,12 +13,11 @@ type IProps = {
 const LoginAlertModal = function (props: IProps) {
   const { callSetCurrentUser } = useCurrentUser();
 
-
   return (
     <StyledLoginAlertModal>
       <Image onClick={props.onCloseLoginAlertModal} className='close-modal' src={CLOSE_MODAL_ICON} alt="fechar modal icone" width={30} height={30} />
       <h1 className='txt-1'>Faça login</h1>
-      <h1 className='txt-2'>Antes de adicionar o post aos seus favoritos</h1>
+      <h1 className='txt-2'>Para visualizar seus posts favoritos</h1>
 
       <GoogleLogin
         onError={() => console.log('Login failed')}

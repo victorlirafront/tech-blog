@@ -18,11 +18,16 @@ const Post: React.FC<IProps> = props => {
   const router = useRouter();
 
   const handleLinkClick = async (e: React.MouseEvent) => {
-
-    const isAllowed = props.onDisplayLoginAlert(e);
-
     const target = e.target as HTMLElement;
+
+    console.log(target.classList.contains('favorits--trigger'));
+    console.log(props.onDisplayLoginAlert);
+
     if (target.classList.contains('favorits--trigger')) {
+      if (props.onDisplayLoginAlert) {
+        props.onDisplayLoginAlert();
+      }
+
       addToFavoritsHandler(e);
       return;
     }

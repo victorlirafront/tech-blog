@@ -95,7 +95,7 @@ export function Profile() {
     };
 
     fetchDataAndUpdateState();
-  }, [favoritPosts, currentUser]);
+  }, [favoritPosts, currentUser, router]);
 
   return (
     <div>

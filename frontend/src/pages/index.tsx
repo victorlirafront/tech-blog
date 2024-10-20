@@ -77,8 +77,7 @@ export default function Home({ data }: Data) {
     }
   };
 
-  const displayLoginAlert = function (e: React.MouseEvent) {
-    console.log(e)
+  const displayLoginAlert = function () {
     setDisplayLoginModal(true);
   };
 

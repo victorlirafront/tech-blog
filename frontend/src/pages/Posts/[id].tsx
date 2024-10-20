@@ -25,6 +25,8 @@ import {
 import { useAddToFavoritsContext } from '@/Context/addToFavorits';
 import { updateFavoritSource } from '@/utils/resusableFunctions';
 import { FAVICON, POST_BACKGROUND_BLUR } from '@/constants/images';
+import { useCurrentUser } from '@/Context/currentUser';
+import LoginAlertModal from '@/components/LoginAlertModal';
 
 type IProps = {
   post: {
@@ -66,6 +68,8 @@ function Posts(props: IProps) {
   const { scrollIntoViewHandler } = useScrollContext();
   const [currentPostId, setCurrentPostId] = useState('');
   const { favoritPosts } = useAddToFavoritsContext();
+  const [displayLoginModal, setDisplayLoginModal] = useState(false);
+  const { currentUser } = useCurrentUser();
 
   const dateObject = new Date(props.post.date);
   const formattedDate = dateObject.toLocaleDateString();
@@ -112,6 +116,14 @@ function Posts(props: IProps) {
     });
   }, [props.data]);
 
+  const displayLoginAlert = function () {
+    setDisplayLoginModal(true);
+  };
+
+  const closeLoginAlertModal = function () {
+    setDisplayLoginModal(false);
+  };
+
   if (isLoading) {
     return <div>Loading...</div>;
   }
@@ -126,6 +138,9 @@ function Posts(props: IProps) {
         <meta name="keywords" content={props.post.keywords} />
         <link rel="icon" href={FAVICON} />
       </Head>
+      {!currentUser.email && displayLoginModal && (
+        <LoginAlertModal onCloseLoginAlertModal={closeLoginAlertModal} />
+      )}
       <Header className="header" scrollIntoView={() => scrollIntoViewHandler()} />
       <div className="profile" data-aos="fade-down">
         <div className="background-image-container">
@@ -211,6 +226,7 @@ function Posts(props: IProps) {
             return (
               <div className="slider-content" key={post.id}>
                 <Post
+                  onDisplayLoginAlert={displayLoginAlert}
                   id={post.id}
                   category={post.category}
                   content={post.content}
