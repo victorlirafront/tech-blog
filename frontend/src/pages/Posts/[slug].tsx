@@ -28,7 +28,40 @@ import { FAVICON, POST_BACKGROUND_BLUR } from '@/constants/images';
 import { useCurrentUser } from '@/Context/currentUser';
 import LoginAlertModal from '@/components/LoginAlertModal';
 import { generateSlug } from '@/helperFunctions/generateSlug';
-import { IProps, ICurrentPost } from './types';
+
+type IProps = {
+  post: {
+    id: number;
+    category: string;
+    post_background: string;
+    date: string;
+    meta_tag_title: string;
+    meta_tag_description: string;
+    title: string;
+    content: string;
+    post_image: string;
+    author: string; // Make 'author' property optional
+    keywords: string;
+  };
+  data: {
+    id: number;
+    category: string;
+    post_background: string;
+    date: string;
+    meta_tag_title: string;
+    meta_tag_description: string;
+    title: string;
+    content: string;
+    post_image: string;
+    author: string;
+    keywords: string;
+  }[];
+};
+
+type ICurrentPost = {
+  slug: string;
+  title: string;
+};
 
 function Posts(props: IProps) {
   const [isLoading, setIsLoading] = useState(true);
@@ -184,7 +217,7 @@ function Posts(props: IProps) {
               <div className="slider-content" key={post.id}>
                 <Post
                   onDisplayLoginAlert={displayLoginAlert}
-                  id={generateSlug(post.title)}
+                  id={post.id}
                   category={post.category}
                   content={post.content}
                   date={post.date}

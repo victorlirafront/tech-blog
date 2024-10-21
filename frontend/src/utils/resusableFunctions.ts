@@ -1,4 +1,4 @@
-import { HEART_GREEN, HEART_WHITE } from "@/constants/images"
+import { HEART_GREEN, HEART_WHITE } from '@/constants/images';
 
 type IPost = {
   id: number;
@@ -10,11 +10,11 @@ type IPost = {
   meta_tag_description: string;
   post_image: string;
   author: string;
-}
+};
 
 type IFavoritPost = {
   post: number;
-}
+};
 
 export const updateFavoritSource = function (favoritPosts: IFavoritPost[], post: IPost) {
   const exists = favoritPosts.some((item: { post: number }) => item.post === post.id);

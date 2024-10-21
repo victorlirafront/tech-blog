@@ -4,4 +4,4 @@ export type IModalProps = {
   techName: string;
   techDescription: string;
   techLink: string;
-}
+};

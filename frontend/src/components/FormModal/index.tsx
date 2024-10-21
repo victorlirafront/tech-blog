@@ -1,10 +1,10 @@
 import StyledFormModal from './FormModal.styled';
 import Image from 'next/image';
 
-type FormModalProps =  {
+type FormModalProps = {
   className: string;
-  onCloseFormModal: () => void
-}
+  onCloseFormModal: () => void;
+};
 
 const FormModal = function (props: FormModalProps) {
   const { className, onCloseFormModal } = props;

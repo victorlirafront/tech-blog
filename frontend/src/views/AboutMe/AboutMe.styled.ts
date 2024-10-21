@@ -405,7 +405,8 @@ const Profile = styled.div`
             }
           }
 
-          .submit, .loading {
+          .submit,
+          .loading {
             border: none;
             border-radius: 30px;
             padding: 10px 30px;

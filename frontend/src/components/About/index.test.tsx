@@ -6,9 +6,9 @@ describe('About', () => {
     render(<About />);
   });
 
-  it("render About title", () => {
+  it('render About title', () => {
     render(<About />);
-    const heading = screen.getByRole("heading", {name: /Artigos/i })
+    const heading = screen.getByRole('heading', { name: /Artigos/i });
     expect(heading).toBeInTheDocument();
-  })
+  });
 });

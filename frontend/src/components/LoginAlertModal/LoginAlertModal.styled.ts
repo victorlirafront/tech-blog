@@ -16,7 +16,7 @@ export const StyledLoginAlertModal = styled.div`
   border-radius: 4px;
   padding: 20px;
 
-  @media screen and (max-width: 501px){
+  @media screen and (max-width: 501px) {
     width: 90%;
     height: 300px;
   }

@@ -17,7 +17,7 @@ const StyledFormModal = styled.div`
   transform: translate(50%, -250%);
   transition: 0.5s;
 
-  @media screen and (max-width: 768px){
+  @media screen and (max-width: 768px) {
     width: 95%;
   }
 
@@ -31,14 +31,12 @@ const StyledFormModal = styled.div`
     top: 50%;
     transform: translate(50%, -50%);
   }
-  
-
 
   .check-icon {
     width: 100px;
     height: auto;
 
-    @media screen and (max-width: 500px){
+    @media screen and (max-width: 500px) {
       width: 30px;
     }
   }
@@ -47,21 +45,21 @@ const StyledFormModal = styled.div`
     color: #444444;
     margin-top: 20px;
 
-    @media screen and (max-width: 500px){
+    @media screen and (max-width: 500px) {
       font-size: 20px;
       margin-top: 10px;
     }
   }
 
   p {
-    @media screen and (max-width: 500px){
+    @media screen and (max-width: 500px) {
       font-size: 14px;
     }
   }
 
   .text-1 {
     margin-top: 20px;
-    @media screen and (max-width: 500px){
+    @media screen and (max-width: 500px) {
       margin-top: 10px;
     }
   }
@@ -77,12 +75,12 @@ const StyledFormModal = styled.div`
     cursor: pointer;
     transition: 0.2s;
 
-    @media screen and (max-width: 768px){
+    @media screen and (max-width: 768px) {
       font-size: 12px;
     }
 
     &:hover {
-      background: #00B25D;
+      background: #00b25d;
     }
   }
 `;

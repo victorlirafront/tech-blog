@@ -14,11 +14,11 @@ export default function App({ Component, pageProps }: AppProps) {
       <GlobalContextProvider>
         <ScrollProvider>
           <CurrentUserProvider>
-          <AddToFavoritsProvider>
-            <GoogleOAuthProvider clientId="1038532450717-5sjt921eagtenq8oe19at9548fq4rpea.apps.googleusercontent.com">
-              <Component {...pageProps} />
-            </GoogleOAuthProvider>
-          </AddToFavoritsProvider>
+            <AddToFavoritsProvider>
+              <GoogleOAuthProvider clientId="1038532450717-5sjt921eagtenq8oe19at9548fq4rpea.apps.googleusercontent.com">
+                <Component {...pageProps} />
+              </GoogleOAuthProvider>
+            </AddToFavoritsProvider>
           </CurrentUserProvider>
         </ScrollProvider>
       </GlobalContextProvider>

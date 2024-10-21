@@ -1,6 +1,6 @@
 'use client';
 import styled from 'styled-components';
-import { POST_CONTENT_WRITER, PROJECTS_SLIDER_ARROW } from "@/constants/images"
+import { POST_CONTENT_WRITER, PROJECTS_SLIDER_ARROW } from '@/constants/images';
 
 const StyledPostNew = styled.div`
   .profile {

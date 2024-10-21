@@ -3,7 +3,7 @@ import React, { createContext, useContext, ReactNode, useState } from 'react';
 type IGoogleSignInContext = {
   setCurrentUser: (a: { picture: string }) => void;
   currentUser: { picture: string };
-}
+};
 
 const GoogleSignInContext = createContext<IGoogleSignInContext | undefined>(undefined);
 

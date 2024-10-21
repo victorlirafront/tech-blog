@@ -147,14 +147,14 @@ const Header = function (props: IHeaderProps) {
               <div className="google-wrapper">
                 {!currentUser.name ? (
                   <GoogleLogin
-                  onError={() => console.log('Login failed')}
-                  theme="filled_black"
-                  size="large"
-                  shape="square"
-                  type="standard"
-                  width="100"
-                  text="signin"
-                  onSuccess={credentialResponse => {
+                    onError={() => console.log('Login failed')}
+                    theme="filled_black"
+                    size="large"
+                    shape="square"
+                    type="standard"
+                    width="100"
+                    text="signin"
+                    onSuccess={credentialResponse => {
                       try {
                         if (credentialResponse?.credential) {
                           const user = jwtDecode<{ picture: string; name: string; email: string }>(

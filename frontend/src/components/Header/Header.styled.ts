@@ -88,7 +88,7 @@ const StyledHeader = styled.header`
           width: 100%;
 
           > div {
-            @media screen and (max-width: 700px){
+            @media screen and (max-width: 700px) {
               display: flex;
               flex-direction: column;
             }
@@ -102,7 +102,6 @@ const StyledHeader = styled.header`
           }
 
           .google-wrapper {
-
             .profile {
               border: 2px solid #fff;
               padding: 5px 20px;
@@ -126,13 +125,13 @@ const StyledHeader = styled.header`
             margin-left: 30px;
             display: flex;
 
-            @media screen and (max-width: 700px){
+            @media screen and (max-width: 700px) {
               flex-direction: column;
               margin: 0;
             }
 
             p {
-              @media screen and (max-width: 700px){
+              @media screen and (max-width: 700px) {
                 margin-bottom: 15px;
               }
 
@@ -197,7 +196,6 @@ const StyledHeader = styled.header`
         }
 
         .anchor {
-
         }
       }
 

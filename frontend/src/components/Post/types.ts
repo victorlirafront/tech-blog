@@ -5,7 +5,7 @@ export type IProps = {
   title: string;
   content: string;
   author: string;
-  id: string;
+  id: number;
   category: string;
   meta_tag_title: string;
   meta_tag_description: string;
@@ -14,5 +14,5 @@ export type IProps = {
   aos_type: string;
   hover_animation: number;
   onUpdateFavoritSource: string;
-  onDisplayLoginAlert?: () => void
-}
+  onDisplayLoginAlert?: () => void;
+};

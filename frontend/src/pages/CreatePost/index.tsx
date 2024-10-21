@@ -1,1 +1,1 @@
-export { CreatePost as default } from "@/views/CreatePost"
+export { CreatePost as default } from '@/views/CreatePost';

@@ -9,6 +9,7 @@ import Image from 'next/image';
 import { useAddToFavoritsContext } from '@/Context/addToFavorits';
 import { IProps } from './types';
 import { PAGINATION_ARROW } from '@/constants/images';
+import { generateSlug } from '@/helperFunctions/generateSlug';
 
 const Post: React.FC<IProps> = props => {
   const { addToFavoritsHandler } = useAddToFavoritsContext();
@@ -30,7 +31,7 @@ const Post: React.FC<IProps> = props => {
     }
 
     router.push({
-      pathname: `/Posts/${props.id}`,
+      pathname: `/Posts/${generateSlug(props.title)}`,
       query: {},
     });
   };

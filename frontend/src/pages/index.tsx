@@ -18,7 +18,6 @@ import { updateFavoritSource } from '@/utils/resusableFunctions';
 import { META_TAG_IMAGE, FAVICON } from '@/constants/images';
 import LoginAlertModal from '@/components/LoginAlertModal';
 import { useCurrentUser } from '@/Context/currentUser';
-import { generateSlug } from '@/helperFunctions/generateSlug';
 
 type PostProps = {
   id: number;
@@ -134,7 +133,7 @@ export default function Home({ data }: Data) {
                 <Post
                   onDisplayLoginAlert={displayLoginAlert}
                   style={costumizeFirstPost ? styled : {}}
-                  id={generateSlug(post.title)}
+                  id={post.id}
                   key={post.id}
                   title={post.title}
                   content={post.content}

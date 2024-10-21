@@ -10,7 +10,7 @@ import React, {
 type IAddToFavoritsProps = {
   addToFavoritsHandler: (e: MouseEvent) => void;
   favoritPosts: { post: number }[];
-}
+};
 
 const AddToFavoritsContext = createContext<IAddToFavoritsProps | undefined>(undefined);
 
@@ -65,7 +65,7 @@ export const AddToFavoritsProvider = ({ children }: { children: ReactNode }) => 
   }, [currentPostId]);
 
   useEffect(() => {
-    if (!favoritPosts) return; 
+    if (!favoritPosts) return;
 
     savePostToFavorits(favoritPosts);
   }, [favoritPosts]);

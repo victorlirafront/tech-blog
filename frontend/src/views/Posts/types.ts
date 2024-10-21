@@ -25,8 +25,8 @@ export type PostsProps = {
     author: string;
     keywords: string;
   }[];
-}
+};
 
 export type CurrentPost = {
   id: number;
-}
+};

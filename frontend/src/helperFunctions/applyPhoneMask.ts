@@ -6,7 +6,7 @@ export const applyPhoneMask = (value: string): string => {
   }
 
   value = value.replace(/^(\d{2})(\d)/g, '($1) $2');
-  
+
   if (value.length > 10) {
     value = value.replace(/(\d{5})(\d{4})$/, '$1-$2');
   } else {

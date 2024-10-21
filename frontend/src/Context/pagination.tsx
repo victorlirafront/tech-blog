@@ -8,7 +8,7 @@ type ContextProps = {
   setPage: Dispatch<SetStateAction<number>>;
   totalPages: number;
   setTotalPages: Dispatch<SetStateAction<number>>;
-}
+};
 
 export const GlobalContext = createContext<ContextProps>({
   page: 1,
