@@ -5,7 +5,7 @@ export type IProps = {
   title: string;
   content: string;
   author: string;
-  id: number;
+  id: string;
   category: string;
   meta_tag_title: string;
   meta_tag_description: string;

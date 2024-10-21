@@ -27,63 +27,20 @@ import { updateFavoritSource } from '@/utils/resusableFunctions';
 import { FAVICON, POST_BACKGROUND_BLUR } from '@/constants/images';
 import { useCurrentUser } from '@/Context/currentUser';
 import LoginAlertModal from '@/components/LoginAlertModal';
-
-type IProps = {
-  post: {
-    id: number;
-    category: string;
-    post_background: string;
-    date: string;
-    meta_tag_title: string;
-    meta_tag_description: string;
-    title: string;
-    content: string;
-    post_image: string;
-    author: string; // Make 'author' property optional
-    keywords: string;
-  };
-  data: {
-    id: number;
-    category: string;
-    post_background: string;
-    date: string;
-    meta_tag_title: string;
-    meta_tag_description: string;
-    title: string;
-    content: string;
-    post_image: string;
-    author: string;
-    keywords: string;
-  }[];
-};
-
-type ICurrentPost = {
-  id: number;
-};
+import { generateSlug } from '@/helperFunctions/generateSlug';
+import { IProps, ICurrentPost } from './types';
 
 function Posts(props: IProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [lastPosts, setLastPost] = useState<IProps['data']>([]);
   const [settings, setSettings] = useState({});
   const { scrollIntoViewHandler } = useScrollContext();
-  const [currentPostId, setCurrentPostId] = useState('');
   const { favoritPosts } = useAddToFavoritsContext();
   const [displayLoginModal, setDisplayLoginModal] = useState(false);
   const { currentUser } = useCurrentUser();
 
   const dateObject = new Date(props.post.date);
   const formattedDate = dateObject.toLocaleDateString();
-
-  useEffect(() => {
-    const url = window.location.href;
-    const regex = /\/Posts\/(\d+)(\/.*)?/;
-    const match = url.match(regex);
-    if (match) {
-      setCurrentPostId(String(match[1]));
-    } else {
-      setCurrentPostId(String(2));
-    }
-  }, []);
 
   useEffect(() => {
     setIsLoading(false);
@@ -162,7 +119,7 @@ function Posts(props: IProps) {
             <div className="content">
               <TwitterShareButton
                 title={props.post.meta_tag_title}
-                url={`https://www.victorlirablog.com/Posts/${currentPostId}`}
+                url={`https://www.victorlirablog.com/Posts/${generateSlug(props.post.title)}`}
               >
                 <Image
                   src="/twitter.png"
@@ -174,7 +131,7 @@ function Posts(props: IProps) {
               </TwitterShareButton>
               <RedditShareButton
                 title={props.post.meta_tag_title}
-                url={`https://www.victorlirablog.com/Posts/${currentPostId}`}
+                url={`https://www.victorlirablog.com/Posts/${generateSlug(props.post.title)}`}
               >
                 <Image
                   src="/reddit.png"
@@ -185,7 +142,7 @@ function Posts(props: IProps) {
                 />
               </RedditShareButton>
               <TelegramShareButton
-                url={`https://www.victorlirablog.com/Posts/${currentPostId}`}
+                url={`https://www.victorlirablog.com/Posts/${generateSlug(props.post.title)}`}
                 title={props.post.meta_tag_title}
               >
                 <Image
@@ -227,7 +184,7 @@ function Posts(props: IProps) {
               <div className="slider-content" key={post.id}>
                 <Post
                   onDisplayLoginAlert={displayLoginAlert}
-                  id={post.id}
+                  id={generateSlug(post.title)}
                   category={post.category}
                   content={post.content}
                   date={post.date}
@@ -269,13 +226,10 @@ async function fetchData(baseUrl: string) {
 export const getServerSideProps: GetServerSideProps = async (
   context: GetServerSidePropsContext,
 ) => {
-  const { id } = context.params!;
+  const { slug } = context.params!;
 
   try {
-    //Estou usando API gratuita com limite de requisições
-    //então criei varioes endpoits para não quebrar a aplicação
-    const baseUrl1 =
-      'http://localhost:3001/api/get?page=1&limit=100&category=all';
+    const baseUrl1 = 'http://localhost:3001/api/get?page=1&limit=100&category=all';
     const baseUrl2 =
       'https://blog-backend-tau-three.vercel.app/api/get?page=1&limit=100&category=all';
     const baseUrl3 =
@@ -291,8 +245,9 @@ export const getServerSideProps: GetServerSideProps = async (
       (await fetchData(baseUrl4)) ||
       (await fetchData(baseUrl5));
 
+    // Procurando o post com base no slug
     const currentPost = data.find((post: ICurrentPost) => {
-      return String(post.id) === String(id);
+      return generateSlug(post.title) === slug;
     });
 
     if (!currentPost) {
@@ -301,6 +256,7 @@ export const getServerSideProps: GetServerSideProps = async (
         notFound: true,
       };
     }
+
     return {
       props: {
         post: currentPost,
@@ -314,4 +270,5 @@ export const getServerSideProps: GetServerSideProps = async (
     };
   }
 };
+
 export default Posts;
