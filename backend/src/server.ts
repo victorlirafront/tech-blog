@@ -23,10 +23,6 @@ const corsOptions: CorsOptions = {
       callback(new Error('Not allowed by CORS'));
     }
   },
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Certifique-se de permitir os métodos necessários
-  allowedHeaders: ['Content-Type', 'Authorization'], // Cabeçalhos que serão permitidos
-  credentials: true, // Caso esteja lidando com cookies/sessões
-  optionsSuccessStatus: 204 // Para lidar com requisições preflight que possam retornar 200
 };
 
 const app = express();
