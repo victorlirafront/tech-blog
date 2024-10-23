@@ -1,39 +1,44 @@
 import express from 'express';
-import { connection } from '../config/db';
+import { pool } from '../config/db';
 
 const router = express.Router();
 
-router.post('/create', (req: any, res: any) => {
-  const author = req.body.author;
-  const title = req.body.title;
-  const content = req.body.content;
-  const date = req.body.date;
-  const category = req.body.category;
-  const meta_tag_title = req.body.meta_tag_title;
-  const meta_tag_description = req.body.meta_tag_description;
-  const post_image = req.body.post_image;
-  const post_background = req.body.post_background;
+router.post('/create', async (req: any, res: any) => {
+  const { 
+    author, 
+    title, 
+    content, 
+    date, 
+    category, 
+    meta_tag_title, 
+    meta_tag_description, 
+    post_image, 
+    post_background 
+  } = req.body;
 
-  connection.query(
-    'INSERT INTO posts (title, content, author, date, category, meta_tag_title, meta_tag_description, post_image, post_background) VALUES (?,?,?,?,?,?,?,?,?)',
-    [
-      title,
-      content,
-      author,
-      date,
-      category,
-      meta_tag_title,
-      meta_tag_description,
-      post_image,
-      post_background,
-    ],
-    (err, result) => {
-      if (err) {
-        console.log(err);
-      }
-      console.log(result);
-    }
-  );
+  const query = `
+    INSERT INTO posts (
+      title, content, author, date, category, 
+      meta_tag_title, meta_tag_description, post_image, post_background
+    ) VALUES (?,?,?,?,?,?,?,?,?)
+  `;
+
+  const values = [
+    title, content, author, date, category, 
+    meta_tag_title, meta_tag_description, post_image, post_background
+  ];
+
+  try {
+    const connection = await pool.getConnection(); // Obtém uma conexão do pool
+    const [result] = await connection.query(query, values); // Executa a inserção
+    connection.release(); // Libera a conexão de volta ao pool
+
+    console.log('Post criado com sucesso:', result);
+    res.status(201).json({ message: 'Post criado com sucesso!', result });
+
+  } catch (err) {
+    console.error('Erro ao criar o post:', err);
+    res.status(500).json({ message: 'Erro ao criar o post.' });
+  }
 });
-
 export default router;
