@@ -13,6 +13,7 @@ const allowedOrigins: string[] = [
   'https://blog-tau-rosy-55.vercel.app',
   'https://blog-git-main-victorlirafront.vercel.app',
   'https://www.victorlirablog.com',
+  'https://tech-blog-production-cd77.up.railway.app',
 ];
 
 const corsOptions: CorsOptions = {
