@@ -31,7 +31,7 @@ import {
   VERIFY_ICON,
   WHITE_LOADING_SPINNER,
 } from '@/constants/images';
-import { baseUrl1, baseUrl2, baseUrl3, baseUrl4, baseUrl5 } from '@/constants/endpoints';
+import { baseUrl1, baseUrl2 } from '@/constants/endpoints';
 
 export const AboutMe = function () {
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -109,16 +109,7 @@ export const AboutMe = function () {
         .catch(() => null)) ||
       (await Axios.post(`${baseUrl2}/api/sendEmail`, formData)
         .then(res => res.data)
-        .catch(() => null)) ||
-      (await Axios.post(`${baseUrl3}/api/sendEmail`, formData)
-        .then(res => res.data)
-        .catch(() => null)) ||
-      (await Axios.post(`${baseUrl4}/api/sendEmail`, formData)
-        .then(res => res.data)
-        .catch(() => null)) ||
-      (await Axios.post(`${baseUrl5}/api/sendEmail`, formData)
-        .then(res => res.data)
-        .catch(() => null));
+        .catch(() => null))
 
     return data;
   };
