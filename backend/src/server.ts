@@ -7,6 +7,7 @@ import createPost from './routes/createPost';
 const allowedOrigins: string[] = [
   'http://localhost:3000',
   'http://localhost:3001',
+  'http://www.victorlirablog.com',
   'https://www.victorlirablog.com' ,
   'https://blog-backend-tau-three.vercel.app',
   'https://blog-backend-g9k4y75fk-victorlirafront.vercel.app',
