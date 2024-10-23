@@ -32,6 +32,17 @@ const corsOptions: CorsOptions = {
 const app = express();
 
 app.use(cors(corsOptions));
+
+// 2. Tratar requisições preflight (OPTIONS)
+app.options('/api/*', cors(corsOptions));
+
+// 3. Logger para verificar o 'Origin'
+app.use((req, res, next) => {
+  const origin = req.get('Origin') || req.headers.origin;
+  console.log('CORS middleware applied:', origin);
+  next();
+});
+
 app.use(express.json());
 
 app.use('/api/', emailRoutes);
