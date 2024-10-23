@@ -14,7 +14,6 @@ app.use(cors({
 
 app.use(express.json());
 
-// Suas rotas
 app.use('/api/', emailRoutes);
 app.use('/api/', getProducts);
 app.use('/api/', createPost);

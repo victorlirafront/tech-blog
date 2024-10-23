@@ -1,5 +1,5 @@
 import Axios from 'axios';
-import { baseUrl1, baseUrl2} from '@/constants/endpoints';
+import { DEV_API_URL, PROD_API_URL} from '@/constants/endpoints';
 
 async function fetchFunction(baseUrl: string) {
   try {
@@ -21,12 +21,9 @@ export const fetchData = async function (
   limit: string,
   category: string | string[],
 ) {
-  const tryBaseUrl1 = `${baseUrl1}/api/get?page=${page}&limit=${limit}&category=${category}`;
-  const tryBaseUrl2 = `${baseUrl2}/api/get?page=${page}&limit=${limit}&category=${category}`;
 
-  const data =
-    (await fetchFunction(tryBaseUrl1)) ||
-    (await fetchFunction(tryBaseUrl2));
+  const API_URL = process.env.NODE_ENV === "production" ? PROD_API_URL : DEV_API_URL
+  const data = await fetchFunction(`${API_URL}/api/get?page=${page}&limit=${limit}&category=${category}`)
 
   return data;
 };

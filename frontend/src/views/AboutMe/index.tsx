@@ -31,7 +31,7 @@ import {
   VERIFY_ICON,
   WHITE_LOADING_SPINNER,
 } from '@/constants/images';
-import { baseUrl1, baseUrl2 } from '@/constants/endpoints';
+import { DEV_API_URL, PROD_API_URL } from '@/constants/endpoints';
 
 export const AboutMe = function () {
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -103,14 +103,12 @@ export const AboutMe = function () {
     subject: string;
     message: string;
   }) => {
-    const data =
-      (await Axios.post(`${baseUrl1}/api/sendEmail`, formData)
-        .then(res => res.data)
-        .catch(() => null)) ||
-      (await Axios.post(`${baseUrl2}/api/sendEmail`, formData)
-        .then(res => res.data)
-        .catch(() => null))
 
+    const API_URL = process.env.NODE_ENV === "production" ? PROD_API_URL : DEV_API_URL
+
+    const data = await Axios.post(`${API_URL}/api/sendEmail`, formData)
+    .then(res => res.data)
+    .catch(() => null);
     return data;
   };
 
