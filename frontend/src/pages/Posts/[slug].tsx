@@ -1,4 +1,3 @@
-import Axios from 'axios';
 import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import { GetServerSideProps, GetServerSidePropsContext } from 'next';
@@ -28,6 +27,19 @@ import { FAVICON, POST_BACKGROUND_BLUR } from '@/constants/images';
 import { useCurrentUser } from '@/Context/currentUser';
 import LoginAlertModal from '@/components/LoginAlertModal';
 import { generateSlug } from '@/helperFunctions/generateSlug';
+import { fetchData } from '@/helperFunctions/fetchData';
+
+type PostProps = {
+  id: number;
+  title: string;
+  content: string;
+  date: string;
+  category: string;
+  meta_tag_title: string;
+  meta_tag_description: string;
+  post_image: string;
+  author: string;
+};
 
 type IProps = {
   post: {
@@ -44,18 +56,8 @@ type IProps = {
     keywords: string;
   };
   data: {
-    id: number;
-    category: string;
-    post_background: string;
-    date: string;
-    meta_tag_title: string;
-    meta_tag_description: string;
-    title: string;
-    content: string;
-    post_image: string;
-    author: string;
-    keywords: string;
-  }[];
+    results: PostProps[];
+  };
 };
 
 type ICurrentPost = {
@@ -65,7 +67,7 @@ type ICurrentPost = {
 
 function Posts(props: IProps) {
   const [isLoading, setIsLoading] = useState(true);
-  const [lastPosts, setLastPost] = useState<IProps['data']>([]);
+  const [lastPosts, setLastPost] = useState<PostProps[]>([]);
   const [settings, setSettings] = useState({});
   const { scrollIntoViewHandler } = useScrollContext();
   const { favoritPosts } = useAddToFavoritsContext();
@@ -78,7 +80,9 @@ function Posts(props: IProps) {
   useEffect(() => {
     setIsLoading(false);
     AOS.init();
-    setLastPost(props.data.slice(0, 3));
+
+    setLastPost(props.data.results.slice(0, 3));
+    
     setSettings({
       dots: true,
       infinite: true,
@@ -104,7 +108,7 @@ function Posts(props: IProps) {
         },
       ],
     });
-  }, [props.data]);
+  }, [props.data.results]);
 
   const displayLoginAlert = function () {
     setDisplayLoginModal(true);
@@ -212,7 +216,7 @@ function Posts(props: IProps) {
       <h1 className="title">Últimas postagens</h1>
       <div className="last-posts">
         <Slider {...settings}>
-          {lastPosts.map((post: IProps['post']) => {
+          {lastPosts.map((post: PostProps) => {
             return (
               <div className="slider-content" key={post.id}>
                 <Post
@@ -241,45 +245,20 @@ function Posts(props: IProps) {
   );
 }
 
-async function fetchData(baseUrl: string) {
-  try {
-    const response = await Axios.get(baseUrl);
-    const results = response.data.results;
-
-    if (results.length > 0) {
-      return results;
-    }
-  } catch (error) {
-    console.error(`Erro na requisição: ${error}`);
-  }
-
-  return null;
-}
-
 export const getServerSideProps: GetServerSideProps = async (
   context: GetServerSidePropsContext,
 ) => {
   const { slug } = context.params!;
 
   try {
-    const baseUrl1 = 'http://localhost:3001/api/get?page=1&limit=100&category=all';
-    const baseUrl2 =
-      'https://blog-backend-tau-three.vercel.app/api/get?page=1&limit=100&category=all';
-    const baseUrl3 =
-      'https://blog-backend-g9k4y75fk-victorlirafront.vercel.app/api/get?page=1&limit=100&category=all';
-    const baseUrl4 = 'https://blog-tau-rosy-55.vercel.app/api/get?page=1&limit=100&category=all';
-    const baseUrl5 =
-      'https://blog-git-main-victorlirafront.vercel.app/api/get?page=1&limit=100&category=all';
+    const page = '1';
+    const limit = '100';
+    const category = 'all';
 
-    const data =
-      (await fetchData(baseUrl1)) ||
-      (await fetchData(baseUrl2)) ||
-      (await fetchData(baseUrl3)) ||
-      (await fetchData(baseUrl4)) ||
-      (await fetchData(baseUrl5));
+    const data = await fetchData(page, limit, category);
 
     // Procurando o post com base no slug
-    const currentPost = data.find((post: ICurrentPost) => {
+    const currentPost = data.results.find((post: ICurrentPost) => {
       return generateSlug(post.title) === slug;
     });
 

@@ -1,11 +1,10 @@
 import Head from 'next/head';
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import Footer from '@/components/Footer';
 import 'aos/dist/aos.css';
 import { useScrollContext } from '@/Context/scrollProvider';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import Axios from 'axios';
 import { useAddToFavoritsContext } from '@/Context/addToFavorits';
 import Post from '@/components/Post';
 import { updateFavoritSource } from '@/utils/resusableFunctions';
@@ -14,9 +13,9 @@ import StyledProfile from './Profile.styled';
 import Header from '@/components/Header';
 import { PostsProps } from './types';
 import { FAVICON } from '@/constants/images';
-import { postsEndPoints } from '@/constants/postsEndPoints';
 import { useCurrentUser } from '@/Context/currentUser';
 import { useRouter } from 'next/router';
+import { fetchData } from '@/helperFunctions/fetchData';
 
 export function Profile() {
   const { scrollIntoViewHandler } = useScrollContext();
@@ -43,51 +42,30 @@ export function Profile() {
     });
   };
 
+  const filterFavoritPosts = useCallback((results: PostsProps[]) => {
+    const intersection = results.filter((variant1: PostsProps) =>
+      favoritPosts.some(variant2 => variant2.post === variant1.id),
+    );
+    return intersection;
+  }, [favoritPosts]);
+
   useEffect(() => {
     if (!currentUser.email) {
       router.push('/');
     }
 
-    const buildUrl = (baseUrl: string, page: string, limit: string, category: string) =>
-      `${baseUrl}/api/get/?page=${page}&limit=${limit}&category=${category}`;
-
-    const fetchData = async (baseUrl: string) => {
-      try {
-        const response = await Axios.get(baseUrl);
-        const results = response.data.results;
-
-        const intersecao = results.filter((variant1: PostsProps) =>
-          favoritPosts.some(variant2 => variant2.post === variant1.id),
-        );
-
-        return intersecao.length > 0 ? intersecao : null;
-      } catch (error) {
-        console.error(`Erro na requisição: ${error}`);
-        return null;
-      }
-    };
-
-    const fetchDataFromUrls = async (
-      postsEndPoints: string[],
-      page: string,
-      limit: string,
-      category: string,
-    ) => {
-      for (const baseUrl of postsEndPoints) {
-        const url = buildUrl(baseUrl, page, limit, category);
-        const data = await fetchData(url);
-        if (data) {
-          return data;
-        }
-      }
-      return [];
-    };
-
     const fetchDataAndUpdateState = async () => {
       try {
-        const data = await fetchDataFromUrls(postsEndPoints, '1', '9999', 'all');
-        if (data) {
-          setCurrentPostArray(data);
+        const page = '1';
+        const limit = '9999';
+        const category = 'all';
+
+        const data = await fetchData(page, limit, category);
+        const results = data.results;
+        const intersection = filterFavoritPosts(results);
+
+        if (intersection) {
+          setCurrentPostArray(intersection);
         }
       } catch (error) {
         console.error('Erro ao buscar dados:', error);
@@ -95,7 +73,7 @@ export function Profile() {
     };
 
     fetchDataAndUpdateState();
-  }, [favoritPosts, currentUser, router]);
+  }, [favoritPosts, currentUser, router, filterFavoritPosts]);
 
   return (
     <div>

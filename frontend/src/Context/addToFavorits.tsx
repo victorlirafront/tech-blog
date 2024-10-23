@@ -15,59 +15,51 @@ type IAddToFavoritsProps = {
 const AddToFavoritsContext = createContext<IAddToFavoritsProps | undefined>(undefined);
 
 function fetchFavoritPosts() {
-  const favoritPostsString = localStorage.getItem('lira-favorit-posts') || '';
-  if (!favoritPostsString) return;
-  const favoritPostsArray = JSON.parse(favoritPostsString);
-  return favoritPostsArray;
+  try {
+    const favoritPostsString = localStorage.getItem('lira-favorit-posts');
+    if (!favoritPostsString) return [];
+    const favoritPostsArray = JSON.parse(favoritPostsString);
+    return Array.isArray(favoritPostsArray) ? favoritPostsArray : [];
+  } catch (error) {
+    console.error('Erro ao carregar posts favoritos do localStorage:', error);
+    return [];
+  }
 }
 
 function savePostToFavorits(favoritPosts: { post: number }[]) {
-  if (Array.isArray(favoritPosts)) {
-    try {
-      const arrayEmString = JSON.stringify(favoritPosts);
-      localStorage.setItem('lira-favorit-posts', arrayEmString);
-    } catch (error) {
-      console.error('Erro ao salvar posts favoritos no localStorage:', error);
-    }
-  } else {
-    console.error('O parâmetro fornecido não é um array.');
+  try {
+    const arrayEmString = JSON.stringify(favoritPosts);
+    localStorage.setItem('lira-favorit-posts', arrayEmString);
+  } catch (error) {
+    console.error('Erro ao salvar posts favoritos no localStorage:', error);
   }
 }
 
 export const AddToFavoritsProvider = ({ children }: { children: ReactNode }) => {
-  const [favoritPosts, setFavoritPosts] = useState<{ post: number }[]>([
-    {
-      post: -1,
-    },
-  ]);
-  const [currentPostId, setCurrentPostId] = useState<{ id: number; date: Date }>();
+  const [favoritPosts, setFavoritPosts] = useState<{ post: number }[]>([]);
+  const [currentPostId, setCurrentPostId] = useState<{ id: number; date: Date } | null>(null);
 
   useEffect(() => {
     const favoritPostsArray = fetchFavoritPosts();
-    if (!favoritPostsArray) return;
     setFavoritPosts(favoritPostsArray);
   }, []);
 
   useEffect(() => {
     if (!currentPostId?.id) return;
-    if (!favoritPosts) return;
+
     const alreadyFavoritedThisPost = favoritPosts.some(item => item.post === currentPostId.id);
 
-    if (alreadyFavoritedThisPost) {
-      setFavoritPosts(prevFavoritPosts =>
-        prevFavoritPosts.filter(item => item.post !== currentPostId.id),
-      );
-    } else {
-      setFavoritPosts(prevFavoritPosts => [...prevFavoritPosts, { post: currentPostId.id }]);
-    }
+    const updatedFavoritPosts = alreadyFavoritedThisPost
+      ? favoritPosts.filter(item => item.post !== currentPostId.id)
+      : [...favoritPosts, { post: currentPostId.id }];
 
-    savePostToFavorits(favoritPosts);
+    setFavoritPosts(updatedFavoritPosts);
   }, [currentPostId]);
 
   useEffect(() => {
-    if (!favoritPosts) return;
-
-    savePostToFavorits(favoritPosts);
+    if (favoritPosts.length > 0) {
+      savePostToFavorits(favoritPosts);
+    }
   }, [favoritPosts]);
 
   const addToFavoritsHandler = (e: MouseEvent) => {

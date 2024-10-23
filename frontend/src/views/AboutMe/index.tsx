@@ -31,6 +31,7 @@ import {
   VERIFY_ICON,
   WHITE_LOADING_SPINNER,
 } from '@/constants/images';
+import { baseUrl1, baseUrl2, baseUrl3, baseUrl4, baseUrl5 } from '@/constants/endpoints';
 
 export const AboutMe = function () {
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -102,19 +103,23 @@ export const AboutMe = function () {
     subject: string;
     message: string;
   }) => {
-    const baseUrl1 = 'http://localhost:3001';
-    const baseUrl2 = 'https://blog-backend-tau-three.vercel.app';
-    const baseUrl3 = 'https://blog-backend-g9k4y75fk-victorlirafront.vercel.app';
-    const baseUrl4 = 'https://blog-tau-rosy-55.vercel.app';
-    const baseUrl5 = 'https://blog-git-main-victorlirafront.vercel.app';
-  
     const data =
-      (await Axios.post(`${baseUrl1}/api/sendEmail`, formData).then(res => res.data).catch(() => null)) ||
-      (await Axios.post(`${baseUrl2}/api/sendEmail`, formData).then(res => res.data).catch(() => null)) ||
-      (await Axios.post(`${baseUrl3}/api/sendEmail`, formData).then(res => res.data).catch(() => null)) ||
-      (await Axios.post(`${baseUrl4}/api/sendEmail`, formData).then(res => res.data).catch(() => null)) ||
-      (await Axios.post(`${baseUrl5}/api/sendEmail`, formData).then(res => res.data).catch(() => null));
-  
+      (await Axios.post(`${baseUrl1}/api/sendEmail`, formData)
+        .then(res => res.data)
+        .catch(() => null)) ||
+      (await Axios.post(`${baseUrl2}/api/sendEmail`, formData)
+        .then(res => res.data)
+        .catch(() => null)) ||
+      (await Axios.post(`${baseUrl3}/api/sendEmail`, formData)
+        .then(res => res.data)
+        .catch(() => null)) ||
+      (await Axios.post(`${baseUrl4}/api/sendEmail`, formData)
+        .then(res => res.data)
+        .catch(() => null)) ||
+      (await Axios.post(`${baseUrl5}/api/sendEmail`, formData)
+        .then(res => res.data)
+        .catch(() => null));
+
     return data;
   };
 

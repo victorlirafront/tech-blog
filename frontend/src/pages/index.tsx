@@ -4,7 +4,6 @@ import MainPage from '../components/MainPage';
 import Post from '@/components/Post';
 import About from '@/components/About';
 import Footer from '@/components/Footer';
-import Axios from 'axios';
 import Pagination from '@/components/Pagination';
 import { GlobalContext } from '../Context/pagination';
 import { useScrollContext } from '@/Context/scrollProvider';
@@ -18,6 +17,7 @@ import { updateFavoritSource } from '@/utils/resusableFunctions';
 import { META_TAG_IMAGE, FAVICON } from '@/constants/images';
 import LoginAlertModal from '@/components/LoginAlertModal';
 import { useCurrentUser } from '@/Context/currentUser';
+import { fetchData } from '@/helperFunctions/fetchData';
 
 type PostProps = {
   id: number;
@@ -165,21 +165,6 @@ export default function Home({ data }: Data) {
   );
 }
 
-async function fetchData(baseUrl: string) {
-  try {
-    const response = await Axios.get(baseUrl);
-    const results = response.data.results;
-
-    if (results.length > 0) {
-      return response.data;
-    }
-  } catch (error) {
-    console.error(`Erro na requisição: ${error}`);
-  }
-
-  return null;
-}
-
 export const getServerSideProps: GetServerSideProps = async (
   context: GetServerSidePropsContext,
 ) => {
@@ -187,18 +172,8 @@ export const getServerSideProps: GetServerSideProps = async (
     const page = context.query?.page ?? '1';
     const category = context.query?.category ?? 'all';
     const limit = '8';
-    const baseUrl1 = `http://localhost:3001/api/get?page=${page}&limit=${limit}&category=${category}`;
-    const baseUrl2 = `https://blog-backend-tau-three.vercel.app/api/get?page=${page}&limit=${limit}&category=${category}`;
-    const baseUrl3 = `https://blog-backend-g9k4y75fk-victorlirafront.vercel.app/api/get?page=${page}&limit=${limit}&category=${category}`;
-    const baseUrl4 = `https://blog-tau-rosy-55.vercel.app/api/get?page=${page}&limit=${limit}&category=${category}`;
-    const baseUrl5 = `https://blog-git-main-victorlirafront.vercel.app/api/get?page=${page}&limit=${limit}&category=${category}`;
 
-    const data =
-      (await fetchData(baseUrl1)) ||
-      (await fetchData(baseUrl2)) ||
-      (await fetchData(baseUrl3)) ||
-      (await fetchData(baseUrl4)) ||
-      (await fetchData(baseUrl5));
+    const data = await fetchData(page, limit, category);
 
     return {
       props: {
