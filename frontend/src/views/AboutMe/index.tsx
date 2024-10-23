@@ -103,12 +103,11 @@ export const AboutMe = function () {
     subject: string;
     message: string;
   }) => {
-
-    const API_URL = process.env.NODE_ENV === "production" ? PROD_API_URL : DEV_API_URL
+    const API_URL = process.env.NODE_ENV === 'production' ? PROD_API_URL : DEV_API_URL;
 
     const data = await Axios.post(`${API_URL}/api/sendEmail`, formData)
-    .then(res => res.data)
-    .catch(() => null);
+      .then(res => res.data)
+      .catch(() => null);
     return data;
   };
 

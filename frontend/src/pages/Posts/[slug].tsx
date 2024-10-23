@@ -82,7 +82,7 @@ function Posts(props: IProps) {
     AOS.init();
 
     setLastPost(props.data.results.slice(0, 3));
-    
+
     setSettings({
       dots: true,
       infinite: true,
@@ -257,13 +257,11 @@ export const getServerSideProps: GetServerSideProps = async (
 
     const data = await fetchData(page, limit, category);
 
-    // Procurando o post com base no slug
     const currentPost = data.results.find((post: ICurrentPost) => {
       return generateSlug(post.title) === slug;
     });
 
     if (!currentPost) {
-      // Se o post não for encontrado, retornar uma página 404
       return {
         notFound: true,
       };

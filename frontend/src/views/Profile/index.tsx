@@ -42,12 +42,15 @@ export function Profile() {
     });
   };
 
-  const filterFavoritPosts = useCallback((results: PostsProps[]) => {
-    const intersection = results.filter((variant1: PostsProps) =>
-      favoritPosts.some(variant2 => variant2.post === variant1.id),
-    );
-    return intersection;
-  }, [favoritPosts]);
+  const filterFavoritPosts = useCallback(
+    (results: PostsProps[]) => {
+      const intersection = results.filter((variant1: PostsProps) =>
+        favoritPosts.some(variant2 => variant2.post === variant1.id),
+      );
+      return intersection;
+    },
+    [favoritPosts],
+  );
 
   useEffect(() => {
     if (!currentUser.email) {
