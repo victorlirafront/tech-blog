@@ -10,12 +10,12 @@ const StyledProfile = styled.div`
   box-shadow: none;
   border-radius: 7px;
   text-align: center;
-  padding-top: 60px;
+  padding-top: 186px;
   background: #000;
   min-height: 100vh;
 
   @media screen and (max-width: 700px) {
-    padding-top: 20px;
+    padding-top: 186px;
   }
   .profile {
     padding: 20px;

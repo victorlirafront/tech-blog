@@ -22,7 +22,7 @@ const StyledMainPage = styled.div`
     padding-top: 100px;
 
     @media screen and (max-width: 750px) {
-      padding-top: 70px;
+      padding-top: 150px;
     }
   }
 `;

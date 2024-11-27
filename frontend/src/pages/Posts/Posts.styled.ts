@@ -6,6 +6,7 @@ const StyledPostNew = styled.div`
   .profile {
     color: #ccc;
     margin-bottom: 60px;
+    padding-top: 80px;
 
     .background-image-container {
       display: flex;
@@ -89,7 +90,7 @@ const StyledPostNew = styled.div`
           position: sticky;
           width: 100px;
           height: auto;
-          top: 40px;
+          top: 100px;
           left: 0;
           color: white;
           flex-grow: 0;
@@ -104,7 +105,7 @@ const StyledPostNew = styled.div`
             width: 100%;
             height: 50px;
             background-color: black;
-            top: -2px;
+            top: 80px;
             justify-content: space-evenly;
           }
 

@@ -17,13 +17,10 @@ const StyledAbout = styled.div`
   padding: 0 20px;
   max-width: 1200px;
   margin: 0 auto;
-  padding-top: 100px;
+  padding-top: 186px;
   color: #fff;
   max-width: 1200px;
 
-  @media screen and (max-width: 768px) {
-    padding-top: 40px;
-  }
 
   h1 {
     font-size: 50px;

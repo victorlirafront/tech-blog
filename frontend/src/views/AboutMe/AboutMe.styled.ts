@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Profile = styled.div`
+const StyledAboutMe = styled.div`
   margin: 0 auto;
   background: #000;
 
@@ -71,7 +71,8 @@ const Profile = styled.div`
         align-items: center;
         justify-content: center;
         margin: 0 auto;
-        margin-top: 86px;
+        margin-top: 186px;
+        
         @media screen and (max-width: 1040px) {
           margin: 0 auto;
         }
@@ -446,4 +447,4 @@ const Profile = styled.div`
   }
 `;
 
-export default Profile;
+export default StyledAboutMe;

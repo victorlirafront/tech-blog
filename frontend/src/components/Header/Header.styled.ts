@@ -5,22 +5,14 @@ const StyledHeader = styled.header`
   margin: 0 auto;
   z-index: 3;
   background: #000;
-
-  .home {
-    @media screen and (max-width: 500px) {
-      margin-bottom: 15px;
-    }
-  }
+  position: fixed;
+  width: 100vw;
 
   .container {
     margin: 0 auto;
     max-width: 1200px;
     color: #ffffff;
     padding: 20px;
-
-    @media screen and (max-width: 500px) {
-      padding: 10px 20px;
-    }
 
     nav {
       width: 100%;
@@ -86,6 +78,7 @@ const StyledHeader = styled.header`
           display: flex;
           justify-content: space-between;
           width: 100%;
+          margin-top: 8px;
 
           > div {
             @media screen and (max-width: 700px) {
@@ -95,6 +88,9 @@ const StyledHeader = styled.header`
           }
 
           .home {
+            height: 40px;
+            margin-bottom: 15px;
+
             &.active {
               border-bottom: 3px solid rgb(11, 238, 178);
               padding-bottom: 6px;
@@ -124,7 +120,12 @@ const StyledHeader = styled.header`
             margin-right: 30px;
             margin-left: 30px;
             display: flex;
+            height: 40px;
 
+            @media screen and (max-width: 700px) {
+              height: auto;
+            }
+            
             @media screen and (max-width: 700px) {
               flex-direction: column;
               margin: 0;
@@ -136,6 +137,8 @@ const StyledHeader = styled.header`
               }
 
               &.front-end-option {
+                height: 40px;
+                margin-bottom: 15px;
                 &.active {
                   border-bottom: 3px solid rgb(11, 238, 178);
                   padding-bottom: 6px;
@@ -143,6 +146,8 @@ const StyledHeader = styled.header`
               }
 
               &.react-option {
+                height: 40px;
+                margin-bottom: 15px;
                 &.active {
                   border-bottom: 3px solid rgb(11, 238, 178);
                   padding-bottom: 6px;
@@ -150,6 +155,8 @@ const StyledHeader = styled.header`
               }
 
               &.typescript-option {
+                height: 40px;
+                margin-bottom: 15px;
                 &.active {
                   border-bottom: 3px solid rgb(11, 238, 178);
                   padding-bottom: 6px;
@@ -164,6 +171,8 @@ const StyledHeader = styled.header`
 
           .anchor {
             color: #fff;
+            height: 40px;
+            
             @media screen and (max-width: 700px) {
               margin-bottom: 15px;
 
