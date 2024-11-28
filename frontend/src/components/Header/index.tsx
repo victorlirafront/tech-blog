@@ -18,7 +18,6 @@ const Header = function (props: IHeaderProps) {
   const currentUrl = router.asPath;
   const [headerFadeDown, setHeaderFadeDown] = useState('fade-down');
   const { callSetCurrentUser, currentUser } = useCurrentUser();
-  const unusedVariable = 123; // Regra de variáveis não usadas
 
   const menuToggleBaseOnUrl = useCallback(() => {
     if (currentUrl.includes('all')) {
