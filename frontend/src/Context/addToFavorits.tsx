@@ -14,9 +14,6 @@ type IAddToFavoritsProps = {
 
 const AddToFavoritsContext = createContext<IAddToFavoritsProps | undefined>(undefined);
 
-
-
-
 function fetchFavoritPosts() {
   try {
     const favoritPostsString = localStorage.getItem('lira-favorit-posts');
