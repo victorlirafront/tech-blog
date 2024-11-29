@@ -19,7 +19,7 @@ const StyledMainPage = styled.div`
     align-items: center;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    padding-top: 100px;
+    padding-top: 130px;
 
     @media screen and (max-width: 750px) {
       padding-top: 150px;
