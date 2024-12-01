@@ -26,8 +26,8 @@ const Header = function (props: IHeaderProps) {
       setCurrentTab('web');
     } else if (currentUrl.includes('mobile')) {
       setCurrentTab('mobile');
-    } else if (currentUrl.includes('others')) {
-      setCurrentTab('others');
+    } else if (currentUrl.includes('outros')) {
+      setCurrentTab('outros');
     } else if (currentUrl.includes('AboutMe')) {
       setCurrentTab('about');
     } else {
@@ -129,8 +129,8 @@ const Header = function (props: IHeaderProps) {
                     Mobile
                   </p>
                   <p
-                    className={`react-option ${currentTab === 'others' ? 'active' : ''}`}
-                    onClick={() => categoryOptionHandler('1', 'others')}
+                    className={`react-option ${currentTab === 'outros' ? 'active' : ''}`}
+                    onClick={() => categoryOptionHandler('1', 'outros')}
                     data-id="outros-link"
                   >
                     Outros
