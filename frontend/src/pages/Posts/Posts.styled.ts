@@ -11,6 +11,7 @@ const StyledPostNew = styled.div`
     .background-image-container {
       display: flex;
       justify-content: center;
+      align-items: center;
       background: #9156ec;
       overflow: hidden;
       height: 400px;
@@ -25,6 +26,7 @@ const StyledPostNew = styled.div`
         object-fit: contain;
         background-repeat: no-repeat;
         transition: 0.5s ease-in-out;
+        height: 300px;
 
         &:hover {
           scale: 1.1;

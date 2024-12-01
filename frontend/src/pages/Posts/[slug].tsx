@@ -141,8 +141,6 @@ function Posts(props: IProps) {
           <LazyLoadImage
             className="background-image"
             src={props.post.post_background}
-            width={600}
-            height={400}
             placeholderSrc={POST_BACKGROUND_BLUR}
             alt="Blur background"
           />
