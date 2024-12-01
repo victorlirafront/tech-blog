@@ -72,13 +72,6 @@ const StyledAboutMe = styled.div`
         justify-content: center;
         margin: 0 auto;
         margin-top: 186px;
-        
-        @media screen and (max-width: 1040px) {
-          margin: 0 auto;
-        }
-
-        @media screen and (max-width: 500px) {
-        }
 
         .card-wrapper {
           position: relative;
