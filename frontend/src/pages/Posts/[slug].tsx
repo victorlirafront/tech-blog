@@ -74,9 +74,6 @@ function Posts(props: IProps) {
   const [displayLoginModal, setDisplayLoginModal] = useState(false);
   const { currentUser } = useCurrentUser();
 
-  const dateObject = new Date(props.post.date);
-  const formattedDate = dateObject.toLocaleDateString();
-
   useEffect(() => {
     setIsLoading(false);
     AOS.init();
@@ -148,7 +145,7 @@ function Posts(props: IProps) {
 
         <div className="body-post" data-aos="fade-up">
           <h1 className="title">{props.post.title}</h1>
-          <p className="date">{dateFormatter(formattedDate)}</p>
+          <p className="date">{dateFormatter(props.post.date)}</p>
           <MarkdownRenderer> {props.post.content} </MarkdownRenderer>
           <div className="aside-absolute">
             <div className="content">

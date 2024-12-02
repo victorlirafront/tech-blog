@@ -14,8 +14,7 @@ import { generateSlug } from '@/helperFunctions/generateSlug';
 const Post: React.FC<IProps> = props => {
   const { addToFavoritsHandler } = useAddToFavoritsContext();
 
-  const dateObject = new Date(props.date);
-  const formattedDate = dateFormatter(dateObject.toLocaleDateString());
+  const formattedDate = dateFormatter(props.date);
   const router = useRouter();
 
   const handleLinkClick = async (e: React.MouseEvent) => {
