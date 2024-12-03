@@ -12,6 +12,14 @@ export const pool = mysql.createPool({
   queueLimit: 0, // Sem limite para a fila de conexões
 });
 
+console.log({
+  host: process.env.HOST,
+  user: process.env.USERNAME,
+  password: process.env.PASSWORD,
+  database: process.env.DATABASE,
+  port: process.env.PORT,
+});
+
 pool.getConnection()
   .then(connection => {
     console.log('Connected successfully to the database!');

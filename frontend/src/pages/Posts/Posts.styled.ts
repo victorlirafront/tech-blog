@@ -15,6 +15,7 @@ const StyledPostNew = styled.div`
       background: #9156ec;
       overflow: hidden;
       height: 400px;
+      width: 100%;
       @media screen and (max-width: 500px) {
         height: 240px;
       }
