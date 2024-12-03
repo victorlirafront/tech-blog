@@ -28,7 +28,42 @@ import { useCurrentUser } from '@/Context/currentUser';
 import LoginAlertModal from '@/components/LoginAlertModal';
 import { generateSlug } from '@/helperFunctions/generateSlug';
 import { fetchData } from '@/helperFunctions/fetchData';
-import { IProps, PostProps, ICurrentPost } from './Post.types';
+
+type PostProps = {
+  id: number;
+  title: string;
+  content: string;
+  date: string;
+  category: string;
+  meta_tag_title: string;
+  meta_tag_description: string;
+  post_image: string;
+  author: string;
+};
+
+type IProps = {
+  post: {
+    id: number;
+    category: string;
+    post_background: string;
+    date: string;
+    meta_tag_title: string;
+    meta_tag_description: string;
+    title: string;
+    content: string;
+    post_image: string;
+    author: string; // Make 'author' property optional
+    keywords: string;
+  };
+  data: {
+    results: PostProps[];
+  };
+};
+
+type ICurrentPost = {
+  slug: string;
+  title: string;
+};
 
 function Posts(props: IProps) {
   const [isLoading, setIsLoading] = useState(true);
