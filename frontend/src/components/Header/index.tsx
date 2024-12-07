@@ -10,12 +10,11 @@ import { GoogleLogin } from '@react-oauth/google';
 import { jwtDecode } from 'jwt-decode';
 import { useCurrentUser } from '@/Context/currentUser';
 import { CODE_ICON, CLOSE_MENU_ICON, MENU_HAMBURGUER } from '@/constants/images';
-import SearchPost from '../SearchPost/SearchPost';
 
 const Header = function (props: IHeaderProps) {
   const [currentTab, setCurrentTab] = useState('');
   const [openMobileMenu, setOpenMobileMenu] = useState(false);
-  const [openSearchModal, setOpenSearchModal] = useState(false)
+
   const router = useRouter();
   const currentUrl = router.asPath;
   const [headerFadeDown, setHeaderFadeDown] = useState('fade-down');
@@ -81,17 +80,8 @@ const Header = function (props: IHeaderProps) {
     categoryOptionHandler('1', 'all');
   };
 
-  const onOpenSearchModal = function(){
-    setOpenSearchModal((prev) => !prev)
-  }
-
-  const closeSearch = function(){
-    setOpenSearchModal(false)
-  }
-
   return (
     <>
-      <SearchPost displaySearch={openSearchModal} onCloseSearch={closeSearch}/>
       <StyledHeader data-aos={headerFadeDown} className={props.className}>
         <div className="container">
           <nav>
@@ -157,7 +147,7 @@ const Header = function (props: IHeaderProps) {
                 </div>
 
                 <div className="search-wrapper">
-                  <div className="search-icon" onClick={onOpenSearchModal}>
+                  <div className="search-icon" onClick={props.onOpenSearchModal}>
                     <Image src={'/search-icon.png'} width={25} height={25} alt="kkk" />
                   </div>
 

@@ -1,7 +1,7 @@
 import Axios from 'axios';
 import { DEV_API_URL, PROD_API_URL } from '@/constants/endpoints';
 
-async function fetchFunction(baseUrl: string) {
+export async function fetchFunction(baseUrl: string) {
   try {
     const response = await Axios.get(baseUrl);
     const results = response.data.results;

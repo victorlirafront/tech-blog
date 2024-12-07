@@ -3,7 +3,7 @@ import paginatedResults from "../helper/pagination";
 import router from "./getProducts";
 
 router.get('/search', async (req: any, res: any) => {
-  const query: string = 'dom';
+  const query = String(req.query.query) || '';
   const category: string = String(req.query.category) || 'all';
 
   try {

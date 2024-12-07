@@ -18,6 +18,7 @@ import { META_TAG_IMAGE, FAVICON } from '@/constants/images';
 import LoginAlertModal from '@/components/LoginAlertModal';
 import { useCurrentUser } from '@/Context/currentUser';
 import { fetchData } from '@/helperFunctions/fetchData';
+import SearchPost from '@/components/SearchPost/SearchPost';
 
 type PostProps = {
   id: number;
@@ -42,7 +43,7 @@ type Data = {
       page: number;
       limit: number;
     };
-    results: PostProps[];
+    results?: PostProps[];
   };
 };
 
@@ -52,17 +53,39 @@ export default function Home({ data }: Data) {
   const { favoritPosts } = useAddToFavoritsContext();
   const { currentUser } = useCurrentUser();
   const [displayLoginModal, setDisplayLoginModal] = useState(false);
+  const [searchResults, setSearchResults] = useState<any>();
+  const [openSearchModal, setOpenSearchModal] = useState(false);
+  const [userSearched, setUserSearched] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('');
+  const currentLoad = searchResults?.results?.length ? searchResults : [];
+  const newTest = userSearched ? currentLoad : data;
 
   useEffect(() => {
-    setPage(data?.next?.page);
-  }, [data?.next?.page, setPage]);
+    if (newTest.results?.length <= 0 || newTest.results === undefined ) {
+      setErrorMessage("Nenhum item encontrado");
+      setPage(1);
+    } else {
+      setErrorMessage("");
+      if (newTest.next?.page) {
+        setPage(newTest.next.page);
+      }
+    }
+
+  }, [newTest, setPage]);
+  
+
+  useEffect(() => {
+    if (newTest && newTest.next?.page) {
+      setPage(newTest.next.page);
+    }
+  }, [newTest, setPage]);
 
   useEffect(() => {
     AOS.init();
   }, []);
 
   const checkNextPage = function () {
-    if (data?.next) {
+    if (newTest && newTest.next) {
       return true;
     } else {
       return false;
@@ -70,7 +93,7 @@ export default function Home({ data }: Data) {
   };
 
   const checkPreviousPage = function () {
-    if (data?.previous) {
+    if (newTest && newTest?.previous) {
       return true;
     } else {
       return false;
@@ -83,6 +106,19 @@ export default function Home({ data }: Data) {
 
   const closeLoginAlertModal = function () {
     setDisplayLoginModal(false);
+  };
+
+  const onOpenSearchModal = function () {
+    setOpenSearchModal(prev => !prev);
+  };
+
+  const closeSearch = function () {
+    setOpenSearchModal(false);
+  };
+
+  const updateSearchResults = function (data: any) {
+    setSearchResults(data);
+    setUserSearched(true)
   };
 
   return (
@@ -113,13 +149,23 @@ export default function Home({ data }: Data) {
       {!currentUser.email && displayLoginModal && (
         <LoginAlertModal onCloseLoginAlertModal={closeLoginAlertModal} />
       )}
-      <Header className="header" scrollIntoView={() => scrollIntoViewHandler()} />
+      <Header
+        className="header"
+        scrollIntoView={() => scrollIntoViewHandler()}
+        onOpenSearchModal={onOpenSearchModal}
+      />
+      <SearchPost
+        displaySearch={openSearchModal}
+        onCloseSearch={closeSearch}
+        onSearchPosts={updateSearchResults}
+      />
+      {errorMessage && userSearched && !searchResults && <p style={{color: '#fff', paddingTop: 200, textAlign: 'center'}}>{errorMessage}</p>}
       <About />
 
       <MainPage className="main-page">
         <div className="container" ref={containerRef as React.RefObject<HTMLDivElement>}>
-          {data?.results &&
-            data.results.map((post: PostProps, index: number) => {
+          {newTest?.results &&
+            newTest.results.map((post: PostProps, index: number) => {
               let costumizeFirstPost = false;
 
               index === 0 ? (costumizeFirstPost = true) : false;
@@ -153,12 +199,14 @@ export default function Home({ data }: Data) {
         </div>
       </MainPage>
       <Pagination
-        pageLength={Math.ceil(data?.totalPages)}
-        page={data?.next?.page ? data?.next?.page - 1 : Math.ceil(data?.totalPages)}
+        pageLength={Math.ceil(newTest.totalPages)}
+        page={
+          newTest?.next?.page ? newTest?.next?.page - 1 : Math.ceil(newTest?.totalPages)
+        }
         hasNextPage={checkNextPage()}
         hasPreviousPage={checkPreviousPage()}
-        previousPage={data?.previous?.page ? data.previous.page : 1}
-        nextPage={data?.next?.page}
+        previousPage={newTest?.previous?.page ? newTest.previous.page : 1}
+        nextPage={newTest?.next?.page}
       />
       <Footer />
     </>
@@ -172,7 +220,6 @@ export const getServerSideProps: GetServerSideProps = async (
     const page = context.query?.page ?? '1';
     const category = context.query?.category ?? 'all';
     const limit = '8';
-
     const data = await fetchData(page, limit, category);
 
     return {
