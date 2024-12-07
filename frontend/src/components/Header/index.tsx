@@ -34,6 +34,8 @@ const Header = function (props: IHeaderProps) {
     } else {
       setCurrentTab('all');
     }
+
+    props.onResetSearch?.();
   }, [currentUrl, setCurrentTab]);
 
   useEffect(() => {

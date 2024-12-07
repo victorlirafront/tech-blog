@@ -121,6 +121,10 @@ export default function Home({ data }: Data) {
     setUserSearched(true)
   };
 
+  const resetSearch = function(){
+    setUserSearched(false)
+  }
+
   return (
     <>
       <Head>
@@ -153,6 +157,7 @@ export default function Home({ data }: Data) {
         className="header"
         scrollIntoView={() => scrollIntoViewHandler()}
         onOpenSearchModal={onOpenSearchModal}
+        onResetSearch={resetSearch}
       />
       <SearchPost
         displaySearch={openSearchModal}
