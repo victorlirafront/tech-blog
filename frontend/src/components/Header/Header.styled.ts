@@ -7,12 +7,18 @@ const StyledHeader = styled.header`
   background: #000;
   position: fixed;
   width: 100vw;
+  overflow: hidden;
+
+  @media screen and (max-width: 700px) {
+    overflow: auto;
+  }
 
   .container {
     margin: 0 auto;
     max-width: 1200px;
     color: #ffffff;
     padding: 20px;
+    background: #000;
 
     nav {
       width: 100%;
@@ -125,7 +131,7 @@ const StyledHeader = styled.header`
             @media screen and (max-width: 700px) {
               height: auto;
             }
-            
+
             @media screen and (max-width: 700px) {
               flex-direction: column;
               margin: 0;
@@ -172,7 +178,7 @@ const StyledHeader = styled.header`
           .anchor {
             color: #fff;
             height: 40px;
-            
+
             @media screen and (max-width: 700px) {
               margin-bottom: 15px;
 

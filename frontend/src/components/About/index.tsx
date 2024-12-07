@@ -8,7 +8,7 @@ const About = function () {
   }
 
   return (
-    <StyledAbout>
+    <StyledAbout style={{background: '#000'}}>
       <h1 data-aos="fade-down" data-aos-delay="100">
         Artigos
       </h1>
