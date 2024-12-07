@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
-import { GetServerSideProps, GetServerSidePropsContext } from 'next';
+import {GetStaticPaths, GetStaticProps } from 'next';
 import Header from '@/components/Header';
 import StyledPostNew from './Posts.styled';
 import MarkdownRenderer from '@/components/MarkdownRenderer';
@@ -240,9 +240,28 @@ function Posts(props: IProps) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async (
-  context: GetServerSidePropsContext,
-) => {
+export const getStaticPaths: GetStaticPaths = async () => {
+  const page = '1';
+  const limit = '100';
+  const category = 'all';
+
+  try {
+    const data = await fetchData(page, limit, category);
+    const paths = data.results.map((post: ICurrentPost) => ({
+      params: { slug: generateSlug(post.title) },
+    }));
+
+    return {
+      paths,
+      fallback: 'blocking',
+    };
+  } catch (error) {
+    console.error('Error fetching paths:', error);
+    return { paths: [], fallback: false };
+  }
+};
+
+export const getStaticProps: GetStaticProps = async (context) => {
   const { slug } = context.params!;
 
   try {
@@ -267,6 +286,7 @@ export const getServerSideProps: GetServerSideProps = async (
         post: currentPost,
         data: data,
       },
+      revalidate: 60, 
     };
   } catch (error) {
     console.error('Error fetching data:', error);
