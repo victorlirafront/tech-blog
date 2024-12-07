@@ -103,16 +103,46 @@ const StyledHeader = styled.header`
             }
           }
 
-          .google-wrapper {
-            .profile {
-              border: 2px solid #fff;
-              padding: 5px 20px;
-              border-radius: 4px;
-              color: #fff;
-              transition: 0.3s;
+          .search-wrapper {
+            display: flex;
 
-              &:hover {
-                background-color: rgba(255, 255, 255, 0.4);
+            @media screen and (max-width: 700px){
+              flex-direction: row-reverse;
+              justify-content: flex-end;
+            }
+
+            .search-icon {
+              border: 2px solid #07ebb0;
+              width: 40px;
+              height: 40px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              border-radius: 100%;
+              margin-right: 30px;
+              cursor: pointer;
+
+              @media screen and (max-width: 700px){
+                margin-right: 0px;
+                margin-left: 30px;
+            }
+            }
+
+            .google-wrapper {
+              height: auto;
+              position: relative;
+              .profile {
+                border: 2px solid #fff;
+                padding: 5px 20px;
+                border-radius: 4px;
+                color: #fff;
+                transition: 0.3s;
+                position: relative;
+                top: 8px;
+
+                &:hover {
+                  background-color: rgba(255, 255, 255, 0.4);
+                }
               }
             }
           }
