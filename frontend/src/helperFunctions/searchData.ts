@@ -5,9 +5,6 @@ const searchPosts = async (query: string) => {
   const API_URL = process.env.NODE_ENV === "production" ? PROD_API_URL : DEV_API_URL;
 
   try {
-    // Atualiza a URL com a quer
-
-    // Faz a chamada à API
     const data = await fetchFunction(`${API_URL}/api/search?query=${encodeURIComponent(query)}`);
     
     return data;

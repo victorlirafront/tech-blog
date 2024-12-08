@@ -53,7 +53,7 @@ type IProps = {
     title: string;
     content: string;
     post_image: string;
-    author: string; // Make 'author' property optional
+    author: string;
     keywords: string;
   };
   data: {

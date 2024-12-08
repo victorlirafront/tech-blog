@@ -217,9 +217,8 @@ export const getServerSideProps: GetServerSideProps = async (
 
     let data = [];
     if (context.query.query) {
-      // Aguarde o retorno da função searchPosts
       const searchResults = await searchPosts(String(context.query.query));
-      data = searchResults; // Atualize com os dados obtidos
+      data = searchResults;
     } else {
       data = await fetchData(page, limit, category);
     }
