@@ -1,11 +1,11 @@
 import { PROD_API_URL, DEV_API_URL } from "@/constants/endpoints";
 import { fetchFunction } from "./fetchData";
 
-const searchPosts = async (query: string) => {
+const searchPosts = async (query: string,page: string | string[] , limit: string) => {
   const API_URL = process.env.NODE_ENV === "production" ? PROD_API_URL : DEV_API_URL;
 
   try {
-    const data = await fetchFunction(`${API_URL}/api/search?query=${encodeURIComponent(query)}`);
+    const data = await fetchFunction(`${API_URL}/api/search?query=${encodeURIComponent(query)}&page=${page}&limit=${limit}`);
     
     return data;
   } catch (error) {

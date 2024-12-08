@@ -4,13 +4,11 @@ import paginatedResults from '../helper/pagination';
 
 const router = express.Router();
 
-
-
 router.get('/get', async (req: any, res: any) => {
   const category: string = String(req.query.category) || 'all';
 
   try {
-    const connection = await pool.getConnection(); // Obtém uma conexão do pool
+    const connection = await pool.getConnection();
     
     let query = 'SELECT * FROM posts';
     let params: any[] = [];
@@ -20,10 +18,8 @@ router.get('/get', async (req: any, res: any) => {
       params = [category];
     }
 
-    const [result] = await connection.query(query, params); // Executa a consulta com ou sem parâmetros
-    connection.release(); // Libera a conexão de volta ao pool
+    const [result] = await connection.query(query, params);
 
-    // Aplica paginação nos resultados
     paginatedResults(result)(req, res, () => {
       res.json(res.paginatedResults);
     });

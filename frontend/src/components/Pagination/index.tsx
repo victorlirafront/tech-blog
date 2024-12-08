@@ -1,7 +1,7 @@
 import StyledPagination from './Pagination.styled';
 import { GlobalContext } from '../../Context/pagination';
 import { useContext } from 'react';
-import { useRouter } from 'next/router';
+import router, { useRouter } from 'next/router';
 import React from 'react';
 import Image from 'next/image';
 import { IpropsPagination } from './types';
@@ -21,13 +21,23 @@ const Pagination = function (props: IpropsPagination) {
     const nextPage = (currentPage += 1);
     setPage(nextPage);
 
-    router.push({
-      pathname: router.pathname,
-      query: {
-        page: route,
-        category: currentCategory,
-      },
-    });
+    if(!router.query.query){
+      router.push({
+        pathname: router.pathname,
+        query: {
+          page: route,
+          category: currentCategory,
+        },
+      });
+    }else {
+      router.push({
+        pathname: router.pathname,
+        query: {
+          page: route,
+          query: router.query.query,
+        },
+      });
+    }
   }
 
   const setPreviowPage = function (route: number) {
@@ -35,13 +45,23 @@ const Pagination = function (props: IpropsPagination) {
     const nextPage = (currentPage -= 1);
     setPage(nextPage);
 
-    router.push({
-      pathname: router.pathname,
-      query: {
-        page: route,
-        category: currentCategory,
-      },
-    });
+    if(!router.query.query){
+      router.push({
+        pathname: router.pathname,
+        query: {
+          page: route,
+          category: currentCategory,
+        },
+      });
+    }else {
+      router.push({
+        pathname: router.pathname,
+        query: {
+          page: route,
+          query: router.query.query,
+        },
+      });
+    }
   };
 
   const createNextPageArrow = function () {

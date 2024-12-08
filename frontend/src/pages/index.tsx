@@ -108,7 +108,6 @@ export default function Home(props: Data) {
     setOpenMobileMenu(false);
   };
 
-
   const hasPost = !!props.results
 
   return (
@@ -217,7 +216,7 @@ export const getServerSideProps: GetServerSideProps = async (
 
     let data = [];
     if (context.query.query) {
-      const searchResults = await searchPosts(String(context.query.query));
+      const searchResults = await searchPosts(String(context.query.query), page, limit);
       data = searchResults;
     } else {
       data = await fetchData(page, limit, category);
