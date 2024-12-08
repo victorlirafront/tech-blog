@@ -1,7 +1,7 @@
 import StyledPagination from './Pagination.styled';
 import { GlobalContext } from '../../Context/pagination';
 import { useContext } from 'react';
-import router, { useRouter } from 'next/router';
+import { useRouter } from 'next/router';
 import React from 'react';
 import Image from 'next/image';
 import { IpropsPagination } from './types';

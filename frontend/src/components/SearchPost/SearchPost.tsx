@@ -1,5 +1,6 @@
 
 import router from 'next/router';
+import Image from 'next/image';
 import StyledSearchPost from './SearchPost.styled';
 import { SearchPostProps } from './SearchPost.types';
 
@@ -44,10 +45,12 @@ function SearchPost({
         />
         <div className="search-grey-icon">
           <p>Aperte enter para buscar</p>
-          <img
+          <Image
             src="/search-gray.png"
             alt="Ícone de busca cinza"
             onClick={handleIconClick}
+            width={30}
+            height={30}
           />
         </div>
       </div>
