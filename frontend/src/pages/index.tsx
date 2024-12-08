@@ -113,7 +113,7 @@ export default function Home(props: Data) {
   return (
     <>
       <Head>
-        <title>Victor Lira | Tech Blog</title>
+        <title>Home | Tech Blog </title>
         <meta
           name="keywords"
           content="Victor Lira, JavaScript, React, Next.js, TypeScript, Frontend Development, Web Development, Technology Blog, Coding Tutorials"
