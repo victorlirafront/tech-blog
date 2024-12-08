@@ -33,59 +33,66 @@ type PostProps = {
 };
 
 type Data = {
-  data: {
-    totalPages: number;
-    next: {
+  totalPages: number;
+    next?: {
       page: number;
       limit: number;
     };
-    previous: {
+    previous?: {
       page: number;
       limit: number;
     };
     results?: PostProps[];
-  };
 };
 
-export default function Home({ data }: Data) {
+export default function Home(props: Data) {
   const { setPage } = useContext(GlobalContext);
   const { scrollIntoViewHandler, containerRef } = useScrollContext();
   const { favoritPosts } = useAddToFavoritsContext();
   const { currentUser } = useCurrentUser();
   const [displayLoginModal, setDisplayLoginModal] = useState(false);
-  const [searchResults, setSearchResults] = useState<any>();
+  // const [searchResults, setSearchResults] = useState();
   const [openSearchModal, setOpenSearchModal] = useState(false);
-  const [userSearched, setUserSearched] = useState(false)
-  const [errorMessage, setErrorMessage] = useState('');
-  const currentLoad = searchResults?.results?.length ? searchResults : [];
-  const newTest = userSearched ? currentLoad : data;
+  // const [userSearched, setUserSearched] = useState(false)
+  // const [errorMessage, setErrorMessage] = useState('');
+  // const currentLoad = searchResults?.results?.length ? searchResults : [];
+  // const data = userSearched ? currentLoad : data;
+  // const [currentData, setCurrentData] = useState<Data | []>()
+
+  const [currentData, setCurrentData] = useState<Data>()
 
   useEffect(() => {
-    if (newTest.results?.length <= 0 || newTest.results === undefined ) {
-      setErrorMessage("Nenhum item encontrado");
+    setCurrentData(props)
+    console.log(currentData)
+    // setCurrentData(data)
+  }, [])
+
+  useEffect(() => {
+    if (props.results === undefined ) {
+      // setErrorMessage("Nenhum item encontrado");
       setPage(1);
     } else {
-      setErrorMessage("");
-      if (newTest.next?.page) {
-        setPage(newTest.next.page);
+      // setErrorMessage("");
+      if (props.next?.page) {
+        setPage(props.next.page);
       }
     }
 
-  }, [newTest, setPage]);
+  }, [props, setPage]);
   
 
   useEffect(() => {
-    if (newTest && newTest.next?.page) {
-      setPage(newTest.next.page);
+    if (props && props.next?.page) {
+      setPage(props.next.page);
     }
-  }, [newTest, setPage]);
+  }, [props, setPage]);
 
   useEffect(() => {
     AOS.init();
   }, []);
 
   const checkNextPage = function () {
-    if (newTest && newTest.next) {
+    if (props && props.next) {
       return true;
     } else {
       return false;
@@ -93,7 +100,7 @@ export default function Home({ data }: Data) {
   };
 
   const checkPreviousPage = function () {
-    if (newTest && newTest?.previous) {
+    if (props && props?.previous) {
       return true;
     } else {
       return false;
@@ -116,13 +123,14 @@ export default function Home({ data }: Data) {
     setOpenSearchModal(false);
   };
 
-  const updateSearchResults = function (data: any) {
-    setSearchResults(data);
-    setUserSearched(true)
+  const updateSearchResults = function (data: Data) {
+    console.log('search',data)
+    // setSearchResults(data);
+    // setUserSearched(true)
   };
 
   const resetSearch = function(){
-    setUserSearched(false)
+    // setUserSearched(false)
   }
 
   return (
@@ -164,13 +172,13 @@ export default function Home({ data }: Data) {
         onCloseSearch={closeSearch}
         onSearchPosts={updateSearchResults}
       />
-      {errorMessage && userSearched && !searchResults && <p style={{color: '#fff', paddingTop: 200, textAlign: 'center'}}>{errorMessage}</p>}
+      {/* {errorMessage && userSearched && !searchResults && <p style={{color: '#fff', paddingTop: 200, textAlign: 'center'}}>{errorMessage}</p>} */}
       <About />
 
       <MainPage className="main-page">
         <div className="container" ref={containerRef as React.RefObject<HTMLDivElement>}>
-          {newTest?.results &&
-            newTest.results.map((post: PostProps, index: number) => {
+          {props?.results &&
+            props.results.map((post: PostProps, index: number) => {
               let costumizeFirstPost = false;
 
               index === 0 ? (costumizeFirstPost = true) : false;
@@ -204,14 +212,14 @@ export default function Home({ data }: Data) {
         </div>
       </MainPage>
       <Pagination
-        pageLength={Math.ceil(newTest.totalPages)}
+        pageLength={Math.ceil(props.totalPages)}
         page={
-          newTest?.next?.page ? newTest?.next?.page - 1 : Math.ceil(newTest?.totalPages)
+          props?.next?.page ? props?.next?.page - 1 : Math.ceil(props?.totalPages)
         }
         hasNextPage={checkNextPage()}
         hasPreviousPage={checkPreviousPage()}
-        previousPage={newTest?.previous?.page ? newTest.previous.page : 1}
-        nextPage={newTest?.next?.page}
+        previousPage={props?.previous?.page ? props.previous.page : 1}
+        nextPage={props?.next?.page ? props.next.page : 1}
       />
       <Footer />
     </>
@@ -229,7 +237,7 @@ export const getServerSideProps: GetServerSideProps = async (
 
     return {
       props: {
-        data, // Pass the extracted data as props
+        ...data, // Pass the extracted data as props
       },
     };
   } catch (error) {

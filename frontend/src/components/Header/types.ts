@@ -1,7 +1,7 @@
 export type IHeaderProps = {
   scrollIntoView: () => void;
   className: string;
-  onOpenSearchModal: () => void;
+  onOpenSearchModal?: () => void;
   onResetSearch?: () => void;
 };
 
