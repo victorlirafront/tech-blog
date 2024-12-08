@@ -4,7 +4,6 @@ import MainPage from '../components/MainPage';
 import Post from '@/components/Post';
 import About from '@/components/About';
 import Footer from '@/components/Footer';
-import Pagination from '@/components/Pagination';
 import { GlobalContext } from '../Context/pagination';
 import { useScrollContext } from '@/Context/scrollProvider';
 import { useContext, useState } from 'react';
@@ -19,6 +18,7 @@ import LoginAlertModal from '@/components/LoginAlertModal';
 import { useCurrentUser } from '@/Context/currentUser';
 import { fetchData } from '@/helperFunctions/fetchData';
 import SearchPost from '@/components/SearchPost/SearchPost';
+import Pagination from '@/components/Pagination';
 
 type PostProps = {
   id: number;
@@ -51,48 +51,44 @@ export default function Home(props: Data) {
   const { favoritPosts } = useAddToFavoritsContext();
   const { currentUser } = useCurrentUser();
   const [displayLoginModal, setDisplayLoginModal] = useState(false);
-  // const [searchResults, setSearchResults] = useState();
   const [openSearchModal, setOpenSearchModal] = useState(false);
-  // const [userSearched, setUserSearched] = useState(false)
-  // const [errorMessage, setErrorMessage] = useState('');
-  // const currentLoad = searchResults?.results?.length ? searchResults : [];
-  // const data = userSearched ? currentLoad : data;
-  // const [currentData, setCurrentData] = useState<Data | []>()
+  const [errorMessage, setErrorMessage] = useState('');
+  const [currentData, setCurrentData] = useState<Data>(props)
 
-  const [currentData, setCurrentData] = useState<Data>()
+  useEffect(() => {
+    console.log(currentData)
+  }, [currentData] )
 
   useEffect(() => {
     setCurrentData(props)
-    console.log(currentData)
-    // setCurrentData(data)
-  }, [])
+  }, [props])
 
   useEffect(() => {
-    if (props.results === undefined ) {
-      // setErrorMessage("Nenhum item encontrado");
+    if (currentData?.results === undefined ) {
+      setErrorMessage("Nenhum item encontrado");
       setPage(1);
     } else {
-      // setErrorMessage("");
-      if (props.next?.page) {
-        setPage(props.next.page);
+      setErrorMessage("");
+      if (currentData.next?.page) {
+        setPage(currentData.next.page);
       }
     }
 
-  }, [props, setPage]);
+  }, [currentData, setPage]);
   
 
   useEffect(() => {
-    if (props && props.next?.page) {
-      setPage(props.next.page);
+    if (currentData && currentData.next?.page) {
+      setPage(currentData.next.page);
     }
-  }, [props, setPage]);
+  }, [currentData, setPage]);
 
   useEffect(() => {
     AOS.init();
   }, []);
 
   const checkNextPage = function () {
-    if (props && props.next) {
+    if (currentData && currentData.next) {
       return true;
     } else {
       return false;
@@ -100,7 +96,7 @@ export default function Home(props: Data) {
   };
 
   const checkPreviousPage = function () {
-    if (props && props?.previous) {
+    if (currentData && currentData?.previous) {
       return true;
     } else {
       return false;
@@ -124,14 +120,14 @@ export default function Home(props: Data) {
   };
 
   const updateSearchResults = function (data: Data) {
-    console.log('search',data)
-    // setSearchResults(data);
-    // setUserSearched(true)
+    setCurrentData(data)
   };
 
   const resetSearch = function(){
-    // setUserSearched(false)
+    setCurrentData(props)
   }
+
+  let hasNoPost = errorMessage.length > 2 
 
   return (
     <>
@@ -172,13 +168,14 @@ export default function Home(props: Data) {
         onCloseSearch={closeSearch}
         onSearchPosts={updateSearchResults}
       />
-      {/* {errorMessage && userSearched && !searchResults && <p style={{color: '#fff', paddingTop: 200, textAlign: 'center'}}>{errorMessage}</p>} */}
-      <About />
+
+      {hasNoPost && <p style={{color: '#fff', paddingTop: 200, textAlign: 'center', fontSize: 30}}>{errorMessage}</p>}
+      {!hasNoPost && <About />}
 
       <MainPage className="main-page">
         <div className="container" ref={containerRef as React.RefObject<HTMLDivElement>}>
-          {props?.results &&
-            props.results.map((post: PostProps, index: number) => {
+          {currentData?.results &&
+            currentData.results.map((post: PostProps, index: number) => {
               let costumizeFirstPost = false;
 
               index === 0 ? (costumizeFirstPost = true) : false;
@@ -237,14 +234,14 @@ export const getServerSideProps: GetServerSideProps = async (
 
     return {
       props: {
-        ...data, // Pass the extracted data as props
+        ...data,
       },
     };
   } catch (error) {
     console.error('Error fetching data:', error);
     return {
       props: {
-        data: [], // Return an empty array or handle the error as needed
+        data: [], 
       },
     };
   }

@@ -11,6 +11,9 @@ const StyledSearchPost = styled.div`
   display: flex;
   justify-content: center;
 
+    top: 0;
+  }
+
   .search-wrapper {
     position: relative;
     height: auto;
@@ -43,7 +46,7 @@ const StyledSearchPost = styled.div`
     &:focus {
       border: 2px solid #12edb2;
       box-shadow: 0 0 5px rgba(18, 237, 178, 0.5);
-      background: #f9f9f9; 
+      background: #f9f9f9;
     }
   }
 
@@ -59,6 +62,9 @@ const StyledSearchPost = styled.div`
       font-size: 14px;
       color: #888;
       font-style: italic;
+      @media screen and (max-width: 700px) {
+        display: none;
+      }
     }
 
     img {
@@ -75,6 +81,10 @@ const StyledSearchPost = styled.div`
     background: rgba(255, 255, 255, 0.2);
     top: 195px;
     z-index: 3;
+
+    @media screen and (max-width: 700px) {
+      top: 90px;
+    }
   }
 `;
 

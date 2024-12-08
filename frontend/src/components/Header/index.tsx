@@ -149,7 +149,10 @@ const Header = function (props: IHeaderProps) {
                 </div>
 
                 <div className="search-wrapper">
-                  <div className="search-icon" onClick={props.onOpenSearchModal}>
+                  <div className="search-icon" onClick={() => {
+                    props.onOpenSearchModal?.()
+                    hideMobileMenu()
+                  }}>
                     <Image src={'/search-icon.png'} width={25} height={25} alt="kkk" />
                   </div>
 
