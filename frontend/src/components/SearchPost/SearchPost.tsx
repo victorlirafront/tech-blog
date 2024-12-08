@@ -1,15 +1,20 @@
 import { PROD_API_URL, DEV_API_URL } from '@/constants/endpoints';
 import StyledSearchPost from './SearchPost.styled';
 import { SearchPostProps } from './SearchPost.types';
-import { fetchFunction } from '../../helperFunctions/fetchData'
+import { fetchFunction } from '../../helperFunctions/fetchData';
 
-function SearchPost({ displaySearch = false, onCloseSearch, onSearchPosts }: SearchPostProps) {
+function SearchPost({
+  displaySearch = false,
+  onCloseSearch,
+  onSearchPosts,
+  onCloseMobileMenu,
+}: SearchPostProps) {
   if (!displaySearch) return null;
 
   const searchPosts = async function (query: string) {
     const API_URL = process.env.NODE_ENV === 'production' ? PROD_API_URL : DEV_API_URL;
     const data = await fetchFunction(`${API_URL}/api/search?query=${encodeURIComponent(query)}`);
-    onSearchPosts(data)
+    onSearchPosts(data);
   };
 
   const handleKeyDown = async (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -22,14 +27,33 @@ function SearchPost({ displaySearch = false, onCloseSearch, onSearchPosts }: Sea
       onCloseSearch();
     }
   };
-  
+
+  const handleIconClick = async () => {
+    const inputElement = document.querySelector('.search') as HTMLInputElement;
+    const query = inputElement?.value.trim();
+    if (query) {
+      await searchPosts(query);
+    }
+    onCloseMobileMenu();
+    onCloseSearch();
+  };
+
   return (
     <StyledSearchPost>
       <div className="search-wrapper">
-        <input className="search" type="search" placeholder="Pesquisar" onKeyDown={handleKeyDown} />
+        <input
+          className="search"
+          type="search"
+          placeholder="Pesquisar"
+          onKeyDown={handleKeyDown}
+        />
         <div className="search-grey-icon">
           <p>Aperte enter para buscar</p>
-          <img src="/search-gray.png" alt="Ícone de busca cinza" />
+          <img
+            src="/search-gray.png"
+            alt="Ícone de busca cinza"
+            onClick={handleIconClick}
+          />
         </div>
       </div>
       <div className="overlay" onClick={onCloseSearch}></div>

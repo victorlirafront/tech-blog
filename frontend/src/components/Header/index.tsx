@@ -13,7 +13,7 @@ import { CODE_ICON, CLOSE_MENU_ICON, MENU_HAMBURGUER } from '@/constants/images'
 
 const Header = function (props: IHeaderProps) {
   const [currentTab, setCurrentTab] = useState('');
-  const [openMobileMenu, setOpenMobileMenu] = useState(false);
+
 
   const router = useRouter();
   const currentUrl = router.asPath;
@@ -50,7 +50,7 @@ const Header = function (props: IHeaderProps) {
   }, [menuToggleBaseOnUrl]);
 
   const showMobileMenu = function () {
-    setOpenMobileMenu(true);
+    props.setOpenMobileMenu(true);
   };
 
   const categoryOptionHandler = function (route: string, category: string) {
@@ -75,7 +75,7 @@ const Header = function (props: IHeaderProps) {
   };
 
   const hideMobileMenu = function () {
-    setOpenMobileMenu(false);
+    props.setOpenMobileMenu(false);
   };
 
   const goBackToHomePage = function () {
@@ -96,7 +96,7 @@ const Header = function (props: IHeaderProps) {
                 alt="header icon"
               />
             </div>
-            <div className={`menu-wrapper ${openMobileMenu ? 'active' : ''}`}>
+            <div className={`menu-wrapper ${props.openMobileMenu ? 'active' : ''}`}>
               <Image
                 width={50}
                 height={20}

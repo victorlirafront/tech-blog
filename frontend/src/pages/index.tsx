@@ -54,6 +54,7 @@ export default function Home(props: Data) {
   const [openSearchModal, setOpenSearchModal] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [currentData, setCurrentData] = useState<Data>(props)
+  const [openMobileMenu, setOpenMobileMenu] = useState(false);
 
   useEffect(() => {
     console.log(currentData)
@@ -129,6 +130,14 @@ export default function Home(props: Data) {
 
   let hasNoPost = errorMessage.length > 2 
 
+  const handleMobileMenu = (toggle:boolean) => {
+    setOpenMobileMenu(toggle)
+  }
+
+  const closeMobileMenu = function(){
+    setOpenMobileMenu(false)
+  }
+
   return (
     <>
       <Head>
@@ -162,11 +171,14 @@ export default function Home(props: Data) {
         scrollIntoView={() => scrollIntoViewHandler()}
         onOpenSearchModal={onOpenSearchModal}
         onResetSearch={resetSearch}
+        openMobileMenu={openMobileMenu}
+        setOpenMobileMenu={handleMobileMenu}
       />
       <SearchPost
         displaySearch={openSearchModal}
         onCloseSearch={closeSearch}
         onSearchPosts={updateSearchResults}
+        onCloseMobileMenu={closeMobileMenu}
       />
 
       {hasNoPost && <p style={{color: '#fff', paddingTop: 200, textAlign: 'center', fontSize: 30}}>{errorMessage}</p>}

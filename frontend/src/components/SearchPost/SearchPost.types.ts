@@ -28,4 +28,5 @@ export type SearchPostProps = {
   displaySearch: boolean;
   onCloseSearch: () => void;
   onSearchPosts: (data: Data) => void;
+  onCloseMobileMenu: () => void
 };

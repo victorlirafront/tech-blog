@@ -3,6 +3,8 @@ export type IHeaderProps = {
   className: string;
   onOpenSearchModal?: () => void;
   onResetSearch?: () => void;
+  openMobileMenu: boolean;
+  setOpenMobileMenu: (a: boolean) => void
 };
 
 export type UrlParams = {
