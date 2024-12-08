@@ -1,28 +1,23 @@
-import { PROD_API_URL, DEV_API_URL } from '@/constants/endpoints';
+
+import router from 'next/router';
 import StyledSearchPost from './SearchPost.styled';
 import { SearchPostProps } from './SearchPost.types';
-import { fetchFunction } from '../../helperFunctions/fetchData';
 
 function SearchPost({
   displaySearch = false,
   onCloseSearch,
-  onSearchPosts,
   onCloseMobileMenu,
 }: SearchPostProps) {
+
   if (!displaySearch) return null;
 
-  const searchPosts = async function (query: string) {
-    const API_URL = process.env.NODE_ENV === 'production' ? PROD_API_URL : DEV_API_URL;
-    const data = await fetchFunction(`${API_URL}/api/search?query=${encodeURIComponent(query)}`);
-    onSearchPosts(data);
-  };
 
   const handleKeyDown = async (event: React.KeyboardEvent<HTMLInputElement>) => {
     const target = event.target as HTMLInputElement;
     if (event.key === 'Enter') {
       const query = target.value.trim();
       if (query) {
-        await searchPosts(query);
+        await router.push(`/?query=${encodeURIComponent(query)}`);
       }
       onCloseSearch();
     }
@@ -32,7 +27,7 @@ function SearchPost({
     const inputElement = document.querySelector('.search') as HTMLInputElement;
     const query = inputElement?.value.trim();
     if (query) {
-      await searchPosts(query);
+      await router.push(`/?query=${encodeURIComponent(query)}`);
     }
     onCloseMobileMenu();
     onCloseSearch();

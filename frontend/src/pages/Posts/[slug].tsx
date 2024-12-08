@@ -28,6 +28,7 @@ import { useCurrentUser } from '@/Context/currentUser';
 import LoginAlertModal from '@/components/LoginAlertModal';
 import { generateSlug } from '@/helperFunctions/generateSlug';
 import { fetchData } from '@/helperFunctions/fetchData';
+import SearchPost from '@/components/SearchPost/SearchPost';
 
 type PostProps = {
   id: number;
@@ -69,10 +70,6 @@ function Posts(props: IProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [lastPosts, setLastPost] = useState<PostProps[]>([]);
   const [settings, setSettings] = useState({});
-  const { scrollIntoViewHandler } = useScrollContext();
-  const { favoritPosts } = useAddToFavoritsContext();
-  const [displayLoginModal, setDisplayLoginModal] = useState(false);
-  const { currentUser } = useCurrentUser();
 
   useEffect(() => {
     setIsLoading(false);
@@ -107,6 +104,13 @@ function Posts(props: IProps) {
     });
   }, [props.data.results]);
 
+  const { scrollIntoViewHandler } = useScrollContext();
+  const { favoritPosts } = useAddToFavoritsContext();
+  const [displayLoginModal, setDisplayLoginModal] = useState(false);
+  const { currentUser } = useCurrentUser();
+  const [openMobileMenu, setOpenMobileMenu] = useState(false);
+  const [openSearchModal, setOpenSearchModal] = useState(false);
+
   const displayLoginAlert = function () {
     setDisplayLoginModal(true);
   };
@@ -114,6 +118,26 @@ function Posts(props: IProps) {
   const closeLoginAlertModal = function () {
     setDisplayLoginModal(false);
   };
+
+  const resetSearch = function () {
+
+  };
+
+  const handleMobileMenu = (toggle:boolean) => {
+    setOpenMobileMenu(toggle)
+  }
+
+  const onOpenSearchModal = function () {
+    setOpenSearchModal(prev => !prev);
+  };
+
+  const closeSearch = function () {
+    setOpenSearchModal(false);
+  };
+
+  const closeMobileMenu = function(){
+    setOpenMobileMenu(false)
+  }
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -132,7 +156,19 @@ function Posts(props: IProps) {
       {!currentUser.email && displayLoginModal && (
         <LoginAlertModal onCloseLoginAlertModal={closeLoginAlertModal} />
       )}
-      <Header className="header" scrollIntoView={() => scrollIntoViewHandler()} />
+       <Header
+        className="header"
+        scrollIntoView={() => scrollIntoViewHandler()}
+        onOpenSearchModal={onOpenSearchModal}
+        onResetSearch={resetSearch}
+        openMobileMenu={openMobileMenu}
+        setOpenMobileMenu={handleMobileMenu}
+      />
+      <SearchPost
+        displaySearch={openSearchModal}
+        onCloseSearch={closeSearch}
+        onCloseMobileMenu={closeMobileMenu}
+      />
       <div className="profile" data-aos="fade-down">
         <div className="background-image-container">
           <LazyLoadImage

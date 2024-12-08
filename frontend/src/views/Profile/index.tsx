@@ -16,6 +16,7 @@ import { FAVICON } from '@/constants/images';
 import { useCurrentUser } from '@/Context/currentUser';
 import { useRouter } from 'next/router';
 import { fetchData } from '@/helperFunctions/fetchData';
+import SearchPost from '@/components/SearchPost/SearchPost';
 
 export function Profile() {
   const { scrollIntoViewHandler } = useScrollContext();
@@ -78,6 +79,27 @@ export function Profile() {
     fetchDataAndUpdateState();
   }, [favoritPosts, currentUser, router, filterFavoritPosts]);
 
+  const [openMobileMenu, setOpenMobileMenu] = useState(false);
+  const [openSearchModal, setOpenSearchModal] = useState(false);
+
+  const resetSearch = function () {};
+
+  const handleMobileMenu = (toggle: boolean) => {
+    setOpenMobileMenu(toggle);
+  };
+
+  const onOpenSearchModal = function () {
+    setOpenSearchModal(prev => !prev);
+  };
+
+  const closeSearch = function () {
+    setOpenSearchModal(false);
+  };
+
+  const closeMobileMenu = function () {
+    setOpenMobileMenu(false);
+  };
+
   return (
     <div>
       <Head>
@@ -100,7 +122,21 @@ export function Profile() {
       </Head>
 
       {currentUser.email && (
-        <Header className="header" scrollIntoView={() => scrollIntoViewHandler()} />
+        <>
+          <Header
+            className="header"
+            scrollIntoView={() => scrollIntoViewHandler()}
+            onOpenSearchModal={onOpenSearchModal}
+            onResetSearch={resetSearch}
+            openMobileMenu={openMobileMenu}
+            setOpenMobileMenu={handleMobileMenu}
+          />
+          <SearchPost
+            displaySearch={openSearchModal}
+            onCloseSearch={closeSearch}
+            onCloseMobileMenu={closeMobileMenu}
+          />
+        </>
       )}
 
       {currentUser.email && (

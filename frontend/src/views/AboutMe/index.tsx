@@ -32,6 +32,7 @@ import {
   WHITE_LOADING_SPINNER,
 } from '@/constants/images';
 import { DEV_API_URL, PROD_API_URL } from '@/constants/endpoints';
+import SearchPost from '@/components/SearchPost/SearchPost';;
 
 export const AboutMe = function () {
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -39,6 +40,8 @@ export const AboutMe = function () {
   const [showFormModal, setShowFormModal] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const { scrollIntoViewHandler } = useScrollContext();
+  const [openSearchModal, setOpenSearchModal] = useState(false);
+  const [openMobileMenu, setOpenMobileMenu] = useState(false);
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -162,6 +165,23 @@ export const AboutMe = function () {
     }
   };
 
+  const closeSearch = function () {
+    setOpenSearchModal(false);
+  };
+
+  const closeMobileMenu = function(){
+    setOpenMobileMenu(false)
+  }
+
+  const handleMobileMenu = (toggle:boolean) => {
+    setOpenMobileMenu(toggle)
+  }
+
+  const onOpenSearchModal = function () {
+    setOpenSearchModal(prev => !prev);
+  };
+
+
   return (
     <Fragment>
       <Head>
@@ -195,7 +215,19 @@ export const AboutMe = function () {
 
       <FormModal onCloseFormModal={closeFormModal} className={showFormModal ? 'active' : ''} />
 
-      <Header className="header" scrollIntoView={() => scrollIntoViewHandler()} />
+      <Header
+        className="header"
+        scrollIntoView={() => scrollIntoViewHandler()}
+        onOpenSearchModal={onOpenSearchModal}
+        openMobileMenu={openMobileMenu}
+        setOpenMobileMenu={handleMobileMenu}
+      />
+      <SearchPost
+        displaySearch={openSearchModal}
+        onCloseSearch={closeSearch}
+        onCloseMobileMenu={closeMobileMenu}
+      />
+      
       <StyledAboutMe className="profile">
         <div className="container-vh">
           <div className="item main-item">

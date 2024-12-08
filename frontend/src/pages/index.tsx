@@ -6,8 +6,7 @@ import About from '@/components/About';
 import Footer from '@/components/Footer';
 import { GlobalContext } from '../Context/pagination';
 import { useScrollContext } from '@/Context/scrollProvider';
-import { useContext, useState } from 'react';
-import { useEffect } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
 import { GetServerSideProps, GetServerSidePropsContext } from 'next';
@@ -19,6 +18,7 @@ import { useCurrentUser } from '@/Context/currentUser';
 import { fetchData } from '@/helperFunctions/fetchData';
 import SearchPost from '@/components/SearchPost/SearchPost';
 import Pagination from '@/components/Pagination';
+import searchPosts from '@/helperFunctions/searchData';
 
 type PostProps = {
   id: number;
@@ -34,15 +34,15 @@ type PostProps = {
 
 type Data = {
   totalPages: number;
-    next?: {
-      page: number;
-      limit: number;
-    };
-    previous?: {
-      page: number;
-      limit: number;
-    };
-    results?: PostProps[];
+  next?: {
+    page: number;
+    limit: number;
+  };
+  previous?: {
+    page: number;
+    limit: number;
+  };
+  results?: PostProps[];
 };
 
 export default function Home(props: Data) {
@@ -52,44 +52,20 @@ export default function Home(props: Data) {
   const { currentUser } = useCurrentUser();
   const [displayLoginModal, setDisplayLoginModal] = useState(false);
   const [openSearchModal, setOpenSearchModal] = useState(false);
-  const [errorMessage, setErrorMessage] = useState('');
-  const [currentData, setCurrentData] = useState<Data>(props)
   const [openMobileMenu, setOpenMobileMenu] = useState(false);
 
   useEffect(() => {
-    console.log(currentData)
-  }, [currentData] )
-
-  useEffect(() => {
-    setCurrentData(props)
-  }, [props])
-
-  useEffect(() => {
-    if (currentData?.results === undefined ) {
-      setErrorMessage("Nenhum item encontrado");
-      setPage(1);
-    } else {
-      setErrorMessage("");
-      if (currentData.next?.page) {
-        setPage(currentData.next.page);
-      }
+    if(props?.next?.page){
+      setPage(props?.next?.page);
     }
-
-  }, [currentData, setPage]);
-  
-
-  useEffect(() => {
-    if (currentData && currentData.next?.page) {
-      setPage(currentData.next.page);
-    }
-  }, [currentData, setPage]);
+  }, [props?.next?.page, setPage]);
 
   useEffect(() => {
     AOS.init();
   }, []);
 
   const checkNextPage = function () {
-    if (currentData && currentData.next) {
+    if (props && props.next) {
       return true;
     } else {
       return false;
@@ -97,7 +73,7 @@ export default function Home(props: Data) {
   };
 
   const checkPreviousPage = function () {
-    if (currentData && currentData?.previous) {
+    if (props && props?.previous) {
       return true;
     } else {
       return false;
@@ -120,23 +96,20 @@ export default function Home(props: Data) {
     setOpenSearchModal(false);
   };
 
-  const updateSearchResults = function (data: Data) {
-    setCurrentData(data)
+  const resetSearch = function () {
+
   };
 
-  const resetSearch = function(){
-    setCurrentData(props)
-  }
+  const handleMobileMenu = (toggle: boolean) => {
+    setOpenMobileMenu(toggle);
+  };
 
-  let hasNoPost = errorMessage.length > 2 
+  const closeMobileMenu = function () {
+    setOpenMobileMenu(false);
+  };
 
-  const handleMobileMenu = (toggle:boolean) => {
-    setOpenMobileMenu(toggle)
-  }
 
-  const closeMobileMenu = function(){
-    setOpenMobileMenu(false)
-  }
+  const hasPost = !!props.results
 
   return (
     <>
@@ -145,7 +118,7 @@ export default function Home(props: Data) {
         <meta
           name="keywords"
           content="Victor Lira, JavaScript, React, Next.js, TypeScript, Frontend Development, Web Development, Technology Blog, Coding Tutorials"
-        ></meta>
+        />
         <meta
           name="description"
           content="Olá, sou Victor Lira, o criador de um blog dedicado a explorar os domínios do JavaScript, React, Next.js, TypeScript e outras tecnologias de front-end de ponta. Junte-se a mim nesta jornada enquanto compartilho insights, tutoriais e dicas para aprimorar suas habilidades e ficar por dentro das últimas tendências em desenvolvimento de front-end. Mergulhe no fascinante mundo do desenvolvimento web através do meu blog e capacite-se com conhecimento e experiência."
@@ -177,17 +150,16 @@ export default function Home(props: Data) {
       <SearchPost
         displaySearch={openSearchModal}
         onCloseSearch={closeSearch}
-        onSearchPosts={updateSearchResults}
         onCloseMobileMenu={closeMobileMenu}
       />
 
-      {hasNoPost && <p style={{color: '#fff', paddingTop: 200, textAlign: 'center', fontSize: 30}}>{errorMessage}</p>}
-      {!hasNoPost && <About />}
+      {hasPost && <About />}
+      {!hasPost && <h1 style={{paddingTop: 200, textAlign: 'center', color: '#fff'}}>Nenhum post encontrado</h1>}
 
       <MainPage className="main-page">
         <div className="container" ref={containerRef as React.RefObject<HTMLDivElement>}>
-          {currentData?.results &&
-            currentData.results.map((post: PostProps, index: number) => {
+          {hasPost && props?.results &&
+            props.results.map((post: PostProps, index: number) => {
               let costumizeFirstPost = false;
 
               index === 0 ? (costumizeFirstPost = true) : false;
@@ -236,13 +208,21 @@ export default function Home(props: Data) {
 }
 
 export const getServerSideProps: GetServerSideProps = async (
-  context: GetServerSidePropsContext,
+  context: GetServerSidePropsContext
 ) => {
   try {
     const page = context.query?.page ?? '1';
     const category = context.query?.category ?? 'all';
     const limit = '8';
-    const data = await fetchData(page, limit, category);
+
+    let data = [];
+    if (context.query.query) {
+      // Aguarde o retorno da função searchPosts
+      const searchResults = await searchPosts(String(context.query.query));
+      data = searchResults; // Atualize com os dados obtidos
+    } else {
+      data = await fetchData(page, limit, category);
+    }
 
     return {
       props: {
@@ -253,7 +233,7 @@ export const getServerSideProps: GetServerSideProps = async (
     console.error('Error fetching data:', error);
     return {
       props: {
-        data: [], 
+        data: [],
       },
     };
   }

@@ -1,7 +1,7 @@
 const paginatedResults = function (model: any) {
   return (req: any, res: any, next: any) => {
     const page: number = Number(req.query.page) || 1;
-    const limit: number = Number(req.query.limit) || 10;
+    const limit: number = Number(req.query.limit) || 8;
     const startIndex: number = (page - 1) * limit;
     const endIndex: number = page * limit;
     const results: any = {};
