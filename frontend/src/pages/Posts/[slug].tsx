@@ -13,7 +13,6 @@ import Slider from 'react-slick';
 import { useScrollContext } from '@/Context/scrollProvider';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Image from 'next/image';
 import {
   FacebookShareButton,
@@ -23,7 +22,7 @@ import {
 } from 'react-share';
 import { useAddToFavoritsContext } from '@/Context/addToFavorits';
 import { updateFavoritSource } from '@/utils/resusableFunctions';
-import { FAVICON, POST_BACKGROUND_BLUR } from '@/constants/images';
+import { FAVICON } from '@/constants/images';
 import { useCurrentUser } from '@/Context/currentUser';
 import LoginAlertModal from '@/components/LoginAlertModal';
 import { generateSlug } from '@/helperFunctions/generateSlug';
@@ -171,10 +170,9 @@ function Posts(props: IProps) {
       />
       <div className="profile" data-aos="fade-down">
         <div className="background-image-container">
-          <LazyLoadImage
+          <Image
             className="background-image"
             src={props.post.post_background}
-            placeholderSrc={POST_BACKGROUND_BLUR}
             alt="Blur background"
           />
         </div>
