@@ -50,7 +50,7 @@ const Header = function (props: IHeaderProps) {
   }, [menuToggleBaseOnUrl]);
 
   const showMobileMenu = function () {
-    props.setOpenMobileMenu(true);
+    props.setOpenMobileMenu?.(true);
   };
 
   const categoryOptionHandler = function (route: string, category: string) {
@@ -75,7 +75,7 @@ const Header = function (props: IHeaderProps) {
   };
 
   const hideMobileMenu = function () {
-    props.setOpenMobileMenu(false);
+    props.setOpenMobileMenu?.(false);
   };
 
   const goBackToHomePage = function () {
