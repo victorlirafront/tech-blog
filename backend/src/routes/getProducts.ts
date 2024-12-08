@@ -17,8 +17,9 @@ router.get('/get', async (req: any, res: any) => {
       query += ' WHERE category = ?';
       params = [category];
     }
-
+    
     const [result] = await connection.query(query, params);
+    connection.release();
 
     paginatedResults(result)(req, res, () => {
       res.json(res.paginatedResults);
