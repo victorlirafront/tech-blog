@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 
 const StyledMainPage = styled.div`
-  padding: 0 60px 60px 60px;
+  padding: 0 0 60px 0;
   background: #000;
   max-width: 1920px;
   margin: 0 auto;
