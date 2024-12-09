@@ -24,6 +24,7 @@
     "eslint-config-next": "13.4.4",
     "firebase": "^10.11.0",
     "framer-motion": "^10.17.4",
+    "highlight.js": "^11.10.0",
     "jwt-decode": "^4.0.0",
     "markdown-it": "^13.0.1",
     "marked": "^5.1.0",

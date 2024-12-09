@@ -3,6 +3,66 @@ import styled from 'styled-components';
 import { POST_CONTENT_WRITER, PROJECTS_SLIDER_ARROW } from '@/constants/images';
 
 const StyledPostNew = styled.div`
+  .hljs {
+    background-color: #2e2e2e;
+    color: #ccc;
+    background: #1f1f1f;
+  }
+
+  .hljs-keyword {
+    color: #569cd6;
+  }
+
+  .hljs-variable {
+    color: red !important;
+  }
+
+  .hljs-variable.firstName {
+    color: red !important;
+  } 
+
+  .hljs-variable.lastName {
+    color: green !important; 
+  }
+
+
+  .hljs-string {
+    color: #ce9178;
+  }
+
+  .hljs-comment {
+    color: #6a9956;
+    font-style: italic;
+  }
+
+  .hljs-number {
+    color: #b5cea8; 
+  }
+
+  .hljs-variable {
+    color: #9cdcfe !important; 
+  }
+
+  .hljs-function {
+    color: #00bfff;
+  }
+
+  .hljs-title.function_{
+    color: #dbdba9 !important;
+  }
+
+  .hljs-titl.class_{
+    color: #dbdba9 !important;
+  }
+  
+  .hljs-title.class_{
+    color: #dbdba9 !important;
+  }
+
+  .hljs-attr {
+    color: #9cdcfe;
+  }
+
   .profile {
     color: #ccc;
     margin-bottom: 60px;
@@ -221,26 +281,24 @@ const StyledPostNew = styled.div`
         }
       }
 
-      code {
-        color: #30c85e;
-        display: flex;
-        align-items: center;
-        align-items: center;
+      pre {
         justify-content: flex-start;
-        border-left: 4px solid #31c85e;
+        border-left: 2px solid #01efb3;
         border-bottom-right-radius: 0.5rem;
         border-top-right-radius: 0.5rem;
         font-family: monospace, Monaco;
         font-size: 13px;
         line-height: 27px;
-        background: #0c0c0c;
-        padding: 10px 12px;
+        background: #1e1e1e;
+        padding: 30px 12px;
+        padding-left: 20px;
         border-radius: 4px;
         margin: 15px 0;
         overflow: overlay;
 
         @media screen and (max-width: 700px) {
-          font-size: 14px;
+          font-size: 12px;
+          padding-left: 15px;
         }
       }
 

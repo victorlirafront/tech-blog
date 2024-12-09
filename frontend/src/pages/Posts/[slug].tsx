@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
-import {GetStaticPaths, GetStaticProps } from 'next';
+import { GetStaticPaths, GetStaticProps } from 'next';
 import Header from '@/components/Header';
 import StyledPostNew from './Posts.styled';
 import MarkdownRenderer from '@/components/MarkdownRenderer';
@@ -29,6 +29,8 @@ import LoginAlertModal from '@/components/LoginAlertModal';
 import { generateSlug } from '@/helperFunctions/generateSlug';
 import { fetchData } from '@/helperFunctions/fetchData';
 import SearchPost from '@/components/SearchPost/SearchPost';
+import hljs from 'highlight.js';
+import 'highlight.js/styles/github.css';
 
 type PostProps = {
   id: number;
@@ -104,6 +106,25 @@ function Posts(props: IProps) {
     });
   }, [props.data.results]);
 
+  useEffect(() => {
+    hljs.initHighlightingOnLoad();
+  }, []);
+  
+  useEffect(() => {
+    setTimeout(() => {
+      const codeBlocks = document.querySelectorAll('pre');
+      codeBlocks.forEach(block => {
+      const code = block.textContent;
+
+        if (code) {
+          const highlighted = hljs.highlight(code, { language: 'javascript' }).value;
+          block.innerHTML = highlighted;
+        }
+        
+      });
+    }, 500);
+  }, []);
+
   const { scrollIntoViewHandler } = useScrollContext();
   const { favoritPosts } = useAddToFavoritsContext();
   const [displayLoginModal, setDisplayLoginModal] = useState(false);
@@ -119,13 +140,11 @@ function Posts(props: IProps) {
     setDisplayLoginModal(false);
   };
 
-  const resetSearch = function () {
+  const resetSearch = function () {};
 
+  const handleMobileMenu = (toggle: boolean) => {
+    setOpenMobileMenu(toggle);
   };
-
-  const handleMobileMenu = (toggle:boolean) => {
-    setOpenMobileMenu(toggle)
-  }
 
   const onOpenSearchModal = function () {
     setOpenSearchModal(prev => !prev);
@@ -135,9 +154,9 @@ function Posts(props: IProps) {
     setOpenSearchModal(false);
   };
 
-  const closeMobileMenu = function(){
-    setOpenMobileMenu(false)
-  }
+  const closeMobileMenu = function () {
+    setOpenMobileMenu(false);
+  };
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -156,7 +175,7 @@ function Posts(props: IProps) {
       {!currentUser.email && displayLoginModal && (
         <LoginAlertModal onCloseLoginAlertModal={closeLoginAlertModal} />
       )}
-       <Header
+      <Header
         className="header"
         scrollIntoView={() => scrollIntoViewHandler()}
         onOpenSearchModal={onOpenSearchModal}
@@ -297,7 +316,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   }
 };
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async context => {
   const { slug } = context.params!;
 
   try {
@@ -322,7 +341,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
         post: currentPost,
         data: data,
       },
-      revalidate: 60, 
+      revalidate: 60,
     };
   } catch (error) {
     console.error('Error fetching data:', error);
