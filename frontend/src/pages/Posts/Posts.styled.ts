@@ -9,7 +9,9 @@ const StyledPostNew = styled.div`
     background: #1f1f1f;
   }
 
-  .hljs-keyword {
+  //javascript init
+  pre {
+    .hljs-keyword {
     color: #569cd6;
   }
 
@@ -24,7 +26,6 @@ const StyledPostNew = styled.div`
   .hljs-variable.lastName {
     color: green !important; 
   }
-
 
   .hljs-string {
     color: #ce9178;
@@ -62,6 +63,8 @@ const StyledPostNew = styled.div`
   .hljs-attr {
     color: #9cdcfe;
   }
+  }
+  //javascript end
 
   .profile {
     color: #ccc;
