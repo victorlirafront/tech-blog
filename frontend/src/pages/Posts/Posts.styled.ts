@@ -9,60 +9,53 @@ const StyledPostNew = styled.div`
     background: #1f1f1f;
   }
 
-  //javascript init
+  //javascript start
   pre {
-    .hljs-keyword {
-    color: #569cd6;
-  }
+    .hljs-keyword,
+    .hljs-literal {
+      color: #569cd6 !important;
+    }
 
-  .hljs-variable {
-    color: red !important;
-  }
+    .hljs-variable.lastName {
+      color: green !important;
+    }
 
-  .hljs-variable.firstName {
-    color: red !important;
-  } 
+    .hljs-string {
+      color: #ce9178 !important;
+    }
 
-  .hljs-variable.lastName {
-    color: green !important; 
-  }
+    .hljs-comment {
+      color: #6a9956 !important;
+      font-style: italic !important;
+    }
 
-  .hljs-string {
-    color: #ce9178;
-  }
+    .hljs-number {
+      color: #b5cea8 !important;
+    }
 
-  .hljs-comment {
-    color: #6a9956;
-    font-style: italic;
-  }
+    .hljs-variable {
+      color: #9cdcfe !important;
+    }
 
-  .hljs-number {
-    color: #b5cea8; 
-  }
+    .hljs-function {
+      color: #00bfff !important;
+    }
 
-  .hljs-variable {
-    color: #9cdcfe !important; 
-  }
+    .hljs-title.function_ {
+      color: #dbdba9 !important;
+    }
 
-  .hljs-function {
-    color: #00bfff;
-  }
+    .hljs-titl.class_ {
+      color: #dbdba9 !important;
+    }
 
-  .hljs-title.function_{
-    color: #dbdba9 !important;
-  }
+    .hljs-title.class_ {
+      color: #dbdba9 !important;
+    }
 
-  .hljs-titl.class_{
-    color: #dbdba9 !important;
-  }
-  
-  .hljs-title.class_{
-    color: #dbdba9 !important;
-  }
-
-  .hljs-attr {
-    color: #9cdcfe;
-  }
+    .hljs-attr {
+      color: #9cdcfe !important;
+    }
   }
   //javascript end
 
