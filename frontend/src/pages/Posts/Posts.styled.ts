@@ -59,6 +59,43 @@ const StyledPostNew = styled.div`
   }
   //javascript end
 
+  //XML
+  pre {
+    .language-xml {
+      .hljs-tag {
+        .hljs-name {
+          color: #569cd6 !important
+        }
+
+        .hljs-string {
+
+        }
+      }
+    }
+  }
+
+.hljs-keyword {
+  color: #f92672;
+}
+
+.hljs-string {
+  /* color: red;  */
+}
+
+.hljs-comment {
+  color: #75715e; 
+}
+
+.hljs-title.function_ {
+  /* color: red;  */
+}
+
+
+.hljs-number {
+  color: #ae81ff; 
+}
+
+  //XML
   .profile {
     color: #ccc;
     margin-bottom: 60px;
