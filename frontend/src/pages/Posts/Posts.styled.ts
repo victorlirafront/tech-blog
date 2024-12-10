@@ -167,6 +167,7 @@ const StyledPostNew = styled.div`
           top: 0px;
           left: 0;
           padding: unset;
+          height: 0;
 
           img {
             &.img-twitter {
