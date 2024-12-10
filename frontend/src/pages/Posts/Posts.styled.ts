@@ -12,7 +12,8 @@ const StyledPostNew = styled.div`
   //javascript start
   pre {
     .hljs-keyword,
-    .hljs-literal {
+    .hljs-literal, 
+    .hljs-subst {
       color: #569cd6 !important;
     }
 
@@ -38,7 +39,11 @@ const StyledPostNew = styled.div`
     }
 
     .hljs-function {
-      color: #00bfff !important;
+      color: #cccccc !important;
+    }
+
+    .hljs-built_in {
+      color: #dbdba9 !important;
     }
 
     .hljs-title.function_ {
