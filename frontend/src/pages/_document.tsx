@@ -1,3 +1,4 @@
+import AdSense from '@/config/AdSense';
 import Document, {
   Html,
   Head,
@@ -37,7 +38,9 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="pt-BR">
-        <Head />
+        <Head>
+          <AdSense pId='pub-3834333278222212' />
+        </Head>
         <body>
           <Main />
           <NextScript />
