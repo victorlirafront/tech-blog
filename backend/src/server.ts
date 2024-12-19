@@ -21,5 +21,5 @@ app.use('/api/', createPost);
 app.use('/api/', searchPost);
 
 
-const PORT = process.env.SERVER_PORT
+const PORT = process.env.PORT
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
