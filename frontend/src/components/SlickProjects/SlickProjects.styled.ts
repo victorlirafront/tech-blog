@@ -178,6 +178,8 @@ const SlickProjects = styled.div`
   }
 
   .slider-container {
+    overflow: none !important;
+
     .slider-box {
       display: flex;
       flex-direction: column;
@@ -187,7 +189,8 @@ const SlickProjects = styled.div`
       width: 297px;
       height: 400px;
       margin: 0 auto;
-      padding: 30px;
+      position: relative;
+      overflow: none !important;
 
       @media screen and (max-width: 500px) {
         width: 90%;
@@ -220,6 +223,73 @@ const SlickProjects = styled.div`
       p {
         margin: 24px 0px;
         text-align: center;
+      }
+
+      .background-image {
+        width: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover; /* Mantém proporção da imagem */
+        flex: 1;
+        overflow: none !important;
+      }
+
+      .slider-date-wrapper {
+        background-color: red;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+
+        .date {
+          font-size: 14px;
+        }
+
+        .button {
+        }
+      }
+
+      .overlay {
+        background: rgba(0, 0, 0, 0.5);
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: none;
+        div {
+          transition: 0.3s;
+          width: 90%;
+          text-align: center;
+          padding: 0 10px;
+
+          button {
+            width: 100%;
+            border: none;
+            border-radius: 30px;
+            padding: 10px 30px;
+            display: inline-block;
+            transition: 0.5s ease-out;
+            color: #fff;
+            background: transparent;
+            display: block;
+            width: 100%;
+            max-width: 300px;
+            margin: auto;
+            font-weight: bold;
+            cursor: pointer;
+            height: 50px;
+            border: 2px solid #fff;
+            text-transform: uppercase;
+            margin-top: 10px;
+
+            &:hover {
+              transition: 0.3s;
+              scale: 1.1;
+            }
+          }
+        }
       }
     }
   }

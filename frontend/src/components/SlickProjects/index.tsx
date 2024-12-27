@@ -4,6 +4,7 @@ import StyledSlickTech from './SlickProjects.styled';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { SlickProjectsProps } from './types';
+import projects from './data.json';
 
 const SlickProjects = (props: SlickProjectsProps) => {
   const [settings] = useState({
@@ -11,7 +12,7 @@ const SlickProjects = (props: SlickProjectsProps) => {
     infinite: true,
     speed: 400,
     slidesToShow: 3,
-    slidesToScroll: 1,
+    slidesToScroll: 2,
     arrows: true,
     responsive: [
       {
@@ -48,30 +49,21 @@ const SlickProjects = (props: SlickProjectsProps) => {
         </p>
       </div>
       <Slider {...settings}>
-        <div className="slider-container">
-          <div className="slider-box project-1">
-            <h1>Em construção...</h1>
-            <p>Esse projeto está em contrução, em breve teremos novidades : )</p>
-          </div>
-        </div>
-        <div className="slider-container">
-          <div className="slider-box project-2">
-            <h1>Em construção...</h1>
-            <p>Esse projeto está em contrução, em breve teremos novidades : )</p>
-          </div>
-        </div>
-        <div className="slider-container">
-          <div className="slider-box project-3">
-            <h1>Em construção...</h1>
-            <p>Esse projeto está em contrução, em breve teremos novidades : )</p>
-          </div>
-        </div>
-        <div className="slider-container">
-          <div className="slider-box project-4">
-            <h1>Em construção...</h1>
-            <p>Esse projeto está em contrução, em breve teremos novidades : )</p>
-          </div>
-        </div>
+        {projects.projects.map(item => {
+          return (
+            <div className="slider-container" key={item.id}>
+              <div className="slider-box project-1">
+              <div className="background-image" style={{ backgroundImage: `url(${item.background})` }}></div>
+                <div className="overlay">
+                  <div>
+                    <h1>{item.name}</h1>
+                    <button>Ver mais</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          );
+        })}
       </Slider>
     </StyledSlickTech>
   );
