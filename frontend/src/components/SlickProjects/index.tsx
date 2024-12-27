@@ -57,7 +57,7 @@ const SlickProjects = (props: SlickProjectsProps) => {
                 <div className="overlay">
                   <div>
                     <h1>{item.name}</h1>
-                    <button>Ver mais</button>
+                    <button>Em construção: 🚧</button>
                   </div>
                 </div>
               </div>
