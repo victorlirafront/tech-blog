@@ -142,9 +142,9 @@ const Header = function (props: IHeaderProps) {
                   </div>
                   <Link
                     className={`anchor ${currentTab === 'about' ? 'active' : ''}`}
-                    href="/AboutMe"
+                    href="/portfolio"
                   >
-                    Sobre mim &nbsp;🚀
+                    Portfólio &nbsp;🚀
                   </Link>
                 </div>
 
@@ -183,7 +183,7 @@ const Header = function (props: IHeaderProps) {
                                 email,
                               });
 
-                              router.push('/Profile');
+                              router.push('/perfil');
                             } else {
                               console.log('No credential received');
                             }
@@ -193,7 +193,7 @@ const Header = function (props: IHeaderProps) {
                         }}
                       />
                     ) : (
-                      <Link className="profile" href="/Profile">
+                      <Link className="profile" href="/perfil">
                         Perfil
                       </Link>
                     )}
