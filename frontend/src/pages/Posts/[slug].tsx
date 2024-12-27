@@ -206,7 +206,7 @@ function Posts(props: IProps) {
             <div className="content">
               <TwitterShareButton
                 title={props.post.meta_tag_title}
-                url={`https://www.victorlirablog.com/Posts/${generateSlug(props.post.title)}`}
+                url={`https://www.victorlirablog.com/posts/${generateSlug(props.post.title)}`}
               >
                 <Image
                   src="/twitter.png"
@@ -218,7 +218,7 @@ function Posts(props: IProps) {
               </TwitterShareButton>
               <RedditShareButton
                 title={props.post.meta_tag_title}
-                url={`https://www.victorlirablog.com/Posts/${generateSlug(props.post.title)}`}
+                url={`https://www.victorlirablog.com/posts/${generateSlug(props.post.title)}`}
               >
                 <Image
                   src="/reddit.png"
@@ -229,7 +229,7 @@ function Posts(props: IProps) {
                 />
               </RedditShareButton>
               <TelegramShareButton
-                url={`https://www.victorlirablog.com/Posts/${generateSlug(props.post.title)}`}
+                url={`https://www.victorlirablog.com/posts/${generateSlug(props.post.title)}`}
                 title={props.post.meta_tag_title}
               >
                 <Image
@@ -242,7 +242,7 @@ function Posts(props: IProps) {
               </TelegramShareButton>
               <FacebookShareButton
                 title={props.post.meta_tag_title}
-                url="https://www.victorlirablog.com/Posts/16"
+                url={`https://www.victorlirablog.com/posts/${generateSlug(props.post.title)}`}
               >
                 <Image
                   src="/facebook.png"
