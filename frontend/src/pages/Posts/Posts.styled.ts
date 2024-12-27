@@ -312,7 +312,7 @@ const StyledPostNew = styled.div`
       img {
         max-width: 100%;
         margin-top: 10px;
-        padding: 50px;
+        padding: 20px;
 
         @media screen and (max-width: 767px) {
           padding: unset;
