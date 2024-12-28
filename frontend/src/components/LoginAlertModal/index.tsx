@@ -49,7 +49,7 @@ const LoginAlertModal = function (props: IProps) {
                 email,
               });
 
-              router.push('/Profile');
+              router.push('/perfil');
             } else {
               console.log('No credential received');
             }
