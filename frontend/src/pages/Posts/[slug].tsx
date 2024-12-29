@@ -1,16 +1,13 @@
 import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import Header from '@/components/Header';
 import StyledPostNew from './Posts.styled';
 import MarkdownRenderer from '@/components/MarkdownRenderer';
-import Footer from '@/components/Footer';
 import dateFormatter from '@/helperFunctions/dateFormatter';
 import Post from '@/components/Post';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Slider from 'react-slick';
-import { useScrollContext } from '@/Context/scrollProvider';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
@@ -28,7 +25,6 @@ import { useCurrentUser } from '@/Context/currentUser';
 import LoginAlertModal from '@/components/LoginAlertModal';
 import { generateSlug } from '@/helperFunctions/generateSlug';
 import { fetchData } from '@/helperFunctions/fetchData';
-import SearchPost from '@/components/SearchPost/SearchPost';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/github.css';
 
@@ -125,12 +121,9 @@ function Posts(props: IProps) {
     }, 500);
   }, []);
 
-  const { scrollIntoViewHandler } = useScrollContext();
   const { favoritPosts } = useAddToFavoritsContext();
   const [displayLoginModal, setDisplayLoginModal] = useState(false);
   const { currentUser } = useCurrentUser();
-  const [openMobileMenu, setOpenMobileMenu] = useState(false);
-  const [openSearchModal, setOpenSearchModal] = useState(false);
 
   const displayLoginAlert = function () {
     setDisplayLoginModal(true);
@@ -138,24 +131,6 @@ function Posts(props: IProps) {
 
   const closeLoginAlertModal = function () {
     setDisplayLoginModal(false);
-  };
-
-  const resetSearch = function () {};
-
-  const handleMobileMenu = (toggle: boolean) => {
-    setOpenMobileMenu(toggle);
-  };
-
-  const onOpenSearchModal = function () {
-    setOpenSearchModal(prev => !prev);
-  };
-
-  const closeSearch = function () {
-    setOpenSearchModal(false);
-  };
-
-  const closeMobileMenu = function () {
-    setOpenMobileMenu(false);
   };
 
   if (isLoading) {
@@ -175,19 +150,7 @@ function Posts(props: IProps) {
       {!currentUser.email && displayLoginModal && (
         <LoginAlertModal onCloseLoginAlertModal={closeLoginAlertModal} />
       )}
-      <Header
-        className="header"
-        scrollIntoView={() => scrollIntoViewHandler()}
-        onOpenSearchModal={onOpenSearchModal}
-        onResetSearch={resetSearch}
-        openMobileMenu={openMobileMenu}
-        setOpenMobileMenu={handleMobileMenu}
-      />
-      <SearchPost
-        displaySearch={openSearchModal}
-        onCloseSearch={closeSearch}
-        onCloseMobileMenu={closeMobileMenu}
-      />
+
       <div className="profile" data-aos="fade-down">
         <div className="background-image-container">
           <LazyLoadImage
@@ -290,7 +253,6 @@ function Posts(props: IProps) {
           })}
         </Slider>
       </div>
-      <Footer />
     </StyledPostNew>
   );
 }

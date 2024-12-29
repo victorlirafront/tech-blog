@@ -5,7 +5,6 @@ const StyledAboutMe = styled.div`
   background: #000;
 
   .container-vh {
-    max-height: 100vh;
     margin: 0 auto;
 
     .item {

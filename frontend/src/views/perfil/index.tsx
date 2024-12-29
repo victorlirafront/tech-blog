@@ -1,8 +1,6 @@
 import Head from 'next/head';
 import React, { useCallback, useEffect, useState } from 'react';
-import Footer from '@/components/Footer';
 import 'aos/dist/aos.css';
-import { useScrollContext } from '@/Context/scrollProvider';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { useAddToFavoritsContext } from '@/Context/addToFavorits';
@@ -10,16 +8,14 @@ import Post from '@/components/Post';
 import { updateFavoritSource } from '@/utils/resusableFunctions';
 import Image from 'next/image';
 import StyledProfile from './Profile.styled';
-import Header from '@/components/Header';
+
 import { PostsProps } from './types';
 import { FAVICON } from '@/constants/images';
 import { useCurrentUser } from '@/Context/currentUser';
 import { useRouter } from 'next/router';
 import { fetchData } from '@/helperFunctions/fetchData';
-import SearchPost from '@/components/SearchPost/SearchPost';
 
 export function Profile() {
-  const { scrollIntoViewHandler } = useScrollContext();
   const { favoritPosts } = useAddToFavoritsContext();
   const [currentPostArray, setCurrentPostArray] = useState<PostsProps[]>();
   const { currentUser, callSetCurrentUser } = useCurrentUser();
@@ -79,26 +75,6 @@ export function Profile() {
     fetchDataAndUpdateState();
   }, [favoritPosts, currentUser, router, filterFavoritPosts]);
 
-  const [openMobileMenu, setOpenMobileMenu] = useState(false);
-  const [openSearchModal, setOpenSearchModal] = useState(false);
-
-  const resetSearch = function () {};
-
-  const handleMobileMenu = (toggle: boolean) => {
-    setOpenMobileMenu(toggle);
-  };
-
-  const onOpenSearchModal = function () {
-    setOpenSearchModal(prev => !prev);
-  };
-
-  const closeSearch = function () {
-    setOpenSearchModal(false);
-  };
-
-  const closeMobileMenu = function () {
-    setOpenMobileMenu(false);
-  };
 
   return (
     <div>
@@ -120,24 +96,6 @@ export function Profile() {
           crossOrigin="anonymous"
         ></script>
       </Head>
-
-      {currentUser.email && (
-        <>
-          <Header
-            className="header"
-            scrollIntoView={() => scrollIntoViewHandler()}
-            onOpenSearchModal={onOpenSearchModal}
-            onResetSearch={resetSearch}
-            openMobileMenu={openMobileMenu}
-            setOpenMobileMenu={handleMobileMenu}
-          />
-          <SearchPost
-            displaySearch={openSearchModal}
-            onCloseSearch={closeSearch}
-            onCloseMobileMenu={closeMobileMenu}
-          />
-        </>
-      )}
 
       {currentUser.email && (
         <StyledProfile data-aos="fade-down" data-aos-delay="200">
@@ -187,7 +145,6 @@ export function Profile() {
           </div>
         </StyledProfile>
       )}
-      {currentUser.email && <Footer />}
     </div>
   );
 }

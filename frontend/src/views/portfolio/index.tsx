@@ -6,13 +6,10 @@ import { useEffect } from 'react';
 import TechModal from '@/components/TechModal';
 import techJson from '@/data/slider-tech.json';
 import { TechInfoProps, FormData } from './types';
-import Footer from '@/components/Footer';
-import Header from '@/components/Header';
 import SlickProjects from '@/components/SlickProjects';
 import StyledAboutMe from './AboutMe.styled';
 import Image from 'next/image';
 import SlideTech from '@/components/SlickTech';
-import { useScrollContext } from '@/Context/scrollProvider';
 import Axios from 'axios';
 import FormModal from '@/components/FormModal';
 import { applyPhoneMask } from '@/helperFunctions/applyPhoneMask';
@@ -32,16 +29,12 @@ import {
   WHITE_LOADING_SPINNER,
 } from '@/constants/images';
 import { DEV_API_URL, PROD_API_URL } from '@/constants/endpoints';
-import SearchPost from '@/components/SearchPost/SearchPost';;
 
 export const AboutMe = function () {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [showFormModal, setShowFormModal] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const { scrollIntoViewHandler } = useScrollContext();
-  const [openSearchModal, setOpenSearchModal] = useState(false);
-  const [openMobileMenu, setOpenMobileMenu] = useState(false);
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -165,23 +158,6 @@ export const AboutMe = function () {
     }
   };
 
-  const closeSearch = function () {
-    setOpenSearchModal(false);
-  };
-
-  const closeMobileMenu = function(){
-    setOpenMobileMenu(false)
-  }
-
-  const handleMobileMenu = (toggle:boolean) => {
-    setOpenMobileMenu(toggle)
-  }
-
-  const onOpenSearchModal = function () {
-    setOpenSearchModal(prev => !prev);
-  };
-
-
   return (
     <Fragment>
       <Head>
@@ -214,20 +190,6 @@ export const AboutMe = function () {
       />
 
       <FormModal onCloseFormModal={closeFormModal} className={showFormModal ? 'active' : ''} />
-
-      <Header
-        className="header"
-        scrollIntoView={() => scrollIntoViewHandler()}
-        onOpenSearchModal={onOpenSearchModal}
-        openMobileMenu={openMobileMenu}
-        setOpenMobileMenu={handleMobileMenu}
-      />
-      <SearchPost
-        displaySearch={openSearchModal}
-        onCloseSearch={closeSearch}
-        onCloseMobileMenu={closeMobileMenu}
-      />
-      
       <StyledAboutMe className="profile">
         <div className="container-vh">
           <div className="item main-item">
@@ -389,7 +351,6 @@ export const AboutMe = function () {
               </form>
             </div>
           </div>
-          <Footer />
         </div>
       </StyledAboutMe>
     </Fragment>

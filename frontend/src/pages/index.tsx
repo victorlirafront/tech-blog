@@ -1,11 +1,8 @@
 import Head from 'next/head';
-import Header from '../components/Header';
 import MainPage from '../components/MainPage';
 import Post from '@/components/Post';
 import About from '@/components/About';
-import Footer from '@/components/Footer';
 import { GlobalContext } from '../Context/pagination';
-import { useScrollContext } from '@/Context/scrollProvider';
 import { useContext, useState, useEffect } from 'react';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
@@ -16,7 +13,6 @@ import { META_TAG_IMAGE, FAVICON } from '@/constants/images';
 import LoginAlertModal from '@/components/LoginAlertModal';
 import { useCurrentUser } from '@/Context/currentUser';
 import { fetchData } from '@/helperFunctions/fetchData';
-import SearchPost from '@/components/SearchPost/SearchPost';
 import Pagination from '@/components/Pagination';
 import searchPosts from '@/helperFunctions/searchData';
 
@@ -47,12 +43,9 @@ type Data = {
 
 export default function Home(props: Data) {
   const { setPage } = useContext(GlobalContext);
-  const { scrollIntoViewHandler, containerRef } = useScrollContext();
   const { favoritPosts } = useAddToFavoritsContext();
   const { currentUser } = useCurrentUser();
   const [displayLoginModal, setDisplayLoginModal] = useState(false);
-  const [openSearchModal, setOpenSearchModal] = useState(false);
-  const [openMobileMenu, setOpenMobileMenu] = useState(false);
 
   useEffect(() => {
     if(props?.next?.page){
@@ -88,26 +81,6 @@ export default function Home(props: Data) {
     setDisplayLoginModal(false);
   };
 
-  const onOpenSearchModal = function () {
-    setOpenSearchModal(prev => !prev);
-  };
-
-  const closeSearch = function () {
-    setOpenSearchModal(false);
-  };
-
-  const resetSearch = function () {
-
-  };
-
-  const handleMobileMenu = (toggle: boolean) => {
-    setOpenMobileMenu(toggle);
-  };
-
-  const closeMobileMenu = function () {
-    setOpenMobileMenu(false);
-  };
-
   const hasPost = !!props.results
 
   return (
@@ -138,25 +111,12 @@ export default function Home(props: Data) {
       {!currentUser.email && displayLoginModal && (
         <LoginAlertModal onCloseLoginAlertModal={closeLoginAlertModal} />
       )}
-      <Header
-        className="header"
-        scrollIntoView={() => scrollIntoViewHandler()}
-        onOpenSearchModal={onOpenSearchModal}
-        onResetSearch={resetSearch}
-        openMobileMenu={openMobileMenu}
-        setOpenMobileMenu={handleMobileMenu}
-      />
-      <SearchPost
-        displaySearch={openSearchModal}
-        onCloseSearch={closeSearch}
-        onCloseMobileMenu={closeMobileMenu}
-      />
 
       {hasPost && <About />}
       {!hasPost && <h1 style={{paddingTop: 200, textAlign: 'center', color: '#fff'}}>Nenhum post encontrado</h1>}
 
       <MainPage className="main-page">
-        <div className="container" ref={containerRef as React.RefObject<HTMLDivElement>}>
+        <div className="container">
           {hasPost && props?.results &&
             props.results.map((post: PostProps, index: number) => {
               let costumizeFirstPost = false;
@@ -201,7 +161,6 @@ export default function Home(props: Data) {
         previousPage={props?.previous?.page ? props.previous.page : 1}
         nextPage={props?.next?.page ? props.next.page : 1}
       />
-      <Footer />
     </>
   );
 }
