@@ -7,7 +7,7 @@ import TechModal from '@/components/TechModal';
 import techJson from '@/data/slider-tech.json';
 import { TechInfoProps, FormData } from './types';
 import SlickProjects from '@/components/SlickProjects';
-import StyledPortfolio from './Portfolio.styled';
+import StyledPortfolio from './index.styled';
 import Image from 'next/image';
 import SlideTech from '@/components/SlickTech';
 import Axios from 'axios';
