@@ -1,4 +1,4 @@
-export const removeEspecialChars = function (text: string) {
+export const removeSpecialChars = function (text: string) {
   if (text) {
     const newText = text.replaceAll('#', '').replaceAll('##', '').replaceAll('**', '');
 

@@ -1,5 +1,5 @@
 import StyledPost from './Post.styled';
-import { removeEspecialChars } from '../../helperFunctions/removeEspecialChars';
+import { removeSpecialChars } from '../../helperFunctions/removeSpecialChars';
 import dateFormatter from '@/helperFunctions/dateFormatter';
 import 'aos/dist/aos.css';
 import { motion } from 'framer-motion';
@@ -70,8 +70,8 @@ const Post: React.FC<IProps> = props => {
           <h1 className="post-title">{props.title}</h1>
           <p className="post-content">
             {props.content.length > 100
-              ? removeEspecialChars(props.content.substring(0, 100)) + ' ...'
-              : removeEspecialChars(props.content)}
+              ? removeSpecialChars(props.content.substring(0, 100)) + ' ...'
+              : removeSpecialChars(props.content)}
           </p>
 
           <ul className="post-author">
