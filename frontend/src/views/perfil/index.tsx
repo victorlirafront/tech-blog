@@ -7,7 +7,7 @@ import { useAddToFavoritsContext } from '@/Context/addToFavorits';
 import Post from '@/components/Post';
 import { updateFavoritSource } from '@/utils/resusableFunctions';
 import Image from 'next/image';
-import StyledProfile from './Profile.styled';
+import StyledProfile from './index.styled';
 
 import { PostsProps } from './types';
 import { FAVICON } from '@/constants/images';
