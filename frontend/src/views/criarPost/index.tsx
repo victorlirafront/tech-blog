@@ -1,6 +1,6 @@
 import React, { FormEvent, useState } from 'react';
 import Axios from 'axios';
-import StyledCreatePost from './CreatePost.styled';
+import StyledCreatePost from './index.styled';
 
 export const CreatePost = function () {
   const [author, setAuthor] = useState('');
