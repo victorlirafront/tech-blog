@@ -7,7 +7,7 @@ import TechModal from '@/components/TechModal';
 import techJson from '@/data/slider-tech.json';
 import { TechInfoProps, FormData } from './types';
 import SlickProjects from '@/components/SlickProjects';
-import StyledAboutMe from './AboutMe.styled';
+import StyledPortfolio from './Portfolio.styled';
 import Image from 'next/image';
 import SlideTech from '@/components/SlickTech';
 import Axios from 'axios';
@@ -30,7 +30,7 @@ import {
 } from '@/constants/images';
 import { DEV_API_URL, PROD_API_URL } from '@/constants/endpoints';
 
-export const AboutMe = function () {
+export const Portfolio = function () {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [showFormModal, setShowFormModal] = useState(false);
@@ -190,7 +190,7 @@ export const AboutMe = function () {
       />
 
       <FormModal onCloseFormModal={closeFormModal} className={showFormModal ? 'active' : ''} />
-      <StyledAboutMe className="profile">
+      <StyledPortfolio className="profile">
         <div className="container-vh">
           <div className="item main-item">
             <div className="profile-wrapper">
@@ -352,7 +352,7 @@ export const AboutMe = function () {
             </div>
           </div>
         </div>
-      </StyledAboutMe>
+      </StyledPortfolio>
     </Fragment>
   );
 };

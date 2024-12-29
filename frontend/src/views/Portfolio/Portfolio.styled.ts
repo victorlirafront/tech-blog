@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const StyledAboutMe = styled.div`
+const StyledPortfolio = styled.div`
   margin: 0 auto;
   background: #000;
 
@@ -439,4 +439,4 @@ const StyledAboutMe = styled.div`
   }
 `;
 
-export default StyledAboutMe;
+export default StyledPortfolio;
