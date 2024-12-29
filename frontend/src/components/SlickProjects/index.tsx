@@ -4,7 +4,7 @@ import StyledSlickTech from './SlickProjects.styled';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { SlickProjectsProps } from './types';
-import projects from './data.json';
+import projects from '@/data/slider-projects.json';
 
 const SlickProjects = (props: SlickProjectsProps) => {
   const [settings] = useState({
