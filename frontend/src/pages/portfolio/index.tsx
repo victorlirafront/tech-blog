@@ -1,1 +1,1 @@
-export { Portfolio as default } from '@/views/Portfolio';
+export { Portfolio as default } from '@/views/portfolio';
