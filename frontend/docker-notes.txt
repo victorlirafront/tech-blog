@@ -1,0 +1,6 @@
+docker build -t next-app . 
+docker run -p 3000:3000 next-app
+docker run -p 3001:3000 -v $(pwd):/src next-app
+
+lsof -i :3000
+lsof -i :3001

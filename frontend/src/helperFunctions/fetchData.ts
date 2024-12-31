@@ -1,5 +1,5 @@
-import Axios from 'axios';
 import { DEV_API_URL, PROD_API_URL } from '@/constants/endpoints';
+import Axios from 'axios';
 
 export async function fetchFunction(baseUrl: string) {
   try {
@@ -21,10 +21,15 @@ export const fetchData = async function (
   limit: string,
   category: string | string[],
 ) {
-  const API_URL = process.env.NODE_ENV === 'production' ? PROD_API_URL : DEV_API_URL;
-  const data = await fetchFunction(
-    `${API_URL}/api/get?page=${page}&limit=${limit}&category=${category}`,
-  );
 
+  const API_URL = process.env.NODE_ENV === 'production' ? PROD_API_URL : DEV_API_URL;
+  let data
+  try {
+    data = await fetchFunction(
+      `${API_URL}/api/get?page=${page}&limit=${limit}&category=${category}`,
+    );
+  } catch (error) {
+    console.error('Erro ao buscar os dados:', error);
+  }
   return data;
 };
