@@ -152,11 +152,12 @@ const StyledHeader = styled.header`
             min-width: 87%;
           }
 
-          .category-options {
+          .menu {
             margin-right: 30px;
             margin-left: 30px;
             display: flex;
             height: 40px;
+            list-style: none;
 
             @media screen and (max-width: 700px) {
               height: auto;
@@ -167,12 +168,14 @@ const StyledHeader = styled.header`
               margin: 0;
             }
 
-            p {
+            li {
+              height: 40px;
+              padding-bottom: 6px;
               @media screen and (max-width: 700px) {
                 margin-bottom: 15px;
               }
 
-              &.front-end-option {
+              &.web-option {
                 height: 40px;
                 margin-bottom: 15px;
                 &.active {
@@ -190,7 +193,16 @@ const StyledHeader = styled.header`
                 }
               }
 
-              &.typescript-option {
+              &.mobile-option {
+                height: 40px;
+                margin-bottom: 15px;
+                &.active {
+                  border-bottom: 3px solid rgb(11, 238, 178);
+                  padding-bottom: 6px;
+                }
+              }
+
+              &.others-option {
                 height: 40px;
                 margin-bottom: 15px;
                 &.active {
@@ -201,6 +213,27 @@ const StyledHeader = styled.header`
 
               &:not(:last-child) {
                 margin-right: 30px;
+              }
+
+              &.anchor {
+                color: #fff;
+                height: 40px;
+
+                a {
+                  color: #fff;
+                }
+
+                &.active {
+                  border-bottom: 3px solid #0beeb2;
+                  padding-bottom: 6px;
+                  height: 40px;
+                }
+              }
+
+              &.anchor.active {
+                  border-bottom: 3px solid #0beeb2;
+                  padding-bottom: 6px;
+                  height: 40px;
               }
             }
           }
@@ -217,10 +250,7 @@ const StyledHeader = styled.header`
               }
             }
 
-            &.active {
-              border-bottom: 3px solid #0beeb2;
-              padding-bottom: 6px;
-            }
+            
           }
 
           cursor: pointer;

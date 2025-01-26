@@ -14,7 +14,7 @@ const StyledFormModal = styled.div`
   top: 200px;
   right: 50%;
   top: 50%;
-  transform: translate(50%, -250%);
+  transform: translate(50%, -300%);
   transition: 0.5s;
 
   @media screen and (max-width: 768px) {

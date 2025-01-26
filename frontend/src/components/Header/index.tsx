@@ -14,7 +14,6 @@ import { CODE_ICON, CLOSE_MENU_ICON, MENU_HAMBURGUER } from '@/constants/images'
 const Header = function (props: IHeaderProps) {
   const [currentTab, setCurrentTab] = useState('');
 
-
   const router = useRouter();
   const currentUrl = router.asPath;
   const [headerFadeDown, setHeaderFadeDown] = useState('fade-down');
@@ -29,13 +28,14 @@ const Header = function (props: IHeaderProps) {
       setCurrentTab('mobile');
     } else if (currentUrl.includes('outros')) {
       setCurrentTab('outros');
-    } else if (currentUrl.includes('AboutMe')) {
-      setCurrentTab('about');
+    } else if (currentUrl.includes('portfolio')) {
+      setCurrentTab('portfolio');
     } else {
       setCurrentTab('all');
     }
 
     props.onResetSearch?.();
+    hideMobileMenu();
   }, [currentUrl, setCurrentTab]);
 
   useEffect(() => {
@@ -108,51 +108,53 @@ const Header = function (props: IHeaderProps) {
               />
 
               <div className="div-left">
-                <div style={{ display: 'flex' }}>
-                  <div
+                <ul className='menu' style={{ display: 'flex' }}>
+                  <li
                     onClick={() => {
                       goBackToHomePage();
                     }}
                     className={`home ${currentTab === 'all' ? 'active' : ''}`}
                   >
                     Home
-                  </div>
+                  </li>
 
-                  <div className="category-options">
-                    <p
-                      className={`front-end-option ${currentTab === 'web' ? 'active' : ''}`}
-                      onClick={() => categoryOptionHandler('1', 'web')}
-                    >
-                      Web
-                    </p>
-
-                    <p
-                      className={`typescript-option ${currentTab === 'mobile' ? 'active' : ''}`}
-                      onClick={() => categoryOptionHandler('1', 'mobile')}
-                    >
-                      Mobile
-                    </p>
-                    <p
-                      className={`react-option ${currentTab === 'outros' ? 'active' : ''}`}
-                      onClick={() => categoryOptionHandler('1', 'outros')}
-                      data-id="outros-link"
-                    >
-                      Outros
-                    </p>
-                  </div>
-                  <Link
-                    className={`anchor ${currentTab === 'about' ? 'active' : ''}`}
-                    href="/portfolio"
+                  <li
+                    className={`web-option ${currentTab === 'web' ? 'active' : ''}`}
+                    onClick={() => categoryOptionHandler('1', 'web')}
                   >
-                    Portfólio &nbsp;🚀
-                  </Link>
-                </div>
+                    Web
+                  </li>
+
+                  <li
+                    className={`mobile-option ${currentTab === 'mobile' ? 'active' : ''}`}
+                    onClick={() => categoryOptionHandler('1', 'mobile')}
+                  >
+                    Mobile
+                  </li>
+                  <li
+                    className={`others-option ${currentTab === 'outros' ? 'active' : ''}`}
+                    onClick={() => categoryOptionHandler('1', 'outros')}
+                    data-id="outros-link"
+                  >
+                    Outros
+                  </li>
+                  <li className={`anchor ${currentTab === 'portfolio' ? 'active' : ''}`}>
+                    <Link
+                      href="/portfolio"
+                    >
+                      Portfólio &nbsp;🚀
+                    </Link>
+                  </li>
+                </ul>
 
                 <div className="search-wrapper">
-                  <div className="search-icon" onClick={() => {
-                    props.onOpenSearchModal?.()
-                    hideMobileMenu()
-                  }}>
+                  <div
+                    className="search-icon"
+                    onClick={() => {
+                      props.onOpenSearchModal?.();
+                      hideMobileMenu();
+                    }}
+                  >
                     <Image src={'/search-icon.png'} width={25} height={25} alt="kkk" />
                   </div>
 
