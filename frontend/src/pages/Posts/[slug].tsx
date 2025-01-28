@@ -141,10 +141,12 @@ function Posts(props: IProps) {
     <StyledPostNew>
       <Head>
         <title>{props.post.meta_tag_title}</title>
+        <meta name="title" content={props.post.meta_tag_title} />
         <meta name="description" content={props.post.meta_tag_description}></meta>
         <meta name="author" content={props.post.author} />
         <meta name="robots" content="index, follow" />
         <meta name="keywords" content={props.post.keywords} />
+        <meta property="og:image" content={props.post.post_image} />
         <link rel="icon" href={FAVICON} />
       </Head>
       {!currentUser.email && displayLoginModal && (
