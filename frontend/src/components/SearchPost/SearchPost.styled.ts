@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const StyledSearchPost = styled.div`
-  top: 103px;
+  top: 88px;
   width: 100vw;
   height: 90px;
   padding: 23px;
@@ -80,7 +80,7 @@ const StyledSearchPost = styled.div`
     position: fixed;
     width: 100vw;
     background: rgba(255, 255, 255, 0.2);
-    top: 195px;
+    top: 179px;
     z-index: 3;
 
     @media screen and (max-width: 700px) {
