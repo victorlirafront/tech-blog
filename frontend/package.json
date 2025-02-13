@@ -12,6 +12,15 @@
     "test": "jest --watch",
     "test:ci": "jest --ci"
   },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx}": [
+      "yarn lint:staged",
+      "yarn test:staged"
+    ],
+    "**/*.{md,mdx,json}": [
+      "prettier --write"
+    ]
+  },
   "dependencies": {
     "@react-oauth/google": "^0.12.1",
     "@types/node": "20.3.0",
