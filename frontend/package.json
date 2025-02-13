@@ -9,6 +9,7 @@
     "start": "next start",
     "lint": "next lint",
     "lint:staged": "eslint --fix",
+    "test:staged": "jest --passWithNoTests --bail --detectOpenHandles --findRelatedTests --onlyChanged --coverage",
     "cypress:open": "cypress open",
     "test": "jest --watch",
     "test:ci": "jest --ci"
@@ -78,6 +79,7 @@
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "jest-styled-components": "^7.2.0",
+    "lint-staged": "^15.4.3",
     "next-router-mock": "^0.9.12",
     "ts-jest": "^29.1.2",
     "typescript": "^5.3.3",
