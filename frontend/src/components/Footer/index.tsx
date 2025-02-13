@@ -7,6 +7,7 @@ import { GITHUB_LINk, LINKEDIN_LINK, MYSQL_LINK, NEXT_LINK, NODE_LINK } from '@/
 
 const getCurrentYear = () => new Date().getFullYear();
 const getCurrentYea2 = () => new Date().getFullYear();
+const getCurrentYea3 = () => new Date().getFullYear();
 
 
 const Footer = () => {
