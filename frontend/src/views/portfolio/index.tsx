@@ -19,7 +19,7 @@ import {
   validatePhone,
   validateSubject,
   validateMessage,
-} from './formValidation';
+} from './functions/formValidation';
 import {
   FAVICON,
   META_TAG_IMAGE,

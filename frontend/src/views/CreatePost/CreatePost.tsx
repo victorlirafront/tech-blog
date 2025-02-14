@@ -1,8 +1,8 @@
 import React, { FormEvent, useState } from 'react';
 import Axios from 'axios';
-import StyledCreatePost from './index.styled';
+import StyledCreatePost from './CreatePost.styled';
 
-export const CreatePost = function () {
+const CreatePost = function () {
   const [author, setAuthor] = useState('');
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
@@ -126,3 +126,5 @@ export const CreatePost = function () {
     </React.Fragment>
   );
 };
+
+export default CreatePost

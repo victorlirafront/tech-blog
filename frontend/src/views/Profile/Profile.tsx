@@ -7,7 +7,7 @@ import { useAddToFavoritsContext } from '@/Context/addToFavorits';
 import Post from '@/components/Post';
 import { updateFavoritSource } from '@/utils/resusableFunctions';
 import Image from 'next/image';
-import StyledProfile from './index.styled';
+import StyledProfile from './Profile.styled';
 
 import { PostsProps } from './types';
 import { FAVICON } from '@/constants/images';
@@ -15,7 +15,7 @@ import { useCurrentUser } from '@/Context/currentUser';
 import { useRouter } from 'next/router';
 import { fetchData } from '@/helperFunctions/fetchData';
 
-export function Profile() {
+function Profile() {
   const { favoritPosts } = useAddToFavoritsContext();
   const [currentPostArray, setCurrentPostArray] = useState<PostsProps[]>();
   const { currentUser, callSetCurrentUser } = useCurrentUser();
@@ -148,3 +148,6 @@ export function Profile() {
     </div>
   );
 }
+
+
+export default Profile
