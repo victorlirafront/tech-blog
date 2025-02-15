@@ -5,13 +5,13 @@ import { useContext, useState, useEffect } from 'react';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
 import { useAddToFavoritsContext } from '@/Context/addToFavorits';
-import { updateFavoritSource } from '@/utils/resusableFunctions';
 import { META_TAG_IMAGE, FAVICON } from '@/constants/images';
 import LoginAlertModal from '@/components/LoginAlertModal';
 import { useCurrentUser } from '@/Context/currentUser';
 import Pagination from '@/components/Pagination';
 import { GlobalContext } from '@/Context/pagination';
-import MainPage from '@/components/MainPage';
+import MainPage from '@/views/Home/components/MainPage';
+import { updateFavoritSource } from '@/helper/functions/updateFavoritSource';
 
 type PostProps = {
   id: number;

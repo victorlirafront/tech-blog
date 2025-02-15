@@ -1,6 +1,6 @@
 import StyledPost from './Post.styled';
-import { removeSpecialChars } from '../../helperFunctions/removeSpecialChars';
-import dateFormatter from '@/helperFunctions/dateFormatter';
+import { removeSpecialChars } from '../../helper/functions/removeSpecialChars';
+import dateFormatter from '@/helper/functions/dateFormatter';
 import 'aos/dist/aos.css';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
@@ -9,7 +9,7 @@ import Image from 'next/image';
 import { useAddToFavoritsContext } from '@/Context/addToFavorits';
 import { IProps } from './types';
 import { PAGINATION_ARROW } from '@/constants/images';
-import { generateSlug } from '@/helperFunctions/generateSlug';
+import { generateSlug } from '@/helper/functions/generateSlug';
 
 const Post: React.FC<IProps> = props => {
   const { addToFavoritsHandler } = useAddToFavoritsContext();

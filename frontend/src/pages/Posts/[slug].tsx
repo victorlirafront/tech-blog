@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import StyledPostNew from './Posts.styled';
 import MarkdownRenderer from '@/components/MarkdownRenderer';
-import dateFormatter from '@/helperFunctions/dateFormatter';
+import dateFormatter from '@/helper/functions/dateFormatter';
 import Post from '@/components/Post';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -19,14 +19,14 @@ import {
   TelegramShareButton,
 } from 'react-share';
 import { useAddToFavoritsContext } from '@/Context/addToFavorits';
-import { updateFavoritSource } from '@/utils/resusableFunctions';
 import { FAVICON, POST_BACKGROUND_BLUR } from '@/constants/images';
 import { useCurrentUser } from '@/Context/currentUser';
 import LoginAlertModal from '@/components/LoginAlertModal';
-import { generateSlug } from '@/helperFunctions/generateSlug';
-import { fetchData } from '@/helperFunctions/fetchData';
+import { generateSlug } from '@/helper/functions/generateSlug';
+import { fetchData } from '@/helper/functions/fetchData';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/github.css';
+import { updateFavoritSource } from '@/helper/functions/updateFavoritSource';
 
 type PostProps = {
   id: number;

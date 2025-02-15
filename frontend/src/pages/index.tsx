@@ -1,5 +1,6 @@
-import { fetchData } from "@/helperFunctions/fetchData";
-import searchPosts from "@/helperFunctions/searchData";
+import { fetchData } from "@/helper/functions/fetchData";
+import searchPosts from "@/helper/functions/searchData";
+
 import { GetServerSideProps, GetServerSidePropsContext } from "next";
 
 export const getServerSideProps: GetServerSideProps = async (

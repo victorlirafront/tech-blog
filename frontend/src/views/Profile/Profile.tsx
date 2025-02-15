@@ -5,15 +5,14 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { useAddToFavoritsContext } from '@/Context/addToFavorits';
 import Post from '@/components/Post';
-import { updateFavoritSource } from '@/utils/resusableFunctions';
 import Image from 'next/image';
 import StyledProfile from './Profile.styled';
-
 import { PostsProps } from './types';
 import { FAVICON } from '@/constants/images';
 import { useCurrentUser } from '@/Context/currentUser';
 import { useRouter } from 'next/router';
-import { fetchData } from '@/helperFunctions/fetchData';
+import { fetchData } from '@/helper/functions/fetchData';
+import { updateFavoritSource } from '@/helper/functions/updateFavoritSource';
 
 function Profile() {
   const { favoritPosts } = useAddToFavoritsContext();

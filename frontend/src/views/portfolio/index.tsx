@@ -3,16 +3,15 @@ import Head from 'next/head';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
 import { useEffect } from 'react';
-import TechModal from '@/components/TechModal';
+import TechModal from '@/views/Portfolio/components/TechModal';
 import techJson from '@/data/slider-tech.json';
 import { TechInfoProps, FormData } from './types';
-import SlickProjects from '@/components/SlickProjects';
 import StyledPortfolio from './index.styled';
 import Image from 'next/image';
 import SlideTech from '@/views/Portfolio/components/SlickTech';
 import Axios from 'axios';
-import FormModal from '@/components/FormModal';
-import { applyPhoneMask } from '@/helperFunctions/applyPhoneMask';
+import FormModal from '@/views/Portfolio/components/FormModal';
+import { applyPhoneMask } from '@/helper/functions/applyPhoneMask';
 import {
   FAVICON,
   META_TAG_IMAGE,
@@ -23,6 +22,7 @@ import {
 } from '@/constants/images';
 import { DEV_API_URL, PROD_API_URL } from '@/constants/endpoints';
 import { validateName, validateEmail, validatePhone, validateSubject, validateMessage } from './functions/formValidation';
+import SlickProjects from './components/SlickProjects';
 
 export const Portfolio = function () {
   const [formSubmitted, setFormSubmitted] = useState(false);
