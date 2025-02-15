@@ -185,7 +185,7 @@ const Header = function (props: IHeaderProps) {
                                 email,
                               });
 
-                              router.push('/perfil');
+                              router.push('/profile');
                             } else {
                               console.log('No credential received');
                             }
@@ -195,7 +195,7 @@ const Header = function (props: IHeaderProps) {
                         }}
                       />
                     ) : (
-                      <Link className="profile" href="/perfil">
+                      <Link className="profile" href="/profile">
                         Perfil
                       </Link>
                     )}

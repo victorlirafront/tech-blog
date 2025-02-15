@@ -5,6 +5,7 @@ import React, {
   ReactNode,
   MouseEvent,
   useEffect,
+  useCallback,
 } from 'react';
 
 type IAddToFavoritsProps = {
@@ -44,17 +45,17 @@ export const AddToFavoritsProvider = ({ children }: { children: ReactNode }) => 
     setFavoritPosts(favoritPostsArray);
   }, []);
 
+  const toggleFavoritePost = useCallback((postId: number) => {
+    setFavoritPosts((prev) => {
+      const alreadyFavorited = prev.some((item) => item.post === postId);
+      return alreadyFavorited ? prev.filter((item) => item.post !== postId) : [...prev, { post: postId }];
+    });
+  }, []);
+  
   useEffect(() => {
     if (!currentPostId?.id) return;
-
-    const alreadyFavoritedThisPost = favoritPosts.some(item => item.post === currentPostId.id);
-
-    const updatedFavoritPosts = alreadyFavoritedThisPost
-      ? favoritPosts.filter(item => item.post !== currentPostId.id)
-      : [...favoritPosts, { post: currentPostId.id }];
-
-    setFavoritPosts(updatedFavoritPosts);
-  }, [currentPostId]);
+    toggleFavoritePost(currentPostId.id);
+  }, [currentPostId, toggleFavoritePost]);
 
   useEffect(() => {
     if (favoritPosts.length > 0) {
