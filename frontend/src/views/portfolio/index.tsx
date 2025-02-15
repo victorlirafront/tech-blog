@@ -9,17 +9,10 @@ import { TechInfoProps, FormData } from './types';
 import SlickProjects from '@/components/SlickProjects';
 import StyledPortfolio from './index.styled';
 import Image from 'next/image';
-import SlideTech from '@/components/SlickTech';
+import SlideTech from '@/views/Portfolio/components/SlickTech';
 import Axios from 'axios';
 import FormModal from '@/components/FormModal';
 import { applyPhoneMask } from '@/helperFunctions/applyPhoneMask';
-import {
-  validateName,
-  validateEmail,
-  validatePhone,
-  validateSubject,
-  validateMessage,
-} from './functions/formValidation';
 import {
   FAVICON,
   META_TAG_IMAGE,
@@ -29,6 +22,7 @@ import {
   WHITE_LOADING_SPINNER,
 } from '@/constants/images';
 import { DEV_API_URL, PROD_API_URL } from '@/constants/endpoints';
+import { validateName, validateEmail, validatePhone, validateSubject, validateMessage } from './functions/formValidation';
 
 export const Portfolio = function () {
   const [formSubmitted, setFormSubmitted] = useState(false);

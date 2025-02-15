@@ -17,7 +17,7 @@ import {
   JEST_ICON,
 } from '@/constants/images';
 
-const SimpleSlider = (props: SlickTechProps) => {
+const SlickTech = (props: SlickTechProps) => {
   const [settings] = useState({
     dots: true,
     infinite: true,
@@ -184,4 +184,4 @@ const SimpleSlider = (props: SlickTechProps) => {
   );
 };
 
-export default SimpleSlider;
+export default SlickTech;
