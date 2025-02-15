@@ -24,7 +24,7 @@ import { DEV_API_URL, PROD_API_URL } from '@/constants/endpoints';
 import { validateName, validateEmail, validatePhone, validateSubject, validateMessage } from './functions/formValidation';
 import SlickProjects from './components/SlickProjects';
 
-export const Portfolio = function () {
+const Portfolio = function () {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [showFormModal, setShowFormModal] = useState(false);
@@ -350,3 +350,6 @@ export const Portfolio = function () {
     </Fragment>
   );
 };
+
+
+export default Portfolio
