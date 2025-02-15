@@ -5,7 +5,7 @@ import AOS from 'aos';
 import { useEffect } from 'react';
 import TechModal from '@/views/Portfolio/components/TechModal';
 import techJson from '@/data/slider-tech.json';
-import { TechInfoProps, FormData } from './types';
+import { TechInfoProps, FormData } from './Portfolio.types';
 import StyledPortfolio from './index.styled';
 import Image from 'next/image';
 import SlideTech from '@/views/Portfolio/components/SlickTech';
