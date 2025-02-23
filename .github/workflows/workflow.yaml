@@ -16,4 +16,4 @@ jobs:
           cd frontend
           npm install
           npm run build
-          npm run test -- --ci
+          npm run test:ci
