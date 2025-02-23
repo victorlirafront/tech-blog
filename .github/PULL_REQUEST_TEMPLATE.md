@@ -10,6 +10,5 @@ Add a video or a detailed description of how to test this functionality or bug f
 4. TEST USER:
 Add some test user
 
-
 5. SCREENSHOT:
 Add a screenshot here if your PR makes visual changes
