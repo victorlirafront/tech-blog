@@ -1,6 +1,4 @@
-import { fetchData } from "@/helper/functions/fetchData";
-import searchPosts from "@/helper/functions/searchData";
-
+import { PostsService } from "@/services/PostsService";
 import { GetServerSideProps, GetServerSidePropsContext } from "next";
 
 export const getServerSideProps: GetServerSideProps = async (
@@ -13,10 +11,10 @@ export const getServerSideProps: GetServerSideProps = async (
 
     let data = [];
     if (context.query.query) {
-      const searchResults = await searchPosts(String(context.query.query), page, limit);
+      const searchResults = await PostsService.searchPosts(String(context.query.query), page, limit);
       data = searchResults;
     } else {
-      data = await fetchData(page, limit, category);
+      data = await PostsService.getAllPosts(page, limit, category);
     }
 
     return {

@@ -1,38 +1,57 @@
-
-import router from 'next/router';
-import Image from 'next/image';
-import StyledSearchPost from './SearchPost.styled';
-import { SearchPostProps } from './SearchPost.types';
+import Image from 'next/image'
+import { useEffect, useState } from 'react'
+import StyledSearchPost from './SearchPost.styled'
+import { SearchPostProps } from './SearchPost.types'
+import { usePosts } from '@/hooks/postService'
+import { useSearchContext } from '@/Context/searchContext'
 
 function SearchPost({
   displaySearch = false,
   onCloseSearch,
   onCloseMobileMenu,
 }: SearchPostProps) {
+  const [enabled, setEnabled] = useState(false)
 
-  if (!displaySearch) return null;
+  const { query, setQuery, setSearchedPosts } = useSearchContext()
 
+  const { data, isLoading, error } = usePosts({
+    query,
+    page: '1',
+    limit: '100',
+    enabled,
+  })
 
-  const handleKeyDown = async (event: React.KeyboardEvent<HTMLInputElement>) => {
-    const target = event.target as HTMLInputElement;
+  useEffect(() => {
+    if (data?.results) {
+      setSearchedPosts(data)
+    }
+  }, [data, setSearchedPosts])
+
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    const target = event.target as HTMLInputElement
     if (event.key === 'Enter') {
-      const query = target.value.trim();
-      if (query) {
-        await router.push(`/?query=${encodeURIComponent(query)}`);
+      const value = target.value.trim()
+      if (value) {
+        setQuery(value)
+        setEnabled(true)
       }
-      onCloseSearch();
+      onCloseSearch()
     }
-  };
+  }
 
-  const handleIconClick = async () => {
-    const inputElement = document.querySelector('.search') as HTMLInputElement;
-    const query = inputElement?.value.trim();
-    if (query) {
-      await router.push(`/?query=${encodeURIComponent(query)}`);
+  const handleIconClick = () => {
+    const inputElement = document.querySelector('.search') as HTMLInputElement
+    const value = inputElement?.value.trim()
+    
+    if (value) {
+      setQuery(value)
+      setEnabled(true)
     }
-    onCloseMobileMenu();
-    onCloseSearch();
-  };
+    onCloseMobileMenu()
+    onCloseSearch()
+  }
+
+  if (!displaySearch) return null
 
   return (
     <StyledSearchPost>
@@ -56,7 +75,7 @@ function SearchPost({
       </div>
       <div className="overlay" onClick={onCloseSearch}></div>
     </StyledSearchPost>
-  );
+  )
 }
 
-export default SearchPost;
+export default SearchPost

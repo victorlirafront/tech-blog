@@ -11,8 +11,8 @@ import { PostsProps } from './types';
 import { FAVICON } from '@/constants/images';
 import { useCurrentUser } from '@/Context/currentUser';
 import { useRouter } from 'next/router';
-import { fetchData } from '@/helper/functions/fetchData';
 import { updateFavoritSource } from '@/helper/functions/updateFavoritSource';
+import { PostsService } from '@/services/PostsService';
 
 function Profile() {
   const { favoritPosts } = useAddToFavoritsContext();
@@ -59,7 +59,7 @@ function Profile() {
         const limit = '9999';
         const category = 'all';
 
-        const data = await fetchData(page, limit, category);
+        const data = await PostsService.getAllPosts(page, limit, category);
         const results = data.results;
         const intersection = filterFavoritPosts(results);
 

@@ -23,10 +23,10 @@ import { FAVICON, POST_BACKGROUND_BLUR } from '@/constants/images';
 import { useCurrentUser } from '@/Context/currentUser';
 import LoginAlertModal from '@/components/LoginAlertModal';
 import { generateSlug } from '@/helper/functions/generateSlug';
-import { fetchData } from '@/helper/functions/fetchData';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/github.css';
 import { updateFavoritSource } from '@/helper/functions/updateFavoritSource';
+import { PostsService } from '@/services/PostsService';
 
 type PostProps = {
   id: number;
@@ -265,7 +265,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const category = 'all';
 
   try {
-    const data = await fetchData(page, limit, category);
+    const data = await PostsService.getAllPosts(page, limit, category);
     const paths = data.results.map((post: ICurrentPost) => ({
       params: { slug: generateSlug(post.title) },
     }));
@@ -288,7 +288,7 @@ export const getStaticProps: GetStaticProps = async context => {
     const limit = '100';
     const category = 'all';
 
-    const data = await fetchData(page, limit, category);
+    const data = await PostsService.getAllPosts(page, limit, category);
 
     const currentPost = data.results.find((post: ICurrentPost) => {
       return generateSlug(post.title) === slug;

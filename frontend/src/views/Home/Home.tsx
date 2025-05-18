@@ -12,6 +12,7 @@ import Pagination from '@/components/Pagination';
 import { GlobalContext } from '@/Context/pagination';
 import MainPage from '@/views/Home/components/MainPage';
 import { updateFavoritSource } from '@/helper/functions/updateFavoritSource';
+import { useSearchContext } from '@/Context/searchContext';
 
 type PostProps = {
   id: number;
@@ -43,9 +44,10 @@ export default function Home(props: Data) {
   const { favoritPosts } = useAddToFavoritsContext();
   const { currentUser } = useCurrentUser();
   const [displayLoginModal, setDisplayLoginModal] = useState(false);
+  const { searchedPosts } = useSearchContext();
 
   useEffect(() => {
-    if(props?.next?.page){
+    if (props?.next?.page) {
       setPage(props?.next?.page);
     }
   }, [props?.next?.page, setPage]);
@@ -54,31 +56,15 @@ export default function Home(props: Data) {
     AOS.init();
   }, []);
 
-  const checkNextPage = function () {
-    if (props && props.next) {
-      return true;
-    } else {
-      return false;
-    }
-  };
+  const checkNextPage = () => !!props?.next;
+  const checkPreviousPage = () => !!props?.previous;
+  const displayLoginAlert = () => setDisplayLoginModal(true);
+  const closeLoginAlertModal = () => setDisplayLoginModal(false);
 
-  const checkPreviousPage = function () {
-    if (props && props?.previous) {
-      return true;
-    } else {
-      return false;
-    }
-  };
+  const hasPost = !!props.results;
+  const hasSearchedPosts = !!searchedPosts?.results;
 
-  const displayLoginAlert = function () {
-    setDisplayLoginModal(true);
-  };
-
-  const closeLoginAlertModal = function () {
-    setDisplayLoginModal(false);
-  };
-
-  const hasPost = !!props.results
+  const postsToDisplay = hasSearchedPosts ? searchedPosts.results : props.results;
 
   return (
     <>
@@ -105,59 +91,70 @@ export default function Home(props: Data) {
           crossOrigin="anonymous"
         ></script>
       </Head>
+
       {!currentUser.email && displayLoginModal && (
         <LoginAlertModal onCloseLoginAlertModal={closeLoginAlertModal} />
       )}
 
-      {hasPost && <About />}
-      {!hasPost && <h1 style={{paddingTop: 200, textAlign: 'center', color: '#fff'}}>Nenhum post encontrado</h1>}
+      {!hasSearchedPosts && hasPost && <About />}
+
+      {(!hasSearchedPosts && !hasPost) && (
+        <h1 style={{ paddingTop: 200, textAlign: 'center', color: '#fff' }}>
+          Nenhum post encontrado
+        </h1>
+      )}
+
+      {hasSearchedPosts && searchedPosts?.results?.length === 0 && (
+        <h1 style={{ paddingTop: 200, textAlign: 'center', color: '#fff' }}>
+          Nenhum post encontrado para sua busca
+        </h1>
+      )}
 
       <MainPage className="main-page">
         <div className="container">
-          {hasPost && props?.results &&
-            props.results.map((post: PostProps, index: number) => {
-              let costumizeFirstPost = false;
+          {postsToDisplay?.map((post: PostProps, index: number) => {
+            const costumizeFirstPost = index === 0;
+            const styled = {
+              width: 'calc(66.66667% - 40px)',
+              minWidth: '300px',
+            };
 
-              index === 0 ? (costumizeFirstPost = true) : false;
-
-              const styled = {
-                width: 'calc(66.66667% - 40px)',
-                minWidth: '300px',
-              };
-
-              return (
-                <Post
-                  onDisplayLoginAlert={displayLoginAlert}
-                  style={costumizeFirstPost ? styled : {}}
-                  id={post.id}
-                  key={post.id}
-                  title={post.title}
-                  content={post.content}
-                  author={post.author}
-                  meta_tag_title={post.meta_tag_title}
-                  meta_tag_description={post.meta_tag_description}
-                  post_image={post.post_image}
-                  date={post.date}
-                  category={post.category}
-                  aos_delay="100"
-                  aos_type="fade-up"
-                  hover_animation={-7}
-                  onUpdateFavoritSource={updateFavoritSource(favoritPosts, post)}
-                />
-              );
-            })}
+            return (
+              <Post
+                onDisplayLoginAlert={displayLoginAlert}
+                style={costumizeFirstPost ? styled : {}}
+                id={post.id}
+                key={post.id}
+                title={post.title}
+                content={post.content}
+                author={post.author}
+                meta_tag_title={post.meta_tag_title}
+                meta_tag_description={post.meta_tag_description}
+                post_image={post.post_image}
+                date={post.date}
+                category={post.category}
+                aos_delay="100"
+                aos_type="fade-up"
+                hover_animation={-7}
+                onUpdateFavoritSource={updateFavoritSource(favoritPosts, post)}
+              />
+            );
+          })}
         </div>
       </MainPage>
-      <Pagination
-        pageLength={Math.ceil(props.totalPages)}
-        page={
-          props?.next?.page ? props?.next?.page - 1 : Math.ceil(props?.totalPages)
-        }
-        hasNextPage={checkNextPage()}
-        hasPreviousPage={checkPreviousPage()}
-        previousPage={props?.previous?.page ? props.previous.page : 1}
-        nextPage={props?.next?.page ? props.next.page : 1}
-      />
+
+      {!hasSearchedPosts && (
+        <Pagination
+          pageLength={Math.ceil(props.totalPages)}
+          page={
+            props?.next?.page ? props?.next?.page - 1 : Math.ceil(props?.totalPages)
+          }
+          hasNextPage={checkNextPage()}
+          hasPreviousPage={checkPreviousPage()}
+          previousPage={props?.previous?.page ? props.previous.page : 1}
+          nextPage={props?.next?.page ? props.next.page : 1}
+        />
+      )}
     </>
   );
 }
