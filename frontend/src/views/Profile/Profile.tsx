@@ -74,7 +74,6 @@ function Profile() {
     fetchDataAndUpdateState();
   }, [favoritPosts, currentUser, router, filterFavoritPosts]);
 
-
   return (
     <div>
       <Head>
@@ -124,9 +123,9 @@ function Profile() {
                     title={post.title}
                     content={post.content}
                     author={post.author}
-                    meta_tag_title={post.meta_tag_title}
-                    meta_tag_description={post.meta_tag_description}
-                    post_image={post.post_image}
+                    metaTagTitle={post.metaTagTitle}
+                    metaTagDescription={post.metaTagDescription}
+                    postImage={post.postImage}
                     date={post.date}
                     category={post.category}
                     aos_delay="100"

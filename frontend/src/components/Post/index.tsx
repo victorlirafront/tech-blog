@@ -57,7 +57,7 @@ const Post: React.FC<IProps> = props => {
           <div className="post-image-wrapper">
             <div
               className="post-image"
-              style={{ backgroundImage: `url(${props.post_image})` }}
+              style={{ backgroundImage: `url(${props.postImage})` }}
             ></div>
           </div>
         </div>

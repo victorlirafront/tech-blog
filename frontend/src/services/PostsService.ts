@@ -1,3 +1,4 @@
+import { PostsMapper } from "@/mappers/PostsMapper";
 import { httpClient } from "@/services/httpClient";
 
 export class PostsService {
@@ -35,9 +36,8 @@ export class PostsService {
           category: categoryParam,
         },
       });
-  
-      return response.data;
-      //update toDomain mapper fix
+      
+      return PostsMapper.toDomain(response.data);
     } catch (error) {
       console.error('Erro ao buscar os dados:', error);
       throw new Error('Não foi possível buscar os dados. Tente novamente mais tarde.');

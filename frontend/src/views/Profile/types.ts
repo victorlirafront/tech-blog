@@ -4,8 +4,8 @@ export type PostsProps = {
   content: string;
   date: string;
   category: string;
-  meta_tag_title: string;
-  meta_tag_description: string;
-  post_image: string;
+  metaTagTitle: string;
+  metaTagDescription: string;
+  postImage: string;
   author: string;
 };

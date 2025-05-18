@@ -20,9 +20,9 @@ type PostProps = {
   content: string;
   date: string;
   category: string;
-  meta_tag_title: string;
-  meta_tag_description: string;
-  post_image: string;
+  metaTagTitle: string;
+  metaTagDescription: string;
+  postImage: string;
   author: string;
 };
 
@@ -128,9 +128,9 @@ export default function Home(props: Data) {
                 title={post.title}
                 content={post.content}
                 author={post.author}
-                meta_tag_title={post.meta_tag_title}
-                meta_tag_description={post.meta_tag_description}
-                post_image={post.post_image}
+                metaTagTitle={post.metaTagTitle}
+                metaTagDescription={post.metaTagDescription}
+                postImage={post.postImage}
                 date={post.date}
                 category={post.category}
                 aos_delay="100"

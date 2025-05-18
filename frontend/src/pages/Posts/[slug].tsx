@@ -34,9 +34,9 @@ type PostProps = {
   content: string;
   date: string;
   category: string;
-  meta_tag_title: string;
-  meta_tag_description: string;
-  post_image: string;
+  metaTagTitle: string;
+  metaTagDescription: string;
+  postImage: string;
   author: string;
 };
 
@@ -44,13 +44,13 @@ type IProps = {
   post: {
     id: number;
     category: string;
-    post_background: string;
+    postBackground: string;
     date: string;
-    meta_tag_title: string;
-    meta_tag_description: string;
+    metaTagTitle: string;
+    metaTagDescription: string;
     title: string;
     content: string;
-    post_image: string;
+    postImage: string;
     author: string;
     keywords: string;
   };
@@ -140,13 +140,13 @@ function Posts(props: IProps) {
   return (
     <StyledPostNew>
       <Head>
-        <title>{props.post.meta_tag_title}</title>
-        <meta name="title" content={props.post.meta_tag_title} />
-        <meta name="description" content={props.post.meta_tag_description}></meta>
+        <title>{props.post.metaTagTitle}</title>
+        <meta name="title" content={props.post.metaTagTitle} />
+        <meta name="description" content={props.post.metaTagDescription}></meta>
         <meta name="author" content={props.post.author} />
         <meta name="robots" content="index, follow" />
         <meta name="keywords" content={props.post.keywords} />
-        <meta property="og:image" content={props.post.post_image} />
+        <meta property="og:image" content={props.post.postImage} />
         <link rel="icon" href={FAVICON} />
       </Head>
       {!currentUser.email && displayLoginModal && (
@@ -157,7 +157,7 @@ function Posts(props: IProps) {
         <div className="background-image-container">
           <LazyLoadImage
             className="background-image"
-            src={props.post.post_background}
+            src={props.post.postBackground}
             placeholderSrc={POST_BACKGROUND_BLUR}
             alt="Blur background"
           />
@@ -170,7 +170,7 @@ function Posts(props: IProps) {
           <div className="aside-absolute">
             <div className="content">
               <TwitterShareButton
-                title={props.post.meta_tag_title}
+                title={props.post.metaTagTitle}
                 url={`https://www.victorlirablog.com/posts/${generateSlug(props.post.title)}`}
               >
                 <Image
@@ -182,7 +182,7 @@ function Posts(props: IProps) {
                 />
               </TwitterShareButton>
               <RedditShareButton
-                title={props.post.meta_tag_title}
+                title={props.post.metaTagTitle}
                 url={`https://www.victorlirablog.com/posts/${generateSlug(props.post.title)}`}
               >
                 <Image
@@ -195,7 +195,7 @@ function Posts(props: IProps) {
               </RedditShareButton>
               <TelegramShareButton
                 url={`https://www.victorlirablog.com/posts/${generateSlug(props.post.title)}`}
-                title={props.post.meta_tag_title}
+                title={props.post.metaTagTitle}
               >
                 <Image
                   src="/telegram.png"
@@ -206,7 +206,7 @@ function Posts(props: IProps) {
                 />
               </TelegramShareButton>
               <FacebookShareButton
-                title={props.post.meta_tag_title}
+                title={props.post.metaTagTitle}
                 url={`https://www.victorlirablog.com/posts/${generateSlug(props.post.title)}`}
               >
                 <Image
@@ -240,10 +240,10 @@ function Posts(props: IProps) {
                   category={post.category}
                   content={post.content}
                   date={post.date}
-                  meta_tag_description={post.meta_tag_description}
-                  meta_tag_title={post.meta_tag_title}
+                  metaTagDescription={post.metaTagDescription}
+                  metaTagTitle={post.metaTagTitle}
                   title={post.title}
-                  post_image={post.post_image}
+                  postImage={post.postImage}
                   author={post.author ?? 'Unknown Author'}
                   aos_delay=""
                   aos_type=""
