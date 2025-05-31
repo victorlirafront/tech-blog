@@ -13,7 +13,6 @@ export class PostsService {
       })
 
       return PostsMapper.toDomain(response.data);
-       //update toDomain mapper fix
     } catch (error) {
       console.error('Erro ao buscar posts:', error)
       throw new Error('Não foi possível buscar os posts. Tente novamente mais tarde.')

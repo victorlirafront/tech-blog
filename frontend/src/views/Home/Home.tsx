@@ -56,15 +56,14 @@ export default function Home(props: Data) {
     AOS.init();
   }, []);
 
-  const checkNextPage = () => !!props?.next;
-  const checkPreviousPage = () => !!props?.previous;
-  const displayLoginAlert = () => setDisplayLoginModal(true);
-  const closeLoginAlertModal = () => setDisplayLoginModal(false);
-
   const hasPost = !!props.results;
   const hasSearchedPosts = !!searchedPosts?.results;
+  const postsToDisplay = hasSearchedPosts ? searchedPosts : props;
 
-  const postsToDisplay = hasSearchedPosts ? searchedPosts.results : props.results;
+  const checkNextPage = () => !!postsToDisplay?.next;
+  const checkPreviousPage = () => !!postsToDisplay?.previous;
+  const displayLoginAlert = () => setDisplayLoginModal(true);
+  const closeLoginAlertModal = () => setDisplayLoginModal(false);
 
   return (
     <>
@@ -98,7 +97,7 @@ export default function Home(props: Data) {
 
       {!hasSearchedPosts && hasPost && <About />}
 
-      {(!hasSearchedPosts && !hasPost) && (
+      {!hasSearchedPosts && !hasPost && (
         <h1 style={{ paddingTop: 200, textAlign: 'center', color: '#fff' }}>
           Nenhum post encontrado
         </h1>
@@ -112,7 +111,7 @@ export default function Home(props: Data) {
 
       <MainPage className="main-page">
         <div className="container">
-          {postsToDisplay?.map((post: PostProps, index: number) => {
+          {postsToDisplay.results?.map((post: PostProps, index: number) => {
             const costumizeFirstPost = index === 0;
             const styled = {
               width: 'calc(66.66667% - 40px)',
@@ -144,15 +143,17 @@ export default function Home(props: Data) {
       </MainPage>
 
       <Pagination
-          pageLength={Math.ceil(props.totalPages)}
-          page={
-            props?.next?.page ? props?.next?.page - 1 : Math.ceil(props?.totalPages)
-          }
-          hasNextPage={checkNextPage()}
-          hasPreviousPage={checkPreviousPage()}
-          previousPage={props?.previous?.page ? props.previous.page : 1}
-          nextPage={props?.next?.page ? props.next.page : 1}
-        />
+        pageLength={Math.ceil(postsToDisplay.totalPages)}
+        page={
+          postsToDisplay?.previous?.page
+            ? postsToDisplay.previous.page + 1
+            : 1
+        }
+        hasNextPage={checkNextPage()}
+        hasPreviousPage={checkPreviousPage()}
+        previousPage={postsToDisplay?.previous?.page ? postsToDisplay.previous.page : 1}
+        nextPage={postsToDisplay?.next?.page ? postsToDisplay.next.page : 1}
+      />
     </>
   );
 }

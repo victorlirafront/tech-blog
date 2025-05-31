@@ -17,7 +17,7 @@ function SearchPost({
   const { data, isLoading, error } = usePosts({
     query,
     page: '1',
-    limit: '100',
+    limit: '8',
     enabled,
   })
 
