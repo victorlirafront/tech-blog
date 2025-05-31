@@ -25,11 +25,11 @@ export class PostsMapper {
   static toDomain(post: BlogResponse): {
     totalPages: number;
     results: Posts[];
-    next?: { page: number; limit: number };
-    previous?: { page: number; limit: number };
+    next?: { page: number; limit: number } | null;
+    previous?: { page: number; limit: number } | null;
   } {
     return {
-      totalPages: post.totalPages,
+      totalPages: Math.ceil(post.totalPages),
       results: post.results.map(item => ({
         id: item.id,
         title: item.title,
@@ -43,8 +43,9 @@ export class PostsMapper {
         author: item.author,
         keywords: item.keywords,
       })),
-      next: post.next, 
-      previous: post.next,
+      next: post.next ?? null,
+      previous: post.previous ?? null,
     };
   }
 }
+
