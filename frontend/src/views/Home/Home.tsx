@@ -143,8 +143,7 @@ export default function Home(props: Data) {
         </div>
       </MainPage>
 
-      {!hasSearchedPosts && (
-        <Pagination
+      <Pagination
           pageLength={Math.ceil(props.totalPages)}
           page={
             props?.next?.page ? props?.next?.page - 1 : Math.ceil(props?.totalPages)
@@ -154,7 +153,6 @@ export default function Home(props: Data) {
           previousPage={props?.previous?.page ? props.previous.page : 1}
           nextPage={props?.next?.page ? props.next.page : 1}
         />
-      )}
     </>
   );
 }

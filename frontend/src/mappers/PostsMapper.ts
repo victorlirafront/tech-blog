@@ -17,10 +17,17 @@ type BlogPost = {
 type BlogResponse = {
   totalPages: number;
   results: BlogPost[];
+  next?: { page: number; limit: number };
+  previous?: { page: number; limit: number };
 };
 
 export class PostsMapper {
-  static toDomain(post: BlogResponse): { totalPages: number; results: Posts[] } {
+  static toDomain(post: BlogResponse): {
+    totalPages: number;
+    results: Posts[];
+    next?: { page: number; limit: number };
+    previous?: { page: number; limit: number };
+  } {
     return {
       totalPages: post.totalPages,
       results: post.results.map(item => ({
@@ -36,6 +43,8 @@ export class PostsMapper {
         author: item.author,
         keywords: item.keywords,
       })),
+      next: post.next, 
+      previous: post.next,
     };
   }
 }
