@@ -106,7 +106,7 @@ export default function Home(props: Data) {
         <LoginAlertModal onCloseLoginAlertModal={closeLoginAlertModal} />
       )}
 
-      {!hasSearchedPosts && hasPost && <About />}
+      {searchedPosts?.results?.length === 0 || hasPost && <About />}
 
       {!hasSearchedPosts && !hasPost && (
         <h1 style={{ paddingTop: 200, textAlign: 'center', color: '#fff' }}>
