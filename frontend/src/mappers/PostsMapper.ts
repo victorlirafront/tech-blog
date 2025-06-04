@@ -14,7 +14,7 @@ type BlogPost = {
   keywords: string;
 };
 
-type BlogResponse = {
+export type BlogResponse = {
   totalPages: number;
   results: BlogPost[];
   next?: { page: number; limit: number };

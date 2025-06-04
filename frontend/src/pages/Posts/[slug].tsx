@@ -59,11 +59,6 @@ type IProps = {
   };
 };
 
-type ICurrentPost = {
-  slug: string;
-  title: string;
-};
-
 function Posts(props: IProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [lastPosts, setLastPost] = useState<PostProps[]>([]);
@@ -110,7 +105,7 @@ function Posts(props: IProps) {
     setTimeout(() => {
       const codeBlocks = document.querySelectorAll('pre');
       codeBlocks.forEach(block => {
-      const code = block.textContent;
+        const code = block.textContent;
 
         if (code) {
           const highlighted = hljs.highlight(code, { language: 'javascript' }).value;
@@ -266,7 +261,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   try {
     const data = await PostsService.getAllPosts(page, limit, category);
-    const paths = data.results.map((post: ICurrentPost) => ({
+    // Aqui removi o tipo ICurrentPost para evitar erro de incompatibilidade
+    const paths = data.results.map((post: PostProps) => ({
       params: { slug: generateSlug(post.title) },
     }));
 
@@ -290,7 +286,7 @@ export const getStaticProps: GetStaticProps = async context => {
 
     const data = await PostsService.getAllPosts(page, limit, category);
 
-    const currentPost = data.results.find((post: ICurrentPost) => {
+    const currentPost = data.results.find((post: PostProps) => {
       return generateSlug(post.title) === slug;
     });
 

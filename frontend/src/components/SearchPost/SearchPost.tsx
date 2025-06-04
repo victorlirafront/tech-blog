@@ -25,7 +25,7 @@ function SearchPost({
 
   useEffect(() => {
     if (data?.results) {
-      setSearchedPosts(data)
+      setSearchedPosts(data.results)
     }
   }, [data, setSearchedPosts])
 

@@ -15,7 +15,6 @@ import { updateFavoritSource } from '@/helper/functions/updateFavoritSource';
 import { usePosts } from '@/hooks/postService';
 import { useRouter } from 'next/router';
 
-
 type PostProps = {
   id: number;
   title: string;
@@ -41,7 +40,7 @@ type Data = {
   results?: PostProps[];
 };
 
-export default function Home(props: Data) {
+export default function Home({ postsData }: { postsData: Data }) {
   const { setPage } = useContext(GlobalContext);
   const { favoritPosts } = useAddToFavoritsContext();
   const { currentUser } = useCurrentUser();
@@ -58,18 +57,18 @@ export default function Home(props: Data) {
   });
 
   useEffect(() => {
-    if (props?.next?.page) {
-      setPage(props?.next?.page);
+    if (postsData?.next?.page) {
+      setPage(postsData.next.page);
     }
-  }, [props?.next?.page, setPage]);
+  }, [postsData?.next?.page, setPage]);
 
   useEffect(() => {
     AOS.init();
   }, []);
 
-  const hasPost = !!props.results;
+  const hasPost = !!postsData.results;
   const hasSearchedPosts = !!searchedPosts?.results;
-  const postsToDisplay = hasSearchedPosts ? searchedPosts : props;
+  const postsToDisplay = hasSearchedPosts ? searchedPosts : postsData;
 
   const checkNextPage = () => !!postsToDisplay?.next;
   const checkPreviousPage = () => !!postsToDisplay?.previous;
@@ -106,7 +105,7 @@ export default function Home(props: Data) {
         <LoginAlertModal onCloseLoginAlertModal={closeLoginAlertModal} />
       )}
 
-      {searchedPosts?.results?.length === 0 || hasPost && <About />}
+      {(searchedPosts?.results?.length === 0 || hasPost) && <About />}
 
       {!hasSearchedPosts && !hasPost && (
         <h1 style={{ paddingTop: 200, textAlign: 'center', color: '#fff' }}>
