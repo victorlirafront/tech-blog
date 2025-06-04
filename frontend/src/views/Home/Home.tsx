@@ -12,6 +12,8 @@ import Pagination from '@/components/Pagination';
 import { GlobalContext } from '@/Context/pagination';
 import MainPage from '@/views/Home/components/MainPage';
 import { updateFavoritSource } from '@/helper/functions/updateFavoritSource';
+import { usePosts } from '@/hooks/postService';
+import { useRouter } from 'next/router';
 
 type PostProps = {
   id: number;
@@ -19,9 +21,9 @@ type PostProps = {
   content: string;
   date: string;
   category: string;
-  meta_tag_title: string;
-  meta_tag_description: string;
-  post_image: string;
+  metaTagTitle: string;
+  metaTagDescription: string;
+  postImage: string;
   author: string;
 };
 
@@ -38,47 +40,40 @@ type Data = {
   results?: PostProps[];
 };
 
-export default function Home(props: Data) {
+export default function Home({ postsData }: { postsData: Data }) {
   const { setPage } = useContext(GlobalContext);
   const { favoritPosts } = useAddToFavoritsContext();
   const { currentUser } = useCurrentUser();
   const [displayLoginModal, setDisplayLoginModal] = useState(false);
+  const router = useRouter();
+  const searchQuery = router.query.query as string;
+  const pageParam = router.query.page as string || '1';
+
+  const { data: searchedPosts } = usePosts({
+    query: searchQuery || '',
+    page: pageParam,
+    limit: '8',
+    enabled: !!searchQuery,
+  });
 
   useEffect(() => {
-    if(props?.next?.page){
-      setPage(props?.next?.page);
+    if (postsData?.next?.page) {
+      setPage(postsData.next.page);
     }
-  }, [props?.next?.page, setPage]);
+  }, [postsData?.next?.page, setPage]);
 
   useEffect(() => {
     AOS.init();
   }, []);
 
-  const checkNextPage = function () {
-    if (props && props.next) {
-      return true;
-    } else {
-      return false;
-    }
-  };
+  const hasPost = !!postsData.results;
+  const hasSearchedPosts = !!searchedPosts?.results;
+  const postsToDisplay = hasSearchedPosts ? searchedPosts : postsData;
 
-  const checkPreviousPage = function () {
-    if (props && props?.previous) {
-      return true;
-    } else {
-      return false;
-    }
-  };
-
-  const displayLoginAlert = function () {
-    setDisplayLoginModal(true);
-  };
-
-  const closeLoginAlertModal = function () {
-    setDisplayLoginModal(false);
-  };
-
-  const hasPost = !!props.results
+  const checkNextPage = () => !!postsToDisplay?.next;
+  const checkPreviousPage = () => !!postsToDisplay?.previous;
+  const displayLoginAlert = () => setDisplayLoginModal(true);
+  const closeLoginAlertModal = () => setDisplayLoginModal(false);
 
   return (
     <>
@@ -105,58 +100,66 @@ export default function Home(props: Data) {
           crossOrigin="anonymous"
         ></script>
       </Head>
+
       {!currentUser.email && displayLoginModal && (
         <LoginAlertModal onCloseLoginAlertModal={closeLoginAlertModal} />
       )}
 
-      {hasPost && <About />}
-      {!hasPost && <h1 style={{paddingTop: 200, textAlign: 'center', color: '#fff'}}>Nenhum post encontrado</h1>}
+      {(searchedPosts?.results?.length === 0 || hasPost) && <About />}
+
+      {!hasSearchedPosts && !hasPost && (
+        <h1 style={{ paddingTop: 200, textAlign: 'center', color: '#fff' }}>
+          Nenhum post encontrado
+        </h1>
+      )}
+
+      {hasSearchedPosts && searchedPosts?.results?.length === 0 && (
+        <h1 style={{ paddingTop: 200, textAlign: 'center', color: '#fff' }}>
+          Nenhum post encontrado para sua busca
+        </h1>
+      )}
 
       <MainPage className="main-page">
         <div className="container">
-          {hasPost && props?.results &&
-            props.results.map((post: PostProps, index: number) => {
-              let costumizeFirstPost = false;
+          {postsToDisplay.results?.map((post: PostProps, index: number) => {
+            const costumizeFirstPost = index === 0;
+            const styled = {
+              width: 'calc(66.66667% - 40px)',
+              minWidth: '300px',
+            };
 
-              index === 0 ? (costumizeFirstPost = true) : false;
-
-              const styled = {
-                width: 'calc(66.66667% - 40px)',
-                minWidth: '300px',
-              };
-
-              return (
-                <Post
-                  onDisplayLoginAlert={displayLoginAlert}
-                  style={costumizeFirstPost ? styled : {}}
-                  id={post.id}
-                  key={post.id}
-                  title={post.title}
-                  content={post.content}
-                  author={post.author}
-                  meta_tag_title={post.meta_tag_title}
-                  meta_tag_description={post.meta_tag_description}
-                  post_image={post.post_image}
-                  date={post.date}
-                  category={post.category}
-                  aos_delay="100"
-                  aos_type="fade-up"
-                  hover_animation={-7}
-                  onUpdateFavoritSource={updateFavoritSource(favoritPosts, post)}
-                />
-              );
-            })}
+            return (
+              <Post
+                onDisplayLoginAlert={displayLoginAlert}
+                style={costumizeFirstPost ? styled : {}}
+                id={post.id}
+                key={post.id}
+                title={post.title}
+                content={post.content}
+                author={post.author}
+                metaTagTitle={post.metaTagTitle}
+                metaTagDescription={post.metaTagDescription}
+                postImage={post.postImage}
+                date={post.date}
+                category={post.category}
+                aos_delay="100"
+                aos_type="fade-up"
+                hover_animation={-7}
+                onUpdateFavoritSource={updateFavoritSource(favoritPosts, post)}
+              />
+            );
+          })}
         </div>
       </MainPage>
+
       <Pagination
-        pageLength={Math.ceil(props.totalPages)}
-        page={
-          props?.next?.page ? props?.next?.page - 1 : Math.ceil(props?.totalPages)
-        }
+        pageLength={Math.ceil(postsToDisplay.totalPages)}
+        page={postsToDisplay?.previous?.page ? postsToDisplay.previous.page + 1 : 1}
         hasNextPage={checkNextPage()}
         hasPreviousPage={checkPreviousPage()}
-        previousPage={props?.previous?.page ? props.previous.page : 1}
-        nextPage={props?.next?.page ? props.next.page : 1}
+        previousPage={postsToDisplay?.previous?.page || 1}
+        nextPage={postsToDisplay?.next?.page || 1}
+        queryParam={searchQuery}
       />
     </>
   );

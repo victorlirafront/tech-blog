@@ -1,34 +1,58 @@
-import { fetchData } from "@/helper/functions/fetchData";
-import searchPosts from "@/helper/functions/searchData";
+import { PostsService } from '@/services/PostsService';
+import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 
-import { GetServerSideProps, GetServerSidePropsContext } from "next";
+type Post = {
+  id: number;
+  title: string;
+  content: string;
+  date: string;
+  category: string;
+  metaTagTitle: string;
+  metaTagDescription: string;
+  postImage: string;
+  postBackground: string;
+  author: string;
+  keywords: string;
+};
 
-export const getServerSideProps: GetServerSideProps = async (
-  context: GetServerSidePropsContext
+type PostsResponse = {
+  totalPages: number;
+  results: Post[];
+  next?: { page: number; limit: number } | null;
+  previous?: { page: number; limit: number } | null;
+};
+
+export const getServerSideProps: GetServerSideProps<{ postsData: PostsResponse }> = async (
+  context: GetServerSidePropsContext,
 ) => {
   try {
-    const page = context.query?.page ?? '1';
-    const category = context.query?.category ?? 'all';
+    const page = String(context.query?.page ?? '1');
+    const category = String(context.query?.category ?? 'all');
     const limit = '8';
 
-    let data = [];
+    let data: PostsResponse;
+
     if (context.query.query) {
-      const searchResults = await searchPosts(String(context.query.query), page, limit);
-      data = searchResults;
+      data = await PostsService.searchPosts(String(context.query.query), page, limit);
     } else {
-      data = await fetchData(page, limit, category);
+      data = await PostsService.getAllPosts(page, limit, category);
     }
 
     return {
       props: {
-        ...data,
+        postsData: data,
       },
     };
   } catch (error) {
     console.error('Error fetching data:', error);
     return {
       props: {
-        data: [],
+        postsData: {
+          totalPages: 0,
+          results: [],
+          next: null,
+          previous: null,
+        },
       },
     };
   }

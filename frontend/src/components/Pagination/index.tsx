@@ -17,11 +17,10 @@ const Pagination = function (props: IpropsPagination) {
   }
 
   function setNextPage(route: number) {
-    let currentPage = page;
-    const nextPage = (currentPage += 1);
+    const nextPage = page + 1;
     setPage(nextPage);
 
-    if(!router.query.query){
+    if (!props.queryParam) {
       router.push({
         pathname: router.pathname,
         query: {
@@ -29,23 +28,22 @@ const Pagination = function (props: IpropsPagination) {
           category: currentCategory,
         },
       });
-    }else {
+    } else {
       router.push({
         pathname: router.pathname,
         query: {
           page: route,
-          query: router.query.query,
+          query: props.queryParam,
         },
       });
     }
   }
 
   const setPreviowPage = function (route: number) {
-    let currentPage = page;
-    const nextPage = (currentPage -= 1);
-    setPage(nextPage);
+    const previousPage = page - 1;
+    setPage(previousPage);
 
-    if(!router.query.query){
+    if (!props.queryParam) {
       router.push({
         pathname: router.pathname,
         query: {
@@ -53,12 +51,12 @@ const Pagination = function (props: IpropsPagination) {
           category: currentCategory,
         },
       });
-    }else {
+    } else {
       router.push({
         pathname: router.pathname,
         query: {
           page: route,
-          query: router.query.query,
+          query: props.queryParam,
         },
       });
     }

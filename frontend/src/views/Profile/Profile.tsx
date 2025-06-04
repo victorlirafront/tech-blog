@@ -11,8 +11,8 @@ import { PostsProps } from './types';
 import { FAVICON } from '@/constants/images';
 import { useCurrentUser } from '@/Context/currentUser';
 import { useRouter } from 'next/router';
-import { fetchData } from '@/helper/functions/fetchData';
 import { updateFavoritSource } from '@/helper/functions/updateFavoritSource';
+import { PostsService } from '@/services/PostsService';
 
 function Profile() {
   const { favoritPosts } = useAddToFavoritsContext();
@@ -59,7 +59,7 @@ function Profile() {
         const limit = '9999';
         const category = 'all';
 
-        const data = await fetchData(page, limit, category);
+        const data = await PostsService.getAllPosts(page, limit, category);
         const results = data.results;
         const intersection = filterFavoritPosts(results);
 
@@ -73,7 +73,6 @@ function Profile() {
 
     fetchDataAndUpdateState();
   }, [favoritPosts, currentUser, router, filterFavoritPosts]);
-
 
   return (
     <div>
@@ -124,9 +123,9 @@ function Profile() {
                     title={post.title}
                     content={post.content}
                     author={post.author}
-                    meta_tag_title={post.meta_tag_title}
-                    meta_tag_description={post.meta_tag_description}
-                    post_image={post.post_image}
+                    metaTagTitle={post.metaTagTitle}
+                    metaTagDescription={post.metaTagDescription}
+                    postImage={post.postImage}
                     date={post.date}
                     category={post.category}
                     aos_delay="100"
