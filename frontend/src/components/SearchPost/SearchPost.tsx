@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
 import StyledSearchPost from './SearchPost.styled'
 import { SearchPostProps } from './SearchPost.types'
 import { usePosts } from '@/hooks/postService'
@@ -11,10 +12,11 @@ function SearchPost({
   onCloseMobileMenu,
 }: SearchPostProps) {
   const [enabled, setEnabled] = useState(false)
+  const router = useRouter()
 
   const { query, setQuery, setSearchedPosts } = useSearchContext()
 
-  const { data, isLoading, error } = usePosts({
+  const { data } = usePosts({
     query,
     page: '1',
     limit: '8',
@@ -34,6 +36,7 @@ function SearchPost({
       if (value) {
         setQuery(value)
         setEnabled(true)
+        router.push(`?query=${encodeURIComponent(value)}`)
       }
       onCloseSearch()
     }
@@ -42,10 +45,11 @@ function SearchPost({
   const handleIconClick = () => {
     const inputElement = document.querySelector('.search') as HTMLInputElement
     const value = inputElement?.value.trim()
-    
+
     if (value) {
       setQuery(value)
       setEnabled(true)
+      router.push(`?query=${encodeURIComponent(value)}`)
     }
     onCloseMobileMenu()
     onCloseSearch()

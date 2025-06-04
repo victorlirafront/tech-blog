@@ -12,7 +12,9 @@ import Pagination from '@/components/Pagination';
 import { GlobalContext } from '@/Context/pagination';
 import MainPage from '@/views/Home/components/MainPage';
 import { updateFavoritSource } from '@/helper/functions/updateFavoritSource';
-import { useSearchContext } from '@/Context/searchContext';
+import { usePosts } from '@/hooks/postService';
+import { useRouter } from 'next/router';
+
 
 type PostProps = {
   id: number;
@@ -44,7 +46,16 @@ export default function Home(props: Data) {
   const { favoritPosts } = useAddToFavoritsContext();
   const { currentUser } = useCurrentUser();
   const [displayLoginModal, setDisplayLoginModal] = useState(false);
-  const { searchedPosts } = useSearchContext();
+  const router = useRouter();
+  const searchQuery = router.query.query as string;
+  const pageParam = router.query.page as string || '1';
+
+  const { data: searchedPosts } = usePosts({
+    query: searchQuery || '',
+    page: pageParam,
+    limit: '8',
+    enabled: !!searchQuery,
+  });
 
   useEffect(() => {
     if (props?.next?.page) {
@@ -144,15 +155,12 @@ export default function Home(props: Data) {
 
       <Pagination
         pageLength={Math.ceil(postsToDisplay.totalPages)}
-        page={
-          postsToDisplay?.previous?.page
-            ? postsToDisplay.previous.page + 1
-            : 1
-        }
+        page={postsToDisplay?.previous?.page ? postsToDisplay.previous.page + 1 : 1}
         hasNextPage={checkNextPage()}
         hasPreviousPage={checkPreviousPage()}
-        previousPage={postsToDisplay?.previous?.page ? postsToDisplay.previous.page : 1}
-        nextPage={postsToDisplay?.next?.page ? postsToDisplay.next.page : 1}
+        previousPage={postsToDisplay?.previous?.page || 1}
+        nextPage={postsToDisplay?.next?.page || 1}
+        queryParam={searchQuery}
       />
     </>
   );

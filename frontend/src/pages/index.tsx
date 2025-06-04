@@ -8,7 +8,6 @@ export const getServerSideProps: GetServerSideProps = async (
     const page = context.query?.page ?? '1';
     const category = context.query?.category ?? 'all';
     const limit = '8';
-
     let data = [];
     if (context.query.query) {
       const searchResults = await PostsService.searchPosts(String(context.query.query), page, limit);
