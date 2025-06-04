@@ -36,7 +36,7 @@ function SearchPost({
       if (value) {
         setQuery(value)
         setEnabled(true)
-        router.push(`?query=${encodeURIComponent(value)}`)
+        router.push(`/?query=${encodeURIComponent(value)}`)
       }
       onCloseSearch()
     }
